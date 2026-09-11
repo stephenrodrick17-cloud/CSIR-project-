@@ -1,0 +1,13 @@
+criteria,tier,gene_count,percentage
+Direction concordance only,Total discovery genes,175,100.0
+Direction concordance only,Validated in >= 1 organ(s),175,100.0
+Direction concordance only,Validated in >= 2 organ(s),172,98.29
+Direction concordance only,Validated in >= 3 organ(s),132,75.43
+Direction concordance only,Validated in >= 4 organ(s),51,29.14
+Direction concordance only,Validated in ALL 4 organs,51,29.14
+Direction + adj_p < 0.05,Total discovery genes,175,100.0
+Direction + adj_p < 0.05,Validated in >= 1 organ(s),169,96.57
+Direction + adj_p < 0.05,Validated in >= 2 organ(s),70,40.0
+Direction + adj_p < 0.05,Validated in >= 3 organ(s),9,5.14
+Direction + adj_p < 0.05,Validated in >= 4 organ(s),0,0.0
+Direction + adj_p < 0.05,Validated in ALL 4 organs,0,0.0

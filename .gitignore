@@ -1,0 +1,27 @@
+# Python / data
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+.pytest_cache/
+.DS_Store
+Thumbs.db
+
+# Large / local-only data (raw expression matrices, soft GEO files, supplementary data)
+data/
+
+# Local environment
+.env
+.venv/
+venv/
+
+# PDF / local-only renders
+report/*.pdf
+report/*.html
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
