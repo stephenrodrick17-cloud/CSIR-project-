@@ -1,0 +1,5 @@
+organ,n_input_genes_task1,n_Validation1_genes,n_Validation2_genes,sig_correlation_genes
+kidney,504,15,5,"AEBP1, COL1A1, COL1A2, COL3A1, VWF"
+liver,504,15,5,"AEBP1, COL1A1, COL1A2, COL3A1, VWF"
+lung,504,15,5,None
+skin,504,15,5,None
