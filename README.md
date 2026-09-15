@@ -212,12 +212,12 @@ The enrichment results are mechanistically coherent with pan-fibrotic biology:
 
 ### 7.1 Severity Data Sources
 
-| Organ | Metric | GEO Source | n disease samples with severity |
-|-------|--------|-----------|--------------------------------|
-| Lung | `severity = 100 − FVC%` (higher = worse lung function) | GSE47460 (IPF) | 441 |
-| Skin | mRSS score (Modified Rodnan Skin Score, 0–51) | GSE130955 (SSc) | 55 |
-| Kidney | Fibrosis stage (1–5, CKD staging) | — | staged |
-| Liver | Fibrosis stage (1–5, cirrhosis staging) | — | staged |
+| Organ | Metric | Data Type / Source | n disease samples with severity |
+|-------|--------|-------------------|--------------------------------|
+| **Lung** | `severity = 100 − FVC%` (higher = worse lung function) | GSE47460 (IPF, continuous) | 441 patients (min=1, max=87; n=10 in Val-2) |
+| **Skin** | mRSS score (Modified Rodnan Skin Score, 0–51) | GSE130955 (SSc, continuous) | 55 patients (min=6, max=43; n=10 in Val-2) |
+| **Kidney** | Fibrosis stage (Stages 1–5, CKD staging) | Histological staging (ordinal) | 10 disease samples (2 samples per Stage 1–5) |
+| **Liver** | Fibrosis stage (Stages 1–5, cirrhosis staging) | Histological staging (ordinal) | 10 disease samples (2 samples per Stage 1–5) |
 
 Real FVC% values (lung) were sampled across the severity distribution (min=1, max=87; derived from 441 real IPF patients). Real mRSS values (skin) ranged from 6–43 across 55 SSc patients.
 
