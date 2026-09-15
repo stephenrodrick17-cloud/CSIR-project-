@@ -9,6 +9,8 @@ Thumbs.db
 
 # Large / local-only data (raw expression matrices, soft GEO files, supplementary data)
 data/
+geo_cache/
+scratch/
 
 # Local environment
 .env
