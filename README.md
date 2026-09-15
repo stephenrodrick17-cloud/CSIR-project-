@@ -251,6 +251,13 @@ This reruns the correlation using **only the 10 fibrotic samples per organ**, as
 
 \* **COL3A1 in lung: ρ=+0.71, p=0.022** — the only gene/organ pair that reaches significance in the disease-only test.
 
+#### Cross-Organ Breakdown Across All 20 Gene-Organ Pairs:
+- **Positive correlation ($\rho > 0$)**: 9 of 20 pairs
+- **Negative correlation ($\rho < 0$)**: 11 of 20 pairs
+- **Statistically significant ($p < 0.05$)**: 1 of 20 pairs (Lung `COL3A1`, $\rho = +0.7091, p = 0.0217$)
+
+> **Visualization Fix**: The corrected dot plot ([disease_only_spearman_dotplot_FIXED.png](file:///d:/CSIR/validation_2/disease_only_spearman_dotplot_FIXED.png)) uses a symmetric $[-1.05, 1.05]$ x-axis range with a vertical dashed reference line at $x=0$. This ensures all 20 data points (including all 11 negative correlations) are fully displayed without axis clipping.
+
 ### 7.4 Interpreting Both Results Together (Full Honest Account)
 
 The disease-only test largely does not reach p < 0.05. **This is expected, not a disqualifier, and here is exactly why:**
@@ -296,6 +303,17 @@ A dedicated `liver_dataset_independence_check.py` script was written (discoverab
 The core 5-gene signature should be presented as:
 - **Confirmed in 3 organs (kidney, lung, skin)** in strict three-layer independent validation
 - **Consistent in liver**, where an anomalously high discovery-validation concordance was noted and flagged for prospective verification
+
+### 8.5 Archiving of Pre-Correction Artifacts
+
+To maintain a clean and unambiguous root directory while preserving the complete evidence trail of our methodological quality checks, all pre-correction 175-gene artifacts have been preserved in the [archive/](file:///d:/CSIR/archive/README.md) directory:
+- `archive/pan_fibrotic_core_genes_PRE_FIX_175genes.csv` — Pre-fix 175-gene discovery list.
+- `archive/upset_plot_4organs_PRE_FIX.png` — UpSet plot derived from the 175-gene overlap.
+- `archive/venn_4organ_region_counts_PRE_FIX.csv` — Pre-fix 4-organ Venn region counts table.
+- `archive/pan_fibrotic_analysis_PRE_FIX.py` — Pre-fix pipeline script.
+- `archive/README.md` — Case-study documentation explaining pre-fix history.
+
+All active pipeline outputs at root now reflect strictly corrected datasets (e.g. `pan_fibrotic_core_genes_corrected.csv` containing 49 genes, and `venn_4organ_region_counts_corrected.csv`).
 
 ---
 
@@ -392,6 +410,14 @@ CSIR-project/
 ├── README.md                                          # This document
 ├── pan_fibrotic_core_genes_corrected.csv              # 49 discovery genes (ECM annotated)
 ├── upset_plot_4organs_corrected.png                   # UpSet plot: 4-organ DEG overlap
+├── venn_4organ_region_counts_corrected.csv            # Corrected 4-organ Venn region counts (15 subsets)
+│
+├── archive/                                           # Archived pre-correction artifacts
+│   ├── README.md                                      # Documentation of pre-fix case study
+│   ├── pan_fibrotic_core_genes_PRE_FIX_175genes.csv  # Pre-fix 175-gene discovery list
+│   ├── upset_plot_4organs_PRE_FIX.png                 # Pre-fix UpSet plot
+│   ├── venn_4organ_region_counts_PRE_FIX.csv          # Pre-fix Venn region counts
+│   └── pan_fibrotic_analysis_PRE_FIX.py               # Pre-fix discovery script
 │
 ├── Kidney/  Liver/  Lungs/  Skin/                     # Raw GEO discovery input
 │   └── <cohort>/  *.top.table.tsv  bioDBnet_*.txt
@@ -410,7 +436,8 @@ CSIR-project/
 │   │
 │   ├── disease_only_spearman_summary.csv              # Disease-only Spearman (all 4 organs)
 │   ├── disease_only_spearman_heatmap.png              # Cross-organ rho heatmap
-│   ├── disease_only_spearman_dotplot.png              # Dot plot (size=−log10p, color=rho)
+│   ├── disease_only_spearman_dotplot.png              # Dot plot (original)
+│   ├── disease_only_spearman_dotplot_FIXED.png        # Corrected dot plot (symmetric range [-1.05, 1.05])
 │   │
 │   ├── {organ}/
 │   │   ├── {organ}_heatmap.png                        # Z-scored expression heatmap
