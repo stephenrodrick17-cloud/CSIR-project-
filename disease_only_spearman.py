@@ -188,9 +188,30 @@ def make_dot_plot(all_df, out_path):
     all_df = all_df.copy()
     all_df["-log10p"]  = -np.log10(all_df["p_value"].clip(lower=1e-15))
     all_df["sig_label"] = all_df["p_value"].apply(lambda x: "p<0.05" if x < 0.05 else "ns")
+    all_df["direction"] = all_df["spearman_rho"].apply(lambda x: "positive" if x > 0 else "negative")
 
+    # Dynamic metrics calculation
+    n_pos = (all_df["spearman_rho"] > 0).sum()
+    n_neg = (all_df["spearman_rho"] < 0).sum()
+    n_sig = (all_df["p_value"] < 0.05).sum()
+    total = len(all_df)
+
+    # ── Console Summary Table ──────────────────────────────────────────────────
+    print("\n" + "="*75)
+    print("SUMMARY TABLE: 20 Gene-Organ Pairs (Disease-Only Spearman)")
+    print("Sorted by Organ, then by Spearman rho (descending)")
+    print("="*75)
+    sorted_df = all_df.sort_values(by=["organ", "spearman_rho"], ascending=[True, False]).reset_index(drop=True)
+    print(f"{'Organ':<10} {'Gene':<10} {'Rho':>10} {'p-value':>14} {'Direction':<12} {'Significant?'}")
+    print("-" * 75)
+    for _, r in sorted_df.iterrows():
+        sig_str = "YES (p<0.05)" if r["p_value"] < 0.05 else "no"
+        print(f"{r['organ']:<10} {r['gene']:<10} {r['spearman_rho']:>+10.4f} {r['p_value']:>14.4e} {r['direction']:<12} {sig_str}")
+    print("="*75 + "\n")
+
+    # ── Plot Generation ────────────────────────────────────────────────────────
     organs = ["kidney", "liver", "lung", "skin"]
-    fig, axes = plt.subplots(1, 4, figsize=(14, 5), sharey=True, constrained_layout=True)
+    fig, axes = plt.subplots(1, 4, figsize=(15, 5.5), sharey=True, constrained_layout=True)
 
     for ax, org in zip(axes, organs):
         sub = all_df[all_df["organ"] == org].sort_values("gene")
@@ -199,30 +220,41 @@ def make_dot_plot(all_df, out_path):
                          c=sub["spearman_rho"], cmap="RdYlGn",
                          vmin=-1, vmax=1, edgecolors="#555", linewidth=0.6,
                          zorder=3)
-        ax.axvline(0, color="#bbb", linewidth=1, linestyle="--")
+        # Vertical reference line at x=0
+        ax.axvline(0, color="#555", linewidth=1.2, linestyle="--", zorder=2)
         ax.set_title(org.capitalize(), fontsize=11, fontweight="bold",
                      color=PALETTE.get(org, "#333"))
         ax.set_xlabel("Spearman rho", fontsize=9)
-        ax.set_xlim(-0.1, 1.05)
+        # Symmetric x-axis range showing full spectrum [-1, 1]
+        ax.set_xlim(-1.05, 1.05)
         ax.spines[["top", "right"]].set_visible(False)
-        ax.grid(axis="x", alpha=0.2)
-        # label significance
+        ax.grid(axis="both", alpha=0.2, linestyle=":")
+
+        # Label significance
         for _, r in sub.iterrows():
             if r.p_value < 0.05:
-                ax.annotate("*", (r.spearman_rho + 0.02, r.gene),
-                            fontsize=14, color="#c00", va="center")
+                ax.annotate("*", (r.spearman_rho + 0.04, r.gene),
+                            fontsize=16, color="#c00", va="center", fontweight="bold")
 
     axes[0].set_ylabel("Gene", fontsize=10)
-    fig.suptitle("Disease-Only Spearman: 5-Gene × 4-Organ — Controls Excluded\n"
-                 "(dot size = -log10 p-value;  * = significant at p<0.05)",
-                 fontsize=12, fontweight="bold")
+    fig.suptitle(
+        f"Disease-Only Spearman: 5-Gene × 4-Organ — Controls Excluded\n"
+        f"{n_pos} of {total} gene-organ pairs show positive correlation, "
+        f"{n_neg} of {total} show negative correlation, "
+        f"{n_sig} of {total} reach p<0.05 (* = p<0.05)",
+        fontsize=11, fontweight="bold"
+    )
 
     sm = plt.cm.ScalarMappable(cmap="RdYlGn", norm=plt.Normalize(-1, 1))
     sm.set_array([])
     fig.colorbar(sm, ax=axes, label="Spearman rho", shrink=0.6, pad=0.01)
-    fig.savefig(out_path, dpi=300, bbox_inches="tight")
+
+    # Save fixed plot file without overwriting original dotplot if it exists
+    fixed_out_path = os.path.join(OUT_DIR, "disease_only_spearman_dotplot_FIXED.png")
+    fig.savefig(fixed_out_path, dpi=300, bbox_inches="tight")
     plt.close(fig)
-    print(f"  Dot plot saved: {out_path}")
+    print(f"  Fixed dot plot saved to: {fixed_out_path}")
+
 
 
 # =============================================================================
