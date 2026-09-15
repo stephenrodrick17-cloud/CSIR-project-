@@ -291,6 +291,18 @@ An audit of `organ_validation2_data/kidney/sample_groups.csv` and `organ_validat
 
 ---
 
+### 7.5 Summary Visualization & Honest Audit Panels
+
+#### Figure 7.1: Cross-Organ Severity/Dose-Response Validation Summary
+![Cross-Organ Severity/Dose-Response Validation Summary](file:///d:/CSIR/validation_2/cross_organ_severity_validation_summary.png)
+*Figure 7.1: A 2x2 grid displaying metadata availability [✓], tested gene count (5), significant count ($p<0.05$), and top-gene Spearman $\rho$ values per organ, paired with a lower horizontal bar chart comparing full-sample vs disease-only significance rates.*
+
+#### Figure 7.2: Severity/Dose-Response Testing: Honest Reporting Across Organs
+![Severity/Dose-Response Testing: Honest Reporting Across Organs](file:///d:/CSIR/validation_2/severity_honest_reporting_audit_table.png)
+*Figure 7.2: Transparent audit infographic panel featuring traffic-light status badges ('Tested — Significant', 'Tested — Positive Trend', 'Tested — Largely Null') and explicit single-line rationale notes documenting sample size limits ($n=10$) and continuous vs. ordinal scale compression.*
+
+---
+
 ## 8. The Liver Data-Leak Catch — A Methodological Strength
 
 ### What Was Observed
@@ -457,6 +469,8 @@ CSIR-project/
 │   ├── disease_only_spearman_heatmap.png              # Cross-organ rho heatmap
 │   ├── disease_only_spearman_dotplot.png              # Dot plot (original)
 │   ├── disease_only_spearman_dotplot_FIXED.png        # Corrected dot plot (symmetric range [-1.05, 1.05])
+│   ├── cross_organ_severity_validation_summary.png    # 2x2 grid summary + horizontal bar chart
+│   ├── severity_honest_reporting_audit_table.png      # Honest reporting limitations audit panel
 │   │
 │   ├── {organ}/
 │   │   ├── {organ}_heatmap.png                        # Z-scored expression heatmap
@@ -483,14 +497,15 @@ CSIR-project/
 │   └── validation_*.csv
 │
 └── pipeline scripts
-    ├── corrected_full_pipeline.py          # Discovery + Validation 1
-    ├── run_validation_2_analysis.py        # Validation 2, Tasks 1–7
-    ├── fix_real_severity_pipeline.py       # GEO clinical severity extraction & Spearman re-analysis (Kidney & Liver)
-    ├── severity_correlation_lung_skin.py   # Lung/skin GEO severity + Spearman
-    ├── disease_only_spearman.py            # Disease-only Spearman, all 4 organs
-    ├── generate_ppi_network.py             # STRING PPI + Cytoscape export
-    ├── liver_dataset_independence_check.py # Liver data-leak investigation
-    └── ecm_vs_non_ecm_viz_corrected.py    # ECM vs non-ECM charts
+    ├── corrected_full_pipeline.py                      # Discovery + Validation 1
+    ├── run_validation_2_analysis.py                    # Validation 2, Tasks 1–7
+    ├── fix_real_severity_pipeline.py                   # GEO clinical severity extraction & Spearman re-analysis (Kidney & Liver)
+    ├── generate_severity_validation_summary_figures.py # 2x2 grid summary + honest reporting audit panel
+    ├── severity_correlation_lung_skin.py               # Lung/skin GEO severity + Spearman
+    ├── disease_only_spearman.py                        # Disease-only Spearman, all 4 organs
+    ├── generate_ppi_network.py                         # STRING PPI + Cytoscape export
+    ├── liver_dataset_independence_check.py             # Liver data-leak investigation
+    └── ecm_vs_non_ecm_viz_corrected.py                # ECM vs non-ECM charts
 ```
 
 ---
@@ -507,16 +522,19 @@ python run_validation_2_analysis.py
 # Step 3 — Real Clinical Severity Extraction & Re-analysis for Kidney (GSE66494) and Liver (GSE162694)
 python fix_real_severity_pipeline.py
 
-# Step 4 — Severity correlation for lung (GSE47460) and skin (GSE130955)
+# Step 4 — Generate Cross-Organ Severity Summary Grid & Honest Reporting Audit Figures
+python generate_severity_validation_summary_figures.py
+
+# Step 5 — Severity correlation for lung (GSE47460) and skin (GSE130955)
 python severity_correlation_lung_skin.py
 
-# Step 5 — Disease-only Spearman (stricter internal check, all 4 organs)
+# Step 6 — Disease-only Spearman (stricter internal check, all 4 organs)
 python disease_only_spearman.py
 
-# Step 6 — STRING PPI network + Cytoscape export files
+# Step 7 — STRING PPI network + Cytoscape export files
 python generate_ppi_network.py
 
-# Step 7 — (optional) Investigate liver data-independence
+# Step 8 — (optional) Investigate liver data-independence
 python liver_dataset_independence_check.py
 ```
 
