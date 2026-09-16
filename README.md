@@ -243,9 +243,10 @@ To address small sample size constraints in single-cohort disease severity testi
   * **Kidney**: Validation 1 lacks clinical severity metadata $\rightarrow$ Stage 7 applied (*"Organ: Kidney — Pooling not possible, Validation 1 lacks severity metadata. Original n=10 result stands as reported."*).
 
 * **Output Summary Table**: [`pooled_vs_original_severity.csv`](file:///d:/CSIR/pooled_vs_original_severity.csv)
-  * Out of 28 total tests (7 core signature genes $\times$ 4 organs), **16 tests show statistically significant power improvements** after multi-cohort pooling.
-  * In **Skin**, all 7 core signature genes (`AEBP1`, `COL15A1`, `COL1A1`, `COL1A2`, `COL3A1`, `SPP1`, `VWF`) demonstrate statistically significant correlations with clinical mRSS severity ($p_{\text{adj}} < 0.01$, $n=68$).
-  * In **Liver**, pooling increases sample size from $n=10$ to $n=87$, confirming strong, highly significant severity trends ($p_{\text{adj}} < 10^{-8}$).
+  * **Cohort Independence**: Verified **0 overlapping GSM sample IDs or patient titles** between Validation 1 and Validation 2 across all 4 organs (100% independent cohorts).
+  * **Strict Statistical Power Improvements**: Out of 28 total tests (7 core signature genes $\times$ 4 organs), **13 tests show statistically significant power improvements** ($p_{\text{adj}} < 0.05$ and $n_{\text{pooled}} > n_{\text{original}}$).
+  * In **Liver** ($n=87$), all 7/7 core signature genes exhibit strongly positive, highly significant correlations with advancing METAVIR fibrosis stage F1 $\rightarrow$ F4 ($\rho = +0.70$ to $+0.90$, $p_{\text{adj}} < 10^{-14}$).
+  * In **Skin** ($n=68$), 6/7 core signature genes (`AEBP1`, `COL15A1`, `COL1A1`, `COL1A2`, `COL3A1`, `VWF`) demonstrate statistically significant positive correlations with clinical mRSS severity score ($\rho = +0.32$ to $+0.65$, $p_{\text{adj}} < 0.01$).
 
 ---
 
