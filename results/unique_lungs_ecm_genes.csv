@@ -1,0 +1,38 @@
+gene,tissue,matrisome_division,matrisome_category,logFC,adj_p_value
+ADAMTS8,Lungs,Matrisome-associated,ECM Regulators,0.70582312,1.72e-19
+AREG,Lungs,Matrisome-associated,Secreted Factors,-2.9572536,6.92e-07
+C1QTNF2,Lungs,Matrisome-associated,ECM-affiliated Proteins,1.1375536,7.75e-14
+CCL11,Lungs,Matrisome-associated,Secreted Factors,3.4295847,2.88e-10
+CCL26,Lungs,Matrisome-associated,Secreted Factors,0.8770625,7.08e-07
+CLEC4D,Lungs,Matrisome-associated,ECM-affiliated Proteins,1.00555069,1.16e-16
+COL6A5,Lungs,Core matrisome,Collagens,-1.0364575,0.00545
+COL9A3,Lungs,Core matrisome,Collagens,1.6261753,0.00303
+CTF1,Lungs,Matrisome-associated,Secreted Factors,0.852795,2.54e-13
+CTSA,Lungs,Matrisome-associated,ECM Regulators,0.7008,1.35e-11
+EMCN,Lungs,Matrisome-associated,ECM-affiliated Proteins,1.1810741,1.32e-06
+F10,Lungs,Matrisome-associated,ECM Regulators,1.1777045,3.36e-14
+FBLN7,Lungs,Core matrisome,ECM Glycoproteins,0.8157145,7.7e-14
+FGFBP1,Lungs,Matrisome-associated,Secreted Factors,-0.8032341,0.000138
+FIGF,Lungs,Matrisome-associated,Secreted Factors,1.5504925,0.00146
+GREM1,Lungs,Matrisome-associated,ECM-affiliated Proteins,-0.89250736,4.2e-15
+GRIFIN,Lungs,Matrisome-associated,ECM-affiliated Proteins,-0.7593187,0.0236
+HRNR,Lungs,Matrisome-associated,Secreted Factors,1.2455439,0.0247
+IMPG2,Lungs,Core matrisome,Proteoglycans,1.141383,0.00436
+KITLG,Lungs,Matrisome-associated,Secreted Factors,-1.4129791,2.84e-12
+MFAP3,Lungs,Core matrisome,ECM Glycoproteins,-0.9138027,1.3e-08
+MMRN2,Lungs,Core matrisome,ECM Glycoproteins,0.886555,3.29e-08
+NRG4,Lungs,Matrisome-associated,Secreted Factors,-0.66665867,8.86e-10
+PLOD1,Lungs,Matrisome-associated,ECM Regulators,0.6261295,1.9e-07
+PLXNA2,Lungs,Matrisome-associated,ECM-affiliated Proteins,0.63712,1.1e-06
+PLXNC1,Lungs,Matrisome-associated,ECM-affiliated Proteins,-0.9497218,5.25e-07
+SEMA3C,Lungs,Matrisome-associated,ECM-affiliated Proteins,-0.7417897,1.39e-19
+SEMA4D,Lungs,Matrisome-associated,ECM-affiliated Proteins,0.5953285,1.67e-05
+SERPINA2,Lungs,Matrisome-associated,ECM Regulators,0.6045791,6.67e-07
+SERPINI1,Lungs,Matrisome-associated,ECM Regulators,-0.76562733,4.0000000000000004e-21
+SFRP2,Lungs,Matrisome-associated,Secreted Factors,-2.60960092,6.459999999999999e-42
+SPOCK3,Lungs,Core matrisome,Proteoglycans,-0.82727227,5.25e-11
+TNFSF13,Lungs,Matrisome-associated,Secreted Factors,-0.8974575,0.000591
+TNFSF8,Lungs,Matrisome-associated,Secreted Factors,0.9637321,0.00229
+VWA3A,Lungs,Core matrisome,ECM Glycoproteins,-1.09859102,2.24e-12
+XCL2,Lungs,Matrisome-associated,Secreted Factors,1.0516309,2.1e-06
+ZP3,Lungs,Core matrisome,ECM Glycoproteins,0.58735,7.48e-07

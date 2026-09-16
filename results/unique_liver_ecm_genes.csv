@@ -1,0 +1,116 @@
+gene,tissue,matrisome_division,matrisome_category,logFC,adj_p_value
+A2ML1,Liver,Matrisome-associated,ECM Regulators,-2.618697,3.31e-07
+ADAM11,Liver,Matrisome-associated,ECM Regulators,-3.025205,2.29e-06
+ADAM33,Liver,Matrisome-associated,ECM Regulators,1.033704,2.14e-05
+ADAM8,Liver,Matrisome-associated,ECM Regulators,-0.840222,8.17e-06
+ADAMTS10,Liver,Matrisome-associated,ECM Regulators,-1.09,9.71e-10
+ADAMTS7,Liver,Matrisome-associated,ECM Regulators,-1.0410592,5.11e-06
+AGRN,Liver,Core matrisome,ECM Glycoproteins,-1.0782746,1.31e-06
+AGT,Liver,Matrisome-associated,ECM Regulators,3.906797,5.81e-09
+AMBN,Liver,Core matrisome,ECM Glycoproteins,-0.714566,0.000331
+ANGPT4,Liver,Matrisome-associated,Secreted Factors,-3.97411,1.76e-06
+ANXA13,Liver,Matrisome-associated,ECM-affiliated Proteins,-0.65170124,0.0020888
+ANXA8,Liver,Matrisome-associated,ECM-affiliated Proteins,-0.71232,0.00428
+ANXA8L1,Liver,Matrisome-associated,ECM-affiliated Proteins,-3.209573,0.000399
+ANXA9,Liver,Matrisome-associated,ECM-affiliated Proteins,2.759984,2.34e-13
+ARTN,Liver,Matrisome-associated,Secreted Factors,-1.988802,1.98e-07
+BMP15,Liver,Matrisome-associated,Secreted Factors,-2.917048,5.77e-09
+BMP5,Liver,Matrisome-associated,Secreted Factors,-0.59255796,0.0001819
+BSPH1,Liver,Core matrisome,ECM Glycoproteins,1.000583,3.43e-05
+C1QL4,Liver,Matrisome-associated,ECM-affiliated Proteins,-2.99964,0.000365
+C1QTNF4,Liver,Matrisome-associated,ECM-affiliated Proteins,-1.735039,0.0272
+C1QTNF8,Liver,Matrisome-associated,ECM-affiliated Proteins,-3.39983,1.96e-08
+C1QTNF9B,Liver,Matrisome-associated,Secreted Factors,-3.182507,3.08e-06
+CBLN2,Liver,Matrisome-associated,Secreted Factors,0.7736443,0.0248
+CCL15,Liver,Matrisome-associated,Secreted Factors,0.976661,0.0064
+CCL17,Liver,Matrisome-associated,Secreted Factors,-0.682819,0.0027
+CCL7,Liver,Matrisome-associated,Secreted Factors,-2.026086,0.000189
+CCN6,Liver,Core matrisome,ECM Glycoproteins,-2.913824,3.39e-06
+CFC1,Liver,Matrisome-associated,Secreted Factors,0.650446,0.00226
+CLEC18B,Liver,Matrisome-associated,ECM-affiliated Proteins,-2.771205,0.00012
+CLEC4F,Liver,Matrisome-associated,ECM-affiliated Proteins,-3.00083,2.34e-05
+COL18A1,Liver,Core matrisome,Collagens,-0.9890989,1.48e-05
+COL20A1,Liver,Core matrisome,Collagens,-2.150436,0.000327
+COL23A1,Liver,Core matrisome,Collagens,1.743492,7.71e-09
+COL28A1,Liver,Core matrisome,Collagens,0.907,5.05e-06
+COL4A5,Liver,Core matrisome,Collagens,-1.066012,0.001
+COL9A1,Liver,Core matrisome,Collagens,0.754303,0.00295
+COL9A2,Liver,Core matrisome,Collagens,-1.0314651,7.94e-05
+CRHBP,Liver,Matrisome-associated,Secreted Factors,1.683332,8.89e-08
+CRNN,Liver,Matrisome-associated,Secreted Factors,-1.108102,0.00571
+CSH2,Liver,Matrisome-associated,Secreted Factors,0.699758,0.000366
+CSHL1,Liver,Matrisome-associated,Secreted Factors,1.09962,1.99e-05
+DHH,Liver,Matrisome-associated,Secreted Factors,1.952425,7.56e-11
+EGFL7,Liver,Matrisome-associated,Secreted Factors,-1.2424255,1.04e-05
+EGFLAM,Liver,Core matrisome,ECM Glycoproteins,-2.073368,5.34e-06
+ELFN2,Liver,Matrisome-associated,ECM-affiliated Proteins,-4.467915,9.08e-07
+EMILIN3,Liver,Core matrisome,ECM Glycoproteins,-3.013404,4.62e-07
+F2,Liver,Matrisome-associated,ECM Regulators,1.799127,1.25e-05
+FAM20A,Liver,Matrisome-associated,ECM Regulators,1.209657,0.016
+FGF17,Liver,Matrisome-associated,Secreted Factors,-0.718,0.00129
+FGF21,Liver,Matrisome-associated,Secreted Factors,2.17264,3.97e-09
+FGF6,Liver,Matrisome-associated,Secreted Factors,0.999122,0.000452
+FGF8,Liver,Matrisome-associated,Secreted Factors,-1.865019,6.88e-05
+FGL1,Liver,Core matrisome,ECM Glycoproteins,3.077618,1.59e-08
+FREM2,Liver,Matrisome-associated,ECM-affiliated Proteins,-0.974785,0.0123
+FST,Liver,Matrisome-associated,Secreted Factors,-1.493792,0.0106
+GDF1,Liver,Matrisome-associated,Secreted Factors,0.608433,0.0115
+GDF2,Liver,Matrisome-associated,Secreted Factors,0.840384,0.000259
+GDF3,Liver,Matrisome-associated,Secreted Factors,-4.02591,8.13e-07
+GH1,Liver,Matrisome-associated,Secreted Factors,-3.187437,1.3e-06
+GPC5,Liver,Matrisome-associated,ECM-affiliated Proteins,0.631,0.000575
+GPC6,Liver,Matrisome-associated,ECM-affiliated Proteins,2.352967,2.27e-12
+HAPLN2,Liver,Core matrisome,Proteoglycans,1.324962,3.84e-06
+HGFAC,Liver,Matrisome-associated,Secreted Factors,-1.1343364,1.82e-05
+HMSD,Liver,Matrisome-associated,ECM Regulators,1.41944,1.05e-07
+HSPG2,Liver,Core matrisome,Proteoglycans,3.537156,2.06e-08
+IFNA1,Liver,Matrisome-associated,Secreted Factors,0.667123,0.00693
+IFNA14,Liver,Matrisome-associated,Secreted Factors,-0.755256,0.00417
+IFNA5,Liver,Matrisome-associated,Secreted Factors,-0.817552,0.000901
+IGFALS,Liver,Core matrisome,ECM Glycoproteins,1.395395,0.00228
+IGFBP1,Liver,Core matrisome,ECM Glycoproteins,1.290676,0.000111
+IL17C,Liver,Matrisome-associated,Secreted Factors,-1.140955,0.00067
+IL17D,Liver,Matrisome-associated,Secreted Factors,-1.121563,0.0011
+IL17F,Liver,Matrisome-associated,Secreted Factors,-5.913439,1.2e-11
+IL1F10,Liver,Matrisome-associated,Secreted Factors,-2.394433,1.34e-07
+IL25,Liver,Matrisome-associated,Secreted Factors,0.821814,0.000347
+INSL3,Liver,Matrisome-associated,Secreted Factors,-1.989981,0.0011
+ISM2,Liver,Matrisome-associated,Secreted Factors,-3.659592,4.82e-06
+ITIH1,Liver,Matrisome-associated,ECM Regulators,2.311196,1.06e-05
+ITIH6,Liver,Matrisome-associated,ECM Regulators,-0.834085,0.00798
+KY,Liver,Matrisome-associated,ECM Regulators,-1.859304,0.000168
+LGI1,Liver,Core matrisome,ECM Glycoproteins,1.55602,3.69e-07
+LMAN1L,Liver,Matrisome-associated,ECM-affiliated Proteins,0.645942,0.00757
+LOXL4,Liver,Matrisome-associated,ECM Regulators,-0.891,4.52e-06
+MASP2,Liver,Matrisome-associated,ECM Regulators,2.869526,2.69e-09
+MATN1,Liver,Core matrisome,ECM Glycoproteins,-1.454,2.38e-05
+MEGF11,Liver,Matrisome-associated,Secreted Factors,-2.697928,2.88e-08
+MUC21,Liver,Matrisome-associated,ECM-affiliated Proteins,-2.671983,1.89e-07
+NCAN,Liver,Core matrisome,Proteoglycans,1.705429,2.62e-08
+NTN3,Liver,Core matrisome,ECM Glycoproteins,-1.4471771,0.000207
+OGFOD2,Liver,Matrisome-associated,ECM Regulators,0.91765,7.36e-05
+PAPLN,Liver,Core matrisome,ECM Glycoproteins,-2.345705,1.16e-05
+POMZP3,Liver,Core matrisome,ECM Glycoproteins,0.945199,0.000253
+PPBP,Liver,Matrisome-associated,Secreted Factors,1.019423,0.000395
+PRL,Liver,Matrisome-associated,Secreted Factors,-1.608028,0.000453
+PXDNL,Liver,Core matrisome,ECM Glycoproteins,-1.081609,0.00252
+S100A14,Liver,Matrisome-associated,Secreted Factors,-0.826,1.87e-05
+S100A5,Liver,Matrisome-associated,Secreted Factors,1.217845,9.09e-06
+SCUBE3,Liver,Matrisome-associated,Secreted Factors,-1.31898,2.46e-05
+SDC1,Liver,Matrisome-associated,ECM-affiliated Proteins,1.522852,1.08e-06
+SEMA4F,Liver,Matrisome-associated,ECM-affiliated Proteins,-3.633097,1.07e-06
+SERPINA12,Liver,Matrisome-associated,ECM Regulators,-1.34,3.52e-05
+SFTPB,Liver,Matrisome-associated,ECM-affiliated Proteins,-2.571592,4.86e-06
+SFTPC,Liver,Matrisome-associated,ECM-affiliated Proteins,-1.213963,0.00492
+TCHHL1,Liver,Matrisome-associated,Secreted Factors,-1.471348,0.000235
+TGM6,Liver,Matrisome-associated,ECM Regulators,-0.970501,0.000712
+THPO,Liver,Matrisome-associated,Secreted Factors,-1.045886,0.00238
+TINAG,Liver,Core matrisome,ECM Glycoproteins,1.31814,3.89e-06
+VWA2,Liver,Core matrisome,ECM Glycoproteins,-1.988392,0.000509
+VWA7,Liver,Core matrisome,ECM Glycoproteins,-0.6070125,6.63e-05
+VWC2,Liver,Matrisome-associated,Secreted Factors,-1.081954,0.000452
+VWDE,Liver,Core matrisome,ECM Glycoproteins,-0.769589,0.000978
+WNT1,Liver,Matrisome-associated,Secreted Factors,-2.582275,3.64e-07
+WNT2B,Liver,Matrisome-associated,Secreted Factors,-0.862685,3.32e-05
+WNT5A,Liver,Matrisome-associated,Secreted Factors,1.566633,7.84e-07
+WNT5B,Liver,Matrisome-associated,Secreted Factors,-2.561424,1.67e-09
