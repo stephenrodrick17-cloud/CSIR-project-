@@ -232,6 +232,21 @@ The table below provides the full, honest breakdown of the core pan-fibrotic ECM
 | **Skin** | `COL1A1` | **+0.786** | $3.92 \times 10^{-5}$ | -0.127 | 0.7261 | Pan-Fibrotic Disease Marker |
 | **Skin** | `COL1A2` | **+0.785** | $4.16 \times 10^{-5}$ | -0.139 | 0.7009 | Pan-Fibrotic Disease Marker |
 
+### Multi-Cohort Disease-Only Severity Pooling & Statistical Power Analysis
+
+To address small sample size constraints in single-cohort disease severity testing ($n=10$ disease samples in Validation 2), disease-only patient samples from **Validation 1** and **Validation 2** were harmonized, cohort-standardized (`StandardScaler` z-score per cohort), and pooled:
+
+* **Pooled Sample Sizes ($n_{\text{pooled}}$)**:
+  * **Liver**: Val1 ($n=77$) + Val2 ($n=10$) $\rightarrow \mathbf{n_{\text{pooled}} = 87}$ disease samples.
+  * **Skin**: Val1 ($n=58$) + Val2 ($n=10$) $\rightarrow \mathbf{n_{\text{pooled}} = 68}$ disease samples.
+  * **Lung**: Val1 ($n=17$) + Val2 ($n=10$) $\rightarrow \mathbf{n_{\text{pooled}} = 27}$ disease samples.
+  * **Kidney**: Validation 1 lacks clinical severity metadata $\rightarrow$ Stage 7 applied (*"Organ: Kidney — Pooling not possible, Validation 1 lacks severity metadata. Original n=10 result stands as reported."*).
+
+* **Output Summary Table**: [`pooled_vs_original_severity.csv`](file:///d:/CSIR/pooled_vs_original_severity.csv)
+  * Out of 28 total tests (7 core signature genes $\times$ 4 organs), **16 tests show statistically significant power improvements** after multi-cohort pooling.
+  * In **Skin**, all 7 core signature genes (`AEBP1`, `COL15A1`, `COL1A1`, `COL1A2`, `COL3A1`, `SPP1`, `VWF`) demonstrate statistically significant correlations with clinical mRSS severity ($p_{\text{adj}} < 0.01$, $n=68$).
+  * In **Liver**, pooling increases sample size from $n=10$ to $n=87$, confirming strong, highly significant severity trends ($p_{\text{adj}} < 10^{-8}$).
+
 ---
 
 ## 10. Phase 7: Statistical Integrity & Methodology Verification Audit
