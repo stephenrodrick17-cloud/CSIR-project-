@@ -335,8 +335,8 @@ pip install pandas numpy matplotlib venn openpyxl xlrd scipy statsmodels
 
 3. **Run Master Validation 2 Pipeline (Steps 0 to 6)**:
    ```bash
-   python run_organ_validation2_pipeline.py
+   python run_master_validation2_pipeline.py
    ```
 
 ---
-*CSIR Pan-Fibrotic Core Discovery Project — Master Validation 2 Pipeline Documentation Complete.*
+*CSIR Pan-Fibrotic Core Discovery Project — Clean Repository Documentation Complete.*

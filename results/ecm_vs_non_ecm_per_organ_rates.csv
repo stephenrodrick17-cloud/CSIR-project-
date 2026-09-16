@@ -1,9 +1,0 @@
-subset,organ,n_total,n_found,n_concordant,n_concordant_sig,pct_found_concordant,pct_total_concordant,pct_total_concordant_sig
-ECM,kidney,41,41,34,10,82.93,82.93,24.39
-ECM,liver,41,41,41,40,100.0,100.0,97.56
-ECM,lung,41,41,25,13,60.98,60.98,31.71
-ECM,skin,41,41,33,0,80.49,80.49,0.0
-Non-ECM,kidney,134,132,118,41,89.39,88.06,30.6
-Non-ECM,liver,134,134,132,126,98.51,98.51,94.03
-Non-ECM,lung,134,130,69,18,53.08,51.49,13.43
-Non-ECM,skin,134,132,78,0,59.09,58.21,0.0
