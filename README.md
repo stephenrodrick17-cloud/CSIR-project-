@@ -58,7 +58,7 @@ To ensure maximum statistical transparency across all tables, plots, and manuscr
 ```
                                   DISCOVERY
                     Multi-Cohort GEO DEGs (4 Tissues)
-               Skin (3,079) · Kidney (12,442) · Liver (13,090) · Lungs (11,071)
+               Skin (3,079) · Kidney (12,442) · Liver (13,090) · Lungs (10,778)
                                       │
                          4-WAY SET INTERSECTION
                     ───────────────────────────────
@@ -109,7 +109,7 @@ Per-tissue differential expression filtering was conducted using standardized th
 | **Skin** | 29,772 | **3,079** | 519 | 2,560 | [`skin_DEGs.csv`](file:///d:/CSIR/results/skin_DEGs.csv) |
 | **Kidney** | 24,569 | **12,442** | 3,559 | 8,883 | [`kidney_DEGs.csv`](file:///d:/CSIR/results/kidney_DEGs.csv) |
 | **Liver** | 32,746 | **13,090** | 6,553 | 6,537 | [`liver_DEGs.csv`](file:///d:/CSIR/results/liver_DEGs.csv) |
-| **Lungs** | 31,882 | **11,071** | 5,397 | 5,674 | [`lung_DEGs.csv`](file:///d:/CSIR/results/lung_DEGs.csv) |
+| **Lungs** | 29,195 | **10,778** | 5,298 | 5,480 | [`lung_DEGs.csv`](file:///d:/CSIR/results/lung_DEGs.csv) |
 
 ---
 
@@ -286,7 +286,7 @@ d:/CSIR/
     ├── skin_DEGs.csv                          # Filtered DEGs for Skin (3,079 genes)
     ├── kidney_DEGs.csv                        # Filtered DEGs for Kidney (12,442 genes)
     ├── liver_DEGs.csv                         # Filtered DEGs for Liver (13,090 genes)
-    ├── lung_DEGs.csv                          # Filtered DEGs for Lung (11,071 genes)
+    ├── lung_DEGs.csv                          # Filtered DEGs for Lung (10,778 genes)
     ├── common_all_4_tissues_genes.csv         # 573 All-Gene shared core table
     ├── unique_genes_per_tissue.csv            # Combined tissue-unique DEGs
     ├── unique_skin_genes.csv                  # 553 Skin-only DEGs
@@ -317,7 +317,7 @@ d:/CSIR/
 * Required packages: `pandas`, `numpy`, `matplotlib`, `venn`, `openpyxl`, `xlrd`, `scipy`, `statsmodels`
 
 ```bash
-pip install pandas numpy matplotlib venn openpyxl xlrd scipy statsmodels
+pip install pandas numpy matplotlib venn matplotlib-venn openpyxl xlrd scipy statsmodels
 ```
 
 ### Step-by-Step Execution Commands
