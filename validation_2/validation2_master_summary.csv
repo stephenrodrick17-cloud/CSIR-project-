@@ -1,393 +1,393 @@
-organ,gene,discovery_direction,validation2_direction,direction_match,de_pvalue_raw,de_pvalue_adj,de_significant,severity_fullsample_rho,severity_fullsample_p_adj,severity_diseaseonly_rho,severity_diseaseonly_p_adj,severity_diseaseonly_n,final_verdict
-Kidney,ADAMTS3,up,up,True,0.0146,0.06453987,False,,,,,0,Not Validated
-Kidney,ADAMTS4,up,,False,,,False,,,,,0,Not Validated
-Kidney,ADAMTS5,up,up,True,0.00282,0.0243896,True,,,,,0,DE Confirmed Only
-Kidney,ADAMTS9,up,down,False,0.209,0.35619254,False,,,,,0,Not Validated
-Kidney,AEBP1,up,up,True,0.00018267179110955002,0.018413316543842644,True,0.7704240366807488,0.0001176411295101321,-0.24848484848484845,0.6032176100292089,10,DE Confirmed Only
-Kidney,ANGPT1,up,down,False,0.034,0.10984831,False,,,,,0,Not Validated
-Kidney,ASPN,up,up,True,0.745,0.83288651,False,,,,,0,Not Validated
-Kidney,BGN,up,down,False,0.014,0.06298618,False,,,,,0,Not Validated
-Kidney,BMP1,up,down,False,0.0126,0.05935396,False,,,,,0,Not Validated
-Kidney,C1QB,up,up,True,6.97e-05,0.00325519,True,,,,,0,DE Confirmed Only
-Kidney,C1QC,up,,False,,,False,,,,,0,Not Validated
-Kidney,CCL18,up,up,True,0.0741,0.17984367,False,,,,,0,Not Validated
-Kidney,CCL19,up,up,True,0.00136,0.01640422,True,,,,,0,DE Confirmed Only
-Kidney,CCL2,up,up,True,4.34e-07,0.00019332,True,,,,,0,DE Confirmed Only
-Kidney,CCL21,up,up,True,0.342,0.49410164,False,,,,,0,Not Validated
-Kidney,CCL4,up,up,True,0.779,0.85783546,False,,,,,0,Not Validated
-Kidney,CCL5,up,up,True,0.00153,0.01753806,True,,,,,0,DE Confirmed Only
-Kidney,CCN2,up,,False,,,False,,,,,0,Not Validated
-Kidney,COL15A1,up,up,True,8.12e-05,0.00352696,True,,,,,0,DE Confirmed Only
-Kidney,COL1A1,up,up,True,0.00018267179110955002,0.018413316543842644,True,0.7575702467048447,0.00013686555034198041,-0.34545454545454546,0.6032176100292089,10,DE Confirmed Only
-Kidney,COL1A2,up,up,True,0.00018267179110955002,0.018413316543842644,True,0.8411198815482209,1.694946164877542e-05,0.28484848484848485,0.6032176100292089,10,DE Confirmed Only
-Kidney,COL3A1,up,up,True,0.00018267179110955002,0.018413316543842644,True,0.7398962854879767,0.000192136087745542,-0.4787878787878787,0.6032176100292089,10,DE Confirmed Only
-Kidney,COL4A1,up,up,True,1.04e-06,0.0003461,True,,,,,0,DE Confirmed Only
-Kidney,COL4A2,up,up,True,0.00256,0.02314267,True,,,,,0,DE Confirmed Only
-Kidney,COL5A2,up,up,True,0.00136,0.01639686,True,,,,,0,DE Confirmed Only
-Kidney,COL6A3,up,up,True,6.81e-05,0.00324393,True,,,,,0,DE Confirmed Only
-Kidney,COLEC10,up,down,False,0.0432,0.1270879,False,,,,,0,Not Validated
-Kidney,COLEC11,up,down,False,0.142,0.2759187,False,,,,,0,Not Validated
-Kidney,COMP,up,up,True,0.00239,0.02225784,True,,,,,0,DE Confirmed Only
-Kidney,CRISPLD2,up,up,True,3.4e-05,0.00248921,True,,,,,0,DE Confirmed Only
-Kidney,CTSE,up,up,True,0.556,0.68671074,False,,,,,0,Not Validated
-Kidney,CTSS,up,up,True,1.37e-06,0.00040657,True,,,,,0,DE Confirmed Only
-Kidney,CTSZ,up,down,False,0.0484,0.13677542,False,,,,,0,Not Validated
-Kidney,CXCL3,up,up,True,0.808,0.87839921,False,,,,,0,Not Validated
-Kidney,CXCL9,up,up,True,0.00929,0.04962269,True,,,,,0,DE Confirmed Only
-Kidney,DCN,up,up,True,0.000958,0.01326669,True,,,,,0,DE Confirmed Only
-Kidney,EFEMP1,up,up,True,0.00229,0.02170639,True,,,,,0,DE Confirmed Only
-Kidney,F13A1,up,up,True,0.0893,0.20269987,False,,,,,0,Not Validated
-Kidney,FBN1,up,up,True,0.000282,0.00680268,True,,,,,0,DE Confirmed Only
-Kidney,FGF10,up,,False,,,False,,,,,0,Not Validated
-Kidney,FGF14,up,down,False,0.0446,0.12958471,False,,,,,0,Not Validated
-Kidney,FGF7,up,up,True,0.247,0.39857954,False,,,,,0,Not Validated
-Kidney,FGFBP2,up,,False,,,False,,,,,0,Not Validated
-Kidney,FMOD,up,up,True,0.0316,0.10457078,False,,,,,0,Not Validated
-Kidney,FSTL1,up,up,True,7.51e-07,0.00028855,True,,,,,0,DE Confirmed Only
-Kidney,GDF15,up,down,False,0.372,0.52228203,False,,,,,0,Not Validated
-Kidney,IGF1,up,up,True,0.247,0.39857954,False,,,,,0,Not Validated
-Kidney,IGFBP5,up,down,False,0.00504,0.03419298,True,,,,,0,Not Validated
-Kidney,IL1A,up,down,False,0.104,0.22474055,False,,,,,0,Not Validated
-Kidney,LAMC3,up,up,True,0.769,0.85090551,False,,,,,0,Not Validated
-Kidney,LEFTY2,up,,False,,,False,,,,,0,Not Validated
-Kidney,LEP,up,down,False,0.144,0.2786103,False,,,,,0,Not Validated
-Kidney,LTB,up,up,True,0.00158,0.01784466,True,,,,,0,DE Confirmed Only
-Kidney,LTBP2,up,down,False,0.752,0.83795275,False,,,,,0,Not Validated
-Kidney,LUM,up,up,True,3.22e-05,0.00242541,True,,,,,0,DE Confirmed Only
-Kidney,MATN3,up,up,True,0.00244,0.0225892,True,,,,,0,DE Confirmed Only
-Kidney,MDK,up,up,True,0.105,0.22507596,False,,,,,0,Not Validated
-Kidney,MFAP4,up,up,True,0.0419,0.12457242,False,,,,,0,Not Validated
-Kidney,MMP11,up,down,False,0.0222,0.08388548,False,,,,,0,Not Validated
-Kidney,MMP12,up,down,False,0.998,0.99876631,False,,,,,0,Not Validated
-Kidney,MUC4,up,down,False,0.101,0.22005293,False,,,,,0,Not Validated
-Kidney,NID1,up,up,True,0.00477,0.03305602,True,,,,,0,DE Confirmed Only
-Kidney,PCOLCE2,up,down,False,0.435,0.58111419,False,,,,,0,Not Validated
-Kidney,PDGFD,up,up,True,0.00593,0.03769806,True,,,,,0,DE Confirmed Only
-Kidney,PLOD2,up,up,True,0.0137,0.06224788,False,,,,,0,Not Validated
-Kidney,PLXNA3,up,down,False,0.0408,0.12254514,False,,,,,0,Not Validated
-Kidney,PLXND1,up,up,True,0.0581,0.15312613,False,,,,,0,Not Validated
-Kidney,POSTN,up,up,True,0.00111,0.01459174,True,,,,,0,DE Confirmed Only
-Kidney,PRELP,up,up,True,0.179,0.32199636,False,,,,,0,Not Validated
-Kidney,PRG4,up,down,False,0.00898,0.04862376,True,,,,,0,Not Validated
-Kidney,PRSS12,up,down,False,0.0088,0.04794579,True,,,,,0,Not Validated
-Kidney,S100A6,up,up,True,0.115,0.23902417,False,,,,,0,Not Validated
-Kidney,SDC3,up,up,True,0.000517,0.00951966,True,,,,,0,DE Confirmed Only
-Kidney,SEMA3E,up,up,True,0.845,0.9040318,False,,,,,0,Not Validated
-Kidney,SEMA6A,up,down,False,6.26e-06,0.0009484,True,,,,,0,Not Validated
-Kidney,SEMA7A,up,down,False,0.00582,0.03727295,True,,,,,0,Not Validated
-Kidney,SERPINE1,up,down,False,0.0826,0.19303523,False,,,,,0,Not Validated
-Kidney,SERPINE2,up,up,True,0.0014,0.01674263,True,,,,,0,DE Confirmed Only
-Kidney,SERPINF2,up,down,False,0.00124,0.01556892,True,,,,,0,Not Validated
-Kidney,SERPINH1,up,up,True,0.000122,0.00439652,True,,,,,0,DE Confirmed Only
-Kidney,SFRP4,up,up,True,0.15,0.28628195,False,,,,,0,Not Validated
-Kidney,SPARCL1,up,up,True,0.388,0.53766082,False,,,,,0,Not Validated
-Kidney,SPP1,up,up,True,0.00722,0.04240496,True,,,,,0,DE Confirmed Only
-Kidney,SRPX,up,up,True,0.000552,0.00981441,True,,,,,0,DE Confirmed Only
-Kidney,SVEP1,up,up,True,0.0138,0.06263333,False,,,,,0,Not Validated
-Kidney,TGFB2,up,up,True,0.000322,0.00731424,True,,,,,0,DE Confirmed Only
-Kidney,TGFB3,up,down,False,0.654,0.76396177,False,,,,,0,Not Validated
-Kidney,TGM2,up,up,True,1.67e-05,0.00169771,True,,,,,0,DE Confirmed Only
-Kidney,THBS1,up,up,True,0.00162,0.01815492,True,,,,,0,DE Confirmed Only
-Kidney,TIMP1,up,up,True,3.41e-05,0.00248921,True,,,,,0,DE Confirmed Only
-Kidney,TIMP4,up,down,False,0.131,0.26085908,False,,,,,0,Not Validated
-Kidney,TNC,up,up,True,3.62e-07,0.00017156,True,,,,,0,DE Confirmed Only
-Kidney,TNFAIP6,up,up,True,6.86e-05,0.00325006,True,,,,,0,DE Confirmed Only
-Kidney,VCAN,up,up,True,1.43e-07,0.00010849,True,,,,,0,DE Confirmed Only
-Kidney,VWF,up,up,True,0.00018267179110955002,0.018413316543842644,True,0.7784576554156888,0.0001176411295101321,-0.18787878787878787,0.6032176100292089,10,DE Confirmed Only
-Kidney,WIF1,up,down,False,0.0127,0.05963056,False,,,,,0,Not Validated
-Kidney,WNT10B,up,down,False,6.23e-05,0.00312671,True,,,,,0,Not Validated
-Kidney,WNT2,up,down,False,0.00108,0.01433916,True,,,,,0,Not Validated
-Liver,ADAMTS3,up,up,True,0.328,0.409,False,,,,,0,Not Validated
-Liver,ADAMTS4,up,,False,,,False,,,,,0,Not Validated
-Liver,ADAMTS5,up,up,True,1.46e-07,9.44e-07,True,,,,,0,DE Confirmed Only
-Liver,ADAMTS9,up,up,True,0.000133,0.000416,True,,,,,0,DE Confirmed Only
-Liver,AEBP1,up,up,True,0.00018267179110955002,0.018413316543842644,True,0.8732709531227021,1.2526159219915994e-06,0.5085133809309825,0.3334755086790493,10,DE Confirmed Only
-Liver,ANGPT1,up,up,True,2.32e-06,1.12e-05,True,,,,,0,DE Confirmed Only
-Liver,ASPN,up,up,True,1.0400000000000002e-27,5.8e-25,True,,,,,0,DE Confirmed Only
-Liver,BGN,up,up,True,1.53e-20,1.9e-18,True,,,,,0,DE Confirmed Only
-Liver,BMP1,up,down,False,7.98e-06,3.37e-05,True,,,,,0,Not Validated
-Liver,C1QB,up,up,True,1.39e-11,2.27e-10,True,,,,,0,DE Confirmed Only
-Liver,C1QC,up,,False,,,False,,,,,0,Not Validated
-Liver,CCL18,up,up,True,1.58e-05,6.23e-05,True,,,,,0,DE Confirmed Only
-Liver,CCL19,up,up,True,1.94e-22,3.61e-20,True,,,,,0,DE Confirmed Only
-Liver,CCL2,up,up,True,1.97e-08,1.57e-07,True,,,,,0,DE Confirmed Only
-Liver,CCL21,up,up,True,2.5600000000000003e-21,3.78e-19,True,,,,,0,DE Confirmed Only
-Liver,CCL4,up,up,True,2.53e-11,3.83e-10,True,,,,,0,DE Confirmed Only
-Liver,CCL5,up,up,True,1.5e-20,1.88e-18,True,,,,,0,DE Confirmed Only
-Liver,CCN2,up,,False,,,False,,,,,0,Not Validated
-Liver,COL15A1,up,up,True,1.14e-07,7.56e-07,True,,,,,0,DE Confirmed Only
-Liver,COL1A1,up,up,True,0.00018267179110955002,0.018413316543842644,True,0.7657292524140731,8.312259993039264e-05,-0.33689011486677595,0.4264386820368485,10,DE Confirmed Only
-Liver,COL1A2,up,up,True,0.00018267179110955002,0.018413316543842644,True,0.7657292524140731,8.312259993039264e-05,-0.33689011486677595,0.4264386820368485,10,DE Confirmed Only
-Liver,COL3A1,up,up,True,0.00018267179110955002,0.018413316543842644,True,0.8829739637129544,1.2526159219915994e-06,0.5847903880706299,0.3334755086790493,10,DE Confirmed Only
-Liver,COL4A1,up,up,True,6.68e-19,5.79e-17,True,,,,,0,DE Confirmed Only
-Liver,COL4A2,up,up,True,5.5000000000000005e-21,7.47e-19,True,,,,,0,DE Confirmed Only
-Liver,COL5A2,up,up,True,8.79e-11,1.18e-09,True,,,,,0,DE Confirmed Only
-Liver,COL6A3,up,up,True,8.14e-16,3.5e-14,True,,,,,0,DE Confirmed Only
-Liver,COLEC10,up,up,True,0.00638,0.0132,True,,,,,0,DE Confirmed Only
-Liver,COLEC11,up,up,True,5.7e-23,1.15e-20,True,,,,,0,DE Confirmed Only
-Liver,COMP,up,up,True,0.447,0.53,False,,,,,0,Not Validated
-Liver,CRISPLD2,up,up,True,6.51e-18,4.62e-16,True,,,,,0,DE Confirmed Only
-Liver,CTSE,up,down,False,0.0374,0.0632,False,,,,,0,Not Validated
-Liver,CTSS,up,up,True,2.27e-12,4.43e-11,True,,,,,0,DE Confirmed Only
-Liver,CTSZ,up,down,False,0.307,0.387,False,,,,,0,Not Validated
-Liver,CXCL3,up,up,True,0.00391,0.00854,True,,,,,0,DE Confirmed Only
-Liver,CXCL9,up,up,True,1.45e-17,9.27e-16,True,,,,,0,DE Confirmed Only
-Liver,DCN,up,up,True,4.65e-34,5.7399999999999995e-30,True,,,,,0,DE Confirmed Only
-Liver,EFEMP1,up,up,True,1.2200000000000001e-29,8.800000000000001e-27,True,,,,,0,DE Confirmed Only
-Liver,F13A1,up,up,True,3.48e-08,2.59e-07,True,,,,,0,DE Confirmed Only
-Liver,FBN1,up,up,True,3.32e-13,7.85e-12,True,,,,,0,DE Confirmed Only
-Liver,FGF10,up,,False,,,False,,,,,0,Not Validated
-Liver,FGF14,up,down,False,0.0199,0.0362,True,,,,,0,Not Validated
-Liver,FGF7,up,up,True,0.00188,0.00444,True,,,,,0,DE Confirmed Only
-Liver,FGFBP2,up,,False,,,False,,,,,0,Not Validated
-Liver,FMOD,up,up,True,7.5e-16,3.25e-14,True,,,,,0,DE Confirmed Only
-Liver,FSTL1,up,up,True,2.27e-15,8.81e-14,True,,,,,0,DE Confirmed Only
-Liver,GDF15,up,up,True,5.1e-09,4.59e-08,True,,,,,0,DE Confirmed Only
-Liver,IGF1,up,down,False,0.00243,0.00559,True,,,,,0,Not Validated
-Liver,IGFBP5,up,up,True,6.17e-05,0.000209,True,,,,,0,DE Confirmed Only
-Liver,IL1A,up,down,False,1.19e-05,4.82e-05,True,,,,,0,Not Validated
-Liver,LAMC3,up,up,True,5.87e-13,1.31e-11,True,,,,,0,DE Confirmed Only
-Liver,LEFTY2,up,,False,,,False,,,,,0,Not Validated
-Liver,LEP,up,down,False,0.0029,0.00654,True,,,,,0,Not Validated
-Liver,LTB,up,up,True,2.44e-16,1.2e-14,True,,,,,0,DE Confirmed Only
-Liver,LTBP2,up,up,True,8.52e-12,1.45e-10,True,,,,,0,DE Confirmed Only
-Liver,LUM,up,up,True,7.570000000000001e-31,7.9e-28,True,,,,,0,DE Confirmed Only
-Liver,MATN3,up,up,True,0.00125,0.00309,True,,,,,0,DE Confirmed Only
-Liver,MDK,up,up,True,2.88e-05,0.000107,True,,,,,0,DE Confirmed Only
-Liver,MFAP4,up,up,True,5.79e-22,9.63e-20,True,,,,,0,DE Confirmed Only
-Liver,MMP11,up,down,False,0.000174,0.000531,True,,,,,0,Not Validated
-Liver,MMP12,up,up,True,0.426,0.508,False,,,,,0,Not Validated
-Liver,MUC4,up,down,False,0.00591,0.0123,True,,,,,0,Not Validated
-Liver,NID1,up,up,True,0.275,0.353,False,,,,,0,Not Validated
-Liver,PCOLCE2,up,down,False,4.79e-20,5.42e-18,True,,,,,0,Not Validated
-Liver,PDGFD,up,up,True,5.669999999999999e-23,1.15e-20,True,,,,,0,DE Confirmed Only
-Liver,PLOD2,up,down,False,0.00555,0.0116,True,,,,,0,Not Validated
-Liver,PLXNA3,up,down,False,0.00286,0.00645,True,,,,,0,Not Validated
-Liver,PLXND1,up,up,True,1.08e-08,9.07e-08,True,,,,,0,DE Confirmed Only
-Liver,POSTN,up,up,True,0.159,0.221,False,,,,,0,Not Validated
-Liver,PRELP,up,up,True,1.81e-16,9.12e-15,True,,,,,0,DE Confirmed Only
-Liver,PRG4,up,down,False,1.15e-15,4.72e-14,True,,,,,0,Not Validated
-Liver,PRSS12,up,down,False,0.000565,0.00152,True,,,,,0,Not Validated
-Liver,S100A6,up,up,True,2.03e-22,3.7e-20,True,,,,,0,DE Confirmed Only
-Liver,SDC3,up,up,True,0.00224,0.00519,True,,,,,0,DE Confirmed Only
-Liver,SEMA3E,up,up,True,0.000237,0.000699,True,,,,,0,DE Confirmed Only
-Liver,SEMA6A,up,up,True,0.719,0.778,False,,,,,0,Not Validated
-Liver,SEMA7A,up,down,False,0.00421,0.00911,True,,,,,0,Not Validated
-Liver,SERPINE1,up,up,True,1.99e-06,9.79e-06,True,,,,,0,DE Confirmed Only
-Liver,SERPINE2,up,up,True,8.69e-09,7.46e-08,True,,,,,0,DE Confirmed Only
-Liver,SERPINF2,up,down,False,2.48e-09,2.4e-08,True,,,,,0,Not Validated
-Liver,SERPINH1,up,up,True,3.42e-06,1.59e-05,True,,,,,0,DE Confirmed Only
-Liver,SFRP4,up,up,True,0.682,0.745,False,,,,,0,Not Validated
-Liver,SPARCL1,up,up,True,3.05e-19,2.87e-17,True,,,,,0,DE Confirmed Only
-Liver,SPP1,up,up,True,3.89e-13,9.06e-12,True,,,,,0,DE Confirmed Only
-Liver,SRPX,up,up,True,2.25e-14,7.02e-13,True,,,,,0,DE Confirmed Only
-Liver,SVEP1,up,up,True,6.35e-11,8.75e-10,True,,,,,0,DE Confirmed Only
-Liver,TGFB2,up,up,True,0.00235,0.00542,True,,,,,0,DE Confirmed Only
-Liver,TGFB3,up,down,False,0.366,0.448,False,,,,,0,Not Validated
-Liver,TGM2,up,down,False,6.16e-06,2.69e-05,True,,,,,0,Not Validated
-Liver,THBS1,up,up,True,4.13e-11,5.93e-10,True,,,,,0,DE Confirmed Only
-Liver,TIMP1,up,up,True,7.8e-07,4.24e-06,True,,,,,0,DE Confirmed Only
-Liver,TIMP4,up,down,False,0.253,0.33,False,,,,,0,Not Validated
-Liver,TNC,up,up,True,0.00803,0.0162,True,,,,,0,DE Confirmed Only
-Liver,TNFAIP6,up,down,False,0.207,0.278,False,,,,,0,Not Validated
-Liver,VCAN,up,up,True,1.46e-17,9.29e-16,True,,,,,0,DE Confirmed Only
-Liver,VWF,up,up,True,0.00018267179110955002,0.018413316543842644,True,0.8312245738982758,9.36686715486439e-06,0.17797968332584388,0.6227695474948177,10,DE Confirmed Only
-Liver,WIF1,up,up,True,0.261,0.338,False,,,,,0,Not Validated
-Liver,WNT10B,up,down,False,0.628,0.697,False,,,,,0,Not Validated
-Liver,WNT2,up,down,False,2.34e-05,8.84e-05,True,,,,,0,Not Validated
-Lung,ADAMTS3,up,up,True,0.00897,0.0277,True,,,,,0,DE Confirmed Only
-Lung,ADAMTS4,up,down,False,0.021,0.0539,False,,,,,0,Not Validated
-Lung,ADAMTS5,up,up,True,1.91e-05,0.000185,True,,,,,0,DE Confirmed Only
-Lung,ADAMTS9,up,up,True,0.832,0.887,False,,,,,0,Not Validated
-Lung,AEBP1,up,up,True,0.00018267179110955002,0.023016645679803303,True,0.7415030092349646,0.00018289483468713475,-0.4666666666666666,0.43484649291266636,10,DE Confirmed Only
-Lung,ANGPT1,up,down,False,4.04e-08,9.24e-07,True,,,,,0,Not Validated
-Lung,ASPN,up,up,True,0.00556,0.019,True,,,,,0,DE Confirmed Only
-Lung,BGN,up,down,False,0.00312,0.0119,True,,,,,0,Not Validated
-Lung,BMP1,up,down,False,0.198,0.313,False,,,,,0,Not Validated
-Lung,C1QB,up,down,False,8.3e-06,9.21e-05,True,,,,,0,Not Validated
-Lung,C1QC,up,down,False,2.3e-05,0.000215,True,,,,,0,Not Validated
-Lung,CCL18,up,down,False,0.587,0.699,False,,,,,0,Not Validated
-Lung,CCL19,up,up,True,0.00272,0.0107,True,,,,,0,DE Confirmed Only
-Lung,CCL2,up,down,False,0.322,0.449,False,,,,,0,Not Validated
-Lung,CCL21,up,down,False,0.0557,0.116,False,,,,,0,Not Validated
-Lung,CCL4,up,down,False,0.00623,0.0207,True,,,,,0,Not Validated
-Lung,CCL5,up,down,False,0.4,0.528,False,,,,,0,Not Validated
-Lung,CCN2,up,down,False,6.85e-09,1.89e-07,True,,,,,0,Not Validated
-Lung,COL15A1,up,up,True,1.16e-08,3.03e-07,True,,,,,0,DE Confirmed Only
-Lung,COL1A1,up,up,True,0.00018267179110955002,0.023016645679803303,True,0.7848845504036408,5.202582729061194e-05,-0.13939393939393938,0.7009318849100584,10,DE Confirmed Only
-Lung,COL1A2,up,up,True,0.00018267179110955002,0.023016645679803303,True,0.821839196584365,1.4699820686409985e-05,0.13939393939393938,0.7009318849100584,10,DE Confirmed Only
-Lung,COL3A1,up,up,True,0.00024612812790522973,0.02480971529284716,True,0.8836980608434032,1.2034107394601192e-06,0.709090909090909,0.10832961683766217,10,Fully Confirmed
-Lung,COL4A1,up,down,False,6.31e-09,1.76e-07,True,,,,,0,Not Validated
-Lung,COL4A2,up,down,False,3.07e-10,1.2e-08,True,,,,,0,Not Validated
-Lung,COL5A2,up,up,True,0.229,0.348,False,,,,,0,Not Validated
-Lung,COL6A3,up,up,True,0.0488,0.105,False,,,,,0,Not Validated
-Lung,COLEC10,up,down,False,7.86e-15,8.12e-13,True,,,,,0,Not Validated
-Lung,COLEC11,up,down,False,0.718,0.801,False,,,,,0,Not Validated
-Lung,COMP,up,up,True,0.000144,0.000996,True,,,,,0,DE Confirmed Only
-Lung,CRISPLD2,up,down,False,0.177,0.287,False,,,,,0,Not Validated
-Lung,CTSE,up,up,True,0.0861,0.163,False,,,,,0,Not Validated
-Lung,CTSS,up,down,False,0.00771,0.0246,True,,,,,0,Not Validated
-Lung,CTSZ,up,down,False,9.21e-06,0.0001,True,,,,,0,Not Validated
-Lung,CXCL3,up,down,False,6.55e-08,1.39e-06,True,,,,,0,Not Validated
-Lung,CXCL9,up,down,False,0.27,0.394,False,,,,,0,Not Validated
-Lung,DCN,up,down,False,0.0614,0.125,False,,,,,0,Not Validated
-Lung,EFEMP1,up,down,False,1.06e-05,0.000113,True,,,,,0,Not Validated
-Lung,F13A1,up,down,False,0.63,0.733,False,,,,,0,Not Validated
-Lung,FBN1,up,up,True,0.456,0.581,False,,,,,0,Not Validated
-Lung,FGF10,up,up,True,0.0188,0.0495,True,,,,,0,DE Confirmed Only
-Lung,FGF14,up,up,True,0.181,0.292,False,,,,,0,Not Validated
-Lung,FGF7,up,up,True,0.0332,0.0772,False,,,,,0,Not Validated
-Lung,FGFBP2,up,down,False,2.58e-07,4.64e-06,True,,,,,0,Not Validated
-Lung,FMOD,up,down,False,0.00479,0.0168,True,,,,,0,Not Validated
-Lung,FSTL1,up,up,True,0.227,0.347,False,,,,,0,Not Validated
-Lung,GDF15,up,up,True,0.309,0.436,False,,,,,0,Not Validated
-Lung,IGF1,up,up,True,6.55e-12,3.76e-10,True,,,,,0,DE Confirmed Only
-Lung,IGFBP5,up,up,True,6.12e-06,7.14e-05,True,,,,,0,DE Confirmed Only
-Lung,IL1A,up,,False,,,False,,,,,0,Not Validated
-Lung,LAMC3,up,down,False,2.79e-35,7.66e-32,True,,,,,0,Not Validated
-Lung,LEFTY2,up,down,False,2.08e-08,5.16e-07,True,,,,,0,Not Validated
-Lung,LEP,up,,False,,,False,,,,,0,Not Validated
-Lung,LTB,up,up,True,0.042,0.0931,False,,,,,0,Not Validated
-Lung,LTBP2,up,down,False,4.67e-11,2.24e-09,True,,,,,0,Not Validated
-Lung,LUM,up,down,False,0.307,0.434,False,,,,,0,Not Validated
-Lung,MATN3,up,down,False,3.3e-24,1.4200000000000002e-21,True,,,,,0,Not Validated
-Lung,MDK,up,up,True,0.861,0.907,False,,,,,0,Not Validated
-Lung,MFAP4,up,down,False,1.02e-07,2.04e-06,True,,,,,0,Not Validated
-Lung,MMP11,up,up,True,0.000168,0.00114,True,,,,,0,DE Confirmed Only
-Lung,MMP12,up,up,True,1.79e-07,3.35e-06,True,,,,,0,DE Confirmed Only
-Lung,MUC4,up,up,True,1.57e-07,2.98e-06,True,,,,,0,DE Confirmed Only
-Lung,NID1,up,down,False,1.64e-05,0.000163,True,,,,,0,Not Validated
-Lung,PCOLCE2,up,down,False,2.44e-05,0.000226,True,,,,,0,Not Validated
-Lung,PDGFD,up,up,True,0.0441,0.0966,False,,,,,0,Not Validated
-Lung,PLOD2,up,up,True,0.0264,0.0645,False,,,,,0,Not Validated
-Lung,PLXNA3,up,up,True,0.177,0.287,False,,,,,0,Not Validated
-Lung,PLXND1,up,down,False,4.52e-07,7.61e-06,True,,,,,0,Not Validated
-Lung,POSTN,up,up,True,1.99e-06,2.74e-05,True,,,,,0,DE Confirmed Only
-Lung,PRELP,up,down,False,5.2e-06,6.22e-05,True,,,,,0,Not Validated
-Lung,PRG4,up,down,False,0.0468,0.101,False,,,,,0,Not Validated
-Lung,PRSS12,up,up,True,0.0464,0.101,False,,,,,0,Not Validated
-Lung,S100A6,up,down,False,0.000541,0.00295,True,,,,,0,Not Validated
-Lung,SDC3,up,down,False,0.000463,0.00259,True,,,,,0,Not Validated
-Lung,SEMA3E,up,down,False,0.000133,0.000935,True,,,,,0,Not Validated
-Lung,SEMA6A,up,down,False,3.15e-28,2.66e-25,True,,,,,0,Not Validated
-Lung,SEMA7A,up,up,True,0.48,0.605,False,,,,,0,Not Validated
-Lung,SERPINE1,up,down,False,7.07e-08,1.49e-06,True,,,,,0,Not Validated
-Lung,SERPINE2,up,up,True,0.00692,0.0225,True,,,,,0,DE Confirmed Only
-Lung,SERPINF2,up,down,False,0.702,0.788,False,,,,,0,Not Validated
-Lung,SERPINH1,up,down,False,0.00693,0.0225,True,,,,,0,Not Validated
-Lung,SFRP4,up,up,True,0.00841,0.0263,True,,,,,0,DE Confirmed Only
-Lung,SPARCL1,up,down,False,0.53,0.649,False,,,,,0,Not Validated
-Lung,SPP1,up,up,True,1.96e-06,2.71e-05,True,,,,,0,DE Confirmed Only
-Lung,SRPX,up,down,False,0.0678,0.135,False,,,,,0,Not Validated
-Lung,SVEP1,up,down,False,5.98e-09,1.68e-07,True,,,,,0,Not Validated
-Lung,TGFB2,up,down,False,1.91e-05,0.000185,True,,,,,0,Not Validated
-Lung,TGFB3,up,up,True,0.0233,0.0584,False,,,,,0,Not Validated
-Lung,TGM2,up,down,False,5.43e-07,8.88e-06,True,,,,,0,Not Validated
-Lung,THBS1,up,down,False,4.45e-06,5.45e-05,True,,,,,0,Not Validated
-Lung,TIMP1,up,up,True,0.428,0.556,False,,,,,0,Not Validated
-Lung,TIMP4,up,down,False,0.93,0.953,False,,,,,0,Not Validated
-Lung,TNC,up,up,True,0.451,0.577,False,,,,,0,Not Validated
-Lung,TNFAIP6,up,up,True,0.58,0.693,False,,,,,0,Not Validated
-Lung,VCAN,up,up,True,0.000517,0.00284,True,,,,,0,DE Confirmed Only
-Lung,VWF,up,up,True,0.00018267179110955002,0.023016645679803303,True,0.842726605295209,7.781895477568106e-06,0.29696969696969694,0.6745027854502618,10,DE Confirmed Only
-Lung,WIF1,up,down,False,0.011,0.0326,True,,,,,0,Not Validated
-Lung,WNT10B,up,up,True,3.32e-05,0.000293,True,,,,,0,DE Confirmed Only
-Lung,WNT2,up,down,False,0.00326,0.0124,True,,,,,0,Not Validated
-Skin,ADAMTS3,up,,False,,,False,,,,,0,Not Validated
-Skin,ADAMTS4,up,up,True,0.000998,0.04027,True,,,,,0,DE Confirmed Only
-Skin,ADAMTS5,up,up,True,0.0669,0.319059,False,,,,,0,Not Validated
-Skin,ADAMTS9,up,up,True,0.00178,0.051818,False,,,,,0,Not Validated
-Skin,AEBP1,up,up,True,0.00018267179110955002,0.023016645679803303,True,0.804165235367497,3.214118389099949e-05,0.006060606060606061,0.9867429111949892,10,DE Confirmed Only
-Skin,ANGPT1,up,up,True,0.199,0.5293,False,,,,,0,Not Validated
-Skin,ASPN,up,up,True,0.0231,0.187272,False,,,,,0,Not Validated
-Skin,BGN,up,up,True,0.516,0.790314,False,,,,,0,Not Validated
-Skin,BMP1,up,,False,,,False,,,,,0,Not Validated
-Skin,C1QB,up,up,True,0.0129,0.138904,False,,,,,0,Not Validated
-Skin,C1QC,up,,False,,,False,,,,,0,Not Validated
-Skin,CCL18,up,up,True,0.348,0.670241,False,,,,,0,Not Validated
-Skin,CCL19,up,up,True,0.241,0.57235,False,,,,,0,Not Validated
-Skin,CCL2,up,up,True,0.00147,0.048144,True,,,,,0,DE Confirmed Only
-Skin,CCL21,up,,False,,,False,,,,,0,Not Validated
-Skin,CCL4,up,,False,,,False,,,,,0,Not Validated
-Skin,CCL5,up,,False,,,False,,,,,0,Not Validated
-Skin,CCN2,up,,False,,,False,,,,,0,Not Validated
-Skin,COL15A1,up,up,True,0.000255,0.022059,True,,,,,0,DE Confirmed Only
-Skin,COL1A1,up,up,True,0.00018267179110955002,0.023016645679803303,True,0.7864912741506288,4.1620661832489554e-05,-0.12727272727272726,0.9075712684534867,10,DE Confirmed Only
-Skin,COL1A2,up,up,True,0.00018267179110955002,0.023016645679803303,True,0.7848845504036408,4.1620661832489554e-05,-0.13939393939393938,0.9075712684534867,10,DE Confirmed Only
-Skin,COL3A1,up,up,True,0.00018267179110955002,0.023016645679803303,True,0.852366947777137,4.5701397481943105e-06,0.3696969696969697,0.7326251882320558,10,DE Confirmed Only
-Skin,COL4A1,up,up,True,3.35e-05,0.00796,True,,,,,0,DE Confirmed Only
-Skin,COL4A2,up,up,True,0.000932,0.039236,True,,,,,0,DE Confirmed Only
-Skin,COL5A2,up,up,True,9.68e-07,0.001038,True,,,,,0,DE Confirmed Only
-Skin,COL6A3,up,up,True,6.06e-06,0.003546,True,,,,,0,DE Confirmed Only
-Skin,COLEC10,up,,False,,,False,,,,,0,Not Validated
-Skin,COLEC11,up,up,True,0.0017,0.050646,False,,,,,0,Not Validated
-Skin,COMP,up,up,True,0.000357,0.025696,True,,,,,0,DE Confirmed Only
-Skin,CRISPLD2,up,,False,,,False,,,,,0,Not Validated
-Skin,CTSE,up,,False,,,False,,,,,0,Not Validated
-Skin,CTSS,up,up,True,0.00191,0.053604,False,,,,,0,Not Validated
-Skin,CTSZ,up,up,True,0.000148,0.017481,True,,,,,0,DE Confirmed Only
-Skin,CXCL3,up,up,True,0.103,0.39281,False,,,,,0,Not Validated
-Skin,CXCL9,up,,False,,,False,,,,,0,Not Validated
-Skin,DCN,up,up,True,0.22,0.551657,False,,,,,0,Not Validated
-Skin,EFEMP1,up,up,True,0.00391,0.077205,False,,,,,0,Not Validated
-Skin,F13A1,up,up,True,0.0455,0.264053,False,,,,,0,Not Validated
-Skin,FBN1,up,up,True,7.55e-05,0.012262,True,,,,,0,DE Confirmed Only
-Skin,FGF10,up,,False,,,False,,,,,0,Not Validated
-Skin,FGF14,up,,False,,,False,,,,,0,Not Validated
-Skin,FGF7,up,up,True,0.0128,0.138665,False,,,,,0,Not Validated
-Skin,FGFBP2,up,down,False,8.57e-06,0.004596,True,,,,,0,Not Validated
-Skin,FMOD,up,up,True,0.423,0.729687,False,,,,,0,Not Validated
-Skin,FSTL1,up,up,True,1.62e-05,0.006316,True,,,,,0,DE Confirmed Only
-Skin,GDF15,up,up,True,0.000858,0.038014,True,,,,,0,DE Confirmed Only
-Skin,IGF1,up,up,True,0.00403,0.078128,False,,,,,0,Not Validated
-Skin,IGFBP5,up,down,False,0.0151,0.15073,False,,,,,0,Not Validated
-Skin,IL1A,up,,False,,,False,,,,,0,Not Validated
-Skin,LAMC3,up,down,False,0.00829,0.114795,False,,,,,0,Not Validated
-Skin,LEFTY2,up,,False,,,False,,,,,0,Not Validated
-Skin,LEP,up,,False,,,False,,,,,0,Not Validated
-Skin,LTB,up,up,True,0.00231,0.059077,False,,,,,0,Not Validated
-Skin,LTBP2,up,up,True,0.0953,0.379319,False,,,,,0,Not Validated
-Skin,LUM,up,up,True,7.19e-07,0.000939,True,,,,,0,DE Confirmed Only
-Skin,MATN3,up,up,True,0.00676,0.102353,False,,,,,0,Not Validated
-Skin,MDK,up,up,True,0.0519,0.2826,False,,,,,0,Not Validated
-Skin,MFAP4,up,up,True,0.155,0.474866,False,,,,,0,Not Validated
-Skin,MMP11,up,up,True,0.0176,0.163626,False,,,,,0,Not Validated
-Skin,MMP12,up,,False,,,False,,,,,0,Not Validated
-Skin,MUC4,up,up,True,0.824,0.938129,False,,,,,0,Not Validated
-Skin,NID1,up,,False,,,False,,,,,0,Not Validated
-Skin,PCOLCE2,up,up,True,0.178,0.503741,False,,,,,0,Not Validated
-Skin,PDGFD,up,up,True,0.775,0.918861,False,,,,,0,Not Validated
-Skin,PLOD2,up,up,True,0.00505,0.08882,False,,,,,0,Not Validated
-Skin,PLXNA3,up,,False,,,False,,,,,0,Not Validated
-Skin,PLXND1,up,up,True,0.0024,0.060306,False,,,,,0,Not Validated
-Skin,POSTN,up,up,True,0.262,0.594877,False,,,,,0,Not Validated
-Skin,PRELP,up,down,False,0.896,0.967433,False,,,,,0,Not Validated
-Skin,PRG4,up,up,True,0.219,0.55117,False,,,,,0,Not Validated
-Skin,PRSS12,up,down,False,0.111,0.404904,False,,,,,0,Not Validated
-Skin,S100A6,up,up,True,0.000479,0.029796,True,,,,,0,DE Confirmed Only
-Skin,SDC3,up,,False,,,False,,,,,0,Not Validated
-Skin,SEMA3E,up,,False,,,False,,,,,0,Not Validated
-Skin,SEMA6A,up,up,True,0.578,0.826635,False,,,,,0,Not Validated
-Skin,SEMA7A,up,,False,,,False,,,,,0,Not Validated
-Skin,SERPINE1,up,up,True,0.00288,0.066369,False,,,,,0,Not Validated
-Skin,SERPINE2,up,up,True,0.00242,0.06063,False,,,,,0,Not Validated
-Skin,SERPINF2,up,,False,,,False,,,,,0,Not Validated
-Skin,SERPINH1,up,up,True,0.00992,0.123685,False,,,,,0,Not Validated
-Skin,SFRP4,up,,False,,,False,,,,,0,Not Validated
-Skin,SPARCL1,up,up,True,0.0023,0.058952,False,,,,,0,Not Validated
-Skin,SPP1,up,up,True,0.000623,0.033971,True,,,,,0,DE Confirmed Only
-Skin,SRPX,up,up,True,0.000519,0.030584,True,,,,,0,DE Confirmed Only
-Skin,SVEP1,up,up,True,0.0469,0.268873,False,,,,,0,Not Validated
-Skin,TGFB2,up,down,False,0.294,0.624915,False,,,,,0,Not Validated
-Skin,TGFB3,up,up,True,0.855,0.951594,False,,,,,0,Not Validated
-Skin,TGM2,up,up,True,0.164,0.484757,False,,,,,0,Not Validated
-Skin,THBS1,up,up,True,0.0292,0.210449,False,,,,,0,Not Validated
-Skin,TIMP1,up,up,True,9.73e-09,0.000155,True,,,,,0,DE Confirmed Only
-Skin,TIMP4,up,up,True,0.104,0.394382,False,,,,,0,Not Validated
-Skin,TNC,up,up,True,0.00189,0.053039,False,,,,,0,Not Validated
-Skin,TNFAIP6,up,,False,,,False,,,,,0,Not Validated
-Skin,VCAN,up,up,True,0.00464,0.084238,False,,,,,0,Not Validated
-Skin,VWF,up,up,True,0.00024612812790522973,0.02480971529284716,True,0.866024099626535,4.019983390246593e-06,0.5515151515151515,0.49200588334817486,10,DE Confirmed Only
-Skin,WIF1,up,,False,,,False,,,,,0,Not Validated
-Skin,WNT10B,up,,False,,,False,,,,,0,Not Validated
-Skin,WNT2,up,,False,,,False,,,,,0,Not Validated
+organ,gene,discovery_direction,validation2_direction,direction_match,de_pvalue_raw,de_pvalue_adj_organ,de_pvalue_adj,de_significant,platform_status,severity_fullsample_rho,severity_fullsample_p_adj,severity_diseaseonly_rho,severity_diseaseonly_p_adj,severity_diseaseonly_n,final_verdict,de_pvalue_adj_global,de_significant_global
+Kidney,ADAMTS3,up,up,True,0.0146,0.06453987,0.06453987,False,Present,,,,,0,Not Validated,0.02212121212121212,True
+Kidney,ADAMTS4,up,,False,,,,False,Missing,,,,,0,Not Validated,,False
+Kidney,ADAMTS5,up,up,True,0.00282,0.0243896,0.0243896,True,Present,,,,,0,DE Confirmed Only,0.00525,True
+Kidney,ADAMTS9,up,down,False,0.209,0.35619254,0.35619254,False,Present,,,,,0,Not Validated,0.2513745704467354,False
+Kidney,AEBP1,up,up,True,0.00018267179110955002,0.018413316543842644,0.018413316543842644,True,Present,0.7704240366807488,0.0001176411295101321,-0.24848484848484845,0.6032176100292089,10,DE Confirmed Only,0.0004599649416427519,True
+Kidney,ANGPT1,up,down,False,0.034,0.10984831,0.10984831,False,Present,,,,,0,Not Validated,0.04877049180327869,False
+Kidney,ASPN,up,up,True,0.745,0.83288651,0.83288651,False,Present,,,,,0,Not Validated,0.7737388724035609,False
+Kidney,BGN,up,down,False,0.014,0.06298618,0.06298618,False,Present,,,,,0,Not Validated,0.021304347826086957,False
+Kidney,BMP1,up,down,False,0.0126,0.05935396,0.05935396,False,Present,,,,,0,Not Validated,0.0196875,False
+Kidney,C1QB,up,up,True,6.97e-05,0.00325519,0.00325519,True,Present,,,,,0,DE Confirmed Only,0.0002178125,True
+Kidney,C1QC,up,,False,,,,False,Missing,,,,,0,Not Validated,,False
+Kidney,CCL18,up,up,True,0.0741,0.17984367,0.17984367,False,Present,,,,,0,Not Validated,0.09823863636363636,False
+Kidney,CCL19,up,up,True,0.00136,0.01640422,0.01640422,True,Present,,,,,0,DE Confirmed Only,0.002884848484848485,True
+Kidney,CCL2,up,up,True,4.34e-07,0.00019332,0.00019332,True,Present,,,,,0,DE Confirmed Only,2.2671641791044775e-06,True
+Kidney,CCL21,up,up,True,0.342,0.49410164,0.49410164,False,Present,,,,,0,Not Validated,0.38612903225806455,False
+Kidney,CCL4,up,up,True,0.779,0.85783546,0.85783546,False,Present,,,,,0,Not Validated,0.7995601173020528,False
+Kidney,CCL5,up,up,True,0.00153,0.01753806,0.01753806,True,Present,,,,,0,DE Confirmed Only,0.0031875,True
+Kidney,CCN2,up,,False,,,,False,Missing,,,,,0,Not Validated,,False
+Kidney,COL15A1,up,up,True,8.12e-05,0.00352696,0.00352696,True,Present,,,,,0,DE Confirmed Only,0.00024929824561403503,True
+Kidney,COL1A1,up,up,True,0.00018267179110955002,0.018413316543842644,0.018413316543842644,True,Present,0.7575702467048447,0.00013686555034198041,-0.34545454545454546,0.6032176100292089,10,DE Confirmed Only,0.0004599649416427519,True
+Kidney,COL1A2,up,up,True,0.00018267179110955002,0.018413316543842644,0.018413316543842644,True,Present,0.8411198815482209,1.694946164877542e-05,0.28484848484848485,0.6032176100292089,10,DE Confirmed Only,0.0004599649416427519,True
+Kidney,COL3A1,up,up,True,0.00018267179110955002,0.018413316543842644,0.018413316543842644,True,Present,0.7398962854879767,0.000192136087745542,-0.4787878787878787,0.6032176100292089,10,DE Confirmed Only,0.0004599649416427519,True
+Kidney,COL4A1,up,up,True,1.04e-06,0.0003461,0.0003461,True,Present,,,,,0,DE Confirmed Only,4.918918918918919e-06,True
+Kidney,COL4A2,up,up,True,0.00256,0.02314267,0.02314267,True,Present,,,,,0,DE Confirmed Only,0.004817204301075269,True
+Kidney,COL5A2,up,up,True,0.00136,0.01639686,0.01639686,True,Present,,,,,0,DE Confirmed Only,0.002884848484848485,True
+Kidney,COL6A3,up,up,True,6.81e-05,0.00324393,0.00324393,True,Present,,,,,0,DE Confirmed Only,0.0002163063063063063,True
+Kidney,COLEC10,up,down,False,0.0432,0.1270879,0.1270879,False,Present,,,,,0,Not Validated,0.060722891566265064,False
+Kidney,COLEC11,up,down,False,0.142,0.2759187,0.2759187,False,Present,,,,,0,Not Validated,0.1794223826714801,False
+Kidney,COMP,up,up,True,0.00239,0.02225784,0.02225784,True,Present,,,,,0,DE Confirmed Only,0.004615384615384615,True
+Kidney,CRISPLD2,up,up,True,3.4e-05,0.00248921,0.00248921,True,Present,,,,,0,DE Confirmed Only,0.00011154205607476635,True
+Kidney,CTSE,up,up,True,0.556,0.68671074,0.68671074,False,Present,,,,,0,Not Validated,0.5969325153374234,False
+Kidney,CTSS,up,up,True,1.37e-06,0.00040657,0.00040657,True,Present,,,,,0,DE Confirmed Only,6.393333333333334e-06,True
+Kidney,CTSZ,up,down,False,0.0484,0.13677542,0.13677542,False,Present,,,,,0,Not Validated,0.066171875,False
+Kidney,CXCL3,up,up,True,0.808,0.87839921,0.87839921,False,Present,,,,,0,Not Validated,0.8269005847953217,False
+Kidney,CXCL9,up,up,True,0.00929,0.04962269,0.04962269,True,Present,,,,,0,DE Confirmed Only,0.014712669683257917,True
+Kidney,DCN,up,up,True,0.000958,0.01326669,0.01326669,True,Present,,,,,0,DE Confirmed Only,0.0021221518987341774,True
+Kidney,EFEMP1,up,up,True,0.00229,0.02170639,0.02170639,True,Present,,,,,0,DE Confirmed Only,0.004516759776536312,True
+Kidney,F13A1,up,up,True,0.0893,0.20269987,0.20269987,False,Present,,,,,0,Not Validated,0.11705992509363296,False
+Kidney,FBN1,up,up,True,0.000282,0.00680268,0.00680268,True,Present,,,,,0,DE Confirmed Only,0.0006854166666666667,True
+Kidney,FGF10,up,,False,,,,False,Missing,,,,,0,Not Validated,,False
+Kidney,FGF14,up,down,False,0.0446,0.12958471,0.12958471,False,Present,,,,,0,Not Validated,0.06219123505976095,False
+Kidney,FGF7,up,up,True,0.247,0.39857954,0.39857954,False,Present,,,,,0,Not Validated,0.29010067114093957,False
+Kidney,FGFBP2,up,,False,,,,False,Missing,,,,,0,Not Validated,,False
+Kidney,FMOD,up,up,True,0.0316,0.10457078,0.10457078,False,Present,,,,,0,Not Validated,0.04570247933884298,True
+Kidney,FSTL1,up,up,True,7.51e-07,0.00028855,0.00028855,True,Present,,,,,0,DE Confirmed Only,3.702112676056338e-06,True
+Kidney,GDF15,up,down,False,0.372,0.52228203,0.52228203,False,Present,,,,,0,Not Validated,0.4159744408945687,False
+Kidney,IGF1,up,up,True,0.247,0.39857954,0.39857954,False,Present,,,,,0,Not Validated,0.29010067114093957,False
+Kidney,IGFBP5,up,down,False,0.00504,0.03419298,0.03419298,True,Present,,,,,0,Not Validated,0.008749999999999999,False
+Kidney,IL1A,up,down,False,0.104,0.22474055,0.22474055,False,Present,,,,,0,Not Validated,0.1338235294117647,False
+Kidney,LAMC3,up,up,True,0.769,0.85090551,0.85090551,False,Present,,,,,0,Not Validated,0.7939528023598821,False
+Kidney,LEFTY2,up,,False,,,,False,Missing,,,,,0,Not Validated,,False
+Kidney,LEP,up,down,False,0.144,0.2786103,0.2786103,False,Present,,,,,0,Not Validated,0.18129496402877698,False
+Kidney,LTB,up,up,True,0.00158,0.01784466,0.01784466,True,Present,,,,,0,DE Confirmed Only,0.003272189349112426,True
+Kidney,LTBP2,up,down,False,0.752,0.83795275,0.83795275,False,Present,,,,,0,Not Validated,0.778698224852071,False
+Kidney,LUM,up,up,True,3.22e-05,0.00242541,0.00242541,True,Present,,,,,0,DE Confirmed Only,0.00010941747572815534,True
+Kidney,MATN3,up,up,True,0.00244,0.0225892,0.0225892,True,Present,,,,,0,DE Confirmed Only,0.004616216216216216,True
+Kidney,MDK,up,up,True,0.105,0.22507596,0.22507596,False,Present,,,,,0,Not Validated,0.1346153846153846,False
+Kidney,MFAP4,up,up,True,0.0419,0.12457242,0.12457242,False,Present,,,,,0,Not Validated,0.0592741935483871,False
+Kidney,MMP11,up,down,False,0.0222,0.08388548,0.08388548,False,Present,,,,,0,Not Validated,0.03278481012658228,False
+Kidney,MMP12,up,down,False,0.998,0.99876631,0.99876631,False,Present,,,,,0,Not Validated,0.998,False
+Kidney,MUC4,up,down,False,0.101,0.22005293,0.22005293,False,Present,,,,,0,Not Validated,0.13141263940520448,False
+Kidney,NID1,up,up,True,0.00477,0.03305602,0.03305602,True,Present,,,,,0,DE Confirmed Only,0.008382500000000001,True
+Kidney,PCOLCE2,up,down,False,0.435,0.58111419,0.58111419,False,Present,,,,,0,Not Validated,0.47727272727272724,False
+Kidney,PDGFD,up,up,True,0.00593,0.03769806,0.03769806,True,Present,,,,,0,DE Confirmed Only,0.01002657004830918,True
+Kidney,PLOD2,up,up,True,0.0137,0.06224788,0.06224788,False,Present,,,,,0,Not Validated,0.021030701754385966,True
+Kidney,PLXNA3,up,down,False,0.0408,0.12254514,0.12254514,False,Present,,,,,0,Not Validated,0.05804878048780488,False
+Kidney,PLXND1,up,up,True,0.0581,0.15312613,0.15312613,False,Present,,,,,0,Not Validated,0.07821153846153846,False
+Kidney,POSTN,up,up,True,0.00111,0.01459174,0.01459174,True,Present,,,,,0,DE Confirmed Only,0.00241304347826087,True
+Kidney,PRELP,up,up,True,0.179,0.32199636,0.32199636,False,Present,,,,,0,Not Validated,0.21905594405594403,False
+Kidney,PRG4,up,down,False,0.00898,0.04862376,0.04862376,True,Present,,,,,0,Not Validated,0.014286363636363637,False
+Kidney,PRSS12,up,down,False,0.0088,0.04794579,0.04794579,True,Present,,,,,0,Not Validated,0.014128440366972478,False
+Kidney,S100A6,up,up,True,0.115,0.23902417,0.23902417,False,Present,,,,,0,Not Validated,0.14636363636363636,False
+Kidney,SDC3,up,up,True,0.000517,0.00951966,0.00951966,True,Present,,,,,0,DE Confirmed Only,0.0012029801324503313,True
+Kidney,SEMA3E,up,up,True,0.845,0.9040318,0.9040318,False,Present,,,,,0,Not Validated,0.8572463768115941,False
+Kidney,SEMA6A,up,down,False,6.26e-06,0.0009484,0.0009484,True,Present,,,,,0,Not Validated,2.547674418604651e-05,False
+Kidney,SEMA7A,up,down,False,0.00582,0.03727295,0.03727295,True,Present,,,,,0,Not Validated,0.009936585365853658,False
+Kidney,SERPINE1,up,down,False,0.0826,0.19303523,0.19303523,False,Present,,,,,0,Not Validated,0.10909433962264152,False
+Kidney,SERPINE2,up,up,True,0.0014,0.01674263,0.01674263,True,Present,,,,,0,DE Confirmed Only,0.0029518072289156623,True
+Kidney,SERPINF2,up,down,False,0.00124,0.01556892,0.01556892,True,Present,,,,,0,Not Validated,0.0026790123456790125,False
+Kidney,SERPINH1,up,up,True,0.000122,0.00439652,0.00439652,True,Present,,,,,0,DE Confirmed Only,0.0003713043478260869,True
+Kidney,SFRP4,up,up,True,0.15,0.28628195,0.28628195,False,Present,,,,,0,Not Validated,0.1881720430107527,False
+Kidney,SPARCL1,up,up,True,0.388,0.53766082,0.53766082,False,Present,,,,,0,Not Validated,0.43248407643312103,False
+Kidney,SPP1,up,up,True,0.00722,0.04240496,0.04240496,True,Present,,,,,0,DE Confirmed Only,0.011863849765258217,True
+Kidney,SRPX,up,up,True,0.000552,0.00981441,0.00981441,True,Present,,,,,0,DE Confirmed Only,0.0012627450980392156,True
+Kidney,SVEP1,up,up,True,0.0138,0.06263333,0.06263333,False,Present,,,,,0,Not Validated,0.02109170305676856,True
+Kidney,TGFB2,up,up,True,0.000322,0.00731424,0.00731424,True,Present,,,,,0,DE Confirmed Only,0.0007772413793103449,True
+Kidney,TGFB3,up,down,False,0.654,0.76396177,0.76396177,False,Present,,,,,0,Not Validated,0.6894578313253013,False
+Kidney,TGM2,up,up,True,1.67e-05,0.00169771,0.00169771,True,Present,,,,,0,DE Confirmed Only,6.088541666666666e-05,True
+Kidney,THBS1,up,up,True,0.00162,0.01815492,0.01815492,True,Present,,,,,0,DE Confirmed Only,0.0033352941176470587,True
+Kidney,TIMP1,up,up,True,3.41e-05,0.00248921,0.00248921,True,Present,,,,,0,DE Confirmed Only,0.00011154205607476635,True
+Kidney,TIMP4,up,down,False,0.131,0.26085908,0.26085908,False,Present,,,,,0,Not Validated,0.1661231884057971,False
+Kidney,TNC,up,up,True,3.62e-07,0.00017156,0.00017156,True,Present,,,,,0,DE Confirmed Only,1.9196969696969696e-06,True
+Kidney,TNFAIP6,up,up,True,6.86e-05,0.00325006,0.00325006,True,Present,,,,,0,DE Confirmed Only,0.0002163063063063063,True
+Kidney,VCAN,up,up,True,1.43e-07,0.00010849,0.00010849,True,Present,,,,,0,DE Confirmed Only,8.204918032786885e-07,True
+Kidney,VWF,up,up,True,0.00018267179110955002,0.018413316543842644,0.018413316543842644,True,Present,0.7784576554156888,0.0001176411295101321,-0.18787878787878787,0.6032176100292089,10,DE Confirmed Only,0.0004599649416427519,True
+Kidney,WIF1,up,down,False,0.0127,0.05963056,0.05963056,False,Present,,,,,0,Not Validated,0.019755555555555554,False
+Kidney,WNT10B,up,down,False,6.23e-05,0.00312671,0.00312671,True,Present,,,,,0,Not Validated,0.00020004587155963302,False
+Kidney,WNT2,up,down,False,0.00108,0.01433916,0.01433916,True,Present,,,,,0,Not Validated,0.0023625,False
+Liver,ADAMTS3,up,up,True,0.328,0.409,0.409,False,Present,,,,,0,Not Validated,0.3715210355987055,False
+Liver,ADAMTS4,up,,False,,,,False,Missing,,,,,0,Not Validated,,False
+Liver,ADAMTS5,up,up,True,1.46e-07,9.44e-07,9.44e-07,True,Present,,,,,0,DE Confirmed Only,8.241935483870969e-07,True
+Liver,ADAMTS9,up,up,True,0.000133,0.000416,0.000416,True,Present,,,,,0,DE Confirmed Only,0.00039786324786324787,True
+Liver,AEBP1,up,up,True,0.00018267179110955002,0.018413316543842644,0.018413316543842644,True,Present,0.8732709531227021,1.2526159219915994e-06,0.5085133809309825,0.3334755086790493,10,DE Confirmed Only,0.0004599649416427519,True
+Liver,ANGPT1,up,up,True,2.32e-06,1.12e-05,1.12e-05,True,Present,,,,,0,DE Confirmed Only,1.0278481012658228e-05,True
+Liver,ASPN,up,up,True,1.0400000000000002e-27,5.8e-25,5.8e-25,True,Present,,,,,0,DE Confirmed Only,6.066666666666668e-26,True
+Liver,BGN,up,up,True,1.53e-20,1.9e-18,1.9e-18,True,Present,,,,,0,DE Confirmed Only,3.346875e-19,True
+Liver,BMP1,up,down,False,7.98e-06,3.37e-05,3.37e-05,True,Present,,,,,0,Not Validated,3.210344827586207e-05,False
+Liver,C1QB,up,up,True,1.39e-11,2.27e-10,2.27e-10,True,Present,,,,,0,DE Confirmed Only,1.3148648648648648e-10,True
+Liver,C1QC,up,,False,,,,False,Missing,,,,,0,Not Validated,,False
+Liver,CCL18,up,up,True,1.58e-05,6.23e-05,6.23e-05,True,Present,,,,,0,DE Confirmed Only,5.946236559139785e-05,True
+Liver,CCL19,up,up,True,1.94e-22,3.61e-20,3.61e-20,True,Present,,,,,0,DE Confirmed Only,6.459090909090909e-21,True
+Liver,CCL2,up,up,True,1.97e-08,1.57e-07,1.57e-07,True,Present,,,,,0,DE Confirmed Only,1.3009433962264152e-07,True
+Liver,CCL21,up,up,True,2.5600000000000003e-21,3.78e-19,3.78e-19,True,Present,,,,,0,DE Confirmed Only,6.892307692307693e-20,True
+Liver,CCL4,up,up,True,2.53e-11,3.83e-10,3.83e-10,True,Present,,,,,0,DE Confirmed Only,2.330263157894737e-10,True
+Liver,CCL5,up,up,True,1.5e-20,1.88e-18,1.88e-18,True,Present,,,,,0,DE Confirmed Only,3.346875e-19,True
+Liver,CCN2,up,,False,,,,False,Missing,,,,,0,Not Validated,,False
+Liver,COL15A1,up,up,True,1.14e-07,7.56e-07,7.56e-07,True,Present,,,,,0,DE Confirmed Only,6.65e-07,True
+Liver,COL1A1,up,up,True,0.00018267179110955002,0.018413316543842644,0.018413316543842644,True,Present,0.7657292524140731,8.312259993039264e-05,-0.33689011486677595,0.4264386820368485,10,DE Confirmed Only,0.0004599649416427519,True
+Liver,COL1A2,up,up,True,0.00018267179110955002,0.018413316543842644,0.018413316543842644,True,Present,0.7657292524140731,8.312259993039264e-05,-0.33689011486677595,0.4264386820368485,10,DE Confirmed Only,0.0004599649416427519,True
+Liver,COL3A1,up,up,True,0.00018267179110955002,0.018413316543842644,0.018413316543842644,True,Present,0.8829739637129544,1.2526159219915994e-06,0.5847903880706299,0.3334755086790493,10,DE Confirmed Only,0.0004599649416427519,True
+Liver,COL4A1,up,up,True,6.68e-19,5.79e-17,5.79e-17,True,Present,,,,,0,DE Confirmed Only,1.2305263157894738e-17,True
+Liver,COL4A2,up,up,True,5.5000000000000005e-21,7.47e-19,7.47e-19,True,Present,,,,,0,DE Confirmed Only,1.3750000000000001e-19,True
+Liver,COL5A2,up,up,True,8.79e-11,1.18e-09,1.18e-09,True,Present,,,,,0,DE Confirmed Only,7.325e-10,True
+Liver,COL6A3,up,up,True,8.14e-16,3.5e-14,3.5e-14,True,Present,,,,,0,DE Confirmed Only,1.0957692307692308e-14,True
+Liver,COLEC10,up,up,True,0.00638,0.0132,0.0132,True,Present,,,,,0,DE Confirmed Only,0.010684210526315789,True
+Liver,COLEC11,up,up,True,5.7e-23,1.15e-20,1.15e-20,True,Present,,,,,0,DE Confirmed Only,2.2166666666666667e-21,True
+Liver,COMP,up,up,True,0.447,0.53,0.53,False,Present,,,,,0,Not Validated,0.48890625000000004,False
+Liver,CRISPLD2,up,up,True,6.51e-18,4.62e-16,4.62e-16,True,Present,,,,,0,DE Confirmed Only,1.13925e-16,True
+Liver,CTSE,up,down,False,0.0374,0.0632,0.0632,False,Present,,,,,0,Not Validated,0.053428571428571436,False
+Liver,CTSS,up,up,True,2.27e-12,4.43e-11,4.43e-11,True,Present,,,,,0,DE Confirmed Only,2.336764705882353e-11,True
+Liver,CTSZ,up,down,False,0.307,0.387,0.387,False,Present,,,,,0,Not Validated,0.3511437908496732,False
+Liver,CXCL3,up,up,True,0.00391,0.00854,0.00854,True,Present,,,,,0,DE Confirmed Only,0.007017948717948718,True
+Liver,CXCL9,up,up,True,1.45e-17,9.27e-16,9.27e-16,True,Present,,,,,0,DE Confirmed Only,2.3227272727272723e-16,True
+Liver,DCN,up,up,True,4.65e-34,5.7399999999999995e-30,5.7399999999999995e-30,True,Present,,,,,0,DE Confirmed Only,8.1375e-32,True
+Liver,EFEMP1,up,up,True,1.2200000000000001e-29,8.800000000000001e-27,8.800000000000001e-27,True,Present,,,,,0,DE Confirmed Only,1.0675000000000002e-27,True
+Liver,F13A1,up,up,True,3.48e-08,2.59e-07,2.59e-07,True,Present,,,,,0,DE Confirmed Only,2.2145454545454547e-07,True
+Liver,FBN1,up,up,True,3.32e-13,7.85e-12,7.85e-12,True,Present,,,,,0,DE Confirmed Only,3.748387096774194e-12,True
+Liver,FGF10,up,,False,,,,False,Missing,,,,,0,Not Validated,,False
+Liver,FGF14,up,down,False,0.0199,0.0362,0.0362,True,Present,,,,,0,Not Validated,0.02963829787234043,False
+Liver,FGF7,up,up,True,0.00188,0.00444,0.00444,True,Present,,,,,0,DE Confirmed Only,0.0038017241379310345,True
+Liver,FGFBP2,up,,False,,,,False,Missing,,,,,0,Not Validated,,False
+Liver,FMOD,up,up,True,7.5e-16,3.25e-14,3.25e-14,True,Present,,,,,0,DE Confirmed Only,1.05e-14,True
+Liver,FSTL1,up,up,True,2.27e-15,8.81e-14,8.81e-14,True,Present,,,,,0,DE Confirmed Only,2.8374999999999996e-14,True
+Liver,GDF15,up,up,True,5.1e-09,4.59e-08,4.59e-08,True,Present,,,,,0,DE Confirmed Only,3.966666666666667e-08,True
+Liver,IGF1,up,down,False,0.00243,0.00559,0.00559,True,Present,,,,,0,Not Validated,0.004616216216216216,False
+Liver,IGFBP5,up,up,True,6.17e-05,0.000209,0.000209,True,Present,,,,,0,DE Confirmed Only,0.0001999537037037037,True
+Liver,IL1A,up,down,False,1.19e-05,4.82e-05,4.82e-05,True,Present,,,,,0,Not Validated,4.527173913043478e-05,False
+Liver,LAMC3,up,up,True,5.87e-13,1.31e-11,1.31e-11,True,Present,,,,,0,DE Confirmed Only,6.225757575757576e-12,True
+Liver,LEFTY2,up,,False,,,,False,Missing,,,,,0,Not Validated,,False
+Liver,LEP,up,down,False,0.0029,0.00654,0.00654,True,Present,,,,,0,Not Validated,0.00531413612565445,False
+Liver,LTB,up,up,True,2.44e-16,1.2e-14,1.2e-14,True,Present,,,,,0,DE Confirmed Only,3.558333333333333e-15,True
+Liver,LTBP2,up,up,True,8.52e-12,1.45e-10,1.45e-10,True,Present,,,,,0,DE Confirmed Only,8.283333333333333e-11,True
+Liver,LUM,up,up,True,7.570000000000001e-31,7.9e-28,7.9e-28,True,Present,,,,,0,DE Confirmed Only,8.831666666666667e-29,True
+Liver,MATN3,up,up,True,0.00125,0.00309,0.00309,True,Present,,,,,0,DE Confirmed Only,0.0026840490797546013,True
+Liver,MDK,up,up,True,2.88e-05,0.000107,0.000107,True,Present,,,,,0,DE Confirmed Only,9.88235294117647e-05,True
+Liver,MFAP4,up,up,True,5.79e-22,9.63e-20,9.63e-20,True,Present,,,,,0,DE Confirmed Only,1.6887499999999998e-20,True
+Liver,MMP11,up,down,False,0.000174,0.000531,0.000531,True,Present,,,,,0,Not Validated,0.0004599649416427519,False
+Liver,MMP12,up,up,True,0.426,0.508,0.508,False,Present,,,,,0,Not Validated,0.4703470031545741,False
+Liver,MUC4,up,down,False,0.00591,0.0123,0.0123,True,Present,,,,,0,Not Validated,0.01002657004830918,False
+Liver,NID1,up,up,True,0.275,0.353,0.353,False,Present,,,,,0,Not Validated,0.31765676567656764,False
+Liver,PCOLCE2,up,down,False,4.79e-20,5.42e-18,5.42e-18,True,Present,,,,,0,Not Validated,9.861764705882353e-19,False
+Liver,PDGFD,up,up,True,5.669999999999999e-23,1.15e-20,1.15e-20,True,Present,,,,,0,DE Confirmed Only,2.2166666666666667e-21,True
+Liver,PLOD2,up,down,False,0.00555,0.0116,0.0116,True,Present,,,,,0,Not Validated,0.00953921568627451,False
+Liver,PLXNA3,up,down,False,0.00286,0.00645,0.00645,True,Present,,,,,0,Not Validated,0.005296296296296296,False
+Liver,PLXND1,up,up,True,1.08e-08,9.07e-08,9.07e-08,True,Present,,,,,0,DE Confirmed Only,7.411764705882353e-08,True
+Liver,POSTN,up,up,True,0.159,0.221,0.221,False,Present,,,,,0,Not Validated,0.19804270462633453,False
+Liver,PRELP,up,up,True,1.81e-16,9.12e-15,9.12e-15,True,Present,,,,,0,DE Confirmed Only,2.7543478260869567e-15,True
+Liver,PRG4,up,down,False,1.15e-15,4.72e-14,4.72e-14,True,Present,,,,,0,Not Validated,1.4907407407407407e-14,False
+Liver,PRSS12,up,down,False,0.000565,0.00152,0.00152,True,Present,,,,,0,Not Validated,0.001284090909090909,False
+Liver,S100A6,up,up,True,2.03e-22,3.7e-20,3.7e-20,True,Present,,,,,0,DE Confirmed Only,6.459090909090909e-21,True
+Liver,SDC3,up,up,True,0.00224,0.00519,0.00519,True,Present,,,,,0,DE Confirmed Only,0.004454545454545454,True
+Liver,SEMA3E,up,up,True,0.000237,0.000699,0.000699,True,Present,,,,,0,DE Confirmed Only,0.0005924999999999999,True
+Liver,SEMA6A,up,up,True,0.719,0.778,0.778,False,Present,,,,,0,Not Validated,0.7489583333333333,False
+Liver,SEMA7A,up,down,False,0.00421,0.00911,0.00911,True,Present,,,,,0,Not Validated,0.007479695431472082,False
+Liver,SERPINE1,up,up,True,1.99e-06,9.79e-06,9.79e-06,True,Present,,,,,0,DE Confirmed Only,8.929487179487179e-06,True
+Liver,SERPINE2,up,up,True,8.69e-09,7.46e-08,7.46e-08,True,Present,,,,,0,DE Confirmed Only,6.207142857142857e-08,True
+Liver,SERPINF2,up,down,False,2.48e-09,2.4e-08,2.4e-08,True,Present,,,,,0,Not Validated,1.9727272727272728e-08,False
+Liver,SERPINH1,up,up,True,3.42e-06,1.59e-05,1.59e-05,True,Present,,,,,0,DE Confirmed Only,1.49625e-05,True
+Liver,SFRP4,up,up,True,0.682,0.745,0.745,False,Present,,,,,0,Not Validated,0.7168168168168169,False
+Liver,SPARCL1,up,up,True,3.05e-19,2.87e-17,2.87e-17,True,Present,,,,,0,DE Confirmed Only,5.930555555555556e-18,True
+Liver,SPP1,up,up,True,3.89e-13,9.06e-12,9.06e-12,True,Present,,,,,0,DE Confirmed Only,4.2546875000000005e-12,True
+Liver,SRPX,up,up,True,2.25e-14,7.02e-13,7.02e-13,True,Present,,,,,0,DE Confirmed Only,2.625e-13,True
+Liver,SVEP1,up,up,True,6.35e-11,8.75e-10,8.75e-10,True,Present,,,,,0,DE Confirmed Only,5.420731707317074e-10,True
+Liver,TGFB2,up,up,True,0.00235,0.00542,0.00542,True,Present,,,,,0,DE Confirmed Only,0.004569444444444445,True
+Liver,TGFB3,up,down,False,0.366,0.448,0.448,False,Present,,,,,0,Not Validated,0.41057692307692306,False
+Liver,TGM2,up,down,False,6.16e-06,2.69e-05,2.69e-05,True,Present,,,,,0,Not Validated,2.5364705882352942e-05,False
+Liver,THBS1,up,up,True,4.13e-11,5.93e-10,5.93e-10,True,Present,,,,,0,DE Confirmed Only,3.706410256410256e-10,True
+Liver,TIMP1,up,up,True,7.8e-07,4.24e-06,4.24e-06,True,Present,,,,,0,DE Confirmed Only,3.791666666666667e-06,True
+Liver,TIMP4,up,down,False,0.253,0.33,0.33,False,Present,,,,,0,Not Validated,0.29615384615384616,False
+Liver,TNC,up,up,True,0.00803,0.0162,0.0162,True,Present,,,,,0,DE Confirmed Only,0.013072093023255814,True
+Liver,TNFAIP6,up,down,False,0.207,0.278,0.278,False,Present,,,,,0,Not Validated,0.24982758620689652,False
+Liver,VCAN,up,up,True,1.46e-17,9.29e-16,9.29e-16,True,Present,,,,,0,DE Confirmed Only,2.3227272727272723e-16,True
+Liver,VWF,up,up,True,0.00018267179110955002,0.018413316543842644,0.018413316543842644,True,Present,0.8312245738982758,9.36686715486439e-06,0.17797968332584388,0.6227695474948177,10,DE Confirmed Only,0.0004599649416427519,True
+Liver,WIF1,up,up,True,0.261,0.338,0.338,False,Present,,,,,0,Not Validated,0.30450000000000005,False
+Liver,WNT10B,up,down,False,0.628,0.697,0.697,False,Present,,,,,0,Not Validated,0.6660606060606061,False
+Liver,WNT2,up,down,False,2.34e-05,8.84e-05,8.84e-05,True,Present,,,,,0,Not Validated,8.19e-05,False
+Lung,ADAMTS3,up,up,True,0.00897,0.0277,0.0277,True,Present,,,,,0,DE Confirmed Only,0.014286363636363637,True
+Lung,ADAMTS4,up,down,False,0.021,0.0539,0.0539,False,Present,,,,,0,Not Validated,0.03114406779661017,False
+Lung,ADAMTS5,up,up,True,1.91e-05,0.000185,0.000185,True,Present,,,,,0,DE Confirmed Only,6.821428571428571e-05,True
+Lung,ADAMTS9,up,up,True,0.832,0.887,0.887,False,Present,,,,,0,Not Validated,0.8465116279069766,False
+Lung,AEBP1,up,up,True,0.00018267179110955002,0.023016645679803303,0.023016645679803303,True,Present,0.7415030092349646,0.00018289483468713475,-0.4666666666666666,0.43484649291266636,10,DE Confirmed Only,0.0004599649416427519,True
+Lung,ANGPT1,up,down,False,4.04e-08,9.24e-07,9.24e-07,True,Present,,,,,0,Not Validated,2.5249999999999996e-07,False
+Lung,ASPN,up,up,True,0.00556,0.019,0.019,True,Present,,,,,0,DE Confirmed Only,0.00953921568627451,True
+Lung,BGN,up,down,False,0.00312,0.0119,0.0119,True,Present,,,,,0,Not Validated,0.0056875,False
+Lung,BMP1,up,down,False,0.198,0.313,0.313,False,Present,,,,,0,Not Validated,0.240625,False
+Lung,C1QB,up,down,False,8.3e-06,9.21e-05,9.21e-05,True,Present,,,,,0,Not Validated,3.3011363636363635e-05,False
+Lung,C1QC,up,down,False,2.3e-05,0.000215,0.000215,True,Present,,,,,0,Not Validated,8.13131313131313e-05,False
+Lung,CCL18,up,down,False,0.587,0.699,0.699,False,Present,,,,,0,Not Validated,0.624468085106383,False
+Lung,CCL19,up,up,True,0.00272,0.0107,0.0107,True,Present,,,,,0,DE Confirmed Only,0.005090909090909091,True
+Lung,CCL2,up,down,False,0.322,0.449,0.449,False,Present,,,,,0,Not Validated,0.3659090909090909,False
+Lung,CCL21,up,down,False,0.0557,0.116,0.116,False,Present,,,,,0,Not Validated,0.07527027027027026,False
+Lung,CCL4,up,down,False,0.00623,0.0207,0.0207,True,Present,,,,,0,Not Validated,0.010483173076923077,False
+Lung,CCL5,up,down,False,0.4,0.528,0.528,False,Present,,,,,0,Not Validated,0.4444444444444445,False
+Lung,CCN2,up,down,False,6.85e-09,1.89e-07,1.89e-07,True,Present,,,,,0,Not Validated,4.994791666666666e-08,False
+Lung,COL15A1,up,up,True,1.16e-08,3.03e-07,3.03e-07,True,Present,,,,,0,DE Confirmed Only,7.807692307692308e-08,True
+Lung,COL1A1,up,up,True,0.00018267179110955002,0.023016645679803303,0.023016645679803303,True,Present,0.7848845504036408,5.202582729061194e-05,-0.13939393939393938,0.7009318849100584,10,DE Confirmed Only,0.0004599649416427519,True
+Lung,COL1A2,up,up,True,0.00018267179110955002,0.023016645679803303,0.023016645679803303,True,Present,0.821839196584365,1.4699820686409985e-05,0.13939393939393938,0.7009318849100584,10,DE Confirmed Only,0.0004599649416427519,True
+Lung,COL3A1,up,up,True,0.00024612812790522973,0.02480971529284716,0.02480971529284716,True,Present,0.8836980608434032,1.2034107394601192e-06,0.709090909090909,0.10832961683766217,10,Fully Confirmed,0.0006066538363861296,True
+Lung,COL4A1,up,down,False,6.31e-09,1.76e-07,1.76e-07,True,Present,,,,,0,Not Validated,4.6989361702127657e-08,False
+Lung,COL4A2,up,down,False,3.07e-10,1.2e-08,1.2e-08,True,Present,,,,,0,Not Validated,2.498837209302326e-09,False
+Lung,COL5A2,up,up,True,0.229,0.348,0.348,False,Present,,,,,0,Not Validated,0.2716949152542373,False
+Lung,COL6A3,up,up,True,0.0488,0.105,0.105,False,Present,,,,,0,Not Validated,0.06645914396887159,False
+Lung,COLEC10,up,down,False,7.86e-15,8.12e-13,8.12e-13,True,Present,,,,,0,Not Validated,9.486206896551726e-14,False
+Lung,COLEC11,up,down,False,0.718,0.801,0.801,False,Present,,,,,0,Not Validated,0.7489583333333333,False
+Lung,COMP,up,up,True,0.000144,0.000996,0.000996,True,Present,,,,,0,DE Confirmed Only,0.00042711864406779664,True
+Lung,CRISPLD2,up,down,False,0.177,0.287,0.287,False,Present,,,,,0,Not Validated,0.2181338028169014,False
+Lung,CTSE,up,up,True,0.0861,0.163,0.163,False,Present,,,,,0,Not Validated,0.11328947368421052,False
+Lung,CTSS,up,down,False,0.00771,0.0246,0.0246,True,Present,,,,,0,Not Validated,0.012609813084112149,False
+Lung,CTSZ,up,down,False,9.21e-06,0.0001,0.0001,True,Present,,,,,0,Not Validated,3.581666666666667e-05,False
+Lung,CXCL3,up,down,False,6.55e-08,1.39e-06,1.39e-06,True,Present,,,,,0,Not Validated,4.021929824561403e-07,False
+Lung,CXCL9,up,down,False,0.27,0.394,0.394,False,Present,,,,,0,Not Validated,0.3129139072847682,False
+Lung,DCN,up,down,False,0.0614,0.125,0.125,False,Present,,,,,0,Not Validated,0.08233716475095787,False
+Lung,EFEMP1,up,down,False,1.06e-05,0.000113,0.000113,True,Present,,,,,0,Not Validated,4.076923076923077e-05,False
+Lung,F13A1,up,down,False,0.63,0.733,0.733,False,Present,,,,,0,Not Validated,0.6661631419939577,False
+Lung,FBN1,up,up,True,0.456,0.581,0.581,False,Present,,,,,0,Not Validated,0.49565217391304345,False
+Lung,FGF10,up,up,True,0.0188,0.0495,0.0495,True,Present,,,,,0,DE Confirmed Only,0.02811965811965812,True
+Lung,FGF14,up,up,True,0.181,0.292,0.292,False,Present,,,,,0,Not Validated,0.22073170731707317,False
+Lung,FGF7,up,up,True,0.0332,0.0772,0.0772,False,Present,,,,,0,Not Validated,0.047818930041152265,True
+Lung,FGFBP2,up,down,False,2.58e-07,4.64e-06,4.64e-06,True,Present,,,,,0,Not Validated,1.3892307692307691e-06,False
+Lung,FMOD,up,down,False,0.00479,0.0168,0.0168,True,Present,,,,,0,Not Validated,0.008382500000000001,False
+Lung,FSTL1,up,up,True,0.227,0.347,0.347,False,Present,,,,,0,Not Validated,0.2702380952380953,False
+Lung,GDF15,up,up,True,0.309,0.436,0.436,False,Present,,,,,0,Not Validated,0.35228013029315963,False
+Lung,IGF1,up,up,True,6.55e-12,3.76e-10,3.76e-10,True,Present,,,,,0,DE Confirmed Only,6.549999999999999e-11,True
+Lung,IGFBP5,up,up,True,6.12e-06,7.14e-05,7.14e-05,True,Present,,,,,0,DE Confirmed Only,2.5364705882352942e-05,True
+Lung,IL1A,up,,False,,,,False,Missing,,,,,0,Not Validated,,False
+Lung,LAMC3,up,down,False,2.79e-35,7.66e-32,7.66e-32,True,Present,,,,,0,Not Validated,9.765000000000001e-33,False
+Lung,LEFTY2,up,down,False,2.08e-08,5.16e-07,5.16e-07,True,Present,,,,,0,Not Validated,1.3481481481481482e-07,False
+Lung,LEP,up,,False,,,,False,Missing,,,,,0,Not Validated,,False
+Lung,LTB,up,up,True,0.042,0.0931,0.0931,False,Present,,,,,0,Not Validated,0.0592741935483871,False
+Lung,LTBP2,up,down,False,4.67e-11,2.24e-09,2.24e-09,True,Present,,,,,0,Not Validated,4.0862499999999997e-10,False
+Lung,LUM,up,down,False,0.307,0.434,0.434,False,Present,,,,,0,Not Validated,0.3511437908496732,False
+Lung,MATN3,up,down,False,3.3e-24,1.4200000000000002e-21,1.4200000000000002e-21,True,Present,,,,,0,Not Validated,1.6499999999999998e-22,False
+Lung,MDK,up,up,True,0.861,0.907,0.907,False,Present,,,,,0,Not Validated,0.8684438040345821,False
+Lung,MFAP4,up,down,False,1.02e-07,2.04e-06,2.04e-06,True,Present,,,,,0,Not Validated,6.050847457627118e-07,False
+Lung,MMP11,up,up,True,0.000168,0.00114,0.00114,True,Present,,,,,0,DE Confirmed Only,0.0004599649416427519,True
+Lung,MMP12,up,up,True,1.79e-07,3.35e-06,3.35e-06,True,Present,,,,,0,DE Confirmed Only,9.7890625e-07,True
+Lung,MUC4,up,up,True,1.57e-07,2.98e-06,2.98e-06,True,Present,,,,,0,DE Confirmed Only,8.722222222222222e-07,True
+Lung,NID1,up,down,False,1.64e-05,0.000163,0.000163,True,Present,,,,,0,Not Validated,6.042105263157895e-05,False
+Lung,PCOLCE2,up,down,False,2.44e-05,0.000226,0.000226,True,Present,,,,,0,Not Validated,8.455445544554455e-05,False
+Lung,PDGFD,up,up,True,0.0441,0.0966,0.0966,False,Present,,,,,0,Not Validated,0.061739999999999996,False
+Lung,PLOD2,up,up,True,0.0264,0.0645,0.0645,False,Present,,,,,0,Not Validated,0.0385,True
+Lung,PLXNA3,up,up,True,0.177,0.287,0.287,False,Present,,,,,0,Not Validated,0.2181338028169014,False
+Lung,PLXND1,up,down,False,4.52e-07,7.61e-06,7.61e-06,True,Present,,,,,0,Not Validated,2.3264705882352944e-06,False
+Lung,POSTN,up,up,True,1.99e-06,2.74e-05,2.74e-05,True,Present,,,,,0,DE Confirmed Only,8.929487179487179e-06,True
+Lung,PRELP,up,down,False,5.2e-06,6.22e-05,6.22e-05,True,Present,,,,,0,Not Validated,2.2195121951219512e-05,False
+Lung,PRG4,up,down,False,0.0468,0.101,0.101,False,Present,,,,,0,Not Validated,0.06437254901960784,False
+Lung,PRSS12,up,up,True,0.0464,0.101,0.101,False,Present,,,,,0,Not Validated,0.0641897233201581,False
+Lung,S100A6,up,down,False,0.000541,0.00295,0.00295,True,Present,,,,,0,Not Validated,0.0012457236842105264,False
+Lung,SDC3,up,down,False,0.000463,0.00259,0.00259,True,Present,,,,,0,Not Validated,0.0011023809523809523,False
+Lung,SEMA3E,up,down,False,0.000133,0.000935,0.000935,True,Present,,,,,0,Not Validated,0.00039786324786324787,False
+Lung,SEMA6A,up,down,False,3.15e-28,2.66e-25,2.66e-25,True,Present,,,,,0,Not Validated,2.205e-26,False
+Lung,SEMA7A,up,up,True,0.48,0.605,0.605,False,Present,,,,,0,Not Validated,0.5201238390092879,False
+Lung,SERPINE1,up,down,False,7.07e-08,1.49e-06,1.49e-06,True,Present,,,,,0,Not Validated,4.266379310344828e-07,False
+Lung,SERPINE2,up,up,True,0.00692,0.0225,0.0225,True,Present,,,,,0,DE Confirmed Only,0.011441037735849056,True
+Lung,SERPINF2,up,down,False,0.702,0.788,0.788,False,Present,,,,,0,Not Validated,0.73562874251497,False
+Lung,SERPINH1,up,down,False,0.00693,0.0225,0.0225,True,Present,,,,,0,Not Validated,0.011441037735849056,False
+Lung,SFRP4,up,up,True,0.00841,0.0263,0.0263,True,Present,,,,,0,DE Confirmed Only,0.01356451612903226,True
+Lung,SPARCL1,up,down,False,0.53,0.649,0.649,False,Present,,,,,0,Not Validated,0.5707692307692308,False
+Lung,SPP1,up,up,True,1.96e-06,2.71e-05,2.71e-05,True,Present,,,,,0,DE Confirmed Only,8.929487179487179e-06,True
+Lung,SRPX,up,down,False,0.0678,0.135,0.135,False,Present,,,,,0,Not Validated,0.09022813688212927,False
+Lung,SVEP1,up,down,False,5.98e-09,1.68e-07,1.68e-07,True,Present,,,,,0,Not Validated,4.55e-08,False
+Lung,TGFB2,up,down,False,1.91e-05,0.000185,0.000185,True,Present,,,,,0,Not Validated,6.821428571428571e-05,False
+Lung,TGFB3,up,up,True,0.0233,0.0584,0.0584,False,Present,,,,,0,Not Validated,0.0341213389121339,True
+Lung,TGM2,up,down,False,5.43e-07,8.88e-06,8.88e-06,True,Present,,,,,0,Not Validated,2.7543478260869565e-06,False
+Lung,THBS1,up,down,False,4.45e-06,5.45e-05,5.45e-05,True,Present,,,,,0,Not Validated,1.9228395061728393e-05,False
+Lung,TIMP1,up,up,True,0.428,0.556,0.556,False,Present,,,,,0,Not Validated,0.4710691823899371,False
+Lung,TIMP4,up,down,False,0.93,0.953,0.953,False,Present,,,,,0,Not Validated,0.9326647564469915,False
+Lung,TNC,up,up,True,0.451,0.577,0.577,False,Present,,,,,0,Not Validated,0.49174454828660435,False
+Lung,TNFAIP6,up,up,True,0.58,0.693,0.693,False,Present,,,,,0,Not Validated,0.6189024390243902,False
+Lung,VCAN,up,up,True,0.000517,0.00284,0.00284,True,Present,,,,,0,DE Confirmed Only,0.0012029801324503313,True
+Lung,VWF,up,up,True,0.00018267179110955002,0.023016645679803303,0.023016645679803303,True,Present,0.842726605295209,7.781895477568106e-06,0.29696969696969694,0.6745027854502618,10,DE Confirmed Only,0.0004599649416427519,True
+Lung,WIF1,up,down,False,0.011,0.0326,0.0326,True,Present,,,,,0,Not Validated,0.01726457399103139,False
+Lung,WNT10B,up,up,True,3.32e-05,0.000293,0.000293,True,Present,,,,,0,DE Confirmed Only,0.00011154205607476635,True
+Lung,WNT2,up,down,False,0.00326,0.0124,0.0124,True,Present,,,,,0,Not Validated,0.005911917098445596,False
+Skin,ADAMTS3,up,,False,,,,False,Platform_Missing (Agilent 4x44K coverage limitation in GSE125362),,,,,0,Not Validated,,False
+Skin,ADAMTS4,up,up,True,0.000998,0.04027,0.04027,True,Present,,,,,0,DE Confirmed Only,0.0021968553459119494,True
+Skin,ADAMTS5,up,up,True,0.0669,0.319059,0.319059,False,Present,,,,,0,Not Validated,0.0893702290076336,False
+Skin,ADAMTS9,up,up,True,0.00178,0.051818,0.051818,False,Present,,,,,0,Not Validated,0.0036220930232558138,True
+Skin,AEBP1,up,up,True,0.00018267179110955002,0.023016645679803303,0.023016645679803303,True,Present,0.804165235367497,3.214118389099949e-05,0.006060606060606061,0.9867429111949892,10,DE Confirmed Only,0.0004599649416427519,True
+Skin,ANGPT1,up,up,True,0.199,0.5293,0.5293,False,Present,,,,,0,Not Validated,0.24100346020761246,False
+Skin,ASPN,up,up,True,0.0231,0.187272,0.187272,False,Present,,,,,0,Not Validated,0.033970588235294114,True
+Skin,BGN,up,up,True,0.516,0.790314,0.790314,False,Present,,,,,0,Not Validated,0.5574074074074075,False
+Skin,BMP1,up,,False,,,,False,Platform_Missing (Agilent 4x44K coverage limitation in GSE125362),,,,,0,Not Validated,,False
+Skin,C1QB,up,up,True,0.0129,0.138904,0.138904,False,Present,,,,,0,Not Validated,0.01988986784140969,True
+Skin,C1QC,up,,False,,,,False,Platform_Missing (Agilent 4x44K coverage limitation in GSE125362),,,,,0,Not Validated,,False
+Skin,CCL18,up,up,True,0.348,0.670241,0.670241,False,Present,,,,,0,Not Validated,0.3916398713826366,False
+Skin,CCL19,up,up,True,0.241,0.57235,0.57235,False,Present,,,,,0,Not Validated,0.2849662162162162,False
+Skin,CCL2,up,up,True,0.00147,0.048144,0.048144,True,Present,,,,,0,DE Confirmed Only,0.003080838323353293,True
+Skin,CCL21,up,,False,,,,False,Platform_Missing (Agilent 4x44K coverage limitation in GSE125362),,,,,0,Not Validated,,False
+Skin,CCL4,up,,False,,,,False,Platform_Missing (Agilent 4x44K coverage limitation in GSE125362),,,,,0,Not Validated,,False
+Skin,CCL5,up,,False,,,,False,Platform_Missing (Agilent 4x44K coverage limitation in GSE125362),,,,,0,Not Validated,,False
+Skin,CCN2,up,,False,,,,False,Platform_Missing (Agilent 4x44K coverage limitation in GSE125362),,,,,0,Not Validated,,False
+Skin,COL15A1,up,up,True,0.000255,0.022059,0.022059,True,Present,,,,,0,DE Confirmed Only,0.0006241258741258741,True
+Skin,COL1A1,up,up,True,0.00018267179110955002,0.023016645679803303,0.023016645679803303,True,Present,0.7864912741506288,4.1620661832489554e-05,-0.12727272727272726,0.9075712684534867,10,DE Confirmed Only,0.0004599649416427519,True
+Skin,COL1A2,up,up,True,0.00018267179110955002,0.023016645679803303,0.023016645679803303,True,Present,0.7848845504036408,4.1620661832489554e-05,-0.13939393939393938,0.9075712684534867,10,DE Confirmed Only,0.0004599649416427519,True
+Skin,COL3A1,up,up,True,0.00018267179110955002,0.023016645679803303,0.023016645679803303,True,Present,0.852366947777137,4.5701397481943105e-06,0.3696969696969697,0.7326251882320558,10,DE Confirmed Only,0.0004599649416427519,True
+Skin,COL4A1,up,up,True,3.35e-05,0.00796,0.00796,True,Present,,,,,0,DE Confirmed Only,0.00011154205607476635,True
+Skin,COL4A2,up,up,True,0.000932,0.039236,0.039236,True,Present,,,,,0,DE Confirmed Only,0.002077707006369427,True
+Skin,COL5A2,up,up,True,9.68e-07,0.001038,0.001038,True,Present,,,,,0,DE Confirmed Only,4.64109589041096e-06,True
+Skin,COL6A3,up,up,True,6.06e-06,0.003546,0.003546,True,Present,,,,,0,DE Confirmed Only,2.5364705882352942e-05,True
+Skin,COLEC10,up,,False,,,,False,Platform_Missing (Agilent 4x44K coverage limitation in GSE125362),,,,,0,Not Validated,,False
+Skin,COLEC11,up,up,True,0.0017,0.050646,0.050646,False,Present,,,,,0,Not Validated,0.00347953216374269,True
+Skin,COMP,up,up,True,0.000357,0.025696,0.025696,True,Present,,,,,0,DE Confirmed Only,0.0008558219178082192,True
+Skin,CRISPLD2,up,,False,,,,False,Platform_Missing (Agilent 4x44K coverage limitation in GSE125362),,,,,0,Not Validated,,False
+Skin,CTSE,up,,False,,,,False,Platform_Missing (Agilent 4x44K coverage limitation in GSE125362),,,,,0,Not Validated,,False
+Skin,CTSS,up,up,True,0.00191,0.053604,0.053604,False,Present,,,,,0,Not Validated,0.00382,True
+Skin,CTSZ,up,up,True,0.000148,0.017481,0.017481,True,Present,,,,,0,DE Confirmed Only,0.0004352941176470588,True
+Skin,CXCL3,up,up,True,0.103,0.39281,0.39281,False,Present,,,,,0,Not Validated,0.1335185185185185,False
+Skin,CXCL9,up,,False,,,,False,Platform_Missing (Agilent 4x44K coverage limitation in GSE125362),,,,,0,Not Validated,,False
+Skin,DCN,up,up,True,0.22,0.551657,0.551657,False,Present,,,,,0,Not Validated,0.26279863481228666,False
+Skin,EFEMP1,up,up,True,0.00391,0.077205,0.077205,False,Present,,,,,0,Not Validated,0.007017948717948718,True
+Skin,F13A1,up,up,True,0.0455,0.264053,0.264053,False,Present,,,,,0,Not Validated,0.06319444444444444,False
+Skin,FBN1,up,up,True,7.55e-05,0.012262,0.012262,True,Present,,,,,0,DE Confirmed Only,0.00023384955752212393,True
+Skin,FGF10,up,,False,,,,False,Platform_Missing (Agilent 4x44K coverage limitation in GSE125362),,,,,0,Not Validated,,False
+Skin,FGF14,up,,False,,,,False,Platform_Missing (Agilent 4x44K coverage limitation in GSE125362),,,,,0,Not Validated,,False
+Skin,FGF7,up,up,True,0.0128,0.138665,0.138665,False,Present,,,,,0,Not Validated,0.019823008849557525,True
+Skin,FGFBP2,up,down,False,8.57e-06,0.004596,0.004596,True,Present,,,,,0,Not Validated,3.3702247191011235e-05,False
+Skin,FMOD,up,up,True,0.423,0.729687,0.729687,False,Present,,,,,0,Not Validated,0.4685126582278481,False
+Skin,FSTL1,up,up,True,1.62e-05,0.006316,0.006316,True,Present,,,,,0,DE Confirmed Only,6.031914893617022e-05,True
+Skin,GDF15,up,up,True,0.000858,0.038014,0.038014,True,Present,,,,,0,DE Confirmed Only,0.001925,True
+Skin,IGF1,up,up,True,0.00403,0.078128,0.078128,False,Present,,,,,0,Not Validated,0.007196428571428571,True
+Skin,IGFBP5,up,down,False,0.0151,0.15073,0.15073,False,Present,,,,,0,Not Validated,0.022780172413793105,False
+Skin,IL1A,up,,False,,,,False,Platform_Missing (Agilent 4x44K coverage limitation in GSE125362),,,,,0,Not Validated,,False
+Skin,LAMC3,up,down,False,0.00829,0.114795,0.114795,False,Present,,,,,0,Not Validated,0.013432870370370373,False
+Skin,LEFTY2,up,,False,,,,False,Platform_Missing (Agilent 4x44K coverage limitation in GSE125362),,,,,0,Not Validated,,False
+Skin,LEP,up,,False,,,,False,Platform_Missing (Agilent 4x44K coverage limitation in GSE125362),,,,,0,Not Validated,,False
+Skin,LTB,up,up,True,0.00231,0.059077,0.059077,False,Present,,,,,0,Not Validated,0.004516759776536312,True
+Skin,LTBP2,up,up,True,0.0953,0.379319,0.379319,False,Present,,,,,0,Not Validated,0.12445895522388059,False
+Skin,LUM,up,up,True,7.19e-07,0.000939,0.000939,True,Present,,,,,0,DE Confirmed Only,3.595e-06,True
+Skin,MATN3,up,up,True,0.00676,0.102353,0.102353,False,Present,,,,,0,Not Validated,0.011266666666666668,True
+Skin,MDK,up,up,True,0.0519,0.2826,0.2826,False,Present,,,,,0,Not Validated,0.07040697674418606,False
+Skin,MFAP4,up,up,True,0.155,0.474866,0.474866,False,Present,,,,,0,Not Validated,0.19374999999999998,False
+Skin,MMP11,up,up,True,0.0176,0.163626,0.163626,False,Present,,,,,0,Not Validated,0.02643776824034335,True
+Skin,MMP12,up,,False,,,,False,Platform_Missing (Agilent 4x44K coverage limitation in GSE125362),,,,,0,Not Validated,,False
+Skin,MUC4,up,up,True,0.824,0.938129,0.938129,False,Present,,,,,0,Not Validated,0.8408163265306122,False
+Skin,NID1,up,,False,,,,False,Platform_Missing (Agilent 4x44K coverage limitation in GSE125362),,,,,0,Not Validated,,False
+Skin,PCOLCE2,up,up,True,0.178,0.503741,0.503741,False,Present,,,,,0,Not Validated,0.21859649122807018,False
+Skin,PDGFD,up,up,True,0.775,0.918861,0.918861,False,Present,,,,,0,Not Validated,0.7977941176470589,False
+Skin,PLOD2,up,up,True,0.00505,0.08882,0.08882,False,Present,,,,,0,Not Validated,0.008749999999999999,True
+Skin,PLXNA3,up,,False,,,,False,Platform_Missing (Agilent 4x44K coverage limitation in GSE125362),,,,,0,Not Validated,,False
+Skin,PLXND1,up,up,True,0.0024,0.060306,0.060306,False,Present,,,,,0,Not Validated,0.004615384615384615,True
+Skin,POSTN,up,up,True,0.262,0.594877,0.594877,False,Present,,,,,0,Not Validated,0.3046511627906977,False
+Skin,PRELP,up,down,False,0.896,0.967433,0.967433,False,Present,,,,,0,Not Validated,0.9011494252873563,False
+Skin,PRG4,up,up,True,0.219,0.55117,0.55117,False,Present,,,,,0,Not Validated,0.2625,False
+Skin,PRSS12,up,down,False,0.111,0.404904,0.404904,False,Present,,,,,0,Not Validated,0.14178832116788323,False
+Skin,S100A6,up,up,True,0.000479,0.029796,0.029796,True,Present,,,,,0,DE Confirmed Only,0.00113277027027027,True
+Skin,SDC3,up,,False,,,,False,Platform_Missing (Agilent 4x44K coverage limitation in GSE125362),,,,,0,Not Validated,,False
+Skin,SEMA3E,up,,False,,,,False,Platform_Missing (Agilent 4x44K coverage limitation in GSE125362),,,,,0,Not Validated,,False
+Skin,SEMA6A,up,up,True,0.578,0.826635,0.826635,False,Present,,,,,0,Not Validated,0.6186544342507645,False
+Skin,SEMA7A,up,,False,,,,False,Platform_Missing (Agilent 4x44K coverage limitation in GSE125362),,,,,0,Not Validated,,False
+Skin,SERPINE1,up,up,True,0.00288,0.066369,0.066369,False,Present,,,,,0,Not Validated,0.005305263157894737,True
+Skin,SERPINE2,up,up,True,0.00242,0.06063,0.06063,False,Present,,,,,0,Not Validated,0.004616216216216216,True
+Skin,SERPINF2,up,,False,,,,False,Platform_Missing (Agilent 4x44K coverage limitation in GSE125362),,,,,0,Not Validated,,False
+Skin,SERPINH1,up,up,True,0.00992,0.123685,0.123685,False,Present,,,,,0,Not Validated,0.01563963963963964,True
+Skin,SFRP4,up,,False,,,,False,Platform_Missing (Agilent 4x44K coverage limitation in GSE125362),,,,,0,Not Validated,,False
+Skin,SPARCL1,up,up,True,0.0023,0.058952,0.058952,False,Present,,,,,0,Not Validated,0.004516759776536312,True
+Skin,SPP1,up,up,True,0.000623,0.033971,0.033971,True,Present,,,,,0,DE Confirmed Only,0.0014067741935483871,True
+Skin,SRPX,up,up,True,0.000519,0.030584,0.030584,True,Present,,,,,0,DE Confirmed Only,0.0012029801324503313,True
+Skin,SVEP1,up,up,True,0.0469,0.268873,0.268873,False,Present,,,,,0,Not Validated,0.06437254901960784,False
+Skin,TGFB2,up,down,False,0.294,0.624915,0.624915,False,Present,,,,,0,Not Validated,0.33848684210526314,False
+Skin,TGFB3,up,up,True,0.855,0.951594,0.951594,False,Present,,,,,0,Not Validated,0.8648843930635838,False
+Skin,TGM2,up,up,True,0.164,0.484757,0.484757,False,Present,,,,,0,Not Validated,0.20354609929078016,False
+Skin,THBS1,up,up,True,0.0292,0.210449,0.210449,False,Present,,,,,0,Not Validated,0.04240663900414938,True
+Skin,TIMP1,up,up,True,9.73e-09,0.000155,0.000155,True,Present,,,,,0,DE Confirmed Only,6.811e-08,True
+Skin,TIMP4,up,up,True,0.104,0.394382,0.394382,False,Present,,,,,0,Not Validated,0.1338235294117647,False
+Skin,TNC,up,up,True,0.00189,0.053039,0.053039,False,Present,,,,,0,Not Validated,0.0038017241379310345,True
+Skin,TNFAIP6,up,,False,,,,False,Platform_Missing (Agilent 4x44K coverage limitation in GSE125362),,,,,0,Not Validated,,False
+Skin,VCAN,up,up,True,0.00464,0.084238,0.084238,False,Present,,,,,0,Not Validated,0.008202020202020202,True
+Skin,VWF,up,up,True,0.00024612812790522973,0.02480971529284716,0.02480971529284716,True,Present,0.866024099626535,4.019983390246593e-06,0.5515151515151515,0.49200588334817486,10,DE Confirmed Only,0.0006066538363861296,True
+Skin,WIF1,up,,False,,,,False,Platform_Missing (Agilent 4x44K coverage limitation in GSE125362),,,,,0,Not Validated,,False
+Skin,WNT10B,up,,False,,,,False,Platform_Missing (Agilent 4x44K coverage limitation in GSE125362),,,,,0,Not Validated,,False
+Skin,WNT2,up,,False,,,,False,Platform_Missing (Agilent 4x44K coverage limitation in GSE125362),,,,,0,Not Validated,,False

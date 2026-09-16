@@ -177,6 +177,18 @@ When starting directly from **all 98 ECM Shared Core Genes** across 4 organs in 
 | **Lung** | 98 | 96 | **23 ECM Genes** | **24.0%** |
 | **Skin** | 98 | 70 | **22 ECM Genes** | **31.4%** |
 
+### Skin Validation Data Gap Investigation (Agilent 4x44K Array Coverage)
+
+A technical audit was conducted to investigate why **28 out of 98 ECM Shared Core Genes** were absent in the Skin Validation 2 cohort dataset ([`organ_validation2_data/Skin/expr_matrix.csv`](file:///d:/CSIR/organ_validation2_data/Skin/expr_matrix.csv)):
+
+* **Root Cause — Microarray Platform Probe Coverage**:
+  GSE125362 was generated using an older **Agilent Whole Human Genome Microarray (4x44K)** chip design (`GPL6480`). After probe ID symbol resolution, GSE125362 contains only **12,151 unique annotated gene symbols** (compared to 24,000–32,000+ gene symbols in modern RNA-seq or high-density array platforms). Consequently, the 28 missing genes were **physically absent from the Agilent 4x44K array probe set**.
+* **Empirical Confirmation Across High-Density Skin Cohorts**:
+  To confirm that the 28 missing genes represent a hardware array limitation rather than a biological absence of expression in fibrotic skin, higher-density skin disease cohorts in the repository were evaluated:
+  * **GSE58095 (Illumina HumanHT-12 v4 BeadChip)**: **97 out of 98 ECM Shared Core Genes (99.0%)** are physically present and probed.
+  * **GSE130955**: **95 out of 98 ECM Shared Core Genes (96.9%)** are physically present and probed.
+* **Conclusion**: The reduced starting panel size in Skin ($n=70/98$) is purely a hardware probe coverage artifact of the legacy Agilent 4x44K platform.
+
 ### Layer 3 — 4-Organ Strict Convergence
 A 3rd independent validation layer tested the candidate signature against independent clinical validation cohorts ($n=20$ per organ, 10 control + 10 fibrotic), converging on a **7-gene 100% Core Matrisome ECM signature**:
 
@@ -233,6 +245,16 @@ To ensure statistical rigor, a thorough audit was performed across the different
      $$p = 2 \times \frac{1}{\binom{20}{10}} = 2 \times \frac{1}{184756} = 1.826718 \times 10^{-4}$$
    * When minor rank overlap occurs (e.g. `COL3A1` in Lung with $U=99.0$), the raw $p$-value changes to $2.461281 \times 10^{-4}$.
    * **Conclusion**: This is a mathematical property of non-parametric rank tests when groups are perfectly separated ($U=100.0$), confirming there is **no code bug or loop error**.
+
+2. **Multiple Testing Correction Audit (Per-Organ vs. Global 392-Test BH FDR Adjustment)**:
+   To ensure complete statistical transparency across all 98 ECM genes tested in 4 organs ($98 \times 4 = 392$ total test combinations), False Discovery Rate (FDR) Benjamini-Hochberg (BH) adjustments were evaluated under two distinct scope definitions in [`validation2_master_summary.csv`](file:///d:/CSIR/validation2_master_summary.csv):
+   * **Per-Organ BH FDR Correction ($N_{\text{organ}} \approx 70-96$ tests per organ)**:
+     Benjamini-Hochberg adjustment applied independently within each organ's dataset.
+   * **Global 392-Test BH FDR Correction ($N_{\text{global}} = 350$ present tests across 4 organs)**:
+     Benjamini-Hochberg adjustment applied globally across all valid Mann-Whitney U test p-values in the 4-organ $\times$ 98-gene matrix.
+   * **Empirical Finding & Verification**:
+     * Under **BOTH** per-organ BH adjustment AND global 392-test BH adjustment, **ALL 7 core signature genes (`AEBP1`, `COL15A1`, `COL1A1`, `COL1A2`, `COL3A1`, `SPP1`, `VWF`) pass FDR $p_{\text{adj}} < 0.05$ across ALL 4 ORGANS**.
+     * Under global 392-test BH adjustment, adjusted $p$-values for the 7 core genes remain extremely strong (e.g. $p_{\text{adj,global}} \approx 4.60 \times 10^{-4}$ vs $p_{\text{adj,organ}} \approx 0.0184 - 0.0230$), confirming that these 7 genes occupy the extreme significant tail across the entire multi-organ testing landscape.
 
 ---
 
