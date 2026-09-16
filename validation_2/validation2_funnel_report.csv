@@ -1,0 +1,5 @@
+Organ,GEO_Accession_Val2,Comparison,N_Samples,ECM_genes_start,ECM_present_in_platform,ECM_DE_confirmed_adj_p_0.05,Core7_confirmed
+Kidney,GSE30529,Diabetic Kidney Disease tubuli vs. Control tubuli,"22 (12 DKD tubuli, 10 control tubuli)",98,92,49,7
+Liver,GSE14323,HCV Cirrhosis/Fibrosis vs. Normal Liver,124 (cirrhosis+HCV vs. normal liver),98,92,78,7
+Lung,GSE83717,Idiopathic Pulmonary Fibrosis vs. Control,11 (IPF lung biopsies + control),98,96,57,5
+Skin,GSE125362,Diffuse Cutaneous Systemic Sclerosis vs. Control Skin,~20 (dcSSc skin biopsies vs. control),98,70,20,4
