@@ -7,14 +7,16 @@ CILP2,Skin,Core matrisome,ECM Glycoproteins,-2.55181869,1.97e-19
 COL26A1,Skin,Core matrisome,Collagens,-1.18435045,2.07e-09
 ELANE,Skin,Matrisome-associated,ECM Regulators,1.42010813,1.16e-12
 EPGN,Skin,Matrisome-associated,Secreted Factors,-1.24193936,2.11e-05
+FASLG,Skin,Matrisome-associated,Secreted Factors,-0.64915582,0.0034
+HYAL4,Skin,Matrisome-associated,ECM Regulators,0.67439635,0.00135
+IL22,Skin,Matrisome-associated,Secreted Factors,-1.3493633,0.0143
 INS-IGF2,Skin,Matrisome-associated,Secreted Factors,-1.7789545,2.39e-23
 KCP,Skin,Core matrisome,ECM Glycoproteins,-0.93859813,5e-15
-NRTN,Skin,Matrisome-associated,Secreted Factors,1.1251695,3.23e-05
+LTBP3,Skin,Core matrisome,ECM Glycoproteins,-0.8987399,0.000105
+MMP17,Skin,Matrisome-associated,ECM Regulators,-1.1523198,0.0228
 NTN1,Skin,Core matrisome,ECM Glycoproteins,0.63196757,2.38e-10
+OSM,Skin,Matrisome-associated,Secreted Factors,-1.15947337,3.31e-08
 PARM1,Skin,Matrisome-associated,ECM-affiliated Proteins,0.8259363,0.000154
-PLXDC2,Skin,Matrisome-associated,ECM-affiliated Proteins,0.9213998,2.34e-05
-SPARC,Skin,Core matrisome,ECM Glycoproteins,-0.98465592,1.05e-13
 SULF2,Skin,Matrisome-associated,ECM Regulators,-0.6290526,2.79e-14
-TCHH,Skin,Matrisome-associated,Secreted Factors,1.68954561,0.0248
-TGFA,Skin,Matrisome-associated,Secreted Factors,-0.660506,3.49e-06
-TNN,Skin,Core matrisome,ECM Glycoproteins,0.8160778,0.000297
+TCHH,Skin,Matrisome-associated,Secreted Factors,-1.68954561,0.0248
+TNN,Skin,Core matrisome,ECM Glycoproteins,-0.8160778,0.000297
