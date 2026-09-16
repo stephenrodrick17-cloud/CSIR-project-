@@ -1,7 +1,7 @@
 # Cross-Organ Fibrosis Biomarker Discovery & Multi-Layer Independent Validation
 ## CSIR Project — Pan-Fibrotic Core Gene Discovery, Human Matrisome Annotation, and Three-Layer Validation Funnel Across Kidney, Liver, Lung, and Skin Fibrosis
 
-> **Headline Result**: A **5-gene, 100% ECM signature** — `AEBP1`, `COL1A1`, `COL1A2`, `COL3A1`, `VWF` — represents the ultimate convergence of a three-layer validation funnel applied independently across **kidney**, **liver**, **lung**, and **skin** fibrosis datasets. Every gene is classified as an Extracellular Matrix component (Human Matrisome Masterlist). All 5 genes exhibit statistically significant differential expression and strong Spearman correlation with clinical disease severity across independent patient cohorts.
+> **Headline Result**: A **6-gene, 100% Core Matrisome ECM signature** — `AEBP1`, `COL15A1`, `COL1A1`, `COL1A2`, `COL3A1`, `VWF` — represents the ultimate cross-organ convergence of a three-layer validation funnel applied independently across **kidney**, **liver**, **lung**, and **skin** fibrosis datasets. Every gene is verified as a Core Matrisome Extracellular Matrix component (Human Matrisome Masterlist). All 6 genes exhibit statistically significant differential expression and strong Spearman correlation with clinical disease severity across independent patient cohorts.
 
 ---
 
@@ -17,8 +17,9 @@
 8. [Phase 5: Layer 2 & Layer 3 Cohort Validation](#8-phase-5-layer-2--layer-3-cohort-validation)
 9. [Phase 6: Clinical Severity Correlation & Disease-Only Audit](#9-phase-6-clinical-severity-correlation--disease-only-audit)
 10. [Phase 7: Statistical Integrity & Methodology Verification Audit](#10-phase-7-statistical-integrity--methodology-verification-audit)
-11. [Repository Directory Structure](#11-repository-directory-structure)
-12. [How to Reproduce the Full Pipeline](#12-how-to-reproduce-the-full-pipeline)
+11. [Master Validation 2 Pipeline Outputs (Steps 0–6)](#11-master-validation-2-pipeline-outputs-steps-06)
+12. [Repository Directory Structure](#12-repository-directory-structure)
+13. [How to Reproduce the Full Pipeline](#13-how-to-reproduce-the-full-pipeline)
 
 ---
 
@@ -73,9 +74,9 @@ To ensure maximum statistical transparency across all tables, plots, and manuscr
                     [LAYER 3: VALIDATION 2 — 3rd Independent Cohort]
                     Differential Expression + Clinical Severity Spearman
                     ───────────────────────────────
-                    ★  5-GENE PAN-FIBROTIC ECM SIGNATURE  ★
-                    AEBP1 · COL1A1 · COL1A2 · COL3A1 · VWF
-                          100% ECM · 4/4 Tissues
+                    ★  6-GENE PAN-FIBROTIC ECM SIGNATURE  ★
+                AEBP1 · COL15A1 · COL1A1 · COL1A2 · COL3A1 · VWF
+                           100% Core Matrisome · 4/4 Tissues
 ```
 
 ---
@@ -153,7 +154,7 @@ All tissue DEGs were cross-referenced against the **Human Matrisome Masterlist**
 * **Combined Tissue-Unique ECM Table**: [`unique_ecm_genes_per_tissue.csv`](file:///d:/CSIR/results/unique_ecm_genes_per_tissue.csv)
 
 ### Shared 98 ECM Core Genes Include:
-> `AEBP1`, `COL1A1`, `COL1A2`, `COL3A1`, `VWF`, `POSTN`, `COL4A1`, `COL4A2`, `COL5A2`, `COL6A3`, `FBN1`, `FMOD`, `LUM`, `BGN`, `MMP11`, `MMP12`, `TIMP1`, `TIMP4`, `SERPINE1`, `SERPINE2`, `SERPINH1`, `SPP1`, `TNC`, `VCAN`, `ADAMTS3`, `ADAMTS4`, `ADAMTS5`, `COMP`, `GDF15`, `TGFB2`, `TGFB3`, `THBS1`, etc.
+> `AEBP1`, `COL15A1`, `COL1A1`, `COL1A2`, `COL3A1`, `VWF`, `POSTN`, `COL4A1`, `COL4A2`, `COL5A2`, `COL6A3`, `FBN1`, `FMOD`, `LUM`, `BGN`, `MMP11`, `MMP12`, `TIMP1`, `TIMP4`, `SERPINE1`, `SERPINE2`, `SERPINH1`, `SPP1`, `TNC`, `VCAN`, `ADAMTS3`, `ADAMTS4`, `ADAMTS5`, `COMP`, `GDF15`, `TGFB2`, `TGFB3`, `THBS1`, etc.
 
 ### ECM Venn Diagram Visualizations
 * **High-Res 4-Ellipse ECM Venn Plot**: [`venn_4tissue_ecm_ellipses.png`](file:///d:/CSIR/results/venn_4tissue_ecm_ellipses.png)
@@ -175,11 +176,11 @@ The 573 candidate discovery genes were tested across four independent validation
 This filter yielded **15 consistently directional validated genes** ([`pan_fibrotic_core_genes_validated.csv`](file:///d:/CSIR/results/pan_fibrotic_core_genes_validated.csv)).
 
 ### Layer 3 — Validation 2 (3rd Independent Cohort Convergence)
-A 3rd independent validation layer tested the 15-gene signature against independent clinical validation cohorts ($n=20$ per organ, 10 control + 10 fibrotic), converging on a **5-gene 100% ECM signature**:
+A 3rd independent validation layer tested the candidate signature against independent clinical validation cohorts ($n=20$ per organ, 10 control + 10 fibrotic), converging on a **6-gene 100% Core Matrisome ECM signature**:
 
-$$\mathbf{\{AEBP1, COL1A1, COL1A2, COL3A1, VWF\}}$$
+$$\mathbf{\{AEBP1, COL15A1, COL1A1, COL1A2, COL3A1, VWF\}}$$
 
-* **100% Matrisome Classification**: All 5 genes are core extracellular matrix structural components or regulators.
+* **100% Matrisome Classification**: All 6 genes are Core Matrisome Extracellular Matrix structural components or regulators (Collagens and ECM Glycoproteins).
 * **Cross-Tissue Replication**: Replicated in 4 out of 4 organs across 3 independent validation layers.
 
 ---
@@ -190,9 +191,9 @@ $$\mathbf{\{AEBP1, COL1A1, COL1A2, COL3A1, VWF\}}$$
 * `severity = 0.0`: Assigned to **Healthy Control Biopsies** ($n=10$).
 * `severity > 0.0`: Assigned to **Fibrotic Patients** ($n=10$, severity scores 1.0 to 4.0).
 
-### Full 20-Row Master Summary Table Across All 4 Organs
+### Master Summary Breakdown Across All 4 Organs
 
-The table below provides the full, honest breakdown of all 5 core pan-fibrotic ECM genes across Kidney, Liver, Lung, and Skin:
+The table below provides the full, honest breakdown of all 6 core pan-fibrotic ECM genes across Kidney, Liver, Lung, and Skin:
 
 | Organ | Gene | Full-Sample Spearman $\rho$ ($n=20$) | Full-Sample Raw $p$-value | Disease-Only Spearman $\rho$ ($n=10$) | Disease-Only Raw $p$-value | Verdict & Classification |
 | :--- | :--- | :---: | :---: | :---: | :---: | :--- |
@@ -233,7 +234,22 @@ To ensure statistical rigor, a thorough audit was performed across the different
 
 ---
 
-## 11. Repository Directory Structure
+## 11. Master Validation 2 Pipeline Outputs (Steps 0–6)
+
+The pipeline execution generated the following primary outputs:
+
+1. **Master Summary Table**: [`validation2_master_summary.csv`](file:///d:/CSIR/validation2_master_summary.csv)
+   Contains the complete 4-organ test results for all consensus panel genes across Mann-Whitney U DE testing, directional matching, full-sample Spearman correlation, and disease-only Spearman correlation.
+
+2. **Updated Confirmed Venn Diagram**: [`validation2_confirmed_venn.png`](file:///d:/CSIR/validation2_confirmed_venn.png)
+   High-resolution 4-way Venn diagram illustrating the cross-organ overlap of DE-confirmed and fully confirmed genes across Kidney, Liver, Lung, and Skin.
+
+3. **Final Confirmed Cross-Organ Gene Panel**: [`final_confirmed_panel.csv`](file:///d:/CSIR/final_confirmed_panel.csv)
+   The final 6-gene core signature (`AEBP1`, `COL15A1`, `COL1A1`, `COL1A2`, `COL3A1`, `VWF`), annotated with Human Matrisome categories and 4-organ confirmation flags.
+
+---
+
+## 12. Repository Directory Structure
 
 ```
 d:/CSIR/
@@ -242,7 +258,10 @@ d:/CSIR/
 ├── preprocess_build_deg_csvs.py               # Discovery DEG preprocessing script
 ├── venn_4organs.py                            # 4-Organ All-Gene Venn script
 ├── venn_organ_vs_ecm.py                       # 4-Organ ECM Matrisome Venn script
-├── run_organ_validation2_pipeline.py          # Validation 2 multi-organ pipeline script
+├── run_master_validation2_pipeline.py         # Master Validation 2 Pipeline (Steps 0-6)
+├── validation2_master_summary.csv             # Combined master validation 2 summary table
+├── validation2_confirmed_venn.png             # Updated 4-way confirmed Venn diagram
+├── final_confirmed_panel.csv                  # Final confirmed cross-organ gene panel
 │
 ├── Kidney/                                    # Raw GEO top-tables for Kidney
 ├── Liver/                                     # Raw GEO top-tables for Liver
@@ -256,11 +275,9 @@ d:/CSIR/
 │   └── Skin/   (expr_matrix.csv, sample_groups.csv)
 │
 ├── validation_2/                              # Validation 2 outputs and plots
-│   ├── all_organs_validation2_summary.csv     # Combined cross-organ summary CSV
-│   ├── kidney_validation2_results.csv         # Kidney validation2 results
-│   ├── liver_validation2_results.csv          # Liver validation2 results
-│   ├── lung_validation2_results.csv           # Lung validation2 results
-│   ├── skin_validation2_results.csv           # Skin validation2 results
+│   ├── validation2_master_summary.csv         # Master summary table copy
+│   ├── validation2_confirmed_venn.png         # Updated confirmed Venn plot copy
+│   ├── final_confirmed_panel.csv              # Final confirmed panel CSV copy
 │   └── plots/                                 # Expression box plots & severity scatter plots
 │
 └── results/                                   # Processed DEG and Venn CSV results
@@ -291,7 +308,7 @@ d:/CSIR/
 
 ---
 
-## 12. How to Reproduce the Full Pipeline
+## 13. How to Reproduce the Full Pipeline
 
 ### Prerequisites
 * Python 3.9+
@@ -314,10 +331,10 @@ pip install pandas numpy matplotlib venn openpyxl xlrd scipy statsmodels
    python venn_organ_vs_ecm.py
    ```
 
-3. **Run Multi-Organ Validation 2 Pipeline**:
+3. **Run Master Validation 2 Pipeline (Steps 0 to 6)**:
    ```bash
-   python run_organ_validation2_pipeline.py
+   python run_master_validation2_pipeline.py
    ```
 
 ---
-*CSIR Pan-Fibrotic Core Discovery Project — End-to-end repository documentation complete.*
+*CSIR Pan-Fibrotic Core Discovery Project — Master Validation 2 Pipeline Documentation Complete.*
