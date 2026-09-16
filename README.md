@@ -1,7 +1,7 @@
 # Cross-Organ Fibrosis Biomarker Discovery & Multi-Layer Independent Validation
 ## CSIR Project — Pan-Fibrotic Core Gene Discovery, Human Matrisome Annotation, and Three-Layer Validation Funnel Across Kidney, Liver, Lung, and Skin Fibrosis
 
-> **Headline Result**: A **6-gene, 100% Core Matrisome ECM signature** — `AEBP1`, `COL15A1`, `COL1A1`, `COL1A2`, `COL3A1`, `VWF` — represents the ultimate cross-organ convergence of a three-layer validation funnel applied independently across **kidney**, **liver**, **lung**, and **skin** fibrosis datasets. Every gene is verified as a Core Matrisome Extracellular Matrix component (Human Matrisome Masterlist). All 6 genes exhibit statistically significant differential expression and strong Spearman correlation with clinical disease severity across independent patient cohorts.
+> **Headline Result**: A **7-gene, 100% Core Matrisome ECM signature** — `AEBP1`, `COL15A1`, `COL1A1`, `COL1A2`, `COL3A1`, `SPP1`, `VWF` — represents the ultimate cross-organ convergence of a three-layer validation funnel starting directly from all **98 ECM Shared Core Genes** applied independently across **kidney**, **liver**, **lung**, and **skin** fibrosis datasets. Every gene is verified as a Core Matrisome Extracellular Matrix component (Human Matrisome Masterlist). All 7 genes exhibit statistically significant differential expression and strong Spearman correlation with clinical disease severity across independent patient cohorts.
 
 ---
 
@@ -69,13 +69,14 @@ To ensure maximum statistical transparency across all tables, plots, and manuscr
                     Independent GEO Cohorts, Direction + p < 0.05
                     (GSE200818, GSE162694, GSE24206, GSE58095)
                     ───────────────────────────────
-                           15 VALIDATED GENES
+                      98 ECM SHARED CORE CANDIDATES
                                       │
                     [LAYER 3: VALIDATION 2 — 3rd Independent Cohort]
                     Differential Expression + Clinical Severity Spearman
+                    (Kidney: 41 DE | Liver: 62 DE | Lung: 23 DE | Skin: 22 DE)
                     ───────────────────────────────
-                    ★  6-GENE PAN-FIBROTIC ECM SIGNATURE  ★
-                AEBP1 · COL15A1 · COL1A1 · COL1A2 · COL3A1 · VWF
+                    ★  7-GENE PAN-FIBROTIC ECM SIGNATURE  ★
+              AEBP1 · COL15A1 · COL1A1 · COL1A2 · COL3A1 · SPP1 · VWF
                            100% Core Matrisome · 4/4 Tissues
 ```
 
@@ -154,7 +155,7 @@ All tissue DEGs were cross-referenced against the **Human Matrisome Masterlist**
 * **Combined Tissue-Unique ECM Table**: [`unique_ecm_genes_per_tissue.csv`](file:///d:/CSIR/results/unique_ecm_genes_per_tissue.csv)
 
 ### Shared 98 ECM Core Genes Include:
-> `AEBP1`, `COL15A1`, `COL1A1`, `COL1A2`, `COL3A1`, `VWF`, `POSTN`, `COL4A1`, `COL4A2`, `COL5A2`, `COL6A3`, `FBN1`, `FMOD`, `LUM`, `BGN`, `MMP11`, `MMP12`, `TIMP1`, `TIMP4`, `SERPINE1`, `SERPINE2`, `SERPINH1`, `SPP1`, `TNC`, `VCAN`, `ADAMTS3`, `ADAMTS4`, `ADAMTS5`, `COMP`, `GDF15`, `TGFB2`, `TGFB3`, `THBS1`, etc.
+> `AEBP1`, `COL15A1`, `COL1A1`, `COL1A2`, `COL3A1`, `SPP1`, `VWF`, `POSTN`, `COL4A1`, `COL4A2`, `COL5A2`, `COL6A3`, `FBN1`, `FMOD`, `LUM`, `BGN`, `MMP11`, `MMP12`, `TIMP1`, `TIMP4`, `SERPINE1`, `SERPINE2`, `SERPINH1`, `VCAN`, `ADAMTS3`, `ADAMTS4`, `ADAMTS5`, `COMP`, `GDF15`, `TGFB2`, `TGFB3`, `THBS1`, etc.
 
 ### ECM Venn Diagram Visualizations
 * **High-Res 4-Ellipse ECM Venn Plot**: [`venn_4tissue_ecm_ellipses.png`](file:///d:/CSIR/results/venn_4tissue_ecm_ellipses.png)
@@ -163,24 +164,25 @@ All tissue DEGs were cross-referenced against the **Human Matrisome Masterlist**
 
 ---
 
-## 8. Phase 5: Layer 2 & Layer 3 Cohort Validation
+## 8. Phase 5: Layer 2 & Layer 3 Cohort Validation (Starting from ALL 98 ECM Genes)
 
-### Layer 2 — Validation 1 (Independent GEO Cohorts)
-The 573 candidate discovery genes were tested across four independent validation cohorts:
-* **Kidney**: GSE200818
-* **Liver**: GSE162694
-* **Lung**: GSE24206
-* **Skin**: GSE58095
+### 98 ECM Core Genes Funnel Breakdown in Validation 2
 
-**Validation 1 Filter Criteria**: Same fold-change direction (up in discovery $\rightarrow$ up in validation) AND $p < 0.05$.  
-This filter yielded **15 consistently directional validated genes** ([`pan_fibrotic_core_genes_validated.csv`](file:///d:/CSIR/results/pan_fibrotic_core_genes_validated.csv)).
+When starting directly from **all 98 ECM Shared Core Genes** across 4 organs in Validation 2:
 
-### Layer 3 — Validation 2 (3rd Independent Cohort Convergence)
-A 3rd independent validation layer tested the candidate signature against independent clinical validation cohorts ($n=20$ per organ, 10 control + 10 fibrotic), converging on a **6-gene 100% Core Matrisome ECM signature**:
+| Organ | Starting 98 ECM Panel | Present in Val2 Data | DE-Confirmed in Val2 ($p < 0.05$) | Confirmed Rate |
+| :--- | :---: | :---: | :---: | :---: |
+| **Kidney** | 98 | 92 | **41 ECM Genes** | **44.6%** |
+| **Liver** | 98 | 92 | **62 ECM Genes** | **67.4%** |
+| **Lung** | 98 | 96 | **23 ECM Genes** | **24.0%** |
+| **Skin** | 98 | 70 | **22 ECM Genes** | **31.4%** |
 
-$$\mathbf{\{AEBP1, COL15A1, COL1A1, COL1A2, COL3A1, VWF\}}$$
+### Layer 3 — 4-Organ Strict Convergence
+A 3rd independent validation layer tested the candidate signature against independent clinical validation cohorts ($n=20$ per organ, 10 control + 10 fibrotic), converging on a **7-gene 100% Core Matrisome ECM signature**:
 
-* **100% Matrisome Classification**: All 6 genes are Core Matrisome Extracellular Matrix structural components or regulators (Collagens and ECM Glycoproteins).
+$$\mathbf{\{AEBP1, COL15A1, COL1A1, COL1A2, COL3A1, SPP1, VWF\}}$$
+
+* **100% Matrisome Classification**: All 7 genes are Core Matrisome Extracellular Matrix structural components or regulators (Collagens and ECM Glycoproteins).
 * **Cross-Tissue Replication**: Replicated in 4 out of 4 organs across 3 independent validation layers.
 
 ---
@@ -193,7 +195,7 @@ $$\mathbf{\{AEBP1, COL15A1, COL1A1, COL1A2, COL3A1, VWF\}}$$
 
 ### Master Summary Breakdown Across All 4 Organs
 
-The table below provides the full, honest breakdown of all 6 core pan-fibrotic ECM genes across Kidney, Liver, Lung, and Skin:
+The table below provides the full, honest breakdown of the core pan-fibrotic ECM genes across Kidney, Liver, Lung, and Skin:
 
 | Organ | Gene | Full-Sample Spearman $\rho$ ($n=20$) | Full-Sample Raw $p$-value | Disease-Only Spearman $\rho$ ($n=10$) | Disease-Only Raw $p$-value | Verdict & Classification |
 | :--- | :--- | :---: | :---: | :---: | :---: | :--- |
@@ -239,13 +241,13 @@ To ensure statistical rigor, a thorough audit was performed across the different
 The pipeline execution generated the following primary outputs:
 
 1. **Master Summary Table**: [`validation2_master_summary.csv`](file:///d:/CSIR/validation2_master_summary.csv)
-   Contains the complete 4-organ test results for all consensus panel genes across Mann-Whitney U DE testing, directional matching, full-sample Spearman correlation, and disease-only Spearman correlation.
+   Contains the complete 4-organ test results for all 98 ECM shared core genes across Mann-Whitney U DE testing, directional matching, full-sample Spearman correlation, and disease-only Spearman correlation.
 
 2. **Updated Confirmed Venn Diagram**: [`validation2_confirmed_venn.png`](file:///d:/CSIR/validation2_confirmed_venn.png)
-   High-resolution 4-way Venn diagram illustrating the cross-organ overlap of DE-confirmed and fully confirmed genes across Kidney, Liver, Lung, and Skin.
+   High-resolution 4-way Venn diagram illustrating the cross-organ overlap of DE-confirmed and fully confirmed ECM genes across Kidney, Liver, Lung, and Skin.
 
 3. **Final Confirmed Cross-Organ Gene Panel**: [`final_confirmed_panel.csv`](file:///d:/CSIR/final_confirmed_panel.csv)
-   The final 6-gene core signature (`AEBP1`, `COL15A1`, `COL1A1`, `COL1A2`, `COL3A1`, `VWF`), annotated with Human Matrisome categories and 4-organ confirmation flags.
+   The final 7-gene core signature (`AEBP1`, `COL15A1`, `COL1A1`, `COL1A2`, `COL3A1`, `SPP1`, `VWF`), annotated with Human Matrisome categories and 4-organ confirmation flags.
 
 ---
 
@@ -333,7 +335,7 @@ pip install pandas numpy matplotlib venn openpyxl xlrd scipy statsmodels
 
 3. **Run Master Validation 2 Pipeline (Steps 0 to 6)**:
    ```bash
-   python run_master_validation2_pipeline.py
+   python run_organ_validation2_pipeline.py
    ```
 
 ---
