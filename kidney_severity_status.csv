@@ -1,0 +1,9 @@
+sample_id,specimen_id,cohort,disease_status,binary_status,published_fibrosis_grade,primary_disease,note
+GSM1623352,#101,Validation CKD,CKD,1,3,Rapid progressive glomerulonephritis,"Real histological grade from Nakagawa et al. 2015 Table 2 (underpowered n=5, supplementary non-interpretable)"
+GSM1623353,#102,Validation CKD,CKD,1,1,Membranous nephropathy,"Real histological grade from Nakagawa et al. 2015 Table 2 (underpowered n=5, supplementary non-interpretable)"
+GSM1623354,#103,Validation CKD,CKD,1,2,IgA nephropathy,"Real histological grade from Nakagawa et al. 2015 Table 2 (underpowered n=5, supplementary non-interpretable)"
+GSM1623355,#104,Validation CKD,CKD,1,4,Diabetic nephropathy,"Real histological grade from Nakagawa et al. 2015 Table 2 (underpowered n=5, supplementary non-interpretable)"
+GSM1623356,#105,Validation CKD,CKD,1,3,Chronic tubulointerstitial nephritis,"Real histological grade from Nakagawa et al. 2015 Table 2 (underpowered n=5, supplementary non-interpretable)"
+GSM1623357,Control101,Validation Control,Normal Control,0,0,Healthy donor kidney,Binary control
+GSM1623358,Control102,Validation Control,Normal Control,0,0,Healthy donor kidney,Binary control
+GSM1623359,Control103,Validation Control,Normal Control,0,0,Healthy donor kidney,Binary control

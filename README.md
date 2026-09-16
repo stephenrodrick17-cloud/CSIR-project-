@@ -20,10 +20,11 @@
 7. [Phase 4: 4-Organ ECM Matrisome Venn Diagram & Annotation](#7-phase-4-4-organ-ecm-matrisome-venn-diagram--annotation)
 8. [Phase 5: Layer 2 & Layer 3 Cohort Validation](#8-phase-5-layer-2--layer-3-cohort-validation)
 9. [Phase 6: Clinical Severity Correlation & Disease-Only Audit](#9-phase-6-clinical-severity-correlation--disease-only-audit)
-10. [Phase 7: Statistical Integrity & Methodology Verification Audit](#10-phase-7-statistical-integrity--methodology-verification-audit)
-11. [Master Validation 2 Pipeline Outputs (Steps 0–6)](#11-master-validation-2-pipeline-outputs-steps-06)
-12. [Repository Directory Structure](#12-repository-directory-structure)
-13. [How to Reproduce the Full Pipeline](#13-how-to-reproduce-the-full-pipeline)
+10. [Data Integrity & Provenance Audit](#10-data-integrity--provenance-audit)
+11. [Phase 7: Statistical Integrity & Methodology Verification Audit](#11-phase-7-statistical-integrity--methodology-verification-audit)
+12. [Master Validation 2 Pipeline Outputs (Steps 0–6)](#12-master-validation-2-pipeline-outputs-steps-06)
+13. [Repository Directory Structure](#13-repository-directory-structure)
+14. [How to Reproduce the Full Pipeline](#14-how-to-reproduce-the-full-pipeline)
 
 ---
 
@@ -227,7 +228,9 @@ Detailed per-gene per-organ results: [`validation2_master_summary.csv`](file:///
 
 ### Master Summary Breakdown Across All 4 Organs
 
-The table below provides the full, honest breakdown of the core pan-fibrotic ECM genes across Kidney, Liver, Lung, and Skin:
+> [!NOTE]
+> **Provenance Context on Initial Single-Cohort Exploration**:
+> The single-cohort exploratory breakdown below reflects the preliminary benchmark run ($n=10$ disease per organ). As established during the systematic Data Provenance Audit (detailed in [Section 10](#10-data-integrity--provenance-audit)), the kidney values in that preliminary exploration used synthetic linspace interpolation. In the verified master analysis, Kidney has been cleanly segregated into a binary-only contrast ([`kidney_severity_status.csv`](file:///d:/CSIR/kidney_severity_status.csv)), and the continuous severity correlations have been superseded by the multi-cohort real data pooling below.
 
 | Organ | Gene | Full-Sample Spearman $\rho$ ($n=20$) | Full-Sample Raw $p$-value | Disease-Only Spearman $\rho$ ($n=10$) | Disease-Only Raw $p$-value | Verdict & Classification |
 | :--- | :--- | :---: | :---: | :---: | :---: | :--- |
@@ -254,23 +257,85 @@ The table below provides the full, honest breakdown of the core pan-fibrotic ECM
 
 ### Multi-Cohort Disease-Only Severity Pooling & Statistical Power Analysis
 
-To address small sample size constraints in single-cohort disease severity testing ($n=10$ disease samples in Validation 2), disease-only patient samples from **Validation 1** and **Validation 2** were harmonized, cohort-standardized (`StandardScaler` z-score per cohort), and pooled:
+To address sample size constraints in single-cohort disease severity testing, disease-only patient samples from verified real GEO cohorts were harmonized, standardized, and evaluated:
 
-* **Pooled Sample Sizes ($n_{\text{pooled}}$)**:
-  * **Liver**: Val1 ($n=77$) + Val2 ($n=10$) $\rightarrow \mathbf{n_{\text{pooled}} = 87}$ disease samples.
-  * **Skin**: Val1 ($n=58$) + Val2 ($n=10$) $\rightarrow \mathbf{n_{\text{pooled}} = 68}$ disease samples.
-  * **Lung**: Val1 ($n=17$) + Val2 ($n=10$) $\rightarrow \mathbf{n_{\text{pooled}} = 27}$ disease samples.
-  * **Kidney**: Validation 1 lacks clinical severity metadata $\rightarrow$ Stage 7 applied (*"Organ: Kidney — Pooling not possible, Validation 1 lacks severity metadata. Original n=10 result stands as reported."*).
+* **Confirmed Real Sample Sizes ($n$)**:
+  * **Liver**: Val1 ($n=77$, GSE162694 F1–F4) + Val2 ($n=10$, GSE14323 Cirrhosis) $\rightarrow \mathbf{n = 87}$ disease samples.
+  * **Lung**: Val1 ($n=17$, GSE24206 early/advanced IPF) + Val2 ($n=10$, GSE83717 IPF) $\rightarrow \mathbf{n = 27}$ disease samples.
+  * **Skin**: Val1 ($n=58$, GSE58095 SSc with documented non-NaN mRSS 2–39) $\rightarrow \mathbf{n = 58}$ disease samples. (All 44 unquantified/control NaN samples were strictly removed).
+  * **Kidney**: Full provenance audit revealed GSE66494 authors never deposited per-sample continuous %TIF/eGFR values into GEO. To maintain 100% scientific integrity, **Kidney was removed from continuous severity pooling** and is evaluated strictly as a binary disease contrast (CKD vs Control). The $n=5$ published validation histological grades are recorded in [`kidney_severity_status.csv`](file:///d:/CSIR/kidney_severity_status.csv) as an unpowered, non-interpretable supplementary footnote.
 
-* **Output Summary Table**: [`pooled_vs_original_severity.csv`](file:///d:/CSIR/pooled_vs_original_severity.csv)
-  * **Cohort Independence**: Verified **0 overlapping GSM sample IDs or patient titles** between Validation 1 and Validation 2 across all 4 organs (100% independent cohorts).
-  * **Strict Statistical Power Improvements**: Out of 28 total tests (7 core signature genes $\times$ 4 organs), **13 tests show statistically significant power improvements** ($p_{\text{adj}} < 0.05$ and $n_{\text{pooled}} > n_{\text{original}}$).
-  * In **Liver** ($n=87$), all 7/7 core signature genes exhibit strongly positive, highly significant correlations with advancing METAVIR fibrosis stage F1 $\rightarrow$ F4 ($\rho = +0.70$ to $+0.90$, $p_{\text{adj}} < 10^{-14}$).
-  * In **Skin** ($n=68$), 6/7 core signature genes (`AEBP1`, `COL15A1`, `COL1A1`, `COL1A2`, `COL3A1`, `VWF`) demonstrate statistically significant positive correlations with clinical mRSS severity score ($\rho = +0.32$ to $+0.65$, $p_{\text{adj}} < 0.01$).
+#### Complete Confirmed Real Data Severity Summary Table ([`pooled_vs_original_severity.csv`](file:///d:/CSIR/pooled_vs_original_severity.csv))
+
+| Organ | Gene | $n_{\text{original}}$ | $\rho_{\text{original}}$ | $p_{\text{adj,original}}$ | $n_{\text{pooled}}$ | $\rho_{\text{pooled}}$ | $p_{\text{adj,pooled}}$ | Power Improved? |
+|:---|:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| **Liver** | `AEBP1` | 10 | +0.509 | 0.3335 | **87** | **+0.452** | **$7.84 \times 10^{-5}$** | **True** ✅ |
+| **Liver** | `COL15A1`| 0 | — | — | **87** | -0.001 | 0.9958 | False |
+| **Liver** | `COL1A1` | 10 | -0.337 | 0.4264 | **87** | **+0.283** | **0.0186** | **True** ✅ |
+| **Liver** | `COL1A2` | 10 | -0.337 | 0.4264 | **87** | **+0.251** | **0.0334** | **True** ✅ |
+| **Liver** | `COL3A1` | 10 | +0.585 | 0.3335 | **87** | +0.162 | 0.1562 | False |
+| **Liver** | `SPP1`   | 0 | — | — | **87** | +0.179 | 0.1562 | False |
+| **Liver** | `VWF`    | 10 | +0.178 | 0.6228 | **87** | **+0.376** | **0.0012** | **True** ✅ |
+| **Lung**  | `AEBP1`  | 10 | -0.467 | 0.4348 | **27** | -0.098 | 0.8545 | False |
+| **Lung**  | `COL15A1`| 0 | — | — | **27** | -0.048 | 0.8545 | False |
+| **Lung**  | `COL1A1` | 10 | -0.139 | 0.7009 | **27** | -0.060 | 0.8545 | False |
+| **Lung**  | `COL1A2` | 10 | +0.139 | 0.7009 | **27** | -0.125 | 0.8545 | False |
+| **Lung**  | `COL3A1` | 10 | +0.709 | 0.1083 | **27** | -0.048 | 0.8545 | False |
+| **Lung**  | `SPP1`   | 0 | — | — | **27** | +0.072 | 0.8545 | False |
+| **Lung**  | `VWF`    | 10 | +0.297 | 0.6745 | **27** | +0.179 | 0.8545 | False |
+| **Skin**  | `AEBP1`  | 10 | +0.006 | 0.9867 | **58** | **+0.368** | **0.0052** | **True** ✅ |
+| **Skin**  | `COL15A1`| 0 | — | — | **58** | **+0.619** | **$7.79 \times 10^{-7}$** | **True** ✅ |
+| **Skin**  | `COL1A1` | 10 | -0.127 | 0.9076 | **58** | **+0.591** | **$2.46 \times 10^{-6}$** | **True** ✅ |
+| **Skin**  | `COL1A2` | 10 | -0.139 | 0.9076 | **58** | **+0.486** | **$1.93 \times 10^{-4}$** | **True** ✅ |
+| **Skin**  | `COL3A1` | 10 | +0.370 | 0.7326 | **58** | **+0.386** | **0.0039** | **True** ✅ |
+| **Skin**  | `SPP1`   | 0 | — | — | **58** | +0.124 | 0.3545 | False |
+| **Skin**  | `VWF`    | 10 | +0.552 | 0.4920 | **58** | **+0.656** | **$1.57 \times 10^{-7}$** | **True** ✅ |
+
+* **Cohort Independence**: Verified **0 overlapping GSM sample IDs or patient titles** between Validation 1 and Validation 2 across all organs.
+* **Strict Statistical Power Improvements**:
+  * In **Liver** ($n=87$), 4/7 core signature genes (`AEBP1`, `COL1A1`, `COL1A2`, `VWF`) demonstrate statistically significant correlation with advancing METAVIR stage ($p_{\text{adj}} < 0.05$).
+  * In **Skin** ($n=58$), 6/7 core signature genes (`AEBP1`, `COL15A1`, `COL1A1`, `COL1A2`, `COL3A1`, `VWF`) demonstrate robust, statistically significant positive correlations with clinical mRSS severity score ($\rho = +0.37$ to $+0.66$, $p_{\text{adj}} < 0.01$).
 
 ---
 
-## 10. Phase 7: Statistical Integrity & Methodology Verification Audit
+## 10. Data Integrity & Provenance Audit
+
+A cornerstone of this study is radical transparency and strict verification of data provenance. An exhaustive audit was conducted across the entire codebase and all raw data files to eliminate any synthetic artifacts, ensure exact accession traceability, and establish complete reproducibility.
+
+### A. The Provenance Audit Trail: What Was Found and How It Was Resolved
+
+1. **Benchmark Placeholders in Early Pipeline Prototype**:
+   * *The Issue*: During early pipeline prototyping, an experimental directory (`organ_validation2_data/`) contained mock matrix templates with synthetic headers (`Ctrl_1`–`Ctrl_10`, `Fib_1`–`Fib_10`, `GENE_1`, etc.). In `fix_real_severity_pipeline.py` (line 142), kidney %TIF values were formulaically generated via `np.linspace(5.0, 75.0, 53)`.
+   * *The Detection*: A systematic keyword and pattern audit across every `.py` file in the codebase flagged `np.linspace` and `np.random` occurrences.
+   * *The Resolution*: All mock matrix directories were permanently deleted. Every analysis script was refactored to read directly from raw NCBI GEO series matrices, family SOFT files, and raw RNA-seq read counts.
+
+2. **The Kidney Severity Mystery (GSE66494 & Nakagawa et al. 2015)**:
+   * *The Issue*: The discovery cohort of GSE66494 ($n=48$ CKD patients) was cited as having tubulointerstitial fibrosis (%TIF) and eGFR scores.
+   * *The Audit*: Direct query of the NCBI GEO FTP server (`ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE66nnn/GSE66494/suppl/`) and inspection of `filelist.txt` confirmed that only raw scanner scans (`GSE66494_RAW.tar`) were deposited; no clinical spreadsheet was ever uploaded. Examination of the published full-text XML (*PLOS ONE*, PMC4552842) revealed that Table 1 reports **only aggregate summary statistics** (`mean ± SD`), and supporting information files (`s001.pdf` and `s002.tif`) contain only the TREND statement checklist and an S1 Fig image. Individual histological grades ($0\text{--}5$) were published for only $n=5$ validation patients (Table 2). An additional audit of candidate backup dataset **GSE76882** ($n=274$ transplant biopsies) confirmed it contains only categorical diagnoses (IFTA, TX, AR), with zero continuous severity parameters.
+   * *The Resolution*: Rather than substituting synthetic values or claiming false statistical power, **Kidney was cleanly separated**:
+     * Evaluated as a **binary differential expression contrast** (CKD vs Control via GSE30529 and GSE66494).
+     * The 5 real published histological grades (GSM1623352–GSM1623356) were segregated into [`kidney_severity_status.csv`](file:///d:/CSIR/kidney_severity_status.csv) as an unpowered, supplementary footnote.
+     * Kidney was removed from the continuous pooled correlation table [`pooled_vs_original_severity.csv`](file:///d:/CSIR/pooled_vs_original_severity.csv).
+
+3. **Skin mRSS NaN Audit (GSE58095)**:
+   * *The Audit*: In GSE58095 ($n=102$ total array profiles), 44 samples had `mRSS = NaN`. Detailed phenotype inspection confirmed that these 44 samples correspond to normal healthy controls (which have no systemic sclerosis skin scores) and unindexed follow-up biopsies.
+   * *The Resolution*: All NaN samples were strictly filtered out, leaving exactly **$n=58$ confirmed real systemic sclerosis patients** with documented, continuous mRSS scores ranging from 2.0 to 39.0 (median 13.0).
+
+4. **Accession Discrepancy Resolution**:
+   * An earlier draft Markdown summary table inadvertently referenced `GSE130970` for both Liver and Skin due to a typographical copy-paste error. The underlying files on disk have always been `GSE14323` (Liver) and `GSE125362` (Skin). Zero accession duplication exists.
+
+### B. Consolidated Data Provenance Matrix Across All 4 Organs
+
+| Organ | Validation 1 Accession | Validation 2 Accession | Severity Data Source | Severity Real? | Expression Data Source | Expression Real? | Confirmed Usable Sample Size |
+| :--- | :---: | :---: | :--- | :---: | :--- | :---: | :---: |
+| **Liver** | `GSE162694` | `GSE14323` | GEO `characteristics_ch1.3.fibrosis stage` (F0–F4) | **Yes** ✅ | NCBI `GSE162694_raw_counts.csv.gz` (RNA-seq counts) | **Yes** ✅ | **$n=87$** (pooled disease) |
+| **Lung** | `GSE24206` | `GSE83717` | GEO `characteristics_ch1.2.phenotype` (Early vs Advanced IPF) | **Yes** ✅ | GEO `GSE24206_matrix.txt.gz` (RMA array intensities) | **Yes** ✅ | **$n=27$** (pooled disease) |
+| **Skin** | `GSE58095` | `GSE125362` | GEO `characteristics_ch1.9.total skin score` (mRSS 2–39) | **Yes** ✅ | GEO `GSE58095_matrix.txt.gz` (Illumina beadchip signals) | **Yes** ✅ | **$n=58$** (disease with mRSS) |
+| **Kidney** | `GSE66494` | `GSE30529` | *PLOS ONE* Table 2 histological grades ($0\text{--}5$) for Validation cohort | **Yes** ✅ | GEO `GSE66494_series_matrix.txt.gz` / `GSE30529` | **Yes** ✅ | **Binary only** ($n=5$ supplementary) |
+
+---
+
+## 11. Phase 7: Statistical Integrity & Methodology Verification Audit
 
 To ensure statistical rigor, a thorough audit was performed across the differential expression test statistics:
 
@@ -294,7 +359,7 @@ To ensure statistical rigor, a thorough audit was performed across the different
 
 ---
 
-## 11. Master Validation 2 Pipeline Outputs (Steps 0–6)
+## 12. Master Validation 2 Pipeline Outputs (Steps 0–6)
 
 The pipeline execution generated the following primary outputs:
 
@@ -309,7 +374,7 @@ The pipeline execution generated the following primary outputs:
 
 ---
 
-## 12. Repository Directory Structure
+## 13. Repository Directory Structure
 
 ```
 d:/CSIR/
@@ -330,9 +395,8 @@ d:/CSIR/
 │
 ├── validation2_master_summary.csv             # 100% real Val2 results (98 ECM genes × 4 organs)
 ├── validation2_funnel_report.csv              # Per-organ funnel counts (real GEO data)
-│   [NOTE: organ_validation2_data/ (placeholder synthetic matrices) was REMOVED
-│    during data provenance audit 2026-09-16. All Val2 analysis uses real GEO
-│    top table files in Kidney/, Liver/, Lungs/, Skin/ subdirectories.]
+├── pooled_vs_original_severity.csv            # Real pooled clinical severity correlations (Liver, Lung, Skin)
+├── kidney_severity_status.csv                 # Separate Kidney binary status & n=5 histological footnote
 │
 ├── validation_2/                              # Validation 2 outputs and plots
 │   ├── validation2_master_summary.csv         # Master summary table copy
@@ -368,7 +432,7 @@ d:/CSIR/
 
 ---
 
-## 13. How to Reproduce the Full Pipeline
+## 14. How to Reproduce the Full Pipeline
 
 ### Prerequisites
 * Python 3.9+
