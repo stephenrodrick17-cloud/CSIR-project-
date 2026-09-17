@@ -14,6 +14,8 @@ import glob
 import pandas as pd
 import numpy as np
 
+import discovery_config
+
 import warnings
 warnings.filterwarnings("ignore", category=FutureWarning)
 
@@ -158,8 +160,18 @@ def aggregate_organ_datasets(organ_name, organ_base_dir, bioDBnet_map):
     all_dfs = []
 
     pattern = os.path.join(organ_base_dir, "**", "*.top.table.tsv")
-    tsv_files = sorted(glob.glob(pattern, recursive=True))
-    print(f"  Found {len(tsv_files)} dataset TSV files")
+    all_tsv_files = sorted(glob.glob(pattern, recursive=True))
+    
+    # Filter out excluded accessions
+    tsv_files = []
+    excludes = discovery_config.EXCLUDE_FROM_DISCOVERY.get(organ_name, set())
+    for f in all_tsv_files:
+        if any(exc in f for exc in excludes):
+            print(f"  [EXCLUDED] {os.path.basename(f)}")
+        else:
+            tsv_files.append(f)
+            
+    print(f"  Found {len(tsv_files)} dataset TSV files (after exclusions)")
 
     for tsv_path in tsv_files:
         ds_name = os.path.basename(os.path.dirname(tsv_path))

@@ -18,6 +18,8 @@ import numpy as np
 import pandas as pd
 import glob
 
+import discovery_config
+
 # ---------------------------------------------------------------------------
 # Monkey-patch the column detection BEFORE importing the helper module,
 # so that Gene.Symbol (capital S) and a broader set are recognised.
@@ -190,10 +192,10 @@ RESULTS = os.path.join(BASE, "results")
 os.makedirs(RESULTS, exist_ok=True)
 
 VAL_EXCLUDES = {
-    "kidney": {"GSE200818"},
-    "liver":  {"GSE162694"},
-    "lung":   {"GSE24206"},
-    "skin":   {"GSE58095"},
+    "kidney": discovery_config.EXCLUDE_FROM_DISCOVERY["Kidney"],
+    "liver":  discovery_config.EXCLUDE_FROM_DISCOVERY["Liver"],
+    "lung":   discovery_config.EXCLUDE_FROM_DISCOVERY["Lungs"],
+    "skin":   discovery_config.EXCLUDE_FROM_DISCOVERY["Skin"],
 }
 
 ORGAN_DIRS = {
