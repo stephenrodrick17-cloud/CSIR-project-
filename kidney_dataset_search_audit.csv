@@ -1,0 +1,13 @@
+Accession,Cohort / Reference,Sample Size (n),Metadata Present in GEO,Per-Sample Continuous %TIF / eGFR Available?,Status / Usability
+GSE66494,Nakagawa et al. 2015 (PLOS ONE),"61 (53 CKD, 8 Ctrl)","study set, sample type, specimen id (#01-#53), disease status (CKD vs Ctrl)",NO (Only aggregate mean ± SD in Table 1; n=5 histological grades in Table 2),Binary DE contrast only; unpowered n=5 footnote
+GSE104954,European Renal cDNA Bank (ERCB),196,"diagnosis (FSGS, MCD, MGN, AAV, Control), tissue subregion (Glom/Tub)",NO (Only categorical disease diagnostic groups),Binary/Categorical DE contrast only
+GSE76882,Kidney Transplant Biopsies,274,"disease state (TX, IFTA, AR, ADNR), tissue type",NO (Only categorical allograft rejection/IFTA categories),Categorical allograft diagnosis only
+GSE200818,NEPTUNE Cohort (RNA-seq Tubulointerstitium),193,"tissue compartment, disease category (MCD, FSGS, MN, Other)",NO (Clinical eGFR/UPCR restricted by NEPTUNE DCC consortium),Categorical disease diagnosis only
+GSE104066,Nephrotic Syndrome / Vasculitis (ERCB),280,"diagnosis (FSGS, AAV, MCD, MN), tissue subregion",NO (Only categorical diagnostic groups),Categorical DE contrast only
+GSE47185 / GSE47183,ERCB Glomerular/Tubular Cohorts,120+,"disease classification (DN, LN, IgAN, Control)",NO (Only categorical disease categories),Categorical DE contrast only
+GSE22459,Kidney Biopsy / Allograft Study,65,"sample group (IFTA, Normal, AR)",NO (Only categorical groups),Categorical DE contrast only
+GSE53605,Calcineurin Inhibitor Toxicity Study,55,"disease state (Normal NW, IF/TA, CNIT, ACR)",NO (Only categorical diagnostic categories),Categorical DE contrast only
+GSE30529,Diabetic Kidney Disease Tubuli (Woroniecka et al.),22,disease state (DKD tubuli vs Control tubuli),NO (Binary case/control contrast only),Binary DE contrast only (Val2 cohort)
+GSE180393 / GSE180394,CProbe Microdissected Glom/Tub,62 / 59,"sample group (Living donor, DN, FSGS)",NO (Only categorical groups),Categorical DE contrast only
+GSE137570,Renal Biopsy CKD Transcriptome,28,"diagnosis (LN, IgAN, Control)",NO (Only categorical diagnostic groups),Categorical DE contrast only
+KPMP / Nephroseq,Kidney Precision Medicine Project & Nephroseq,Varied,Controlled Access / Single-cell / Summary Atlas,NO (Public open-access downloads omit matched per-sample raw bulk RNA-seq eGFR matrix),Restricted/Controlled Access or single-cell atlas
