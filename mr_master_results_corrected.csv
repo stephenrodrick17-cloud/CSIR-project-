@@ -1,0 +1,394 @@
+gene,organ,instrument_source,n_instruments,IVW_beta,IVW_p,IVW_p_adj,Egger_p,Cochran_Q_p,F_statistic,verdict
+ADAMTS3,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+ADAMTS3,Liver,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+ADAMTS3,Lung,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+ADAMTS3,Skin,GTEx,1,0.0224434448606058,0.9360776000319768,0.983344746747594,,,74.03463958927287,Not Significant (IVW p>=0.05)
+ADAMTS4,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+ADAMTS4,Liver,eQTLGen,1,-1.35028869787004,0.0107090819420796,0.43035129485661155,,,37.60265041,Single instrument - Unable to assess pleiotropy
+ADAMTS4,Lung,eQTLGen,1,1.23604279624135,0.119856429761666,0.7494838063920984,,,37.60265041,Not Significant (IVW p>=0.05)
+ADAMTS4,Skin,eQTLGen,1,1.61721493724879,0.252817009538766,0.9160524304972164,,,37.60265041,Not Significant (IVW p>=0.05)
+ADAMTS5,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+ADAMTS5,Liver,eQTLGen,1,-0.840102691873411,0.221315043676284,0.8894359302461979,,,121.90809744,Not Significant (IVW p>=0.05)
+ADAMTS5,Lung,eQTLGen,1,-0.680023502384065,0.488373119445265,0.9177578274973505,,,121.90809744,Not Significant (IVW p>=0.05)
+ADAMTS5,Skin,eQTLGen,1,-2.6285571771759,0.133761776354434,0.7562254959505167,,,121.90809744,Not Significant (IVW p>=0.05)
+ADAMTS9,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+ADAMTS9,Liver,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+ADAMTS9,Lung,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+ADAMTS9,Skin,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+AEBP1,Kidney,eQTLGen,1,0.222536523320591,0.0455002638963584,0.5157773983701662,,,493.48845316,Single instrument - Unable to assess pleiotropy
+AEBP1,Liver,eQTLGen,1,-0.0848907293804518,0.574893159668693,0.9421441841255442,,,493.48845316,Not Significant (IVW p>=0.05)
+AEBP1,Lung,eQTLGen,1,-0.164891218660934,0.440996464466055,0.9177578274973505,,,493.48845316,Not Significant (IVW p>=0.05)
+AEBP1,Skin,eQTLGen,1,0.0253699286278463,0.947004358279711,0.983344746747594,,,493.48845316,Not Significant (IVW p>=0.05)
+ANGPT1,Kidney,eQTLGen,1,0.0930110656047634,0.0955807045456294,0.7020237954558298,,,2216.56406416,Not Significant (IVW p>=0.05)
+ANGPT1,Liver,eQTLGen,1,0.0385475060292381,0.638295893910707,0.9518464441872757,,,2216.56406416,Not Significant (IVW p>=0.05)
+ANGPT1,Lung,eQTLGen,1,0.0577360609077632,0.619829528414235,0.9430263539445146,,,2216.56406416,Not Significant (IVW p>=0.05)
+ANGPT1,Skin,eQTLGen,1,0.233922085907455,0.25804293816823,0.9160524304972164,,,2216.56406416,Not Significant (IVW p>=0.05)
+ASPN,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+ASPN,Liver,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+ASPN,Lung,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+ASPN,Skin,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+BGN,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+BGN,Liver,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+BGN,Lung,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+BGN,Skin,GTEx,1,-0.0257885834204819,0.9019341627861426,0.983344746747594,,,126.41397218204364,Not Significant (IVW p>=0.05)
+BMP1,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+BMP1,Liver,eQTLGen,1,0.13141179333594,0.477939814345847,0.9177578274973505,,,524.93683225,Not Significant (IVW p>=0.05)
+BMP1,Lung,eQTLGen,1,0.0629797029119918,0.809991646712803,0.9802739815331081,,,524.93683225,Not Significant (IVW p>=0.05)
+BMP1,Skin,eQTLGen,1,0.508731693668919,0.27439222984,0.9177578274973505,,,524.93683225,Not Significant (IVW p>=0.05)
+C1QB,Kidney,eQTLGen,1,-0.0016542142444994,0.975070165131246,0.9960551703198638,,,2884.05517156,Not Significant (IVW p>=0.05)
+C1QB,Liver,eQTLGen,1,-0.0565701570476941,0.442629327999702,0.9177578274973505,,,2884.05517156,Not Significant (IVW p>=0.05)
+C1QB,Lung,eQTLGen,1,0.0061052746807438,0.953312980835592,0.983344746747594,,,2884.05517156,Not Significant (IVW p>=0.05)
+C1QB,Skin,eQTLGen,1,-0.396670650545499,0.0329567911441782,0.5157773983701662,,,2884.05517156,Single instrument - Unable to assess pleiotropy
+C1QC,Kidney,eQTLGen,1,0.0130960756155026,0.93436605637943,0.983344746747594,,,362.04195076,Not Significant (IVW p>=0.05)
+C1QC,Liver,eQTLGen,1,-0.201092111943988,0.354107569660305,0.9177578274973505,,,362.04195076,Not Significant (IVW p>=0.05)
+C1QC,Lung,eQTLGen,1,0.0924114286034244,0.763169723769251,0.9802739815331081,,,362.04195076,Not Significant (IVW p>=0.05)
+C1QC,Skin,eQTLGen,1,-1.41381490609076,0.0099379783366737,0.43035129485661155,,,362.04195076,Single instrument - Unable to assess pleiotropy
+CCL18,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+CCL18,Liver,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+CCL18,Lung,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+CCL18,Skin,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+CCL19,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+CCL19,Liver,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+CCL19,Lung,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+CCL19,Skin,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+CCL2,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+CCL2,Liver,eQTLGen,1,-0.964474912496152,0.46536626486062,0.9177578274973505,,,43.401744,Not Significant (IVW p>=0.05)
+CCL2,Lung,eQTLGen,1,-1.79065875316294,0.341503436052545,0.9177578274973505,,,43.401744,Not Significant (IVW p>=0.05)
+CCL2,Skin,eQTLGen,1,4.86346166570867,0.149114886525454,0.7562254959505167,,,43.401744,Not Significant (IVW p>=0.05)
+CCL21,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+CCL21,Liver,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+CCL21,Lung,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+CCL21,Skin,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+CCL4,Kidney,eQTLGen,1,-0.208521352668888,0.0054732035724882,0.43035129485661155,,,819.66544804,Single instrument - Unable to assess pleiotropy
+CCL4,Liver,eQTLGen,1,0.078990807689912,0.513070848305872,0.9281919674912172,,,819.66544804,Not Significant (IVW p>=0.05)
+CCL4,Lung,eQTLGen,1,0.0385591846757432,0.822915259509433,0.983344746747594,,,819.66544804,Not Significant (IVW p>=0.05)
+CCL4,Skin,eQTLGen,1,0.717263408056333,0.0181838575291526,0.43035129485661155,,,819.66544804,Single instrument - Unable to assess pleiotropy
+CCL5,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+CCL5,Liver,eQTLGen,1,-0.474318372485291,0.129814158540327,0.7562254959505167,,,267.02501281,Not Significant (IVW p>=0.05)
+CCL5,Lung,eQTLGen,1,0.404073905265687,0.362408447384829,0.9177578274973505,,,267.02501281,Not Significant (IVW p>=0.05)
+CCL5,Skin,eQTLGen,1,-0.0878792102033383,0.911662284757785,0.983344746747594,,,267.02501281,Not Significant (IVW p>=0.05)
+CCN2,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+CCN2,Liver,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+CCN2,Lung,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+CCN2,Skin,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+COL15A1,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+COL15A1,Liver,eQTLGen,1,0.525142122698581,0.447193073288399,0.9177578274973505,,,106.47763344,Not Significant (IVW p>=0.05)
+COL15A1,Lung,eQTLGen,1,-0.89815283453499,0.358362038814089,0.9177578274973505,,,106.47763344,Not Significant (IVW p>=0.05)
+COL15A1,Skin,eQTLGen,1,2.57124621350168,0.137325774579982,0.7562254959505167,,,106.47763344,Not Significant (IVW p>=0.05)
+COL1A1,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+COL1A1,Liver,eQTLGen,1,1.20923551526779,0.0642751507877721,0.6223003235361572,,,64.60140625,Not Significant (IVW p>=0.05)
+COL1A1,Lung,eQTLGen,1,-0.0971239848873182,0.916595923220454,0.983344746747594,,,64.60140625,Not Significant (IVW p>=0.05)
+COL1A1,Skin,eQTLGen,1,0.449853143685509,0.783954242914085,0.9802739815331081,,,64.60140625,Not Significant (IVW p>=0.05)
+COL1A2,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+COL1A2,Liver,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+COL1A2,Lung,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+COL1A2,Skin,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+COL3A1,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+COL3A1,Liver,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+COL3A1,Lung,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+COL3A1,Skin,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+COL4A1,Kidney,eQTLGen,1,-0.036448084702592,0.845206557169377,0.983344746747594,,,400.920529,Not Significant (IVW p>=0.05)
+COL4A1,Liver,eQTLGen,1,0.266479948059731,0.366502603152276,0.9177578274973505,,,400.920529,Not Significant (IVW p>=0.05)
+COL4A1,Lung,eQTLGen,1,0.108620626279778,0.795371165373508,0.9802739815331081,,,400.920529,Not Significant (IVW p>=0.05)
+COL4A1,Skin,eQTLGen,1,-0.560758228037757,0.451245385470076,0.9177578274973505,,,400.920529,Not Significant (IVW p>=0.05)
+COL4A2,Kidney,eQTLGen,1,-1.09484541001112,0.111251616353198,0.7494838063920984,,,48.86709025,Not Significant (IVW p>=0.05)
+COL4A2,Liver,eQTLGen,1,0.837895376889975,0.207970426558558,0.8805722875725781,,,48.86709025,Not Significant (IVW p>=0.05)
+COL4A2,Lung,eQTLGen,1,-0.304945000513493,0.74545255161418,0.9801320586038292,,,48.86709025,Not Significant (IVW p>=0.05)
+COL4A2,Skin,eQTLGen,1,1.03727181835723,0.53315970013964,0.9281919674912172,,,48.86709025,Not Significant (IVW p>=0.05)
+COL5A2,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+COL5A2,Liver,eQTLGen,1,-1.29110809430924,0.489872918827701,0.9177578274973505,,,395.25813721,Not Significant (IVW p>=0.05)
+COL5A2,Lung,eQTLGen,1,-3.97875660199645,0.148587738483298,0.7562254959505167,,,395.25813721,Not Significant (IVW p>=0.05)
+COL5A2,Skin,eQTLGen,1,-2.63100239435618,0.589644683823955,0.9421441841255442,,,395.25813721,Not Significant (IVW p>=0.05)
+COL6A3,Kidney,eQTLGen,1,0.002183090877473,0.991451400406244,0.99612805795533,,,596.15570569,Not Significant (IVW p>=0.05)
+COL6A3,Liver,eQTLGen,1,-0.235335013500712,0.444383402686942,0.9177578274973505,,,596.15570569,Not Significant (IVW p>=0.05)
+COL6A3,Lung,eQTLGen,1,0.474372549129618,0.279159358803259,0.9177578274973505,,,596.15570569,Not Significant (IVW p>=0.05)
+COL6A3,Skin,eQTLGen,1,-1.37049351409041,0.0790796333190193,0.6238504406278189,,,596.15570569,Not Significant (IVW p>=0.05)
+COLEC10,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+COLEC10,Liver,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+COLEC10,Lung,GTEx,1,0.0340692138933888,0.6289423050689427,0.9501043331892538,,,100.61359050980414,Not Significant (IVW p>=0.05)
+COLEC10,Skin,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+COLEC11,Kidney,eQTLGen,1,0.236612515780296,0.297566248363504,0.9177578274973505,,,330.46513369,Not Significant (IVW p>=0.05)
+COLEC11,Liver,eQTLGen,1,0.392428482572063,0.237933362716093,0.9160524304972164,,,330.46513369,Not Significant (IVW p>=0.05)
+COLEC11,Lung,eQTLGen,1,-0.320658227835521,0.496426877278384,0.9177578274973505,,,330.46513369,Not Significant (IVW p>=0.05)
+COLEC11,Skin,eQTLGen,1,1.19763790987355,0.156339850335643,0.7568270027611808,,,330.46513369,Not Significant (IVW p>=0.05)
+COMP,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+COMP,Liver,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+COMP,Lung,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+COMP,Skin,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+CRISPLD2,Kidney,eQTLGen,1,0.0430481081191738,0.399729035501385,0.9177578274973505,,,3785.00570176,Not Significant (IVW p>=0.05)
+CRISPLD2,Liver,eQTLGen,1,0.100742258823193,0.114281235647494,0.7494838063920984,,,3785.00570176,Not Significant (IVW p>=0.05)
+CRISPLD2,Lung,eQTLGen,1,0.0175246426697075,0.84579856691085,0.983344746747594,,,3785.00570176,Not Significant (IVW p>=0.05)
+CRISPLD2,Skin,eQTLGen,1,-0.0097072407606033,0.951828088245923,0.983344746747594,,,3785.00570176,Not Significant (IVW p>=0.05)
+CTSE,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+CTSE,Liver,eQTLGen,1,-0.311777948578267,0.0415932590878429,0.5157773983701662,,,110.37183364,Single instrument - Unable to assess pleiotropy
+CTSE,Lung,eQTLGen,1,-0.0261713283319257,0.903279807477305,0.983344746747594,,,110.37183364,Not Significant (IVW p>=0.05)
+CTSE,Skin,eQTLGen,1,0.364322842726023,0.343256675608797,0.9177578274973505,,,110.37183364,Not Significant (IVW p>=0.05)
+CTSS,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+CTSS,Liver,eQTLGen,1,0.00510599430121,0.955644894726535,0.983344746747594,,,1514.42392336,Not Significant (IVW p>=0.05)
+CTSS,Lung,eQTLGen,1,-0.323746456223511,0.0128705671559159,0.43035129485661155,,,1514.42392336,Single instrument - Unable to assess pleiotropy
+CTSS,Skin,eQTLGen,1,-0.0434023736564081,0.85112230649095,0.983344746747594,,,1514.42392336,Not Significant (IVW p>=0.05)
+CTSZ,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+CTSZ,Liver,eQTLGen,1,-0.0425432857692003,0.781251062450262,0.9802739815331081,,,639.69032241,Not Significant (IVW p>=0.05)
+CTSZ,Lung,eQTLGen,1,-0.201802824345681,0.353123615410285,0.9177578274973505,,,639.69032241,Not Significant (IVW p>=0.05)
+CTSZ,Skin,eQTLGen,1,0.923013856318583,0.0167912567705435,0.43035129485661155,,,639.69032241,Single instrument - Unable to assess pleiotropy
+CXCL3,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+CXCL3,Liver,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+CXCL3,Lung,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+CXCL3,Skin,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+CXCL9,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+CXCL9,Liver,eQTLGen,1,-0.0644395605411092,0.854890050327824,0.983344746747594,,,198.88050625,Not Significant (IVW p>=0.05)
+CXCL9,Lung,eQTLGen,1,-0.109932896415036,0.826579728238666,0.983344746747594,,,198.88050625,Not Significant (IVW p>=0.05)
+CXCL9,Skin,eQTLGen,1,-0.534305504004402,0.550186188805007,0.9300766525037024,,,198.88050625,Not Significant (IVW p>=0.05)
+DCN,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+DCN,Liver,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+DCN,Lung,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+DCN,Skin,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+EFEMP1,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+EFEMP1,Liver,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+EFEMP1,Lung,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+EFEMP1,Skin,GTEx,1,-0.2995426585193315,0.3021503846915251,0.9177578274973505,,,51.65396857245359,Not Significant (IVW p>=0.05)
+F13A1,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+F13A1,Liver,eQTLGen,1,0.0992307988349828,0.314080577656283,0.9177578274973505,,,1771.88799844,Not Significant (IVW p>=0.05)
+F13A1,Lung,eQTLGen,1,0.0880616622875578,0.528289559680248,0.9281919674912172,,,1771.88799844,Not Significant (IVW p>=0.05)
+F13A1,Skin,eQTLGen,1,-0.155592377024645,0.53274899899028,0.9281919674912172,,,1771.88799844,Not Significant (IVW p>=0.05)
+FBN1,Kidney,eQTLGen,1,-0.0189424614023849,0.895317338291782,0.983344746747594,,,543.10438116,Not Significant (IVW p>=0.05)
+FBN1,Liver,eQTLGen,1,-0.111602163296747,0.540144485896421,0.9281919674912172,,,543.10438116,Not Significant (IVW p>=0.05)
+FBN1,Lung,eQTLGen,1,-0.134858959708139,0.601556849958094,0.9421441841255442,,,543.10438116,Not Significant (IVW p>=0.05)
+FBN1,Skin,eQTLGen,1,0.0454335694434659,0.921392872598044,0.983344746747594,,,543.10438116,Not Significant (IVW p>=0.05)
+FGF10,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+FGF10,Liver,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+FGF10,Lung,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+FGF10,Skin,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+FGF14,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+FGF14,Liver,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+FGF14,Lung,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+FGF14,Skin,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+FGF7,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+FGF7,Liver,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+FGF7,Lung,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+FGF7,Skin,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+FGFBP2,Kidney,eQTLGen,1,0.0673124483108543,0.288008758003942,0.9177578274973505,,,2020.65533289,Not Significant (IVW p>=0.05)
+FGFBP2,Liver,eQTLGen,1,-0.0445624246040988,0.618524470800914,0.9430263539445146,,,2020.65533289,Not Significant (IVW p>=0.05)
+FGFBP2,Lung,eQTLGen,1,-0.12265872308993,0.331868120807763,0.9177578274973505,,,2020.65533289,Not Significant (IVW p>=0.05)
+FGFBP2,Skin,eQTLGen,1,0.296842353672771,0.188639804312562,0.8370891316369938,,,2020.65533289,Not Significant (IVW p>=0.05)
+FMOD,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+FMOD,Liver,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+FMOD,Lung,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+FMOD,Skin,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+FSTL1,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+FSTL1,Liver,eQTLGen,1,0.0268474918682476,0.8070195541422,0.9802739815331081,,,966.58188201,Not Significant (IVW p>=0.05)
+FSTL1,Lung,eQTLGen,1,-0.0862531059806448,0.579048956556361,0.9421441841255442,,,966.58188201,Not Significant (IVW p>=0.05)
+FSTL1,Skin,eQTLGen,1,0.249653669728653,0.3670448720864,0.9177578274973505,,,966.58188201,Not Significant (IVW p>=0.05)
+GDF15,Kidney,eQTLGen,1,0.232664604129218,0.102768216190316,0.7296543349512435,,,430.03975876,Not Significant (IVW p>=0.05)
+GDF15,Liver,eQTLGen,1,0.200192881233571,0.250765460429236,0.9160524304972164,,,430.03975876,Not Significant (IVW p>=0.05)
+GDF15,Lung,eQTLGen,1,-0.179903777222522,0.464827198363251,0.9177578274973505,,,430.03975876,Not Significant (IVW p>=0.05)
+GDF15,Skin,eQTLGen,1,0.454021708497756,0.301300103039419,0.9177578274973505,,,430.03975876,Not Significant (IVW p>=0.05)
+IGF1,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+IGF1,Liver,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+IGF1,Lung,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+IGF1,Skin,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+IGFBP5,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+IGFBP5,Liver,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+IGFBP5,Lung,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+IGFBP5,Skin,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+IL1A,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+IL1A,Liver,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+IL1A,Lung,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+IL1A,Skin,GTEx,1,0.0828099385245901,0.5239883618062672,0.9281919674912172,,,111.74893581257668,Not Significant (IVW p>=0.05)
+LAMC3,Kidney,eQTLGen,1,-0.022290306392037,0.703945415151674,0.9736387884890036,,,1424.93415289,Not Significant (IVW p>=0.05)
+LAMC3,Liver,eQTLGen,1,0.0604896346198785,0.474516186560544,0.9177578274973505,,,1424.93415289,Not Significant (IVW p>=0.05)
+LAMC3,Lung,eQTLGen,1,-0.0392450173382328,0.742648442433721,0.9801320586038292,,,1424.93415289,Not Significant (IVW p>=0.05)
+LAMC3,Skin,eQTLGen,1,-0.205458357291557,0.335101425518805,0.9177578274973505,,,1424.93415289,Not Significant (IVW p>=0.05)
+LEFTY2,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+LEFTY2,Liver,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+LEFTY2,Lung,GTEx,1,-0.9186415795751532,0.1636415681505076,0.7657871362011471,,,52.02376370634596,Not Significant (IVW p>=0.05)
+LEFTY2,Lung,GTEx,1,0.2932558463045672,0.0325193030439641,0.5157773983701662,,,52.02376370634596,Single instrument - Unable to assess pleiotropy
+LEFTY2,Skin,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+LEP,Kidney,eQTLGen,1,0.124500916292016,0.679972980698277,0.9655616325915535,,,87.04143616,Not Significant (IVW p>=0.05)
+LEP,Liver,eQTLGen,1,0.564417358499776,0.168976504232178,0.7657871362011471,,,87.04143616,Not Significant (IVW p>=0.05)
+LEP,Lung,eQTLGen,1,0.641690927211688,0.270244164868231,0.9177578274973505,,,87.04143616,Not Significant (IVW p>=0.05)
+LEP,Skin,eQTLGen,1,0.126406912137796,0.902599482675992,0.983344746747594,,,87.04143616,Not Significant (IVW p>=0.05)
+LTB,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+LTB,Liver,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+LTB,Lung,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+LTB,Skin,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+LTBP2,Kidney,eQTLGen,1,-0.293707935970646,0.0455002638963584,0.5157773983701662,,,275.53676049,Single instrument - Unable to assess pleiotropy
+LTBP2,Liver,eQTLGen,1,-0.467394081959794,0.027779438091232,0.5157773983701662,,,275.53676049,Single instrument - Unable to assess pleiotropy
+LTBP2,Lung,eQTLGen,1,-0.0695845009690028,0.816835377661842,0.9829713866778098,,,275.53676049,Not Significant (IVW p>=0.05)
+LTBP2,Skin,eQTLGen,1,-0.132491649916358,0.804337625352551,0.9802739815331081,,,275.53676049,Not Significant (IVW p>=0.05)
+LUM,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+LUM,Liver,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+LUM,Lung,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+LUM,Skin,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+MATN3,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+MATN3,Liver,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+MATN3,Lung,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+MATN3,Skin,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+MDK,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+MDK,Liver,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+MDK,Lung,GTEx,1,-0.4043750905264592,0.0412613301956189,0.5157773983701662,,,39.602309010865255,Single instrument - Unable to assess pleiotropy
+MDK,Skin,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+MFAP4,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+MFAP4,Liver,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+MFAP4,Lung,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+MFAP4,Skin,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+MMP11,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+MMP11,Liver,eQTLGen,1,-0.147507181437979,0.668146649823352,0.9637087074635701,,,196.77917284,Not Significant (IVW p>=0.05)
+MMP11,Lung,eQTLGen,1,-0.207586477896951,0.668704088331191,0.9637087074635701,,,196.77917284,Not Significant (IVW p>=0.05)
+MMP11,Skin,eQTLGen,1,-0.60656006206275,0.484059362783503,0.9177578274973505,,,196.77917284,Not Significant (IVW p>=0.05)
+MMP12,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+MMP12,Liver,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+MMP12,Lung,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+MMP12,Skin,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+MUC4,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+MUC4,Liver,eQTLGen,1,0.0176575423949199,0.947250115348433,0.983344746747594,,,386.36226721,Not Significant (IVW p>=0.05)
+MUC4,Lung,eQTLGen,1,-0.274798709410453,0.468824916714201,0.9177578274973505,,,386.36226721,Not Significant (IVW p>=0.05)
+MUC4,Skin,eQTLGen,1,0.0635577685606286,0.925061325262784,0.983344746747594,,,386.36226721,Not Significant (IVW p>=0.05)
+NID1,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+NID1,Liver,eQTLGen,1,0.513175336444583,0.094955661119837,0.7020237954558298,,,204.461401,Not Significant (IVW p>=0.05)
+NID1,Lung,eQTLGen,1,0.0019261695446139,0.996466619160353,0.996466619160353,,,204.461401,Not Significant (IVW p>=0.05)
+NID1,Skin,eQTLGen,1,0.25713749630411,0.73955892963672,0.9801320586038292,,,204.461401,Not Significant (IVW p>=0.05)
+PCOLCE2,Kidney,eQTLGen,1,0.109667928229244,0.759414305518866,0.9802739815331081,,,63.25179961,Not Significant (IVW p>=0.05)
+PCOLCE2,Liver,eQTLGen,1,-1.18543196992368,0.0172207694817643,0.43035129485661155,,,63.25179961,Single instrument - Unable to assess pleiotropy
+PCOLCE2,Lung,eQTLGen,1,0.0513615194075267,0.941910149398803,0.983344746747594,,,63.25179961,Not Significant (IVW p>=0.05)
+PCOLCE2,Skin,eQTLGen,1,0.867943317700018,0.488471187840428,0.9177578274973505,,,63.25179961,Not Significant (IVW p>=0.05)
+PDGFD,Kidney,eQTLGen,1,0.294904333267664,0.123154616073819,0.7494838063920984,,,496.93772241,Not Significant (IVW p>=0.05)
+PDGFD,Liver,eQTLGen,1,-0.0852329315855248,0.729268258555084,0.9801320586038292,,,496.93772241,Not Significant (IVW p>=0.05)
+PDGFD,Lung,eQTLGen,1,0.107423287105809,0.756807561161861,0.9802739815331081,,,496.93772241,Not Significant (IVW p>=0.05)
+PDGFD,Skin,eQTLGen,1,-1.26847121164546,0.0404756354494245,0.5157773983701662,,,496.93772241,Single instrument - Unable to assess pleiotropy
+PLOD2,Kidney,eQTLGen,1,0.182101600765627,0.617075077451974,0.9430263539445146,,,115.60335361,Not Significant (IVW p>=0.05)
+PLOD2,Liver,eQTLGen,1,0.421237422891048,0.429325538371025,0.9177578274973505,,,115.60335361,Not Significant (IVW p>=0.05)
+PLOD2,Lung,eQTLGen,1,0.640413254103459,0.396819259409183,0.9177578274973505,,,115.60335361,Not Significant (IVW p>=0.05)
+PLOD2,Skin,eQTLGen,1,-0.729446037655969,0.586340260951234,0.9421441841255442,,,115.60335361,Not Significant (IVW p>=0.05)
+PLXNA3,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+PLXNA3,Liver,GTEx,1,0.0372733765590091,0.4572677967038741,0.9177578274973505,,,58.78097648938919,Not Significant (IVW p>=0.05)
+PLXNA3,Lung,GTEx,1,-0.2152040393816709,0.0433127731631994,0.5157773983701662,,,126.69945391018967,Single instrument - Unable to assess pleiotropy
+PLXNA3,Skin,GTEx,1,0.0137380454691115,0.9374722721443975,0.983344746747594,,,176.56038829082382,Not Significant (IVW p>=0.05)
+PLXND1,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+PLXND1,Liver,eQTLGen,1,0.49132866571295,0.14307766084737,0.7562254959505167,,,199.79539801,Not Significant (IVW p>=0.05)
+PLXND1,Lung,eQTLGen,1,-0.290490831763704,0.540358040610052,0.9281919674912172,,,199.79539801,Not Significant (IVW p>=0.05)
+PLXND1,Skin,eQTLGen,1,0.972931458629616,0.250794329350819,0.9160524304972164,,,199.79539801,Not Significant (IVW p>=0.05)
+POSTN,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+POSTN,Liver,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+POSTN,Lung,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+POSTN,Skin,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+PRELP,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+PRELP,Liver,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+PRELP,Lung,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+PRELP,Skin,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+PRG4,Kidney,eQTLGen,1,-0.0767084310292946,0.649436283726755,0.9606245030124918,,,533.379025,Not Significant (IVW p>=0.05)
+PRG4,Liver,eQTLGen,1,-0.129054264363685,0.54471359594555,0.9281919674912172,,,533.379025,Not Significant (IVW p>=0.05)
+PRG4,Lung,eQTLGen,1,-0.536581611724398,0.0762402054199716,0.6238504406278189,,,533.379025,Not Significant (IVW p>=0.05)
+PRG4,Skin,eQTLGen,1,0.229737915511186,0.669948419823547,0.9637087074635701,,,533.379025,Not Significant (IVW p>=0.05)
+PRSS12,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+PRSS12,Liver,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+PRSS12,Lung,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+PRSS12,Skin,GTEx,1,-0.5345735365725172,0.0460083125306721,0.5157773983701662,,,52.40811086187588,Single instrument - Unable to assess pleiotropy
+S100A6,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+S100A6,Liver,eQTLGen,1,-0.172839532279975,0.793914016575594,0.9802739815331081,,,116.69184576,Not Significant (IVW p>=0.05)
+S100A6,Lung,eQTLGen,1,0.89928342109947,0.337906793824248,0.9177578274973505,,,116.69184576,Not Significant (IVW p>=0.05)
+S100A6,Skin,eQTLGen,1,-0.405782106034016,0.806955906680719,0.9802739815331081,,,116.69184576,Not Significant (IVW p>=0.05)
+SDC3,Kidney,eQTLGen,1,-0.187620625967367,0.404656761927286,0.9177578274973505,,,199.78126336,Not Significant (IVW p>=0.05)
+SDC3,Liver,eQTLGen,1,-0.343467073525074,0.227841238628631,0.8987071079240445,,,199.78126336,Not Significant (IVW p>=0.05)
+SDC3,Lung,eQTLGen,1,-0.34757221282124,0.387423732645626,0.9177578274973505,,,199.78126336,Not Significant (IVW p>=0.05)
+SDC3,Skin,eQTLGen,1,0.98891579856549,0.167638602306292,0.7657871362011471,,,199.78126336,Not Significant (IVW p>=0.05)
+SEMA3E,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+SEMA3E,Liver,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+SEMA3E,Lung,GTEx,1,0.0342638743077148,0.7723104279344357,0.9802739815331081,,,92.51583619533882,Not Significant (IVW p>=0.05)
+SEMA3E,Skin,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+SEMA6A,Kidney,eQTLGen,1,-0.0034710228093598,0.986702539612635,0.9960551703198638,,,236.38447504,Not Significant (IVW p>=0.05)
+SEMA6A,Liver,eQTLGen,1,0.276832581168094,0.316901768476875,0.9177578274973505,,,236.38447504,Not Significant (IVW p>=0.05)
+SEMA6A,Lung,eQTLGen,1,0.268482457296377,0.494276837170481,0.9177578274973505,,,236.38447504,Not Significant (IVW p>=0.05)
+SEMA6A,Skin,eQTLGen,1,0.586114597573289,0.400759153857625,0.9177578274973505,,,236.38447504,Not Significant (IVW p>=0.05)
+SEMA7A,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+SEMA7A,Liver,eQTLGen,1,-0.253042496767606,0.639033058773617,0.9518464441872757,,,51.10677121,Not Significant (IVW p>=0.05)
+SEMA7A,Lung,eQTLGen,1,-0.950497464507288,0.213312069181146,0.8805722875725781,,,51.10677121,Not Significant (IVW p>=0.05)
+SEMA7A,Skin,eQTLGen,1,0.57031239633993,0.674143649821934,0.9637087074635701,,,51.10677121,Not Significant (IVW p>=0.05)
+SERPINE1,Kidney,eQTLGen,1,-0.322289493653961,0.395325086245385,0.9177578274973505,,,87.23933604,Not Significant (IVW p>=0.05)
+SERPINE1,Liver,eQTLGen,1,0.482078728787044,0.36719380798672,0.9177578274973505,,,87.23933604,Not Significant (IVW p>=0.05)
+SERPINE1,Lung,eQTLGen,1,0.792714613514589,0.294482905458477,0.9177578274973505,,,87.23933604,Not Significant (IVW p>=0.05)
+SERPINE1,Skin,eQTLGen,1,-3.32106052466551,0.0136083686517958,0.43035129485661155,,,87.23933604,Single instrument - Unable to assess pleiotropy
+SERPINE2,Kidney,eQTLGen,1,-0.0415140417443551,0.142466754827972,0.7562254959505167,,,8687.71262241,Not Significant (IVW p>=0.05)
+SERPINE2,Liver,eQTLGen,1,-0.102684416154093,0.0133074744940167,0.43035129485661155,,,8687.71262241,Single instrument - Unable to assess pleiotropy
+SERPINE2,Lung,eQTLGen,1,-0.110272428184202,0.0601221790056352,0.6098106727714427,,,8687.71262241,Not Significant (IVW p>=0.05)
+SERPINE2,Skin,eQTLGen,1,0.0359438008432114,0.73114598176547,0.9801320586038292,,,8687.71262241,Not Significant (IVW p>=0.05)
+SERPINF2,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+SERPINF2,Liver,eQTLGen,1,0.121053555459901,0.153067341770052,0.7568270027611808,,,1785.83998464,Not Significant (IVW p>=0.05)
+SERPINF2,Lung,eQTLGen,1,0.0608685034517524,0.612042148807838,0.9430263539445146,,,1785.83998464,Not Significant (IVW p>=0.05)
+SERPINF2,Skin,eQTLGen,1,0.383829509571853,0.0736087844091715,0.6238504406278189,,,1785.83998464,Not Significant (IVW p>=0.05)
+SERPINH1,Kidney,eQTLGen,1,0.0593825292906955,0.463355149269596,0.9177578274973505,,,1071.65224321,Not Significant (IVW p>=0.05)
+SERPINH1,Liver,eQTLGen,1,-0.084182293046016,0.471766537338698,0.9177578274973505,,,1071.65224321,Not Significant (IVW p>=0.05)
+SERPINH1,Lung,eQTLGen,1,0.102632444896635,0.535739596887416,0.9281919674912172,,,1071.65224321,Not Significant (IVW p>=0.05)
+SERPINH1,Skin,eQTLGen,1,0.171627386155968,0.560920409166701,0.9407562767913963,,,1071.65224321,Not Significant (IVW p>=0.05)
+SFRP4,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+SFRP4,Liver,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+SFRP4,Lung,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+SFRP4,Skin,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+SPARCL1,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+SPARCL1,Liver,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+SPARCL1,Lung,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+SPARCL1,Skin,GTEx,1,-0.096757070581405,0.7865720334485852,0.9802739815331081,,,67.85210880686802,Not Significant (IVW p>=0.05)
+SPP1,Kidney,eQTLGen,1,0.0964451353273689,0.0682232466455102,0.6238504406278189,,,3230.03535556,Not Significant (IVW p>=0.05)
+SPP1,Liver,eQTLGen,1,0.0111517643298998,0.873004514746868,0.983344746747594,,,3230.03535556,Not Significant (IVW p>=0.05)
+SPP1,Lung,eQTLGen,1,0.0666404773778142,0.499811774599496,0.9177578274973505,,,3230.03535556,Not Significant (IVW p>=0.05)
+SPP1,Skin,eQTLGen,1,-0.0204525909561975,0.907518005987888,0.983344746747594,,,3230.03535556,Not Significant (IVW p>=0.05)
+SRPX,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+SRPX,Liver,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+SRPX,Lung,GTEx,1,0.2254698013236938,0.1204544743448532,0.7494838063920984,,,49.40709544718403,Not Significant (IVW p>=0.05)
+SRPX,Skin,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+SVEP1,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+SVEP1,Liver,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+SVEP1,Lung,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+SVEP1,Skin,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+TGFB2,Kidney,eQTLGen,1,-0.788495462647519,0.214975394149174,0.8805722875725781,,,47.55343681,Not Significant (IVW p>=0.05)
+TGFB2,Liver,eQTLGen,1,0.413163991826048,0.594991671744471,0.9421441841255442,,,47.55343681,Not Significant (IVW p>=0.05)
+TGFB2,Lung,eQTLGen,1,0.44032384521363,0.689025420529046,0.9662589102375996,,,47.55343681,Not Significant (IVW p>=0.05)
+TGFB2,Skin,eQTLGen,1,0.349054223645304,0.858811894959516,0.983344746747594,,,47.55343681,Not Significant (IVW p>=0.05)
+TGFB3,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+TGFB3,Liver,eQTLGen,1,0.799264966471217,0.0725264934449954,0.6238504406278189,,,895.05680625,Not Significant (IVW p>=0.05)
+TGFB3,Lung,eQTLGen,1,0.721836279624832,0.256221959856097,0.9160524304972164,,,895.05680625,Not Significant (IVW p>=0.05)
+TGFB3,Skin,eQTLGen,1,-0.219859086608034,0.842965338992037,0.983344746747594,,,895.05680625,Not Significant (IVW p>=0.05)
+TGM2,Kidney,eQTLGen,1,0.246765974331069,0.467058901715173,0.9177578274973505,,,118.42010041,Not Significant (IVW p>=0.05)
+TGM2,Liver,eQTLGen,1,0.555436277897767,0.195404013190061,0.8494092818261836,,,118.42010041,Not Significant (IVW p>=0.05)
+TGM2,Lung,eQTLGen,1,0.620010306518189,0.307057227321703,0.9177578274973505,,,118.42010041,Not Significant (IVW p>=0.05)
+TGM2,Skin,eQTLGen,1,0.475530370834687,0.658839317063112,0.9637087074635701,,,118.42010041,Not Significant (IVW p>=0.05)
+THBS1,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+THBS1,Liver,eQTLGen,1,0.0405315523921372,0.581715822324267,0.9421441841255442,,,2768.48554896,Not Significant (IVW p>=0.05)
+THBS1,Lung,eQTLGen,1,-0.0089422376269198,0.931653943559793,0.983344746747594,,,2768.48554896,Not Significant (IVW p>=0.05)
+THBS1,Skin,eQTLGen,1,0.0736674628254044,0.691825411617901,0.9662589102375996,,,2768.48554896,Not Significant (IVW p>=0.05)
+TIMP1,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+TIMP1,Liver,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+TIMP1,Lung,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+TIMP1,Skin,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+TIMP4,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+TIMP4,Liver,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+TIMP4,Lung,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+TIMP4,Skin,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+TNC,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+TNC,Liver,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+TNC,Lung,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+TNC,Skin,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+TNFAIP6,Kidney,eQTLGen,1,-0.0185639898132494,0.738882680363527,0.9801320586038292,,,2282.93795601,Not Significant (IVW p>=0.05)
+TNFAIP6,Liver,eQTLGen,1,0.0307805431015729,0.710785048791506,0.9767562283392953,,,2282.93795601,Not Significant (IVW p>=0.05)
+TNFAIP6,Lung,eQTLGen,1,-0.223108341332168,0.0573794366542861,0.6098106727714427,,,2282.93795601,Not Significant (IVW p>=0.05)
+TNFAIP6,Skin,eQTLGen,1,0.175942441133849,0.401134521748939,0.9177578274973505,,,2282.93795601,Not Significant (IVW p>=0.05)
+VCAN,Kidney,eQTLGen,1,0.401370469619503,0.317310507862914,0.9177578274973505,,,50.16605584,Not Significant (IVW p>=0.05)
+VCAN,Liver,eQTLGen,1,-0.406284749306906,0.453983186656151,0.9177578274973505,,,50.16605584,Not Significant (IVW p>=0.05)
+VCAN,Lung,eQTLGen,1,-0.27825509519459,0.717435554535871,0.9795754686932086,,,50.16605584,Not Significant (IVW p>=0.05)
+VCAN,Skin,eQTLGen,1,-0.126432952212861,0.926430814328925,0.983344746747594,,,50.16605584,Not Significant (IVW p>=0.05)
+VWF,Kidney,eQTLGen,1,0.0488100008132486,0.463355149269597,0.9177578274973505,,,1589.68866681,Not Significant (IVW p>=0.05)
+VWF,Liver,eQTLGen,1,0.0065849572097153,0.94557103908388,0.983344746747594,,,1589.68866681,Not Significant (IVW p>=0.05)
+VWF,Lung,eQTLGen,1,0.123365945873646,0.366908566281316,0.9177578274973505,,,1589.68866681,Not Significant (IVW p>=0.05)
+VWF,Skin,eQTLGen,1,0.005478478864007,0.982018467085213,0.9960551703198638,,,1589.68866681,Not Significant (IVW p>=0.05)
+WIF1,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+WIF1,Liver,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+WIF1,Lung,GTEx,1,-0.066482422300957,0.5990391765954608,0.9421441841255442,,,56.17068409017143,Not Significant (IVW p>=0.05)
+WIF1,Skin,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+WNT10B,Kidney,eQTLGen,1,-0.072403973031509,0.694073301719966,0.9662589102375996,,,210.38052025,Not Significant (IVW p>=0.05)
+WNT10B,Liver,eQTLGen,1,0.150729118433815,0.572048340967768,0.9421441841255442,,,210.38052025,Not Significant (IVW p>=0.05)
+WNT10B,Lung,eQTLGen,1,-0.106855624178876,0.77730091919897,0.9802739815331081,,,210.38052025,Not Significant (IVW p>=0.05)
+WNT10B,Skin,eQTLGen,1,-0.0148086987011157,0.982398703437311,0.9960551703198638,,,210.38052025,Not Significant (IVW p>=0.05)
+WNT2,Kidney,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+WNT2,Liver,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+WNT2,Lung,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
+WNT2,Skin,None,0,,,,,,,No instruments available in eQTLGen or GTEx v8
