@@ -41,7 +41,8 @@ This study systematically ingests, harmonizes, and validates transcriptome-wide 
 * **Layer 2 (Validation 1) Cohorts**: Independent GEO validation cohorts (`GSE200818` for Kidney, `GSE162694` for Liver, `GSE24206` for Lung, `GSE58095` for Skin).
 * **Layer 3 (Validation 2) Cohorts**: 3rd independent validation layer using real GEO top tables (`GSE30529` for Kidney, `GSE14323` for Liver, `GSE83717` for Lung, `GSE125362` for Skin).
 * **Core Signature**: A **7-gene 100% Core Matrisome panel** (`AEBP1`, `COL15A1`, `COL1A1`, `COL1A2`, `COL3A1`, `SPP1`, `VWF`) confirmed across all 4 organs.
-* **Skin Severity Correlation Highlight**: Multi-cohort disease-only severity pooling ($n=58$ SSc patients with mRSS) established Skin as one of the strongest results in the study, with **6 out of 7 core genes** (`VWF`, `COL15A1`, `COL1A1`, `COL1A2`, `COL3A1`, `AEBP1`) reaching statistical significance up to $ho = +0.66$ ($p < 10^{-6}$).
+* **Skin Severity Correlation Highlight**: Multi-cohort disease-only severity pooling ($n=58$ SSc patients with mRSS) established Skin as one of the strongest results in the study, with **6 out of 7 core genes** (`VWF`, `COL15A1`, `COL1A1`, `COL1A2`, `COL3A1`, `AEBP1`) reaching statistical significance up to $
+ho = +0.66$ ($p < 10^{-6}$).
 
 ---
 
@@ -99,15 +100,14 @@ Differential expression filtering ($p < 0.05$ and $|\log_2 	ext{FC}| \ge 0.585$)
 
 ### Per-Tissue DEG Summary Table
 
-| Tissue | Total Probes / Genes Tested | Total DEGs ($p < 0.05, |\log_2 	ext{FC}| \ge 0.585$) | Up-regulated DEGs | Down-regulated DEGs | Primary Output File |
-| :--- | :---: | :---: | :---: | :---: | :--- |
-| **Kidney** | 41,000 | **24,569** | 12,145 | 12,424 | [`kidney_DEGs.csv`](file:///d:/CSIR/results/kidney_DEGs.csv) |
-| **Liver** | 49,386 | **32,746** | 16,812 | 15,934 | [`liver_DEGs.csv`](file:///d:/CSIR/results/liver_DEGs.csv) |
-| **Lung** | 54,613 | **29,195** | 14,520 | 14,675 | [`lung_DEGs.csv`](file:///d:/CSIR/results/lung_DEGs.csv) |
-| **Skin** | 29,772 | **29,772** | 14,810 | 14,962 | [`skin_DEGs.csv`](file:///d:/CSIR/results/skin_DEGs.csv) |
+> **Statistical Note on Discovery Filtering**: The table below lists the **true filtered DEG counts** after applying FDR Benjamini-Hochberg adjustment ($p_{\text{adj}} < 0.05$) and absolute fold change ($|\log_2 \text{FC}| \ge 0.585$). Total probes/genes tested represent the full platform coverage prior to significance filtering.
 
----
-
+| Tissue | Total Probes / Genes Tested | Total DEGs ($p_{\text{adj}} < 0.05, |\log_2 \text{FC}| \ge 0.585$) | Up-regulated DEGs | Down-regulated DEGs | Raw $p < 0.05$ DEGs | Primary Output File |
+| :--- | :---: | :---: | :---: | :---: | :---: | :--- |
+| **Kidney** | 24,569 | **12,442** | 3,559 | 8,883 | 13,748 | [`kidney_DEGs.csv`](file:///d:/CSIR/results/kidney_DEGs.csv) |
+| **Liver** | 32,746 | **13,096** | 6,554 | 6,542 | 13,475 | [`liver_DEGs.csv`](file:///d:/CSIR/results/liver_DEGs.csv) |
+| **Lung** | 29,195 | **10,778** | 5,298 | 5,480 | 11,391 | [`lung_DEGs.csv`](file:///d:/CSIR/results/lung_DEGs.csv) |
+| **Skin** | 29,772 | **3,079** | 519 | 2,560 | 3,629 | [`skin_DEGs.csv`](file:///d:/CSIR/results/skin_DEGs.csv) |
 ## 6. Phase 3: 4-Organ All-Gene Venn Diagram & Overlap Analysis
 
 Cross-referencing the total DEG sets across Kidney, Liver, Lung, and Skin identified **573 genes shared across all 4 organs**:
@@ -207,14 +207,19 @@ Detailed per-gene per-organ results: [`final_confirmed_panel.csv`](file:///d:/CS
 To address sample size constraints in single-cohort disease severity testing, disease-only patient samples from verified real GEO cohorts were harmonized, standardized (`StandardScaler` z-score per cohort), and evaluated:
 
 * **Confirmed Real Sample Sizes ($n$)**:
-  * **Liver**: Val1 ($n=77$, GSE162694 METAVIR F1–F4) + Val2 ($n=10$, GSE14323 Cirrhosis) $ightarrow \mathbf{n = 87}$ disease samples.
-  * **Lung**: Val1 ($n=17$, GSE24206 early/advanced IPF) + Val2 ($n=10$, GSE83717 IPF) $ightarrow \mathbf{n = 27}$ disease samples.
-  * **Skin**: Val1 ($n=58$, GSE58095 Systemic Sclerosis with documented non-NaN mRSS 2.0–39.0) $ightarrow \mathbf{n = 58}$ disease samples. All 44 unquantified/control NaN samples were strictly removed.
+  * **Liver**: Val1 ($n=77$, GSE162694 METAVIR F1–F4) + Val2 ($n=10$, GSE14323 Cirrhosis) $
+ightarrow \mathbf{n = 87}$ disease samples.
+  * **Lung**: Val1 ($n=17$, GSE24206 early/advanced IPF) + Val2 ($n=10$, GSE83717 IPF) $
+ightarrow \mathbf{n = 27}$ disease samples.
+  * **Skin**: Val1 ($n=58$, GSE58095 Systemic Sclerosis with documented non-NaN mRSS 2.0–39.0) $
+ightarrow \mathbf{n = 58}$ disease samples. All 44 unquantified/control NaN samples were strictly removed.
   * **Kidney Limitation**: Full provenance audit revealed GSE66494 authors never deposited per-sample continuous %TIF/eGFR values into GEO (PMC4552842 Table 1 contains only aggregate summary means). To maintain 100% scientific integrity, **Kidney was cleanly segregated as a binary differential expression contrast** (CKD vs Control via GSE30529 and GSE66494). The $n=5$ published validation histological grades are recorded in [`kidney_severity_status.csv`](file:///d:/CSIR/kidney_severity_status.csv) as an unpowered, supplementary footnote.
 
 ### Complete Confirmed Real Data Severity Summary Table ([`pooled_vs_original_severity.csv`](file:///d:/CSIR/pooled_vs_original_severity.csv))
 
-| Organ | Gene | $n_{	ext{original}}$ | $ho_{	ext{original}}$ | $p_{	ext{adj,original}}$ | $n_{	ext{pooled}}$ | $ho_{	ext{pooled}}$ | $p_{	ext{adj,pooled}}$ | Power Improved? |
+| Organ | Gene | $n_{	ext{original}}$ | $
+ho_{	ext{original}}$ | $p_{	ext{adj,original}}$ | $n_{	ext{pooled}}$ | $
+ho_{	ext{pooled}}$ | $p_{	ext{adj,pooled}}$ | Power Improved? |
 |:---|:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | **Liver** | `AEBP1` | 10 | +0.509 | 0.3335 | **87** | **+0.452** | **$7.84 	imes 10^{-5}$** | **True** ✅ |
 | **Liver** | `COL15A1`| 0 | — | — | **87** | -0.001 | 0.9958 | False |
@@ -239,7 +244,8 @@ To address sample size constraints in single-cohort disease severity testing, di
 | **Skin**  | `VWF`    | 10 | +0.552 | 0.4920 | **58** | **+0.656** | **$1.57 	imes 10^{-7}$** | **True** ✅ |
 
 ### Key Severity Findings
-1. **Skin Outstanding Performance**: In **Skin** ($n=58$), **6 out of 7 core genes** (`VWF`, `COL15A1`, `COL1A1`, `COL1A2`, `COL3A1`, `AEBP1`) demonstrate robust, statistically significant positive correlations with clinical mRSS severity ($ho = +0.37$ to $+0.66$, $p_{	ext{adj}} < 0.01$). Three genes (`VWF`, `COL15A1`, `COL1A1`) achieve extreme significance ($p < 10^{-5}$).
+1. **Skin Outstanding Performance**: In **Skin** ($n=58$), **6 out of 7 core genes** (`VWF`, `COL15A1`, `COL1A1`, `COL1A2`, `COL3A1`, `AEBP1`) demonstrate robust, statistically significant positive correlations with clinical mRSS severity ($
+ho = +0.37$ to $+0.66$, $p_{	ext{adj}} < 0.01$). Three genes (`VWF`, `COL15A1`, `COL1A1`) achieve extreme significance ($p < 10^{-5}$).
 2. **Liver Performance**: In **Liver** ($n=87$), 4/7 core signature genes (`AEBP1`, `COL1A1`, `COL1A2`, `VWF`) demonstrate statistically significant correlation with advancing METAVIR stage ($p_{	ext{adj}} < 0.05$).
 3. **Cohort Independence**: Verified **0 overlapping GSM sample IDs or patient titles** between Validation 1 and Validation 2 across all organs.
 
@@ -285,7 +291,9 @@ To ensure statistical rigor, a thorough audit was performed across the different
    * For $n_1=10$ controls and $n_2=10$ fibrotic samples, the maximum theoretical Mann-Whitney $U$ statistic is $U_{	ext{max}} = n_1 	imes n_2 = 100.0$.
    * For `AEBP1`, `COL1A1`, `COL1A2`, `COL3A1`, and `VWF` in Kidney and Liver, **every single fibrotic sample has higher expression than every single control sample** (zero rank overlap).
    * The exact two-tailed $p$-value for $U = 100.0$ with $n_1=10, n_2=10$ is mathematically fixed at:
-     $$p = 2 	imes rac{1}{inom{20}{10}} = 2 	imes rac{1}{184756} = 1.826718 	imes 10^{-4}$$
+     $$p = 2 	imes 
+rac{1}{inom{20}{10}} = 2 	imes 
+rac{1}{184756} = 1.826718 	imes 10^{-4}$$
    * **Conclusion**: This is a mathematical property of non-parametric rank tests when groups are perfectly separated ($U=100.0$), confirming there is **no code bug or loop error**.
 
 2. **Multiple Testing Correction Audit (Per-Organ vs. Global 392-Test BH FDR Adjustment)**:
@@ -367,7 +375,8 @@ pip install pandas numpy scipy matplotlib seaborn GEOparse upsetplot
    ```bash
    python pan_fibrotic_analysis.py
    ```
-   This script executes disease-only sample harmonization across Validation 1 and Validation 2 cohorts, computes continuous Spearman correlations ($ho$), applies BH FDR correction, generates individual scatter plots, and exports [`pooled_vs_original_severity.csv`](file:///d:/CSIR/pooled_vs_original_severity.csv).
+   This script executes disease-only sample harmonization across Validation 1 and Validation 2 cohorts, computes continuous Spearman correlations ($
+ho$), applies BH FDR correction, generates individual scatter plots, and exports [`pooled_vs_original_severity.csv`](file:///d:/CSIR/pooled_vs_original_severity.csv).
 
 ---
 
