@@ -1,14 +1,24 @@
-﻿# -*- coding: utf-8 -*-
-"""
-100% REAL Patient Expression Matrix Construction and 4-Model Ensemble ML.
-Trained on genuine GSM human tissue samples across Discovery and Validation 1 cohorts.
-Strictly excludes all Validation 2 held-out datasets (GSE30529, GSE14323, GSE83717, GSE125362).
-"""
+# -*- coding: utf-8 -*-
 import os
 import gzip
 import glob
+import json
 import pandas as pd
 import numpy as np
+from pycombat import Combat
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import LogisticRegressionCV
+from sklearn.feature_selection import RFE
+from sklearn.svm import SVC
+from sklearn.ensemble import RandomForestClassifier
+from xgboost import XGBClassifier
+from sklearn.metrics import roc_auc_score, roc_curve
+from sklearn.utils.class_weight import compute_sample_weight
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+import seaborn as sns
+
 import discovery_config
 
 # 1. Enforce Cohort Isolation Guard
@@ -18,266 +28,170 @@ base_dir = r"D:\CSIR"
 results_dir = os.path.join(base_dir, "results")
 plots_dir = os.path.join(base_dir, "plots")
 geo_cache = os.path.join(base_dir, "geo_cache")
+os.makedirs(results_dir, exist_ok=True)
+os.makedirs(plots_dir, exist_ok=True)
 
 # 2. Target 24 Clean Core ECM Genes
 ecm_df = pd.read_csv(os.path.join(base_dir, "ecm_clean_genes.csv"))
 ecm_genes = sorted(ecm_df["gene"].tolist())
 print(f"Target Feature Set ({len(ecm_genes)} Clean Core ECM Genes): {ecm_genes}\n")
 
-# 3. Build Probe-to-Gene Dictionaries from Local Top Tables & bioDBnet
-dataset_probe_maps = {}
+# 3. Load Real Patient Expression Matrix (799 Samples across 8 Studies)
+raw_df = pd.read_csv(os.path.join(results_dir, "real_human_patient_ml_training_matrix.csv"))
+print(f"Loaded Real Patient Matrix: {len(raw_df)} samples across {raw_df['study'].nunique()} studies.")
 
-top_table_files = {
-    # Kidney
-    "GSE104066": (r"D:\CSIR\Kidney\4066\GSE104066.top.table.tsv", "Kidney"),
-    "GSE66494":  (r"D:\CSIR\Kidney\494\GSE66494.top.table.tsv",   "Kidney"),
-    "GSE200818": (r"D:\CSIR\Kidney\18\GSE200818.top.table.tsv",   "Kidney"),
-    # Liver
-    "GSE89377":  (r"D:\CSIR\Liver\9377\GSE89377.top.table.tsv",   "Liver"),
-    "GSE164760": (r"D:\CSIR\Liver\760\GSE164760.top.table.tsv",   "Liver"),
-    "GSE77627":  (r"D:\CSIR\Liver\627\GSE77627.top.table.tsv",   "Liver"),
-    # Lung
-    "GSE110147": (r"D:\CSIR\Lungs\147\GSE110147.top.table.tsv",   "Lungs"),
-    "GSE32537":  (r"D:\CSIR\Lungs\537\GSE32537.top.table.tsv",   "Lungs"),
-    "GSE53845":  (r"D:\CSIR\Lungs\385\GSE53845.top.table.tsv",   "Lungs"),
-    "GSE10667":  (r"D:\CSIR\Lungs\667\GSE10667.top.table.tsv",   "Lungs"),
-    # Skin
-    "GSE95065":  (r"D:\CSIR\Skin\065\GSE95065.top.table.tsv",     "Skin"),
-    "GSE58095":  (r"D:\CSIR\Skin\095\GSE58095.top.table.tsv",     "Skin"),
-}
-
-global_bio_map = {}
-for f in glob.glob(os.path.join(base_dir, "**", "bioDBnet*.txt"), recursive=True):
-    with open(f, "r", encoding="utf-8", errors="ignore") as fp:
-        for line in fp:
-            p = line.strip().split("\t")
-            if len(p) >= 2 and p[1].strip().upper() not in ("-", "NONE", "NAN", "NA"):
-                global_bio_map[p[0].strip()] = p[1].strip().upper()
-
-acc_map_file = os.path.join(geo_cache, "gb_acc_to_symbol_map.json")
-if os.path.exists(acc_map_file):
-    import json
-    with open(acc_map_file, "r") as f:
-        global_bio_map.update(json.load(f))
-
-for acc, (tpath, organ) in top_table_files.items():
-    if os.path.exists(tpath):
-        df_top = pd.read_csv(tpath, sep="\t")
-        cols_l = {c.lower(): c for c in df_top.columns}
-        id_col = cols_l.get("id", df_top.columns[0])
-        sym_col = next((cols_l[c] for c in ["symbol", "gene.symbol", "gene_symbol", "genesymbol"] if c in cols_l), None)
-        
-        m = {}
-        if sym_col:
-            m = dict(zip(df_top[id_col].astype(str).str.strip(), df_top[sym_col].astype(str).str.strip().str.upper()))
-        else:
-            m = dict(zip(df_top[id_col].astype(str).str.strip(), df_top[id_col].astype(str).str.strip().map(global_bio_map)))
-            
-        dataset_probe_maps[acc] = m
-
-
-def parse_geo_matrix(fpath, accession, organ, target_genes, probe_map):
-    print(f"Parsing real series matrix: {accession} ({organ})...")
-    with gzip.open(fpath, "rt", encoding="utf-8", errors="ignore") as f:
-        gsm_ids = []
-        titles = []
-        chars = []
-        for line in f:
-            if line.startswith("!Sample_geo_accession"):
-                gsm_ids = [x.strip("\" \t\r\n") for x in line.split("\t")[1:]]
-            elif line.startswith("!Sample_title"):
-                titles = [x.strip("\" \t\r\n") for x in line.split("\t")[1:]]
-            elif line.startswith("!Sample_characteristics_ch1"):
-                chars.append([x.strip("\" \t\r\n") for x in line.split("\t")[1:]])
-            elif line.startswith("!series_matrix_table_begin"):
-                break
-                
-        if not gsm_ids:
-            return None
-            
-        data_rows = []
-        for line in f:
-            if line.startswith("!series_matrix_table_end"):
-                break
-            parts = line.strip().split("\t")
-            if not parts:
-                continue
-            probe_id = parts[0].strip("\" ")
-            gene_sym = probe_map.get(probe_id, probe_map.get(probe_id.replace("_at", ""), global_bio_map.get(probe_id, probe_id.upper())))
-            if gene_sym in target_genes:
-                try:
-                    vals = [float(x.strip("\" ")) if x.strip("\" ") not in ("", "NA", "null", "NaN") else np.nan for x in parts[1:]]
-                    if len(vals) == len(gsm_ids):
-                        data_rows.append((gene_sym, vals))
-                except Exception:
-                    pass
-
-    if not data_rows:
-        print(f"  -> {accession}: No matching gene probes found in table")
-        return None
-
-    df_raw = pd.DataFrame([vals for _, vals in data_rows], index=[g for g, _ in data_rows], columns=gsm_ids)
-    df_expr = df_raw.groupby(df_raw.index).mean().T
-
-    # Clinical Labeling from Real Metadata
-    meta_df = pd.DataFrame({"GSM": gsm_ids, "Title": titles if titles else gsm_ids})
-    for idx, ch in enumerate(chars):
-        if len(ch) == len(gsm_ids):
-            meta_df[f"char_{idx}"] = ch
-
-    all_text = meta_df.astype(str).agg(" ".join, axis=1).str.lower()
-    
-    # Specific per-dataset clinical condition handling
-    labels = []
-    for idx, row_text in enumerate(all_text):
-        if any(w in row_text for w in ["normal", "control", "donor", "healthy", "non-fibrotic", "unaffected", "living donor"]):
-            labels.append(0)  # Healthy Control
-        else:
-            labels.append(1)  # Diseased / Fibrotic Tissue
-
-    df_expr["label"] = labels
-    df_expr["organ"] = organ
-    df_expr["study"] = accession
-    df_expr["GSM"] = gsm_ids
-
-    # Log2 transform if raw intensity
-    gene_cols = [c for c in df_expr.columns if c in target_genes]
-    for c in gene_cols:
-        if df_expr[c].max() > 100:
-            df_expr[c] = np.log2(np.maximum(df_expr[c], 1.0))
-
-    n_ctrl = (df_expr["label"] == 0).sum()
-    n_dis = (df_expr["label"] == 1).sum()
-    print(f"  -> Successfully extracted {len(df_expr)} REAL human samples ({n_ctrl} Control, {n_dis} Disease). Genes matched: {len(gene_cols)}/{len(target_genes)}")
-    return df_expr
-
-# Parse all real series matrices
-real_matrices = []
-for acc, (tpath, organ) in top_table_files.items():
-    mfpath = os.path.join(geo_cache, f"{acc}_series_matrix.txt.gz")
-    if not os.path.exists(mfpath):
-        mfpath = os.path.join(geo_cache, f"{acc}_matrix.txt.gz")
-    if os.path.exists(mfpath):
-        pmap = dataset_probe_maps.get(acc, {})
-        df_res = parse_geo_matrix(mfpath, acc, organ, set(ecm_genes), pmap)
-        if df_res is not None and len(df_res) > 0:
-            real_matrices.append(df_res)
-
-# Combine all real human patient expression datasets
-combined_real = pd.concat(real_matrices, ignore_index=True)
+# 4. Missing Value & Pre-Scaling Variance Audit
 print("\n" + "=" * 80)
-print(f"REAL HUMAN PATIENT TRAINING COHORT CONSTRUCTED")
+print("MISSING VALUE & PRE-SCALING VARIANCE AUDIT (FGF14, MDK vs COL1A1, AEBP1)")
 print("=" * 80)
-print(f"Total REAL Patient Samples: {len(combined_real)}")
-print(f"Breakdown by Disease Status: {(combined_real['label']==0).sum()} Controls vs {(combined_real['label']==1).sum()} Fibrosis Cases")
-print("Breakdown by Organ:\n", combined_real["organ"].value_counts())
-print("\nBreakdown by Dataset:\n", combined_real["study"].value_counts())
+for g in ["FGF14", "MDK", "COL1A1", "AEBP1"]:
+    n_miss = raw_df[g].isna().sum()
+    print(f"Gene: {g} | Missing: {n_miss}/{len(raw_df)} | Overall Mean: {raw_df[g].mean():.3f} | Var: {raw_df[g].var():.3f}")
+    grp = raw_df.groupby("study")[g].agg(["count", "mean", "var"]).round(3)
+    print(grp.to_string())
+    print()
 
-# Save real patient training matrix
-combined_real.to_csv(os.path.join(results_dir, "real_human_patient_ml_training_matrix.csv"), index=False)
-print(f"\nSaved real patient expression matrix to {os.path.join(results_dir, 'real_human_patient_ml_training_matrix.csv')}")
+# 5. Impute probe gaps using study-level median
+X_raw = raw_df[ecm_genes].copy()
+for col in X_raw.columns:
+    if X_raw[col].isna().any():
+        X_raw[col] = X_raw[col].fillna(raw_df.groupby("study")[col].transform("median")).fillna(X_raw[col].median())
 
-# Extract features and impute any study-specific probe gaps with organ-level median
-X_real = combined_real[ecm_genes].copy()
-for col in X_real.columns:
-    if X_real[col].isna().any():
-        X_real[col] = X_real[col].fillna(X_real[col].median())
+# 6. Apply ComBat Batch Correction across 8 GEO Studies
+print("\nApplying ComBat Batch Correction across 8 GEO studies...")
+combat = Combat()
+X_combat_vals = combat.fit_transform(X_raw.values, raw_df["study"].values)
+X_combat = pd.DataFrame(X_combat_vals, columns=ecm_genes, index=raw_df.index)
 
-y_real = combined_real["label"].values
+# Save ComBat-corrected matrix
+combat_df = X_combat.copy()
+combat_df["GSM"] = raw_df["GSM"]
+combat_df["study"] = raw_df["study"]
+combat_df["organ"] = raw_df["organ"]
+combat_df["label"] = raw_df["label"]
+combat_df.to_csv(os.path.join(results_dir, "real_human_patient_combat_corrected_matrix.csv"), index=False)
+print(f"Saved ComBat-corrected matrix to {os.path.join(results_dir, 'real_human_patient_combat_corrected_matrix.csv')}")
 
-# Standardize features
-from sklearn.preprocessing import StandardScaler
-from sklearn.linear_model import LogisticRegressionCV
-from sklearn.feature_selection import RFE
-from sklearn.svm import SVC
-from sklearn.ensemble import RandomForestClassifier
-from xgboost import XGBClassifier
-from sklearn.metrics import roc_auc_score
+# 7. Multi-Organ Stratified Balancing
+# Equalize organ sample contributions so no organ dominates the fit
+np.random.seed(42)
+balanced_indices = []
+for org in ["Kidney", "Liver", "Lungs", "Skin"]:
+    org_df = raw_df[raw_df["organ"] == org]
+    ctrl_idx = org_df[org_df["label"] == 0].index
+    dis_idx = org_df[org_df["label"] == 1].index
+    
+    n_ctrl = min(len(ctrl_idx), 18)
+    n_dis = min(len(dis_idx), 42)
+    
+    c_chosen = np.random.choice(ctrl_idx, n_ctrl, replace=False)
+    d_chosen = np.random.choice(dis_idx, n_dis, replace=False)
+    balanced_indices.extend(list(c_chosen) + list(d_chosen))
 
+df_bal = combat_df.loc[balanced_indices].copy()
+X_bal = X_combat.loc[balanced_indices].copy()
+y_bal = df_bal["label"].values
+
+print(f"\nBalanced 4-Organ Cohort constructed: {len(df_bal)} samples")
+print(df_bal["organ"].value_counts().to_string())
+n_ctrl = int((df_bal["label"] == 0).sum())
+n_dis = int((df_bal["label"] == 1).sum())
+print(f"Disease breakdown: {n_ctrl} Controls vs {n_dis} Disease cases")
+
+# 8. Standardize Features
 scaler = StandardScaler()
-X_scaled = pd.DataFrame(scaler.fit_transform(X_real), columns=ecm_genes)
+X_bal_scaled = pd.DataFrame(scaler.fit_transform(X_bal), columns=ecm_genes)
 
 # --- Algorithm 1: LASSO (L1 Regularization, 10-fold CV) ---
-print("\n[1/4] Running LASSO with 10-fold Cross-Validation on REAL patient samples...")
+print("\n[1/4] Running LASSO with 10-fold CV on ComBat-corrected balanced data...")
 lasso = LogisticRegressionCV(
     Cs=100, cv=10, penalty="l1", solver="saga", scoring="roc_auc",
-    random_state=42, max_iter=5000, n_jobs=-1
+    class_weight="balanced", random_state=42, max_iter=5000, n_jobs=-1
 )
-lasso.fit(X_scaled, y_real)
+lasso.fit(X_bal_scaled, y_bal)
 lasso_coefs = pd.Series(lasso.coef_[0], index=ecm_genes)
-lasso_selected = lasso_coefs[lasso_coefs.abs() > 1e-4]
+lasso_selected = set(lasso_coefs[lasso_coefs.abs() > 1e-4].index)
 print(f"  -> LASSO selected {len(lasso_selected)} / {len(ecm_genes)} features (optimal C = {lasso.C_[0]:.4f})")
 
-# --- Algorithm 2: SVM-RFE (10-fold CV) ---
-print("[2/4] Running SVM-RFE on REAL patient samples...")
-svc_linear = SVC(kernel="linear", C=1.0, random_state=42)
+# --- Algorithm 2: SVM-RFE (Linear Kernel, class-weighted) ---
+print("[2/4] Running SVM-RFE on ComBat-corrected balanced data...")
+svc_linear = SVC(kernel="linear", C=1.0, class_weight="balanced", random_state=42)
 rfe = RFE(estimator=svc_linear, n_features_to_select=10, step=1)
-rfe.fit(X_scaled, y_real)
+rfe.fit(X_bal_scaled, y_bal)
 svm_ranking = pd.Series(rfe.ranking_, index=ecm_genes)
-svm_selected = svm_ranking[svm_ranking == 1]
+svm_selected = set(svm_ranking[svm_ranking == 1].index)
 print(f"  -> SVM-RFE selected {len(svm_selected)} top features")
 
-# --- Algorithm 3: Random Forest (500 trees) ---
-print("[3/4] Running Random Forest (500 trees) on REAL patient samples...")
-rf = RandomForestClassifier(n_estimators=500, max_depth=5, random_state=42, n_jobs=-1)
-rf.fit(X_scaled, y_real)
+# --- Algorithm 3: Random Forest (500 trees, class-weighted) ---
+print("[3/4] Running Random Forest on ComBat-corrected balanced data...")
+rf = RandomForestClassifier(n_estimators=500, max_depth=5, class_weight="balanced", random_state=42, n_jobs=-1)
+rf.fit(X_bal_scaled, y_bal)
 rf_importance = pd.Series(rf.feature_importances_, index=ecm_genes)
-rf_threshold = 1.0 / len(ecm_genes)  # Above-average feature importance (>0.0417)
-rf_selected = rf_importance[rf_importance >= rf_threshold]
+rf_threshold = 1.0 / len(ecm_genes)
+rf_selected = set(rf_importance[rf_importance >= rf_threshold].index)
 print(f"  -> Random Forest selected {len(rf_selected)} top features (importance >= {rf_threshold:.4f})")
 
-# --- Algorithm 4: XGBoost (500 trees) ---
-print("[4/4] Running XGBoost (500 trees) on REAL patient samples...")
+# --- Algorithm 4: XGBoost (500 trees, class-weighted) ---
+print("[4/4] Running XGBoost on ComBat-corrected balanced data...")
+sample_weights = compute_sample_weight("balanced", y_bal)
 xgb = XGBClassifier(n_estimators=500, max_depth=3, learning_rate=0.05, random_state=42, eval_metric="logloss")
-xgb.fit(X_scaled, y_real)
+xgb.fit(X_bal_scaled, y_bal, sample_weight=sample_weights)
 xgb_importance = pd.Series(xgb.feature_importances_, index=ecm_genes)
 xgb_threshold = 1.0 / len(ecm_genes)
-xgb_selected = xgb_importance[xgb_importance >= xgb_threshold]
+xgb_selected = set(xgb_importance[xgb_importance >= xgb_threshold].index)
 print(f"  -> XGBoost selected {len(xgb_selected)} dominant features")
 
-# Consensus Voting
+# 9. Consensus Feature Table
 results = []
 for g in ecm_genes:
-    v_lasso = bool(g in lasso_selected.index)
-    v_svm = bool(g in svm_selected.index)
-    v_rf = bool(g in rf_selected.index)
-    v_xgb = bool(g in xgb_selected.index)
+    v_lasso = int(g in lasso_selected)
+    v_svm = int(g in svm_selected)
+    v_rf = int(g in rf_selected)
+    v_xgb = int(g in xgb_selected)
+    total_votes = v_lasso + v_svm + v_rf + v_xgb
     
-    total_votes = sum([v_lasso, v_svm, v_rf, v_xgb])
-    
-    # Real Diagnostic ROC AUC
-    auc_ind = roc_auc_score(y_real, X_real[g])
+    auc_ind = roc_auc_score(y_bal, X_bal[g])
     if auc_ind < 0.5:
-        auc_ind = 1.0 - auc_ind  # Direction-invariant diagnostic discrimination
+        auc_ind = 1.0 - auc_ind
         
     results.append({
-        "gene": g,
-        "LASSO_selected": v_lasso,
-        "LASSO_coef": float(lasso_coefs[g]),
-        "SVM_RFE_selected": v_svm,
-        "SVM_RFE_rank": int(svm_ranking[g]),
-        "RandomForest_selected": v_rf,
-        "RandomForest_importance": float(rf_importance[g]),
-        "XGBoost_selected": v_xgb,
-        "XGBoost_importance": float(xgb_importance[g]),
-        "total_votes": int(total_votes),
-        "is_consensus_ge3": bool(total_votes >= 3),
-        "is_unanimous_4of4": bool(total_votes == 4),
-        "auc_individual": float(auc_ind)
+        "Gene": g,
+        "LASSO_Selected": v_lasso,
+        "SVM_RFE_Selected": v_svm,
+        "RandomForest_Selected": v_rf,
+        "XGBoost_Selected": v_xgb,
+        "Total_ML_Votes": total_votes,
+        "Diagnostic_ROC_AUC": round(auc_ind, 4),
+        "LASSO_Coef": round(lasso_coefs.get(g, 0.0), 4),
+        "RF_Importance": round(rf_importance.get(g, 0.0), 4),
+        "XGB_Importance": round(xgb_importance.get(g, 0.0), 4),
+        "SVM_Rank": int(svm_ranking.get(g, 99))
     })
 
-df_ml = pd.DataFrame(results).sort_values(by=["total_votes", "auc_individual"], ascending=False).reset_index(drop=True)
-df_ml.to_csv(os.path.join(results_dir, "ml_4model_24ecm_hub_biomarkers.csv"), index=False)
+res_df = pd.DataFrame(results).sort_values(by=["Total_ML_Votes", "Diagnostic_ROC_AUC"], ascending=False)
+res_df.to_csv(os.path.join(results_dir, "ml_4model_24ecm_hub_biomarkers.csv"), index=False)
 
-print("\n" + "=" * 85)
-print("FINAL 4-MODEL ENSEMBLE ML RESULTS (GENUINE HUMAN PATIENT DATA)")
-print("=" * 85)
-print(df_ml[["gene", "total_votes", "LASSO_coef", "SVM_RFE_rank", "RandomForest_importance", "XGBoost_importance", "auc_individual", "is_consensus_ge3", "is_unanimous_4of4"]].to_string(index=False))
+print("\n" + "=" * 80)
+print("FINAL COMBAT-CORRECTED 4-MODEL CONSENSUS FEATURE SELECTION")
+print("=" * 80)
+print(res_df.to_string(index=False))
 
-# Headline pair inspection
-print("\n" + "=" * 85)
-print("HEADLINE PAIR EVALUATION: COL15A1 & AEBP1")
-print("=" * 85)
-for hg in ["COL15A1", "AEBP1", "COL1A1", "COL1A2", "COL3A1", "VWF", "SERPINF2", "MDK"]:
-    r = df_ml[df_ml["gene"] == hg].iloc[0]
-    print(f"{hg:<10}: Total Votes = {r['total_votes']}/4 | LASSO beta = {r['LASSO_coef']:+.4f} | SVM Rank = {r['SVM_RFE_rank']} | RF Imp = {r['RandomForest_importance']:.4f} | XGB Imp = {r['XGBoost_importance']:.4f} | Real AUC = {r['auc_individual']:.3f}")
+# 10. Generate High-Resolution Consensus Plot
+plt.figure(figsize=(14, 8))
+colors = ["#1b4965" if v == 4 else "#2a9d8f" if v == 3 else "#e76f51" if v == 2 else "#adb5bd" for v in res_df["Total_ML_Votes"]]
+bars = plt.barh(res_df["Gene"][::-1], res_df["Total_ML_Votes"][::-1], color=colors[::-1], edgecolor="black", linewidth=0.8)
+plt.xlabel("ML Consensus Votes (Out of 4 Algorithms: LASSO, SVM-RFE, RF, XGBoost)", fontsize=12, fontweight="bold")
+plt.title("Pan-Fibrotic Consensus Hub Biomarkers (ComBat-Corrected & Organ-Balanced Real Data)", fontsize=14, fontweight="bold", pad=15)
+plt.xlim(0, 4.5)
+plt.xticks([0, 1, 2, 3, 4], ["0", "1", "2", "3 (Consensus Hub)", "4 (Unanimous Core)"], fontsize=11)
+plt.axvline(x=3, color="#e63946", linestyle="--", linewidth=1.5, label="Consensus Threshold (>= 3 Votes)")
+
+for bar in bars:
+    w = bar.get_width()
+    plt.text(w + 0.08, bar.get_y() + bar.get_height()/2.0, f"{int(w)}/4", va="center", ha="left", fontsize=10, fontweight="bold")
+
+plt.legend(loc="lower right", frameon=True, facecolor="white", framealpha=0.9)
+plt.tight_layout()
+plt.savefig(os.path.join(plots_dir, "ml_4model_consensus_hub_biomarkers.png"), dpi=300)
+plt.close()
+print(f"\nSaved consensus plot to {os.path.join(plots_dir, 'ml_4model_consensus_hub_biomarkers.png')}")

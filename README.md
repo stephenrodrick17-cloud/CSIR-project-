@@ -1,124 +1,118 @@
 # Pan-Fibrotic Core Transcriptomic Program & Multi-Model Ensemble Machine Learning Biomarkers Across Human Kidney, Liver, Lung, and Skin
 
-[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Release: v1-verified-foundation](https://img.shields.io/badge/release-v1--verified--foundation-green.svg)](https://github.com/stephenrodrick17-cloud/CSIR-project-/releases/tag/v1-verified-foundation)
-
----
-
 ## 1. Locked Multi-Organ Study Design & Architecture
 
-```mermaid
-graph TD
-    subgraph Discovery ["1. Locked Multi-Cohort Discovery (4 Organs, 14 Datasets)"]
-        D1["Kidney Discovery: GSE104066, GSE66494, GSE104948, GSE104954"]
-        D2["Liver Discovery: GSE77627, GSE89377, GSE164760"]
-        D3["Lung Discovery: GSE110147, GSE32537, GSE53845, GSE10667"]
-        D4["Skin Discovery: GSE130955, GSE95065, GSE181549"]
-        D1 & D2 & D3 & D4 --> DEG["Empirical Bayes Limma (|log2FC| >= 0.585, FDR q < 0.05)"]
-        DEG --> Core86["86 Conserved Pan-Fibrotic Core DEGs"]
-        Core86 --> Matrisome["Human Matrisome Annotation (Hs_ECM_Masterlist)"]
-        Matrisome --> Core24["24 Clean Core ECM Program (ecm_clean_genes.csv)"]
-    end
+This repository hosts a multi-organ transcriptomic discovery and validation framework investigating core extracellular matrix (ECM) remodeling across four major human fibrotic diseases:
+- **Kidney**: Chronic Kidney Disease / Renal Fibrosis
+- **Liver**: Liver Cirrhosis / NASH Fibrosis
+- **Lungs**: Idiopathic Pulmonary Fibrosis (IPF)
+- **Skin**: Systemic Sclerosis (SSc)
 
-    subgraph Validation1 ["2. Validation Layer 1: 4-Organ Replication"]
-        Core24 --> Val1["4 Independent Cohorts (GSE200818, GSE162694, GSE24206, GSE58095):<br/>24 / 24 Genes Replicated (100.0%) in >=1 Organ"]
-    end
-
-    subgraph Validation2 ["3. Validation Layer 2: Held-Out Multi-Platform Cohorts"]
-        Core24 --> Val2["4 Independent Held-Out Cohorts (N=197):<br/>• Kidney: GSE30529 (Microarray)<br/>• Liver: GSE14323 (Microarray)<br/>• Lung: GSE83717 (RNA-seq)<br/>• Skin: GSE125362 (RNA-seq)"]
-        Val2 --> Val2Results["24 / 24 Genes Replicated (100.0%) in >=1 Organ<br/>18 / 24 Genes Replicated (75.0%) in >=2 Organs<br/>COL15A1 & AEBP1 Replicated in 4/4 Organs (100% Universal)"]
-    end
-
-    subgraph MLFeatureSelection ["4. 4-Model Ensemble ML (Trained on 799 Real Patient Samples)"]
-        Core24 --> ML_LASSO["LASSO (10-Fold CV, L1 Regularization) -> 22 Genes"]
-        Core24 --> ML_SVM["SVM-RFE (10-Fold CV Linear SVC) -> 10 Genes"]
-        Core24 --> ML_RF["Random Forest (500 Trees, Gini Importance) -> 12 Genes"]
-        Core24 --> ML_XGB["XGBoost (500 Trees, Feature Gain) -> 11 Genes"]
-        ML_LASSO & ML_SVM & ML_RF & ML_XGB --> HubConsensus["Consensus Hub Biomarkers (>=3 Models):<br/>FGF14 (4/4), CLEC2D (4/4), MDK (4/4), MFAP4 (4/4), COL3A1 (4/4), SPARCL1 (3/4), VWF (3/4), COL15A1 (3/4), LTBP2 (3/4)"]
-    end
-```
+All cohorts are organized into three strictly partitioned tiers:
+1. **Tier 1 (Discovery Cohorts, $N=14$)**: Identifies conserved pan-fibrotic differentially expressed genes (DEGs) across all 4 organs ($\ge 2$-fold change, adjusted $p < 0.05$).
+2. **Tier 2 (Validation 1 Cohorts, $N=4$)**: First independent replication across all 4 organs.
+3. **Tier 3 (Validation 2 Held-Out Cohorts, $N=4$)**: Completely isolated, blinded validation cohort testing final pan-fibrotic universality.
 
 ---
 
 ## 2. Automated Isolation Guard Guarantee
 
-Every execution in this repository is mathematically verified by an assertion guard in `discovery_config.py`:
+The repository implements an automated architectural guard (`discovery_config.verify_cohort_isolation()`) that runs at the start of every analysis script. It enforces zero cohort overlap across all 12 experimental tiers:
 
-```text
-================================================================================
-[GUARD] AUTOMATED COHORT ISOLATION & TIER VERIFICATION GUARD
-================================================================================
-Organ      | Discovery Cohorts                   | Validation 1    | Validation 2   
---------------------------------------------------------------------------------
-Kidney     | GSE104066, GSE104948, GSE104954, GSE66494 | GSE200818       | GSE30529       
-Liver      | GSE164760, GSE77627, GSE89377       | GSE162694       | GSE14323       
-Lungs      | GSE10667, GSE110147, GSE32537, GSE53845 | GSE24206        | GSE83717       
-Skin       | GSE130955, GSE181549, GSE95065      | GSE58095        | GSE125362      
---------------------------------------------------------------------------------
-TOTALS     | 14 Discovery Cohorts                 | 4 Val 1 Cohorts  | 4 Val 2 Cohorts
-STATUS     | [PASSED] Zero data leakage. All 12 tiers strictly disjoint & locked.
-================================================================================
-```
-
----
-
-## 3. Executive Summary of Discovery, Validation & ML Results
-
-| Pipeline Stage | Datasets & Method | Key Result | Biological Significance |
+| Organ | Discovery Cohorts (Tier 1) | Validation 1 (Tier 2) | Validation 2 Held-Out (Tier 3) |
 | :--- | :--- | :--- | :--- |
-| **Discovery Core** | 14 GEO cohorts across Kidney, Liver, Lung, Skin | **86 Conserved DEGs**, **24 Clean Core ECM Genes** | A conserved circuit of 24 extracellular matrix genes is universally dysregulated across all 4 human fibrotic organs. |
-| **Validation Layer 1** | 4 independent cohorts (`GSE200818`, `GSE162694`, `GSE24206`, `GSE58095`) | **24 / 24 Genes Replicated (100.0%)** | 100% baseline reproducibility across independent patient populations. |
-| **Validation Layer 2** | 4 Held-Out Independent Cohorts (Kidney, Liver, Lung, Skin; $N=197$) | **24 / 24 Genes Replicated (100.0%) in $\ge 1$ organ**, **18 / 24 in $\ge 2$ organs** | 100% multi-platform survival across independent Microarray and RNA-seq human tissue cohorts. |
-| **Universal Biological Anchors** | Cross-Platform 4/4 Organ Replication in Val 2 | **`COL15A1`** and **`AEBP1`** (4/4 Organs, 100%) | `AEBP1` (transcriptional master regulator) and `COL15A1` (structural basement membrane anchor) serve as invariant pan-fibrotic markers. |
-| **4-Model Ensemble ML** | LASSO + SVM-RFE + RF + XGBoost on **799 REAL Patient Samples** | **9 Consensus Hub Biomarkers ($\ge 3$ models)**, **5 Unanimous Hub Biomarkers (4/4 models)** | `FGF14`, `CLEC2D`, `MDK`, `MFAP4`, `COL3A1`, `SPARCL1`, `VWF`, `COL15A1`, `LTBP2` identified as non-redundant classifiers. |
+| **Kidney** | `GSE66494` | `GSE200818` | `GSE30529` |
+| **Liver** | `GSE164760`, `GSE89377` | `GSE77627` | `GSE14323` |
+| **Lungs** | `GSE10667`, `GSE110147`, `GSE32537`, `GSE53845` | `GSE24206` | `GSE83717` |
+| **Skin** | `GSE130955`, `GSE181549`, `GSE95065` | `GSE58095` | `GSE125362` |
 
 ---
 
-## 4. Real Patient Sample Training Matrix ($N=799$ Human Samples)
+## 3. Executive Summary of Discovery & Multi-Layer Validation
 
-All machine learning models were trained on **genuine per-GSM patient expression data** extracted from GEO Series Matrix files across 8 multi-cohort studies:
+1. **Discovery Analysis**: Identified **86 conserved core genes** significantly dysregulated in 4/4 organ systems, including a dedicated **24 Clean Core ECM Gene Program** (`ecm_clean_genes.csv`).
+2. **Validation 1 Replication**: 24/24 (100.0%) Clean Core ECM genes replicated in $\ge 1$ organ; 12/24 (50.0%) in $\ge 2$ organs.
+3. **Validation 2 Held-Out Replication**: 24/24 (100.0%) replicated in $\ge 1$ organ; 18/24 (75.0%) replicated in $\ge 2$ organs; `COL15A1` and `AEBP1` replicated in 4/4 organs (100% universal concordance).
 
-| Organ | Dataset Accession | Total Real Samples | Healthy Controls | Fibrosis Cases | Profiling Platform |
-| :--- | :--- | :---: | :---: | :---: | :--- |
-| **Lungs** | `GSE32537` | 217 | 50 | 167 | Agilent Whole Human Genome Microarray 4x44K |
-| **Liver** | `GSE164760` | 170 | 6 | 164 | Affymetrix Human Clariom S Assay |
-| **Liver** | `GSE89377` | 107 | 13 | 94 | Illumina HumanHT-12 V4.0 expression beadchip |
-| **Skin** | `GSE58095` | 102 | 36 | 66 | Illumina HumanHT-12 V4.0 expression beadchip |
-| **Kidney** | `GSE66494` | 61 | 8 | 53 | Affymetrix Human Gene 1.0 ST Array |
-| **Lungs** | `GSE110147` | 48 | 11 | 37 | Illumina HiSeq 2000 RNA-seq |
-| **Lungs** | `GSE53845` | 48 | 8 | 40 | Affymetrix Human Genome U133 Plus 2.0 Array |
-| **Lungs** | `GSE10667` | 46 | 15 | 31 | Agilent-014850 Whole Human Genome Microarray |
-| **TOTALS**| **8 Studies** | **799 Samples** | **147 Controls** | **652 Fibrosis** | **Zero simulated/generated data** |
+---
+
+## 4. Real Patient Sample Training Matrix ($N=799$) & ComBat Batch Correction
+
+To perform rigorous feature selection, individual patient-level expression profiles were extracted from 8 GEO series matrix files across Discovery and Validation 1 cohorts (total $N=799$ real human tissue samples; 147 Healthy Controls, 652 Fibrosis Cases):
+
+| Dataset Accession | Organ | Total Samples | Controls | Fibrosis Cases | Platform Type |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **GSE66494** | Kidney | 61 | 8 | 53 | Affymetrix Human Gene 1.0 ST |
+| **GSE89377** | Liver | 107 | 13 | 94 | Illumina HumanHT-12 V4.0 |
+| **GSE164760** | Liver | 170 | 6 | 164 | Agilent Whole Human Genome Microarray |
+| **GSE10667** | Lungs | 46 | 15 | 31 | Affymetrix Human Genome U133 Plus 2.0 |
+| **GSE110147** | Lungs | 48 | 11 | 37 | RNA-seq (Illumina HiSeq 2000) |
+| **GSE32537** | Lungs | 217 | 50 | 167 | Illumina HumanRef-8 v3.0 |
+| **GSE53845** | Lungs | 48 | 8 | 40 | Agilent-014850 Whole Human Genome |
+| **GSE58095** | Skin | 102 | 36 | 66 | Illumina HumanHT-12 V4.0 |
+| **TOTAL** | **4 Organs** | **799** | **147** | **652** | **Multi-Platform Human Cohort** |
+
+### Batch Correction & Balancing Protocol
+1. **ComBat Batch Correction (`pycombat`)**: Applied empirical Bayes batch correction using `study` as the batch identifier to eliminate cross-platform baseline shifts (e.g., Agilent vs. Affymetrix vs. Illumina vs. RNA-seq).
+2. **Organ & Class Balancing**: Constructed a 4-organ stratified cohort (Kidney $N=50$, Liver $N=60$, Lung $N=60$, Skin $N=60$; total $N=230$) with class-weighted estimators (`class_weight='balanced'`) to prevent lung/liver sample size dominance.
 
 ---
 
 ## 5. Master 4-Model Ensemble ML Feature Selection Results
 
-| Gene Symbol | Total ML Votes | LASSO Coef ($\beta$) | SVM-RFE Rank | RF Importance (Gini) | XGBoost Gain | Real AUC | Consensus Status | Matrisome Category |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :--- | :--- |
-| **`FGF14`** | **4 / 4** | **+3.0262** | **Rank 1** | **0.0687** | **0.1105** | **0.707** | **Unanimous Hub (4/4)** | Secreted Factors |
-| **`CLEC2D`** | **4 / 4** | **+4.9318** | **Rank 1** | **0.0459** | **0.0510** | **0.682** | **Unanimous Hub (4/4)** | ECM-affiliated |
-| **`MDK`** | **4 / 4** | **+1.3520** | **Rank 1** | **0.0859** | **0.0511** | **0.636** | **Unanimous Hub (4/4)** | Secreted Factors |
-| **`MFAP4`** | **4 / 4** | **-1.3668** | **Rank 1** | **0.0458** | **0.0457** | **0.632** | **Unanimous Hub (4/4)** | ECM Glycoproteins |
-| **`COL3A1`** | **4 / 4** | **+2.0341** | **Rank 1** | **0.0466** | **0.0924** | **0.513** | **Unanimous Hub (4/4)** | Collagens |
-| **`SPARCL1`**| **3 / 4** | **-0.9012** | Rank 7 | **0.0649** | **0.0546** | **0.649** | **Consensus Hub (3/4)** | ECM Glycoproteins |
-| **`VWF`** | **3 / 4** | **+1.1401** | **Rank 2** | **0.0569** | **0.0672** | **0.580** | **Consensus Hub (3/4)** | ECM Glycoproteins |
-| **`COL15A1`**| **3 / 4** | **+0.0197** | Rank 12 | **0.0473** | **0.0423** | **0.517** | **Consensus Hub (3/4)** | Collagens |
-| **`LTBP2`** | **3 / 4** | **-0.1100** | **Rank 5** | **0.0599** | **0.0745** | **0.509** | **Consensus Hub (3/4)** | ECM Glycoproteins |
+Four complementary machine learning algorithms were trained on the batch-corrected, organ-balanced matrix:
+1. **LASSO Logistic Regression** ($L_1$ penalty, 10-fold Cross-Validation)
+2. **SVM-RFE** (Support Vector Machine - Recursive Feature Elimination, linear kernel)
+3. **Random Forest** (500 estimators, class-weighted, feature importance threshold $> 1/24$)
+4. **XGBoost** (500 boosted gradient trees, max depth 3, learning rate 0.05)
+
+### Final Consensus Ranking Table (24 Clean Core ECM Genes)
+
+| Gene | Total Votes | LASSO | SVM-RFE | Random Forest | XGBoost | Diagnostic ROC AUC | Status |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
+| **COL15A1** | **4 / 4** | Yes ($eta=+0.311$) | Yes (Rank 1) | Yes (Imp=0.1208) | Yes (Imp=0.2128) | **0.8177** | **Unanimous Core Hub** |
+| **MDK** | **4 / 4** | Yes ($eta=+0.963$) | Yes (Rank 1) | Yes (Imp=0.0875) | Yes (Imp=0.0652) | **0.8051** | **Unanimous Core Hub** |
+| **COL1A1** | **4 / 4** | Yes ($eta=+1.217$) | Yes (Rank 1) | Yes (Imp=0.0777) | Yes (Imp=0.0444) | **0.7935** | **Unanimous Core Hub** |
+| **LTBP2** | **4 / 4** | Yes ($eta=+0.926$) | Yes (Rank 1) | Yes (Imp=0.0511) | Yes (Imp=0.0535) | **0.7155** | **Unanimous Core Hub** |
+| **SERPINE2** | **3 / 4** | Yes ($eta=+0.019$) | No (Rank 15) | Yes (Imp=0.1050) | Yes (Imp=0.0744) | **0.7811** | **Consensus Hub** |
+| **LAMC3** | **3 / 4** | Yes ($eta=-0.414$) | Yes (Rank 1) | Yes (Imp=0.0424) | No (Imp=0.0410) | **0.6086** | **Consensus Hub** |
+| **COL3A1** | 2 / 4 | No ($eta=0.000$) | No (Rank 10) | Yes (Imp=0.0839) | Yes (Imp=0.1242) | 0.7723 | Candidate |
+| **SERPINF2** | 2 / 4 | Yes ($eta=-0.304$) | No (Rank 8) | Yes (Imp=0.0474) | No (Imp=0.0406) | 0.7052 | Candidate |
+| **CLEC2D** | 2 / 4 | Yes ($eta=+0.654$) | Yes (Rank 1) | No (Imp=0.0396) | No (Imp=0.0230) | 0.6930 | Candidate |
+| **COL1A2** | 2 / 4 | Yes ($eta=-0.361$) | Yes (Rank 1) | No (Imp=0.0239) | No (Imp=0.0065) | 0.6910 | Candidate |
+| **PDGFD** | 2 / 4 | Yes ($eta=+0.198$) | No (Rank 5) | Yes (Imp=0.0476) | No (Imp=0.0372) | 0.6706 | Candidate |
+| **SERPINH1** | 2 / 4 | Yes ($eta=+0.372$) | Yes (Rank 1) | No (Imp=0.0198) | No (Imp=0.0323) | 0.6117 | Candidate |
+| **CCL5** | 2 / 4 | Yes ($eta=-0.200$) | Yes (Rank 1) | No (Imp=0.0177) | No (Imp=0.0227) | 0.5625 | Candidate |
+| **COLEC11** | 2 / 4 | Yes ($eta=-0.360$) | Yes (Rank 1) | No (Imp=0.0318) | No (Imp=0.0300) | 0.5615 | Candidate |
+| **FGF14** | 1 / 4 | Yes ($eta=-0.094$) | No (Rank 4) | No (Imp=0.0228) | No (Imp=0.0095) | 0.6517 | Dropped Out |
+| **CCL2** | 1 / 4 | Yes ($eta=-0.201$) | No (Rank 11) | No (Imp=0.0249) | No (Imp=0.0211) | 0.6320 | Candidate |
+| **SVEP1** | 1 / 4 | Yes ($eta=-0.390$) | No (Rank 6) | No (Imp=0.0225) | No (Imp=0.0377) | 0.5344 | Candidate |
+| **AEBP1** | 0 / 4 | No ($eta=0.000$) | No (Rank 3) | No (Imp=0.0178) | No (Imp=0.0215) | 0.6135 | Empirical Observation |
+| **BMP1** | 0 / 4 | No ($eta=0.000$) | No (Rank 14) | No (Imp=0.0289) | No (Imp=0.0266) | 0.6049 | Candidate |
+| **MFAP4** | 0 / 4 | No ($eta=0.000$) | No (Rank 2) | No (Imp=0.0234) | No (Imp=0.0145) | 0.6035 | Candidate |
+| **VWF** | 0 / 4 | No ($eta=0.000$) | No (Rank 9) | No (Imp=0.0170) | No (Imp=0.0096) | 0.5930 | Candidate |
+| **SPARCL1** | 0 / 4 | No ($eta=0.000$) | No (Rank 7) | No (Imp=0.0180) | No (Imp=0.0058) | 0.5915 | Candidate |
+| **CCL21** | 0 / 4 | No ($eta=0.000$) | No (Rank 13) | No (Imp=0.0154) | No (Imp=0.0370) | 0.5825 | Candidate |
+| **CCL19** | 0 / 4 | No ($eta=0.000$) | No (Rank 12) | No (Imp=0.0133) | No (Imp=0.0091) | 0.5731 | Candidate |
 
 ---
 
-## 6. Headline Cross-Check: `COL15A1` & `AEBP1`
+## 6. Audit Findings: `FGF14`, `MDK`, and `AEBP1`
 
-* **`COL15A1`**: Successfully selected by **3 out of 4 ML models** (LASSO, Random Forest, XGBoost) with above-average importance across all 799 real patient samples, solidifying its role as both a universal biological anchor and a machine learning consensus hub.
-* **`AEBP1`**: Dropped to 0/4 votes in regularized ML feature selection. Across 799 real human samples, downstream structural collagen effectors (`COL3A1` [4/4 votes], `COL15A1` [3/4 votes], `COL1A1`, `COL1A2`) captured the statistical classification variance, rendering upstream transcriptional activator `AEBP1` statistically redundant despite its 100% biological reproducibility.
+### 1. Forensic Audit of `FGF14` vs. `MDK`
+- **Why `FGF14` scored high before ComBat**: In the raw un-normalized matrix, `GSE164760` (Liver) had 170 samples with 96.5% disease cases (164 disease, 6 controls) and an extreme baseline platform mean of **20.67** (variance 34.46), compared to **0.14** in `GSE66494`. Un-batch-corrected models learned to predict `GSE164760` study membership rather than fibrotic biology. Following ComBat batch correction and organ balancing, `FGF14` **dropped out** from SVM-RFE, Random Forest, and XGBoost (falling to 1 vote).
+- **Why `MDK` survived with 4/4 unanimous votes**: Midkine (`MDK`) demonstrated genuine, highly statistically significant upregulation across **all 4 organs individually** post-ComBat (Kidney: diff +4.19, $p = 9.75 \times 10^{-6}$; Liver: diff +1.47, $p = 3.57 \times 10^{-5}$; Lungs: diff +4.08, $p = 5.00 \times 10^{-24}$; Skin: diff +1.48, $p = 4.82 \times 10^{-6}$). Its 4/4 vote count is biologically authentic.
+
+### 2. Empirical Reporting of `AEBP1`
+- `AEBP1` (Adipocyte Enhancer-Binding Protein 1 / ACLP) is a matricellular, collagen-binding ECM protein that achieved 100% universal validation in univariate differential expression across all 4 independent Validation 2 cohorts.
+- In multivariate machine learning feature selection, sparse regularized linear models (LASSO) and tree ensembles prioritize higher-margin collinear structural collagens (`COL15A1`, `COL1A1`) and growth factors (`MDK`, `LTBP2`, `SERPINE2`), resulting in 0 ML votes for `AEBP1`.
+- We report this strictly as an empirical feature selection property of regularized multivariate classifiers, with no unsupported mechanistic claims regarding upstream transcriptional regulation.
 
 ---
 
 ## 7. Key Visualizations
 
-### 4-Model Feature Consensus on 799 Real Patient Samples
+### 4-Model Feature Consensus on Real Patient Samples
 ![4-Model Consensus Hub Biomarkers](plots/ml_4model_consensus_hub_biomarkers.png)
 
 ### Study Design Funnel: Locked Discovery & Multi-Layer Validation
