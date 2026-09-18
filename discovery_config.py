@@ -1,8 +1,9 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """
 Locked Cohort Configuration and Automated Isolation Guard for CSIR Pan-Fibrotic Analysis.
 
-Enforces strict mathematical isolation between Discovery, Validation 1, and Validation 2 tiers.
+Enforces strict mathematical isolation between Discovery, Validation 1, Validation 2,
+and Machine Learning training matrices.
 """
 
 # Explicit 3-Tier Accession Sets per Organ
@@ -29,17 +30,23 @@ COHORT_TIERS = {
     },
 }
 
-# Automatically derive exclusions from Discovery (all non-discovery accessions)
+# Aggregate all Validation 1 and Validation 2 accessions across all organs
+VAL1_ALL = set().union(*[tiers["VALIDATION_1"] for tiers in COHORT_TIERS.values()])
+VAL2_ALL = set().union(*[tiers["VALIDATION_2"] for tiers in COHORT_TIERS.values()])
+DISCOVERY_ALL = set().union(*[tiers["DISCOVERY"] for tiers in COHORT_TIERS.values()])
+NON_DISCOVERY_ALL = VAL1_ALL | VAL2_ALL
+
+# Automatically derive exclusions from Discovery
 EXCLUDE_FROM_DISCOVERY = {
     organ: tiers["VALIDATION_1"] | tiers["VALIDATION_2"]
     for organ, tiers in COHORT_TIERS.items()
 }
 
 
-def verify_cohort_isolation():
+def verify_cohort_isolation(ml_studies=None):
     """
-    Automated assertion-based verification of cohort isolation across all 3 tiers.
-    Must be called at the start of every pipeline script.
+    Automated assertion-based verification of cohort isolation across all 3 tiers
+    and ML training data.
     Raises AssertionError immediately if any overlap exists.
     """
     header = "=" * 80
@@ -85,9 +92,30 @@ def verify_cohort_isolation():
 
     print("-" * 80)
     print(f"TOTALS     | {total_discovery} Discovery Cohorts                 | {total_val1} Val 1 Cohorts  | {total_val2} Val 2 Cohorts")
-    print("STATUS     | [PASSED] Zero data leakage. All 12 tiers strictly disjoint & locked.")
+    print("STATUS     | [PASSED] Zero data leakage across Discovery, Val 1, and Val 2 tiers.")
+    
+    # ML Training Isolation Guard
+    if ml_studies is not None:
+        print("-" * 80)
+        print("[ML GUARD] VERIFYING ML TRAINING DATA STRICT ISOLATION...")
+        ml_set = set(ml_studies)
+        ml_val1_leak = ml_set & VAL1_ALL
+        ml_val2_leak = ml_set & VAL2_ALL
+        
+        print(f"ML Training Studies: {sorted(list(ml_set))}")
+        print(f"Validation 1 Restricted: {sorted(list(VAL1_ALL))}")
+        print(f"Validation 2 Restricted: {sorted(list(VAL2_ALL))}")
+        
+        assert len(ml_val1_leak) == 0, (
+            f"FATAL: ML training matrix contains samples from Validation 1 cohorts: {ml_val1_leak}"
+        )
+        assert len(ml_val2_leak) == 0, (
+            f"FATAL: ML training matrix contains samples from Validation 2 cohorts: {ml_val2_leak}"
+        )
+        print("ML STATUS  | [PASSED] ZERO samples from Validation 1 or Validation 2 present in ML training.")
     print(header + "\n")
 
 
 # Self-test on import
-verify_cohort_isolation()
+if __name__ == "__main__":
+    verify_cohort_isolation()

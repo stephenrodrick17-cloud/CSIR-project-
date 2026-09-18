@@ -1,0 +1,25 @@
+gene,discovery_status,val1_concordant_organs,val1_significant_organs,val2_concordant_organs,val2_significant_organs,severity_correlation_organs_significant,ml_stability_score,ml_diagnostic_auc,final_evidence_tier
+COL15A1,Pass (4/4 Organs),4/4,2/4,4/4,4/4,0 (None),5/5,0.843,Tier 1 (Full Spectrum)
+COL1A1,Pass (4/4 Organs),4/4,2/4,2/4,2/4,1 (Liver),5/5,0.7904,Tier 1 (Full Spectrum)
+SERPINE2,Pass (4/4 Organs),4/4,2/4,4/4,3/4,0 (None),4/5,0.7864,Tier 1 (Full Spectrum)
+SERPINF2,Pass (4/4 Organs),4/4,1/4,2/4,2/4,0 (None),5/5,0.7635,Tier 1 (Full Spectrum)
+COL3A1,Pass (4/4 Organs),4/4,2/4,4/4,3/4,0 (None),3/5,0.7815,Tier 2 (Validation-Only)
+COL1A2,Pass (4/4 Organs),4/4,2/4,4/4,3/4,1 (Liver),0/5,0.687,Tier 2 (Validation-Only)
+LTBP2,Pass (4/4 Organs),4/4,2/4,2/4,2/4,0 (None),0/5,0.6827,Tier 2 (Validation-Only)
+LAMC3,Pass (4/4 Organs),4/4,1/4,2/4,2/4,0 (None),2/5,0.6801,Tier 2 (Validation-Only)
+CLEC2D,Pass (4/4 Organs),4/4,1/4,2/4,2/4,0 (None),1/5,0.6717,Tier 2 (Validation-Only)
+PDGFD,Pass (4/4 Organs),4/4,1/4,2/4,2/4,0 (None),0/5,0.6161,Tier 2 (Validation-Only)
+CCL2,Pass (4/4 Organs),4/4,1/4,4/4,3/4,0 (None),1/5,0.6134,Tier 2 (Validation-Only)
+SERPINH1,Pass (4/4 Organs),4/4,1/4,4/4,3/4,0 (None),0/5,0.6057,Tier 2 (Validation-Only)
+AEBP1,Pass (4/4 Organs),4/4,1/4,4/4,4/4,1 (Liver),0/5,0.5968,Tier 2 (Validation-Only)
+VWF,Pass (4/4 Organs),4/4,2/4,4/4,3/4,1 (Liver),0/5,0.5706,Tier 2 (Validation-Only)
+CCL5,Pass (4/4 Organs),4/4,2/4,2/4,2/4,0 (None),0/5,0.5688,Tier 2 (Validation-Only)
+CCL19,Pass (4/4 Organs),4/4,1/4,4/4,3/4,0 (None),0/5,0.5687,Tier 2 (Validation-Only)
+SVEP1,Pass (4/4 Organs),4/4,2/4,2/4,2/4,0 (None),1/5,0.5396,Tier 2 (Validation-Only)
+MFAP4,Pass (4/4 Organs),4/4,1/4,2/4,2/4,0 (None),2/5,0.5276,Tier 2 (Validation-Only)
+MDK,Pass (4/4 Organs),4/4,2/4,2/4,1/4,0 (None),2/5,0.7953,Not Supported
+FGF14,Pass (4/4 Organs),4/4,2/4,2/4,1/4,0 (None),0/5,0.6736,Not Supported
+SPARCL1,Pass (4/4 Organs),4/4,1/4,2/4,1/4,0 (None),0/5,0.6156,Not Supported
+BMP1,Pass (4/4 Organs),4/4,1/4,2/4,1/4,0 (None),0/5,0.5913,Not Supported
+CCL21,Pass (4/4 Organs),4/4,1/4,2/4,1/4,0 (None),0/5,0.5675,Not Supported
+COLEC11,Pass (4/4 Organs),4/4,2/4,2/4,1/4,0 (None),0/5,0.5196,Not Supported
