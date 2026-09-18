@@ -52,7 +52,11 @@ graph TD
 | **Discovery Core** | 7 GEO cohorts across Kidney, Liver, Lung, Skin | **241 Conserved DEGs**, **50 Clean Core ECM Genes** | A conserved core of 50 extracellular matrix genes is universally dysregulated across human fibrotic organs. |
 | **Validation Layer 1** | Independent internal cohorts | **49 / 50 Genes Replicated (98.0%)** | Robust internal reproducibility across diverse patient populations. |
 | **Validation Layer 2** | Independent cross-platform GEO cohorts | **40 / 50 Genes (80.0%) in $\ge 1$ organ**, **14 in $\ge 2$ organs**, **`TNXB` in 4/4 (100%)** | `TNXB` is the premier universal cross-organ structural marker; 14 genes form a robust multi-organ core. |
-| **Severity Correlation** | Within-disease histological fibrosis stages | **`VWF` ($ho=+0.66$)**, **`COL15A1` ($ho=+0.62$)**, **`AEBP1` ($ho=+0.55$)**, **`SPP1` ($ho=+0.52$)** | Matrix remodeling tracks monotonically with disease progression without control-group confounding. |
+| **Severity Correlation** | Within-disease histological fibrosis stages | **`VWF` ($
+ho=+0.66$)**, **`COL15A1` ($
+ho=+0.62$)**, **`AEBP1` ($
+ho=+0.55$)**, **`SPP1` ($
+ho=+0.52$)** | Matrix remodeling tracks monotonically with disease progression without control-group confounding. |
 | **4-Model Ensemble ML** | LASSO + SVM-RFE + Random Forest + XGBoost on 50 ECM genes | **8 Consensus Hub Biomarkers ($\ge 3$ models)**, **4 Unanimous Hub Biomarkers ($4/4$ models)** | `SERPINF2`, `MDK`, `SPP1`, and `TNXB` emerge as unanimous multi-model pan-fibrotic hub biomarkers. |
 | **Diagnostic Performance** | Individual & Multi-Gene ROC curves | **Composite 8-Gene Signature $	ext{AUC} = 1.000$** (Individual AUCs 0.781 - 0.965) | Superb cross-organ diagnostic classification between healthy and fibrotic tissue. |
 
@@ -108,7 +112,8 @@ To identify the most essential, non-redundant biomarkers from the 50 clean ECM g
 
 ### Other Consensus Hub Biomarkers:
 - **`TNXB` (Tenascin-X)**: Modulates collagen fibrillogenesis and tissue biomechanics; replicated across **100% (4/4) organs** in independent validation.
-- **`SPP1` (Osteopontin)**: Matricellular cytokine driving macrophage recruitment and myofibroblast activation; tracks monotonically with clinical fibrosis stage ($ho = +0.52$).
+- **`SPP1` (Osteopontin)**: Matricellular cytokine driving macrophage recruitment and myofibroblast activation; tracks monotonically with clinical fibrosis stage ($
+ho = +0.52$).
 - **`MDK` (Midkine)**: Heparin-binding growth factor mediating leukocyte recruitment and epithelial-mesenchymal transition (EMT).
 - **`GDF15` & `THBS1`**: Core regulators of tissue stress response and latent **TGF-$eta$ activation**.
 - **`LTB` & `CCL21`**: Essential chemokines organizing **tertiary lymphoid structures** and immune-fibroblast cross-talk.
@@ -128,45 +133,18 @@ To identify the most essential, non-redundant biomarkers from the 50 clean ECM g
 
 ## 7. Downstream Translational Next Steps
 
-```
+`	ext
 [8 Consensus Hub Biomarkers: SERPINF2, MDK, SPP1, TNXB, GDF15, THBS1, LTB, CCL21]
-        │
-        ├──> [Step 1: Multi-Omics Functional Enrichment (GO, KEGG, Reactome, DisGeNET)]
-        │
-        ├──> [Step 2: Multi-Cohort Diagnostic ROC Validation & Nomogram Construction]
-        │
-        ├──> [Step 3: STRING Protein-Protein Interaction (PPI) Network & MCODE Subclusters]
-        │
-        ├──> [Step 4: Single-Sample GSEA (ssGSEA) & Hallmark Pathway Trajectories]
-        │
-        ├──> [Step 5: CIBERSORT / MCP-counter Immune Microenvironment Deconvolution]
-        │
-        └──> [Step 6: Small-Molecule Drug Repurposing (CMap/DSigDB) & Molecular Docking]
-```
-
----
-
-## 8. Repository File Inventory
-
-```
-d:/CSIR/
-├── ecm_clean_genes.csv                                # 50 Clean Core ECM Genes
-├── pan_fibrotic_core_genes_corrected.csv              # 241 Conserved Pan-Fibrotic DEGs
-├── ml_training_matrix_clean.csv                       # Clean Multi-Cohort ML Training Expression Matrix
-├── results/
-│   ├── ml_4model_hub_biomarkers.csv                   # Master 4-Model ML Feature Selection Table
-│   ├── ml_8hub_diagnostic_roc_auc_metrics.csv         # Individual Biomarker Diagnostic ROC AUCs
-│   ├── validation1_layer2_all_results.csv             # Layer 2 Validation Results (49/50)
-│   ├── validation2_ecm_core_results.csv               # Layer 3 Validation Results (40/50)
-│   └── forensic_repository_audit_report.csv          # 10-Point Data Integrity & Isolation Audit
-├── plots/
-│   ├── ml_4model_consensus_hub_biomarkers.png         # 4-Model ML Feature Importance & Consensus Bar Chart
-│   ├── ml_8hub_diagnostic_roc_curves.png              # Multi-Gene & Single-Gene Diagnostic ROC Curves
-│   ├── ml_8hub_4organ_sample_heatmap.png              # 4-Organ Individual Sample Expression Heatmap
-│   ├── ml_8hub_multiorgan_boxplots.png                # Control vs. Fibrosis Violin/Box Expression Plots
-│   ├── upset_plot_4organs_corrected.png               # 4-Organ DEG Intersection UpSet Plot
-│   ├── venn_4organ_manual_ellipses.png                # Corrected 4-Organ Ellipse Venn
-│   ├── clean_ecm_validation_survival_barchart.png     # Validation Funnel Survival Bar Chart
-│   └── study_design_funnel_corrected.png              # Study Design Funnel Diagram
-└── README.md                                          # Master Study Documentation
-```
+   │
+   ├── [Step 1: Multi-Omics Functional Enrichment (GO, KEGG, Reactome, DisGeNET)]
+   │
+   ├── [Step 2: Multi-Cohort Diagnostic ROC Validation & Nomogram Construction]
+   │
+   ├── [Step 3: STRING Protein-Protein Interaction (PPI) Network & MCODE Subclusters]
+   │
+   ├── [Step 4: Single-Sample GSEA (ssGSEA) & Hallmark Pathway Trajectories]
+   │
+   ├── [Step 5: CIBERSORT / MCP-counter Immune Microenvironment Deconvolution]
+   │
+   └── [Step 6: Small-Molecule Drug Repurposing (CMap/DSigDB) & Molecular Docking]
+`
