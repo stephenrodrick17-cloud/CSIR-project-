@@ -1,25 +1,25 @@
-gene,matrisome_category,kidney_val2_logFC,kidney_val2_padj,kidney_val2_sig,liver_val2_logFC,liver_val2_padj,liver_val2_sig,lung_val2_logFC,lung_val2_padj,lung_val2_sig,skin_val2_logFC,skin_val2_padj,skin_val2_sig,val2_n_sig_organs
-AEBP1,ECM Glycoproteins,1.089318,0.03043996,True,1.65,9.36e-22,True,-1.1375456,3.96e-05,True,1.34,0.025696,True,4
-BMP1,ECM Regulators,-0.5280724,0.05935396,False,-0.33,3.37e-05,True,-0.3427869,0.313,False,,,False,1
-CCL19,Secreted Factors,2.0418828,0.01640422,True,3.78,3.61e-20,True,1.3696287,0.0107,True,0.591,0.57235,False,3
-CCL2,Secreted Factors,1.817997,0.00019332,True,2.3,1.57e-07,True,-0.3844959,0.449,False,2.05,0.048144,True,3
-CCL21,Secreted Factors,0.2303235,0.49410164,False,2.51,3.78e-19,True,-0.5978979,0.116,False,,,False,1
-CCL5,Secreted Factors,1.7578577,0.01753806,True,2.29,1.88e-18,True,-0.2341833,0.528,False,,,False,2
-CLEC2D,ECM-affiliated Proteins,0.095562,0.49135153,False,0.414,9.32e-08,True,1.0490325,8.18e-05,True,0.335,0.755144,False,2
-COL15A1,Collagens,2.0748107,0.00352696,True,1.42,7.56e-07,True,1.5347912,3.03e-07,True,1.37,0.022059,True,4
-COL1A1,Collagens,-0.505542,0.01213988,True,2.22,3.15e-12,True,0.9304005,0.101,False,0.551,0.550703,False,2
-COL1A2,Collagens,3.1069959,0.00074405,True,2.29,8.34e-20,True,-0.0241071,0.963,False,1.32,0.032679,True,3
-COL3A1,Collagens,3.3215404,0.00010849,True,1.65,1.34e-11,True,0.9355305,0.0322,True,0.716,0.121816,False,3
-COLEC11,ECM-affiliated Proteins,-0.5552548,0.2759187,False,1.84,1.15e-20,True,-0.227861,0.801,False,0.978,0.050646,False,1
-FGF14,Secreted Factors,-0.1664533,0.12958471,False,-0.163,0.0362,True,0.2298365,0.292,False,,,False,1
-LAMC3,ECM Glycoproteins,0.0693142,0.85090551,False,1.24,1.31e-11,True,-3.5391988,7.66e-32,True,-0.991,0.114795,False,2
-LTBP2,ECM Glycoproteins,-0.0722378,0.83795275,False,0.994,1.45e-10,True,-1.3199779,2.24e-09,True,0.399,0.379319,False,2
-MDK,Secreted Factors,0.263103,0.22507596,False,0.661,0.000107,True,0.0467305,0.907,False,1.02,0.2826,False,1
-MFAP4,ECM Glycoproteins,0.4472536,0.12457242,False,2.22,9.63e-20,True,-1.4248446,2.04e-06,True,0.683,0.474866,False,2
-PDGFD,Secreted Factors,0.9185193,0.03769806,True,2.93,1.15e-20,True,0.7828254,0.0966,False,0.0904,0.918861,False,2
-SERPINE2,ECM Regulators,1.0369989,0.01674263,True,1.38,7.46e-08,True,0.9506987,0.0225,True,1.24,0.06063,False,3
-SERPINF2,ECM Regulators,-0.9924297,0.01556892,True,-0.941,2.4e-08,True,-0.0987401,0.788,False,,,False,2
-SERPINH1,ECM Regulators,0.7532916,0.00439652,True,0.543,1.59e-05,True,-0.4095377,0.0225,True,0.697,0.123685,False,3
-SPARCL1,ECM Glycoproteins,0.4295213,0.53766082,False,2.47,2.87e-17,True,-0.2195817,0.649,False,1.18,0.058952,False,1
-SVEP1,ECM Glycoproteins,0.5572285,0.06263333,False,0.867,8.75e-10,True,-1.5330298,1.68e-07,True,0.755,0.268873,False,2
-VWF,ECM Glycoproteins,1.34326,0.03220321,True,2.25,5.24e-17,True,-1.1809473,2.14e-06,True,0.664,0.425953,False,3
+gene,kidney_val2_sig,liver_val2_sig,lung_val2_sig,skin_val2_sig,val2_n_sig_organs
+AEBP1,True,True,True,True,4
+BMP1,False,True,False,False,1
+CCL19,True,True,True,False,3
+CCL2,True,True,False,True,3
+CCL21,False,True,False,False,1
+CCL5,True,True,False,False,2
+CLEC2D,False,True,True,False,2
+COL15A1,True,True,True,True,4
+COL1A1,True,True,False,False,2
+COL1A2,True,True,False,True,3
+COL3A1,True,True,True,False,3
+COLEC11,False,True,False,False,1
+FGF14,False,True,False,False,1
+LAMC3,False,True,True,False,2
+LTBP2,False,True,True,False,2
+MDK,False,True,False,False,1
+MFAP4,False,True,True,False,2
+PDGFD,True,True,False,False,2
+SERPINE2,True,True,True,False,3
+SERPINF2,True,True,False,False,2
+SERPINH1,True,True,True,False,3
+SPARCL1,False,True,False,False,1
+SVEP1,False,True,True,False,2
+VWF,True,True,True,False,3
