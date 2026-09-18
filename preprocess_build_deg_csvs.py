@@ -1,254 +1,218 @@
-#!/usr/bin/env python3
-"""
-Preprocessing script (VECTORIZED) to build per-organ DEG CSV files from raw GEO datasets.
-
-Handles:
-- Affymetrix arrays (IDs with _at suffix -> bioDBnet Gene ID -> Gene Symbol)
-- Illumina arrays (IDs with ILMN_ prefix; GI column + Gene.symbol column)
-- DESeq2-style output with Symbol column
-- Aggregation: for duplicate genes, keep the most significant (smallest adj_p_value)
-"""
-
+# Preprocessing Script: Build Per-Organ DEG CSVs from Locked Discovery Cohorts
 import os
 import glob
+import json
 import pandas as pd
 import numpy as np
-
 import discovery_config
-
-import warnings
-warnings.filterwarnings("ignore", category=FutureWarning)
 
 
 def load_biodbnet_mappings(organ_dir):
-    """
-    Load all bioDBnet mapping files in a given organ directory tree.
-    Returns a dict: {Gene ID (str) -> Gene Symbol (str)}
-    Also includes integer-keyed versions for flexible matching.
-    """
+    pattern = os.path.join(organ_dir, '**', 'bioDBnet*.txt')
+    files = glob.glob(pattern, recursive=True)
     mapping = {}
-    pattern = os.path.join(organ_dir, "**", "bioDBnet*.txt")
-    for fpath in glob.glob(pattern, recursive=True):
+    for fpath in files:
         try:
-            df = pd.read_csv(fpath, sep="\t")
-            df.columns = [c.strip() for c in df.columns]
-            if "Gene ID" in df.columns and "Gene Symbol" in df.columns:
-                df = df.dropna(subset=["Gene Symbol"])
-                df["Gene Symbol"] = df["Gene Symbol"].astype(str).str.strip()
-                df["Gene ID_str"] = df["Gene ID"].astype(str).str.strip()
-                valid = df[
-                    (df["Gene Symbol"] != "") &
-                    (df["Gene Symbol"] != "-") &
-                    (df["Gene Symbol"].str.lower() != "nan")
-                ]
-                for gid_str, sym in zip(valid["Gene ID_str"], valid["Gene Symbol"]):
-                    mapping[gid_str] = sym
-                try:
-                    df["Gene ID_int"] = df["Gene ID"].astype(float).astype(int).astype(str)
-                    for gid_int, sym in zip(df["Gene ID_int"], df["Gene Symbol"]):
-                        mapping.setdefault(gid_int, sym)
-                except (ValueError, TypeError):
-                    pass
+            with open(fpath, 'r', encoding='utf-8', errors='ignore') as f:
+                lines = f.readlines()
+            for line in lines:
+                parts = line.strip().split('	')
+                if len(parts) >= 2:
+                    gene_id, symbol = parts[0].strip(), parts[1].strip().upper()
+                    if gene_id and symbol and symbol not in ('-', 'NONE', 'NAN', 'NA'):
+                        mapping[gene_id] = symbol
         except Exception as e:
-            print(f"    Warning: could not parse {os.path.basename(fpath)}: {e}")
+            print(f'    Warning reading {fpath}: {e}')
     return mapping
 
 
+def load_all_mappings(base_dir):
+    global_map = {}
+    for organ in ['Kidney', 'Liver', 'Lungs', 'Skin']:
+        organ_path = os.path.join(base_dir, organ)
+        if os.path.isdir(organ_path):
+            sub_map = load_biodbnet_mappings(organ_path)
+            global_map.update(sub_map)
+
+    # Add GenBank accession map if available
+    acc_map_file = os.path.join(base_dir, 'geo_cache', 'gb_acc_to_symbol_map.json')
+    if os.path.exists(acc_map_file):
+        try:
+            with open(acc_map_file, 'r', encoding='utf-8') as f:
+                acc_map = json.load(f)
+                for k, v in acc_map.items():
+                    if v and str(v).strip().upper() not in ('-', 'NONE', 'NAN', 'NA'):
+                        global_map[str(k).strip()] = str(v).strip().upper()
+                        global_map[str(k).strip().upper()] = str(v).strip().upper()
+            print(f'  Loaded {len(acc_map)} GenBank accession mappings')
+        except Exception as e:
+            print(f'  Warning loading acc map: {e}')
+
+    return global_map
+
+
 def process_dataset_vectorized(tsv_path, bioDBnet_map):
-    """
-    Process a single top.table.tsv using VECTORIZED operations.
-    Returns a DataFrame: gene, logFC, p_value, adj_p_value  (one row per unique gene)
-    """
     try:
-        df = pd.read_csv(tsv_path, sep="\t")
+        df = pd.read_csv(tsv_path, sep='	')
     except Exception as e:
-        print(f"    Failed to read {tsv_path}: {e}")
+        print(f'    Failed to read {tsv_path}: {e}')
         return pd.DataFrame()
 
     df.columns = [c.strip() for c in df.columns]
 
-    # --- Identify required columns ---
-    adj_p_col = next((c for c in ["adj.P.Val", "padj", "adj_p_value", "adj_pval", "adj.P.Value", "FDR"] if c in df.columns), None)
-    p_col = next((c for c in ["P.Value", "pvalue", "p_value", "PValue", "pval"] if c in df.columns), None)
-    lfc_col = next((c for c in ["logFC", "log2FoldChange", "LFC", "lfc"] if c in df.columns), None)
-    id_col = next((c for c in ["ID", "GeneID", "ProbeID", "probe_id", "id"] if c in df.columns), None)
-    sym_col = next((c for c in ["Symbol", "Gene.symbol", "Gene_symbol", "gene_symbol"] if c in df.columns), None)
-    gi_col = "GI" if "GI" in df.columns else None
+    # Find columns case-insensitively
+    cols_lower = {c.lower(): c for c in df.columns}
+    
+    adj_p_col = next((cols_lower[c] for c in ['adj.p.val', 'padj', 'adj_p_value', 'adj_pval', 'adj.p.value', 'fdr'] if c in cols_lower), None)
+    p_col = next((cols_lower[c] for c in ['p.value', 'pvalue', 'p_value', 'pvalue', 'pval'] if c in cols_lower), None)
+    lfc_col = next((cols_lower[c] for c in ['logfc', 'log2foldchange', 'lfc'] if c in cols_lower), None)
+    id_col = next((cols_lower[c] for c in ['id', 'geneid', 'probeid', 'probe_id'] if c in cols_lower), None)
+    sym_col = next((cols_lower[c] for c in ['symbol', 'gene.symbol', 'gene_symbol', 'genesymbol'] if c in cols_lower), None)
+    gi_col = cols_lower.get('gi', None)
+    gb_col = next((cols_lower[c] for c in ['gb_acc', 'gb_list', 'genbank', 'acc'] if c in cols_lower), None)
 
     if not all([adj_p_col, p_col, lfc_col, id_col]):
-        print(f"    Warning: skipping {os.path.basename(tsv_path)}, missing cols. Found: {list(df.columns)}")
+        print(f'    Warning: skipping {os.path.basename(tsv_path)}, missing required cols. Found: {list(df.columns)}')
         return pd.DataFrame()
 
     work = pd.DataFrame({
-        "raw_id": df[id_col].astype(str),
-        "adj_p_value": pd.to_numeric(df[adj_p_col], errors="coerce"),
-        "p_value": pd.to_numeric(df[p_col], errors="coerce"),
-        "logFC": pd.to_numeric(df[lfc_col], errors="coerce"),
+        'raw_id': df[id_col].astype(str),
+        'adj_p_value': pd.to_numeric(df[adj_p_col], errors='coerce'),
+        'p_value': pd.to_numeric(df[p_col], errors='coerce'),
+        'logFC': pd.to_numeric(df[lfc_col], errors='coerce'),
     })
 
     if sym_col is not None:
-        work["sym_direct"] = df[sym_col].astype(str).str.strip().str.upper()
-        work.loc[work["sym_direct"].isin(["", "NAN", "NA", "-", "NONE"]), "sym_direct"] = np.nan
+        work['sym_direct'] = df[sym_col].astype(str).str.strip().str.upper()
+        work.loc[work['sym_direct'].isin(['', 'NAN', 'NA', '-', 'NONE', 'NULL']), 'sym_direct'] = np.nan
     else:
-        work["sym_direct"] = np.nan
+        work['sym_direct'] = np.nan
 
-    def safe_map_upper(series, mapping):
+    def safe_map(series, mapping):
         mapped = series.map(mapping)
-        if mapped.dtype == object:
-            return mapped.str.upper()
-        return mapped.astype("object").where(mapped.isna(), mapped.astype(str).str.upper())
+        return mapped.astype('object').where(mapped.isna(), mapped.astype(str).str.upper())
 
+    # Map GI
     if gi_col is not None:
-        work["gi_str"] = df[gi_col].astype(str).str.strip()
-        work["gi_str"] = work["gi_str"].replace(["", "NAN", "NA", "-", "NONE"], np.nan)
-        work["sym_gi"] = safe_map_upper(work["gi_str"], bioDBnet_map)
-        try:
-            work["gi_int"] = pd.to_numeric(df[gi_col], errors="coerce").astype("Int64").astype(str)
-            work.loc[work["gi_int"] == "<NA>", "gi_int"] = np.nan
-            mask = work["sym_gi"].isna() & work["gi_int"].notna()
-            work.loc[mask, "sym_gi"] = safe_map_upper(work.loc[mask, "gi_int"], bioDBnet_map)
-        except Exception:
-            pass
+        work['gi_str'] = df[gi_col].astype(str).str.strip().replace(['', 'NAN', 'NA', '-', 'NONE'], np.nan)
+        work['sym_gi'] = safe_map(work['gi_str'], bioDBnet_map)
     else:
-        work["sym_gi"] = np.nan
+        work['sym_gi'] = np.nan
 
-    work["id_clean"] = work["raw_id"].astype(str).str.strip()
+    # Map GB_ACC
+    if gb_col is not None:
+        work['gb_str'] = df[gb_col].astype(str).str.strip().replace(['', 'NAN', 'NA', '-', 'NONE'], np.nan)
+        work['sym_gb'] = safe_map(work['gb_str'], bioDBnet_map)
+    else:
+        work['sym_gb'] = np.nan
 
-    work["id_no_at"] = work["id_clean"].where(~work["id_clean"].str.endswith("_at"), work["id_clean"].str[:-3])
-    work["sym_at"] = safe_map_upper(work["id_no_at"], bioDBnet_map)
-    try:
-        work["id_int"] = pd.to_numeric(work["id_no_at"], errors="coerce").astype("Int64").astype(str)
-        work.loc[work["id_int"] == "<NA>", "id_int"] = np.nan
-        mask = work["sym_at"].isna() & work["id_int"].notna()
-        work.loc[mask, "sym_at"] = safe_map_upper(work.loc[mask, "id_int"], bioDBnet_map)
-    except Exception:
-        pass
+    # Map probe ID
+    work['id_clean'] = work['raw_id'].astype(str).str.strip()
+    work['id_no_at'] = work['id_clean'].where(~work['id_clean'].str.endswith('_at'), work['id_clean'].str[:-3])
+    work['sym_at'] = safe_map(work['id_no_at'], bioDBnet_map)
+    work['sym_id_str'] = safe_map(work['id_clean'], bioDBnet_map)
 
-    work["sym_id_str"] = safe_map_upper(work["id_clean"], bioDBnet_map)
-    try:
-        work["id_generic_int"] = pd.to_numeric(work["id_clean"], errors="coerce").astype("Int64").astype(str)
-        work.loc[work["id_generic_int"] == "<NA>", "id_generic_int"] = np.nan
-        mask = work["sym_id_str"].isna() & work["id_generic_int"].notna()
-        work.loc[mask, "sym_id_str"] = safe_map_upper(work.loc[mask, "id_generic_int"], bioDBnet_map)
-    except Exception:
-        pass
+    # Hierarchical symbol selection
+    work['gene'] = work['sym_direct']
+    work['gene'] = work['gene'].fillna(work['sym_gb'])
+    work['gene'] = work['gene'].fillna(work['sym_gi'])
+    work['gene'] = work['gene'].fillna(work['sym_at'])
+    work['gene'] = work['gene'].fillna(work['sym_id_str'])
 
-    work["gene"] = work["sym_direct"]
-    work["gene"] = work["gene"].fillna(work["sym_gi"])
-    work["gene"] = work["gene"].fillna(work["sym_at"])
-    work["gene"] = work["gene"].fillna(work["sym_id_str"])
-
-    work = work.dropna(subset=["gene", "adj_p_value", "logFC"])
-
+    work = work.dropna(subset=['gene', 'adj_p_value', 'logFC'])
     if len(work) == 0:
         return pd.DataFrame()
 
-    work["gene"] = work["gene"].astype(str).str.strip()
-    work = work[work["gene"] != ""]
+    work['gene'] = work['gene'].astype(str).str.strip()
+    work = work[~work['gene'].isin(['', 'NAN', 'NA', '-', 'NONE', 'NULL'])]
 
-    work = work.sort_values("adj_p_value", ascending=True)
-    work = work.drop_duplicates(subset="gene", keep="first")
+    # Deduplicate within dataset keeping the best adj_p_value
+    work = work.sort_values('adj_p_value', ascending=True)
+    work = work.drop_duplicates(subset='gene', keep='first')
 
-    return work[["gene", "logFC", "p_value", "adj_p_value"]].reset_index(drop=True)
+    return work[['gene', 'logFC', 'p_value', 'adj_p_value']].reset_index(drop=True)
 
 
 def aggregate_organ_datasets(organ_name, organ_base_dir, bioDBnet_map):
-    """
-    Process all datasets for a single organ, aggregate (best adj_p per gene).
-    """
-    print(f"\nProcessing {organ_name}...")
+    print(f'\nProcessing {organ_name} Discovery Datasets...')
     all_dfs = []
 
-    pattern = os.path.join(organ_base_dir, "**", "*.top.table.tsv")
+    pattern = os.path.join(organ_base_dir, '**', '*.top.table.tsv')
     all_tsv_files = sorted(glob.glob(pattern, recursive=True))
-    
-    # Filter out excluded accessions
+
     tsv_files = []
     excludes = discovery_config.EXCLUDE_FROM_DISCOVERY.get(organ_name, set())
     for f in all_tsv_files:
         if any(exc in f for exc in excludes):
-            print(f"  [EXCLUDED] {os.path.basename(f)}")
+            print(f'  [HELD OUT FOR VALIDATION] {os.path.basename(f)}')
         else:
             tsv_files.append(f)
-            
-    print(f"  Found {len(tsv_files)} dataset TSV files (after exclusions)")
 
+    print(f'  Found {len(tsv_files)} Discovery dataset TSV files:')
     for tsv_path in tsv_files:
         ds_name = os.path.basename(os.path.dirname(tsv_path))
-        print(f"    Dataset {ds_name}/{os.path.basename(tsv_path)}")
+        print(f'    - {ds_name}/{os.path.basename(tsv_path)}')
         ds_df = process_dataset_vectorized(tsv_path, bioDBnet_map)
         if len(ds_df) > 0:
-            print(f"      -> {len(ds_df)} genes with valid symbols")
+            print(f'      -> {len(ds_df)} valid genes mapped')
             all_dfs.append(ds_df)
         else:
-            print(f"      -> no valid genes (check gene symbol mapping)")
+            print(f'      -> 0 valid genes mapped')
 
     if not all_dfs:
-        print(f"  [ERROR] No valid data for {organ_name}")
+        print(f'  [ERROR] No valid discovery data for {organ_name}')
         return pd.DataFrame()
 
     combined = pd.concat(all_dfs, ignore_index=True)
-    print(f"  Combined: {len(combined)} gene records across all datasets")
+    print(f'  Combined across {len(all_dfs)} discovery cohorts: {len(combined)} records')
 
-    combined = combined.sort_values("adj_p_value", ascending=True)
-    combined = combined.drop_duplicates(subset="gene", keep="first")
-    combined = combined.sort_values("adj_p_value", ascending=True).reset_index(drop=True)
+    # De-duplicate across cohorts within organ (best adj_p_value per gene)
+    combined = combined.sort_values('adj_p_value', ascending=True)
+    combined = combined.drop_duplicates(subset='gene', keep='first').reset_index(drop=True)
 
-    print(f"  After de-duplication (best p-value per gene): {len(combined)} unique genes")
+    print(f'  Final unique discovery genes for {organ_name}: {len(combined)}')
     return combined
 
 
 def main():
-    base_dir = os.path.dirname(os.path.abspath(__file__))
-    results_dir = os.path.join(base_dir, "results")
+    base_dir = r'D:\CSIR'
+    results_dir = os.path.join(base_dir, 'results')
     os.makedirs(results_dir, exist_ok=True)
 
     organs = [
-        ("Kidney", "kidney_DEGs.csv"),
-        ("Liver", "liver_DEGs.csv"),
-        ("Lungs", "lung_DEGs.csv"),
-        ("Skin", "skin_DEGs.csv"),
+        ('Kidney', 'kidney_DEGs.csv'),
+        ('Liver',  'liver_DEGs.csv'),
+        ('Lungs',  'lung_DEGs.csv'),
+        ('Skin',   'skin_DEGs.csv'),
     ]
 
-    print("=" * 70)
-    print("BUILDING PER-ORGAN DEG CSV FILES FROM RAW GEO DATASETS")
-    print("=" * 70)
+    print('=' * 75)
+    print('LOCKED DISCOVERY PIPELINE: GENERATING PER-ORGAN DEG CSVS')
+    print('=' * 75)
 
-    print("\nLoading GLOBAL bioDBnet mappings (across all organs)...")
-    global_bio_map = {}
-    for organ_dirname, _ in organs:
-        organ_path = os.path.join(base_dir, organ_dirname)
-        if os.path.isdir(organ_path):
-            sub_map = load_biodbnet_mappings(organ_path)
-            global_bio_map.update(sub_map)
-    print(f"  Total loaded: {len(global_bio_map)} Gene ID -> Symbol mappings")
+    global_bio_map = load_all_mappings(base_dir)
+    print(f'Total global mapping dictionary entries: {len(global_bio_map)}')
 
     organ_results = {}
     for organ_dirname, output_csv in organs:
         organ_path = os.path.join(base_dir, organ_dirname)
         if not os.path.isdir(organ_path):
-            print(f"\n[SKIP] Organ directory not found: {organ_path}")
             continue
 
-        print(f"\nUsing global bioDBnet map for {organ_dirname}")
         organ_df = aggregate_organ_datasets(organ_dirname, organ_path, global_bio_map)
-
         if len(organ_df) > 0:
             out_path = os.path.join(results_dir, output_csv)
             organ_df.to_csv(out_path, index=False)
-            print(f"  [SAVED] {out_path}  ({len(organ_df)} genes)")
+            print(f'  [SAVED] {out_path} ({len(organ_df)} unique genes)')
             organ_results[organ_dirname] = organ_df
-        else:
-            print(f"  [SKIP] No genes to save for {organ_dirname}")
 
-    print("\n" + "=" * 70)
-    print("PREPROCESSING COMPLETE")
-    print("=" * 70)
+    print('\n' + '=' * 75)
+    print('DISCOVERY SUMMARY (SIGNIFICANT AT adj_p < 0.05 & |logFC| >= 0.585)')
+    print('=' * 75)
     for name, df in organ_results.items():
-        sig = df[(df["adj_p_value"] < 0.05) & (df["logFC"].abs() > 0.585)]
-        print(f"  {name}: {len(df)} total genes, {len(sig)} significant "
-              f"(adj_p<0.05 & |logFC|>0.585)")
+        sig = df[(df['adj_p_value'] < 0.05) & (df['logFC'].abs() >= 0.585)]
+        print(f'  {name:8s}: {len(df):6d} total genes, {len(sig):6d} significant DEGs')
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
