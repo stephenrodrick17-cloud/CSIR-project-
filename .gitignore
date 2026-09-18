@@ -27,3 +27,11 @@ report/*.html
 *.swp
 *.swo
 *~
+
+# Large raw genomic data and summary statistics
+*.gz
+*.tar
+*.zip
+outcomes/
+coloc_cache/tmp*
+archive/

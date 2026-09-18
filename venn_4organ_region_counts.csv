@@ -1,0 +1,16 @@
+bit_mask,count,n_organs_shared,present_in,absent_in
+1111,53,4,"Kidney,Liver,Lung,Skin",(none)
+1011,597,3,"Kidney,Lung,Skin",Liver
+0111,23,3,"Liver,Lung,Skin",Kidney
+1110,124,3,"Kidney,Liver,Lung",Skin
+1101,22,3,"Kidney,Liver,Skin",Lung
+0101,21,2,"Liver,Skin","Kidney,Lung"
+0011,385,2,"Lung,Skin","Kidney,Liver"
+1001,754,2,"Kidney,Skin","Liver,Lung"
+1010,3559,2,"Kidney,Lung","Liver,Skin"
+1100,117,2,"Kidney,Liver","Lung,Skin"
+0110,53,2,"Liver,Lung","Kidney,Skin"
+0100,90,1,Liver,"Kidney,Lung,Skin"
+0010,3009,1,Lung,"Kidney,Liver,Skin"
+0001,1110,1,Skin,"Kidney,Liver,Lung"
+1000,6533,1,Kidney,"Liver,Lung,Skin"
