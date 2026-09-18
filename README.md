@@ -88,6 +88,9 @@ To identify the most essential, non-redundant biomarkers from the 50 clean ECM g
 
 ## 4. Key Visualizations
 
+### Comprehensive Study Progress & Multi-Omics Convergence
+![Study Progress Summary Chart](plots/study_progress_summary_chart.png)
+
 ### 4-Model Feature Importance & Consensus Ranking
 ![4-Model Consensus Hub Biomarkers](plots/ml_4model_consensus_hub_biomarkers.png)
 
