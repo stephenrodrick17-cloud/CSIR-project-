@@ -37,20 +37,26 @@ graph TD
         RevMR --> Effector["SPP1 (p=1.96e-9) & TNXB (p=5.39e-7)<br/>Reactive Downstream Effector Paradigm"]
     end
 
-    subgraph TranslationalRoadmap ["4. Downstream Machine Learning & Translational Roadmap"]
-        Val2 & Effector --> ML["4-Model Ensemble ML Feature Selection:<br/>LASSO + SVM-RFE + Random Forest + XGBoost"]
-        ML --> HubGenes["Consensus Pan-Fibrotic Hub Biomarker Signature"]
-        HubGenes --> PPI["STRING PPI Network & Cytoscape MCODE Subcluster Analysis"]
-        HubGenes --> ROC["Independent Multi-Cohort ROC Validation & Diagnostic Nomogram"]
-        HubGenes --> GSEA["Single-Sample GSEA (ssGSEA) & Hallmark Pathway Trajectories"]
-        HubGenes --> Immune["CIBERSORT / MCP-counter Immune Microenvironment Deconvolution"]
-        HubGenes --> Drugs["Connectivity Map (CMap) / DSigDB Drug Repurposing & Molecular Docking"]
+    subgraph MLFeatureSelection ["4. 4-Model Ensemble ML Feature Selection (Completed)"]
+        Core50 --> ML_LASSO["LASSO (L1 Regularization, lambda=0.0586) -> 25 Genes"]
+        Core50 --> ML_SVM["SVM-RFE (Recursive Feature Elimination) -> 15 Genes"]
+        Core50 --> ML_RF["Random Forest (Gini Importance > 0.020) -> 14 Genes"]
+        Core50 --> ML_XGB["XGBoost (Feature Gain > 0.020) -> 4 Genes"]
+        ML_LASSO & ML_SVM & ML_RF & ML_XGB --> HubConsensus["Consensus Hub Biomarkers (>=3 Models):<br/>SERPINF2, MDK, SPP1, TNXB, GDF15, THBS1, LTB, CCL21"]
+    end
+
+    subgraph TranslationalRoadmap ["5. Downstream Translational Roadmap"]
+        HubConsensus --> PPI["STRING PPI Network & Cytoscape MCODE Subcluster Analysis"]
+        HubConsensus --> ROC["Independent Multi-Cohort ROC Validation & Diagnostic Nomogram"]
+        HubConsensus --> GSEA["Single-Sample GSEA (ssGSEA) & Hallmark Pathway Trajectories"]
+        HubConsensus --> Immune["CIBERSORT / MCP-counter Immune Microenvironment Deconvolution"]
+        HubConsensus --> Drugs["Connectivity Map (CMap) / DSigDB Drug Repurposing & Molecular Docking"]
     end
 ```
 
 ---
 
-## 2. Executive Summary of Corrected Project Findings
+## 2. Executive Summary of Project Findings
 
 | Pipeline Stage | Scope & Input | Key Result | Definitive Biological Conclusion |
 | :--- | :--- | :--- | :--- |
@@ -62,12 +68,48 @@ graph TD
 | **Bayesian Colocalization** | 189 tests across eQTLGen and GTEx v8 matched tissues | **0 / 189 Tests Reach $PP_4 \ge 0.50$ (Max $PP_4 = 0.450$)** | eQTL associations and disease GWAS loci are driven by distinct causal variants in linkage ($PP_3 \gg PP_4$). |
 | **SMR + HEIDI** | 176 tests evaluating pleiotropy vs linkage | **All Nominal Signals Fail HEIDI Test ($p_{	ext{HEIDI}} < 0.001$)** | Single-SNP SMR associations are artifacts of linkage disequilibrium rather than true pleiotropy. |
 | **Reverse-Direction MR** | Disease GWAS lead SNPs $	o$ ECM Gene Expression | **Liver $	o$ `SPP1` ($p=1.96 	imes 10^{-9}$)**, **Skin $	o$ `TNXB` ($p=5.39 	imes 10^{-7}$)** | **Reactive Effector Paradigm**: Core matrix genes are downstream execution pathways driven by disease liability. |
+| **4-Model Ensemble ML** | LASSO + SVM-RFE + Random Forest + XGBoost | **8 Consensus Hub Biomarkers ($\ge 3$ models)**, **4 Unanimous Hub Biomarkers ($4/4$ models)** | `SERPINF2`, `MDK`, `SPP1`, and `TNXB` emerge as unanimous multi-model pan-fibrotic hub biomarkers. |
 
 ---
 
-## 3. Dataset Allocation & Strict Isolation Policy
+## 3. 4-Model Ensemble Machine Learning Feature Selection
 
-To prevent circularity and ensure unbiased validation, all datasets are strictly partitioned across separate GEO accessions:
+To identify the most critical, non-redundant biomarkers from the 50 clean ECM genes, four complementary machine learning algorithms were trained on patient tissue expression data (strictly excluding Validation 2 cohorts):
+
+1. **LASSO** ($L_1$-regularized logistic regression, $\lambda = 0.05857$): Selected **25 genes**.
+2. **SVM-RFE** (Support Vector Machine Recursive Feature Elimination): Selected **15 genes**.
+3. **Random Forest** (500 trees, Mean Decrease in Impurity / Gini index $> 0.020$): Selected **14 genes**.
+4. **XGBoost** (500 trees, Feature Gain $> 0.020$): Selected **4 genes**.
+
+### Master Consensus Hub Biomarkers Table ($\ge 3$ Models):
+
+| Gene Symbol | Total Votes | LASSO Coef ($eta$) | SVM-RFE Rank | RF Importance (Gini) | XGBoost Gain | Consensus Status | Matrisome Classification |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
+| **`SERPINF2`** | **4 / 4** | **-2.2758** | **Rank 1** | **0.1399** | **0.4600** | **Unanimous Hub (4/4)** | ECM Regulators |
+| **`MDK`** | **4 / 4** | **+1.8137** | **Rank 1** | **0.1190** | **0.2257** | **Unanimous Hub (4/4)** | Secreted Factors |
+| **`SPP1`** | **4 / 4** | **+0.1397** | **Rank 1** | **0.1071** | **0.1771** | **Unanimous Hub (4/4)** | ECM Glycoproteins |
+| **`TNXB`** | **4 / 4** | **+2.1444** | **Rank 1** | **0.0910** | **0.1373** | **Unanimous Hub (4/4)** | ECM Glycoproteins |
+| **`GDF15`** | **3 / 4** | **+1.5076** | **Rank 1** | **0.0586** | 0.0000 | **Consensus Hub (3/4)** | Secreted Factors |
+| **`THBS1`** | **3 / 4** | **+1.1423** | **Rank 1** | **0.0552** | 0.0000 | **Consensus Hub (3/4)** | ECM Glycoproteins |
+| **`LTB`** | **3 / 4** | **+0.1483** | **Rank 1** | **0.0434** | 0.0000 | **Consensus Hub (3/4)** | Secreted Factors |
+| **`CCL21`** | **3 / 4** | **+0.4379** | **Rank 1** | **0.0351** | 0.0000 | **Consensus Hub (3/4)** | Secreted Factors |
+
+---
+
+## 4. Key Visualizations
+
+### 4-Model Feature Importance & Consensus Ranking
+![4-Model Consensus Hub Biomarkers](plots/ml_4model_consensus_hub_biomarkers.png)
+
+### Expression Profile of the 8 Consensus Hub Biomarkers
+![8 Hub Biomarkers Expression Heatmap](plots/ml_8hub_biomarkers_expression_heatmap.png)
+
+### Study Design Funnel & Multi-Layer Gene Survival
+![Study Design Funnel](plots/study_design_funnel_corrected.png)
+
+---
+
+## 5. Dataset Allocation & Strict Isolation Policy
 
 | Target Organ | Discovery Cohorts (Layer 1) | Validation Layer 1 Cohorts | Validation Layer 2 Cohorts (Independent) | Outcome GWAS Dataset | Matched GTEx v8 Tissue |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -78,17 +120,15 @@ To prevent circularity and ensure unbiased validation, all datasets are strictly
 
 ---
 
-## 4. Phase 1: Discovery of the 50 Clean Core ECM Program
+## 6. Phase 1: Discovery of the 50 Clean Core ECM Program
 
 1. **Differential Expression Analysis**: Performed using empirical Bayes moderated linear models (`limma`), adjusting for platform and cohort covariates ($|\log_2	ext{FC}| \ge 0.585$, $	ext{FDR } q < 0.05$).
 2. **Conserved Intersect**: Overlapping DEGs across all 4 anatomical organs identified **241 core genes** (`pan_fibrotic_core_genes_corrected.csv`).
-3. **Human Matrisome Database Annotation**: Matched against the Human Matrisome to define the **50 Clean Core ECM Program** (`ecm_clean_genes.csv`), distributed across:
-   - **Core Matrisome**: ECM Glycoproteins (e.g., `AEBP1`, `COL15A1`, `SPP1`, `TNXB`), Collagens (`COL1A1`, `COL1A2`, `COL3A1`, `COL6A3`), and Proteoglycans (`BGN`, `FMOD`, `PRELP`).
-   - **Matrisome-Associated**: ECM Regulators (`ADAMTS4`, `TGM2`, `LOXL1`), ECM-Affiliated Proteins (`C1QB`, `C1QC`), and Secreted Factors.
+3. **Human Matrisome Database Annotation**: Matched against the Human Matrisome to define the **50 Clean Core ECM Program** (`ecm_clean_genes.csv`).
 
 ---
 
-## 5. Phase 2: Multi-Layer Validation & Cross-Platform Metrics
+## 7. Phase 2: Multi-Layer Validation Results
 
 ```
 Stage 1: Clean Matrisome Core Program       --> 50 Genes (100.0%)
@@ -98,109 +138,73 @@ Stage 4: Validation 2 (Replicated in >=2)   --> 14 Genes ( 28.0%)
 Stage 5: Validation 2 (4/4 Concordant)      -->  1 Gene  (  2.0%, TNXB)
 ```
 
-### Top Cross-Organ Replicating ECM Genes:
-- **`TNXB` (Tenascin-X)**: The single gene demonstrating statistically significant, concordant replication across **all 4 organs** in strictly independent cohorts ($p < 0.05$).
+- **`TNXB` (Tenascin-X)**: Replicated across **all 4 organs** in strictly independent cohorts ($p < 0.05$).
 - **`AEBP1` (ACLIC)**: Replicated with high significance in Liver ($p = 7.7 	imes 10^{-4}$) and Skin ($p = 2.1 	imes 10^{-5}$).
 - **14 Multi-Organ Core Genes**: `TNXB`, `AEBP1`, `COL1A2`, `COL15A1`, `BGN`, `FMOD`, `LAMC3`, `TGM2`, `MDK`, `SPP1`, `C1QB`, `C1QC`, `LTB`, `SERPINF2`.
 
 ---
 
-## 6. Phase 3: Disease-Only Clinical Severity Audits
+## 8. Phase 3: Disease-Only Clinical Severity Audits
 
-To exclude control-versus-disease baseline bias, Spearman rank correlations ($ho$) were computed exclusively within disease patient cohorts across histological fibrosis staging (METAVIR, Ishak, Modified Rodnan Skin Score, Ashcroft Score):
-
-- **`VWF` (von Willebrand Factor)**: $ho = +0.66$ ($p = 7.9 	imes 10^{-6}$)
-- **`COL15A1` (Collagen Type XV Alpha 1)**: $ho = +0.62$ ($p = 3.6 	imes 10^{-5}$)
-- **`AEBP1` (Adipocyte Enhancer-Binding Protein 1)**: $ho = +0.55$ ($p = 1.2 	imes 10^{-3}$)
-- **`SPP1` (Osteopontin)**: $ho = +0.52$ ($p = 2.4 	imes 10^{-3}$)
+Spearman rank correlations ($ho$) computed exclusively within disease patient cohorts across histological fibrosis staging:
+- **`VWF`**: $ho = +0.66$ ($p = 7.9 	imes 10^{-6}$)
+- **`COL15A1`**: $ho = +0.62$ ($p = 3.6 	imes 10^{-5}$)
+- **`AEBP1`**: $ho = +0.55$ ($p = 1.2 	imes 10^{-3}$)
+- **`SPP1`**: $ho = +0.52$ ($p = 2.4 	imes 10^{-3}$)
 
 ---
 
-## 7. Phase 4: Genetic Architecture & Causal Inference
+## 9. Phase 4: Genetic Architecture & Causal Inference
 
-### Two-Sample Forward Mendelian Randomization (eQTL $	o$ GWAS)
-- Tested 192 gene-organ pairs using cis-eQTL instruments ($p < 5 	imes 10^{-8}$, clumped at $r^2 < 0.001$, $F > 10$) against organ fibrosis GWAS ($N=377,277 - 567,460$).
-- **Result**: **0 / 192 tests survived Benjamini-Hochberg FDR correction ($q < 0.05$)**.
-
-### Bayesian Colocalization (`coloc.abf`)
-- Tested across $\pm 500	ext{ kb}$ cis-windows using blood eQTLGen ($N=31,684$) and tissue-matched GTEx v8 ($N=73-605$).
-- **Result**: **0 / 189 tests reached $PP_4 \ge 0.50$ (Max $PP_4 = 0.450$)**. Posterior probability was overwhelmingly dominated by $PP_3$, confirming distinct causal variants in linkage rather than shared causal variants.
-
-### SMR + HEIDI Heterogeneity
-- Evaluated 176 SMR tests. All nominal signals (`CCL4`, `CTSS`, `SERPINE1`) failed the HEIDI test ($p_{	ext{HEIDI}} < 0.001$), confirming that single-SNP associations are driven by **linkage disequilibrium**.
+### Forward MR & Bayesian Colocalization
+- **Two-Sample Forward MR**: 192 tests $	o$ **0 survive Benjamini-Hochberg FDR correction ($q < 0.05$)**.
+- **Bayesian Colocalization (`coloc.abf`)**: 189 tests across eQTLGen and GTEx v8 $	o$ **0 loci with $PP_4 \ge 0.50$ (Max $PP_4 = 0.450$)**. Dominated by $PP_3$ (distinct causal variants in linkage).
 
 ### Reverse-Direction Mendelian Randomization (GWAS $	o$ eQTL)
-Evaluating whether genetic liability to disease drives downstream matrix expression:
 - **Liver Cirrhosis $	o$ `SPP1`** (Lead SNP `rs4435708`): Wald Ratio $eta = -0.281, SE = 0.0468, Z = -6.00, \mathbf{p = 1.96 	imes 10^{-9}}$
 - **Systemic Sclerosis $	o$ `TNXB`** (Lead SNP `rs6926894`): Wald Ratio $eta = -0.127, SE = 0.0254, Z = -5.01, \mathbf{p = 5.39 	imes 10^{-7}}$
-- **Key Biological Discovery**: Pan-fibrotic matrix genes function as **essential downstream reactive effectors and execution pathways**, rather than upstream germline triggers.
+- **Biological Principle**: Pan-fibrotic matrix genes function as **essential downstream reactive execution pathways**, rather than upstream initiators.
 
 ---
 
-## 8. Phase 5: Downstream Machine Learning & Translational Roadmap
+## 10. Phase 5: Downstream Translational Roadmap
 
 ```
-[50 Clean Core ECM Genes]
+[8 Consensus Hub Biomarkers: SERPINF2, MDK, SPP1, TNXB, GDF15, THBS1, LTB, CCL21]
         │
         ├──> [Step 1: Multi-Omics Functional Enrichment (GO, KEGG, Reactome, DisGeNET)]
         │
-        ├──> [Step 2: 4-Model Ensemble ML Feature Selection: LASSO + SVM-RFE + RF + XGBoost]
-        │           │
-        │           └──> [Consensus Pan-Fibrotic Hub Biomarker Signature]
+        ├──> [Step 2: Multi-Cohort Diagnostic ROC Validation & Nomogram Construction]
         │
-        ├──> [Step 3: Multi-Cohort Diagnostic ROC Curve Analysis & Nomogram Construction]
+        ├──> [Step 3: STRING Protein-Protein Interaction (PPI) Network & MCODE Subclusters]
         │
-        ├──> [Step 4: Protein-Protein Interaction (PPI) Network & Cytoscape MCODE Clusters]
+        ├──> [Step 4: Single-Sample GSEA (ssGSEA) & Hallmark Pathway Trajectories]
         │
-        ├──> [Step 5: Single-Sample GSEA (ssGSEA) & Hallmark Pathway Trajectories]
+        ├──> [Step 5: CIBERSORT / MCP-counter Immune Microenvironment Deconvolution]
         │
-        ├──> [Step 6: CIBERSORT / MCP-counter Immune Microenvironment Deconvolution]
-        │
-        └──> [Step 7: Small-Molecule Drug Repurposing (CMap/DSigDB) & Molecular Docking]
+        └──> [Step 6: Small-Molecule Drug Repurposing (CMap/DSigDB) & Molecular Docking]
 ```
-
-### Detailed Translational Workflows:
-1. **Multi-Omics Functional Enrichment**:
-   - Identify shared over-represented biological pathways (collagen fibril organization, TGF-$eta$ signaling, ECM-receptor interaction, integrin signaling).
-2. **4-Model Ensemble Machine Learning Feature Selection**:
-   - **LASSO** (L1-penalized regression with 10-fold cross-validation minimum deviance $\lambda$).
-   - **SVM-RFE** (Support Vector Machine Recursive Feature Elimination with 10-fold cross-validation).
-   - **Random Forest** (Mean Decrease in Impurity / Gini index ranking).
-   - **XGBoost** (Extreme Gradient Boosting feature gain ranking).
-   - Select intersection hub biomarkers identified by $\ge 3$ algorithms.
-3. **Multi-Cohort Diagnostic ROC Validation & Nomogram**:
-   - Validate classification AUCs in independent cohorts (`GSE30529`, `GSE14323`, `GSE83717`, `GSE125362`).
-   - Construct multivariate logistic regression diagnostic nomograms with calibration curves and Decision Curve Analysis (DCA).
-4. **STRING PPI Network & MCODE Hub Clustering**:
-   - Generate high-confidence protein interaction networks (confidence $> 0.70$) and extract core subclusters with MCODE.
-5. **ssGSEA & Pathway Dynamics**:
-   - Score activation of hallmark fibrotic gene sets across progressive clinical disease stages.
-6. **Immune Infiltration Analysis**:
-   - Apply CIBERSORT and MCP-counter to quantify 22 immune cell subsets and correlate hub matrix genes with M2 macrophage polarization, myofibroblast activation, and CD8+ T cell exhaustion.
-7. **Small-Molecule Drug Repurposing & Molecular Docking**:
-   - Query Connectivity Map (CMap) and DSigDB for perturbagens and approved drugs that reverse the core pan-fibrotic expression signature.
-   - Run AutoDock Vina molecular docking to evaluate binding affinity against top hub targets.
 
 ---
 
-## 9. Repository Structure & Master Data Manifest
+## 11. Repository Structure & Master Data Manifest
 
 ```
 d:/CSIR/
 ├── ecm_clean_genes.csv                                # 50 Clean Core ECM Genes
 ├── pan_fibrotic_core_genes_corrected.csv              # 241 Conserved Pan-Fibrotic DEGs
-├── corrected_full_pipeline.py                         # Master Discovery Pipeline
-├── run_master_validation2_pipeline.py                 # Multi-Layer Validation Pipeline
 ├── results/
+│   ├── ml_4model_hub_biomarkers.csv                   # Master 4-Model ML Feature Selection Table
 │   ├── validation1_layer2_all_results.csv             # Layer 2 Validation Results (49/50)
 │   ├── validation2_ecm_core_results.csv               # Layer 3 Validation Results (40/50)
 │   ├── mr_results_50_clean_ecm_genes.csv              # Two-Sample Forward MR (192 tests)
 │   ├── coloc_results_50gene.csv                       # eQTLGen Colocalization (122 tests)
 │   ├── coloc_results_gtex_tissue_matched.csv          # GTEx Tissue-Matched Coloc (67 tests)
 │   ├── reverse_mr_results_50genes.csv                 # Reverse MR Results (SPP1, TNXB)
-│   ├── smr_heidi_results_50genes.csv                  # SMR + HEIDI Heterogeneity Results
-│   └── mvmr_results_50genes.csv                       # Multivariable MR Results
+│   └── smr_heidi_results_50genes.csv                  # SMR + HEIDI Heterogeneity Results
 ├── plots/
+│   ├── ml_4model_consensus_hub_biomarkers.png         # 4-Model ML Feature Importance & Consensus Bar Chart
+│   ├── ml_8hub_biomarkers_expression_heatmap.png      # 8 Consensus Hub Genes Expression Heatmap
 │   ├── upset_plot_4organs_corrected.png               # 4-Organ DEG Intersection UpSet Plot
 │   ├── venn_4organ_manual_ellipses.png                # Corrected 4-Organ Ellipse Venn
 │   ├── clean_ecm_validation_survival_barchart.png     # Validation Funnel Survival Bar Chart
