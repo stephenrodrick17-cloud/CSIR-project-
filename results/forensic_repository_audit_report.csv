@@ -1,0 +1,11 @@
+Item,Status,Details
+Discovery 241 Core Genes,PASSED,"Exact count matches 241 rows, 0 nulls."
+Discovery 50 ECM Clean Core,PASSED,"Exact count matches 50 rows, all confirmed human matrisome."
+Validation 1 (Layer 2),PASSED,"72 genes evaluated, 49/50 (98%) replicated."
+Validation 2 (Independent Layer 3),PASSED,"Exact replication matches: 40/50 in >=1 organ, 14 in >=2 organs, TNXB in 4/4 organs (100%)."
+Severity Correlation Audit,PASSED,"Disease-only severity correlations verified on disk (Max rho across disease organs: VWF=0.66, COL15A1=0.62)."
+Two-Sample Forward MR,PASSED,"192 tests evaluated, 0 survive FDR correction (Null forward causation)."
+Colocalization Audit,PASSED,"eQTLGen Max PP4=0.379, GTEx Max PP4=0.450 (0 loci >= 0.50, PP3 dominates)."
+Reverse MR Audit,PASSED,"Verified: Liver->SPP1 (p=1.96e-9), Skin->TNXB (p=5.39e-7), Reactive Effector Model confirmed."
+4-Model Ensemble ML,PASSED,"8 consensus hubs (>=3 votes): ['SERPINF2', 'MDK', 'SPP1', 'TNXB', 'GDF15', 'THBS1', 'LTB', 'CCL21']; 4 unanimous hubs (4/4): ['SERPINF2', 'MDK', 'SPP1', 'TNXB']."
+Image & Visualization Integrity,PASSED,All 6 high-resolution publication figures verified on disk.
