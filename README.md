@@ -47,7 +47,7 @@ To eliminate data leakage, all Validation 1 (`GSE58095`, `GSE200818`, `GSE162694
 
 ---
 
-## 4. Master Consolidated Evidence Table (24 Clean Core ECM Genes)
+## 4. Master Consolidated Evidence Table (24 Clean Core ECM Genes + TNXB)
 
 Uniting Discovery, Validation 1, Validation 2, disease-only histological severity correlation, 5-seed ML stability check, and average diagnostic ROC AUC:
 
@@ -71,6 +71,7 @@ Uniting Discovery, Validation 1, Validation 2, disease-only histological severit
 | **CCL19** | Pass (4/4 Organs) | 4/4 | 1/4 | 4/4 | 3/4 | 0 (None) | 0/5 | 0.5687 | **Tier 2 (Validation-Only)** |
 | **SVEP1** | Pass (4/4 Organs) | 4/4 | 2/4 | 2/4 | 2/4 | 0 (None) | 1/5 | 0.5396 | **Tier 2 (Validation-Only)** |
 | **MFAP4** | Pass (4/4 Organs) | 4/4 | 1/4 | 2/4 | 2/4 | 0 (None) | 2/5 | 0.5276 | **Tier 2 (Validation-Only)** |
+| **TNXB** | Fail (3/4 Organs) | 2/4 | 1/4 | 4/4 | 2/4 | 0 (None) | Not tested (data unavailable) | N/A | **Tier 2 (Validation-Only)** |
 | **MDK** | Pass (4/4 Organs) | 4/4 | 2/4 | 2/4 | 1/4 | 0 (None) | 2/5 | 0.7953 | **Not Supported** |
 | **FGF14** | Pass (4/4 Organs) | 4/4 | 2/4 | 2/4 | 1/4 | 0 (None) | 0/5 | 0.6736 | **Not Supported** |
 | **SPARCL1** | Pass (4/4 Organs) | 4/4 | 1/4 | 2/4 | 1/4 | 0 (None) | 0/5 | 0.6156 | **Not Supported** |
@@ -83,15 +84,16 @@ Uniting Discovery, Validation 1, Validation 2, disease-only histological severit
 ## 5. Explicit Headline Findings
 
 1. **Tier 1 (Full Spectrum) Qualification**: Exactly four genes qualify for Tier 1 status (`COL15A1`, `COL1A1`, `SERPINE2`, and `SERPINF2`) by demonstrating multi-organ replication in independent Validation 2 cohorts ($\ge 2/4$ organs) AND robust machine learning consensus ($\ge 4/5$ seed stability score with mean AUC $> 0.76$).
-2. **`COL15A1`**: Emerges as the top pan-fibrotic matrix biomarker with 4/4 universal Validation 2 concordance, 5/5 ML stability score, and the highest individual diagnostic ROC AUC (**0.8430**).
-3. **`VWF` Diagnostic**: While universally upregulated in Kidney, Liver, and Skin, `VWF` is down-regulated in fibrotic Lung tissue ($\Delta = -3.82$, $p = 5.24 	imes 10^{-17}$), explaining its drop in pooled pan-organ ML classification.
-4. **`AEBP1` Empirical Finding**: `AEBP1` demonstrates 4/4 universal Validation 2 replication and significant Liver histological severity correlation ($p = 0.000053$), but receives 0 ML votes due to regularized linear models selecting higher-margin collinear structural collagens (`COL15A1`, `COL1A1`).
+2. **`TNXB` Qualification**: `TNXB` demonstrates **4/4 universal Validation 2 concordance** (100% concordance across Kidney, Liver, Lung, and Skin) with significant replication in 2/4 organs (Liver adj_p = 0.000322, Lung adj_p = 0.0242), and a verified reverse-MR causal signal in Systemic Sclerosis ($p = 5.39 \times 10^{-7}$, lead SNP rs6926894). With ML stability unassessed in the discovery training set, `TNXB` firmly qualifies for **Tier 2 (Validation-Only)** status.
+3. **`COL15A1`**: Emerges as the top pan-fibrotic matrix biomarker with 4/4 universal Validation 2 concordance, 5/5 ML stability score, and the highest individual diagnostic ROC AUC (**0.8430**).
+4. **`VWF` Diagnostic**: While universally upregulated in Kidney, Liver, and Skin, `VWF` is down-regulated in fibrotic Lung tissue ($\Delta = -3.82$, $p = 5.24 \times 10^{-17}$), explaining its drop in pooled pan-organ ML classification.
+5. **`AEBP1` Empirical Finding**: `AEBP1` demonstrates 4/4 universal Validation 2 replication and significant Liver histological severity correlation ($p = 0.000053$), but receives 0 ML votes due to regularized linear models selecting higher-margin collinear structural collagens (`COL15A1`, `COL1A1`).
 
 ---
 
 ## 6. Key Visualizations
 
-### Master Evidence Ranking Across 24 Clean Core ECM Genes
+### Master Evidence Ranking Across Clean Core ECM Genes
 ![Master Evidence Ranking](plots/ml_4model_consensus_hub_biomarkers.png)
 
 ### Study Design Funnel: Locked Discovery & Multi-Layer Validation
