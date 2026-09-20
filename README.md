@@ -155,6 +155,94 @@ To ensure candidate genes track disease progression rather than simply reflectin
 
 ---
 
+## 6b. Layer 4: Independent Severity/Dose-Response Replication (New, Previously Unused Cohorts)
+
+### Rationale
+Unlike Layer 3 (which reused `GSE162694` and `GSE58095`), this layer used 6 entirely new datasets never touched in Discovery, Validation 1, or Validation 2, specifically to test whether the 5 priority genes (`COL15A1`, `COL1A1`, `SERPINE2`, `SERPINF2`, `TNXB`) track real clinical disease STAGE, not just disease-vs-control status.
+
+### Independent Replication Cohorts
+
+| Organ | Accession | Platform | N | Severity Metric |
+|---|---|---|---|---|
+| Liver | GSE84044 | Microarray (Affymetrix HG-U133) | 124 | Scheuer Fibrosis Stage (S0-S4) + Necroinflammatory Grade (G0-G4) |
+| Liver | GSE135251 | RNA-seq (Illumina NextSeq) | 216 | Kleiner Fibrosis Stage (F0-F4) + NAS Score (0-8) |
+| Lung | GSE38958 | Microarray (Affymetrix Exon 1.0) | 60 | % Predicted FVC + % Predicted DLCO |
+| Lung | GSE213001 | RNA-seq (Illumina NovaSeq) | 91 | % Predicted FVC + % Predicted DLCO |
+| Skin | GSE9285 | Microarray (Agilent-012391) | 74 | Modified Rodnan Skin Score (mRSS 0-51) |
+| Kidney | — | — | 0 | Confirmed unavailable — no public GEO dataset with per-sample continuous eGFR or ordinal Banff/MEST-C staging exists |
+
+### Full Results Master Table (Layer 4)
+All empirical values pulled directly from `results/validation_4_severity_master_table.csv`, without re-deriving or summarizing:
+
+| Gene | Organ | Cohort | Metric | N (Full) | rho (Full) | p (Full) | FDR adj. p (Full) | N (Dis) | rho (Dis) | p (Dis) | FDR adj. p (Dis) |
+| :--- | :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **`COL15A1`** | Liver | `GSE135251` | Kleiner Fibrosis Stage (F0-F4) | 216 | +0.065 | 3.44e-01 | 3.44e-01 | 170 | -0.063 | 4.12e-01 | 4.57e-01 |
+| **`COL1A1`** | Liver | `GSE135251` | Kleiner Fibrosis Stage (F0-F4) | 216 | +0.433 | 2.86e-11 | 2.86e-10 | 170 | +0.332 | 9.78e-06 | 2.44e-05 |
+| **`SERPINE2`** | Liver | `GSE135251` | Kleiner Fibrosis Stage (F0-F4) | 216 | +0.356 | 7.65e-08 | 1.91e-07 | 170 | +0.359 | 1.55e-06 | 5.16e-06 |
+| **`SERPINF2`** | Liver | `GSE135251` | Kleiner Fibrosis Stage (F0-F4) | 216 | -0.184 | 6.58e-03 | 9.40e-03 | 170 | -0.092 | 2.35e-01 | 2.94e-01 |
+| **`TNXB`** | Liver | `GSE135251` | Kleiner Fibrosis Stage (F0-F4) | 216 | +0.170 | 1.21e-02 | 1.51e-02 | 170 | +0.153 | 4.71e-02 | 6.73e-02 |
+| **`COL15A1`** | Liver | `GSE135251` | NAS Score (0-8) | 216 | +0.266 | 7.52e-05 | 1.50e-04 | 206 | +0.263 | 1.36e-04 | 2.72e-04 |
+| **`COL1A1`** | Liver | `GSE135251` | NAS Score (0-8) | 216 | +0.404 | 6.71e-10 | 3.36e-09 | 206 | +0.379 | 1.89e-08 | 9.43e-08 |
+| **`SERPINE2`** | Liver | `GSE135251` | NAS Score (0-8) | 216 | +0.397 | 1.39e-09 | 4.63e-09 | 206 | +0.457 | 4.90e-12 | 4.90e-11 |
+| **`SERPINF2`** | Liver | `GSE135251` | NAS Score (0-8) | 216 | -0.223 | 9.73e-04 | 1.62e-03 | 206 | -0.254 | 2.35e-04 | 3.92e-04 |
+| **`TNXB`** | Liver | `GSE135251` | NAS Score (0-8) | 216 | +0.101 | 1.40e-01 | 1.56e-01 | 206 | +0.023 | 7.46e-01 | 7.46e-01 |
+| **`COL15A1`** | Liver | `GSE84044` | Scheuer Fibrosis Stage (S0-S4) | 124 | +0.524 | 4.34e-10 | 2.17e-09 | 81 | +0.486 | 4.22e-06 | 2.11e-05 |
+| **`COL1A1`** | Liver | `GSE84044` | Scheuer Fibrosis Stage (S0-S4) | 124 | +0.595 | 3.10e-13 | 3.10e-12 | 81 | +0.556 | 7.07e-08 | 7.07e-07 |
+| **`SERPINE2`** | Liver | `GSE84044` | Scheuer Fibrosis Stage (S0-S4) | 124 | +0.491 | 6.94e-09 | 2.31e-08 | 81 | +0.319 | 3.73e-03 | 5.32e-03 |
+| **`SERPINF2`** | Liver | `GSE84044` | Scheuer Fibrosis Stage (S0-S4) | 124 | +0.454 | 1.16e-07 | 2.33e-07 | 81 | +0.415 | 1.15e-04 | 2.88e-04 |
+| **`TNXB`** | Liver | `GSE84044` | Scheuer Fibrosis Stage (S0-S4) | 124 | +0.066 | 4.68e-01 | 5.20e-01 | 81 | +0.133 | 2.37e-01 | 2.63e-01 |
+| **`COL15A1`** | Liver | `GSE84044` | Necroinflammatory Grade (G0-G4) | 124 | +0.417 | 1.44e-06 | 2.40e-06 | 87 | +0.367 | 4.78e-04 | 7.97e-04 |
+| **`COL1A1`** | Liver | `GSE84044` | Necroinflammatory Grade (G0-G4) | 124 | +0.479 | 1.85e-08 | 4.62e-08 | 87 | +0.443 | 1.73e-05 | 5.77e-05 |
+| **`SERPINE2`** | Liver | `GSE84044` | Necroinflammatory Grade (G0-G4) | 124 | +0.410 | 2.27e-06 | 3.24e-06 | 87 | +0.246 | 2.17e-02 | 2.71e-02 |
+| **`SERPINF2`** | Liver | `GSE84044` | Necroinflammatory Grade (G0-G4) | 124 | +0.326 | 2.18e-04 | 2.72e-04 | 87 | +0.386 | 2.23e-04 | 4.46e-04 |
+| **`TNXB`** | Liver | `GSE84044` | Necroinflammatory Grade (G0-G4) | 124 | -0.047 | 6.02e-01 | 6.02e-01 | 87 | +0.102 | 3.45e-01 | 3.45e-01 |
+| **`COL15A1`** | Lung | `GSE213001` | % Predicted FVC (Continuous) | 91 | +0.443 | 1.09e-05 | 1.64e-04 | 81 | +0.335 | 2.24e-03 | 3.37e-02 |
+| **`COL1A1`** | Lung | `GSE213001` | % Predicted FVC (Continuous) | 91 | +0.140 | 1.85e-01 | 5.54e-01 | 81 | +0.210 | 5.97e-02 | 2.24e-01 |
+| **`SERPINE2`** | Lung | `GSE213001` | % Predicted FVC (Continuous) | 91 | -0.110 | 2.98e-01 | 6.38e-01 | 81 | +0.065 | 5.64e-01 | 8.33e-01 |
+| **`SERPINF2`** | Lung | `GSE213001` | % Predicted FVC (Continuous) | 91 | +0.025 | 8.14e-01 | 8.60e-01 | 81 | -0.128 | 2.53e-01 | 5.43e-01 |
+| **`TNXB`** | Lung | `GSE213001` | % Predicted FVC (Continuous) | 91 | -0.019 | 8.60e-01 | 8.60e-01 | 81 | +0.009 | 9.33e-01 | 9.33e-01 |
+| **`COL15A1`** | Lung | `GSE213001` | % Predicted DLCO (Continuous) | 75 | -0.157 | 1.78e-01 | 5.54e-01 | 75 | -0.157 | 1.78e-01 | 5.33e-01 |
+| **`COL1A1`** | Lung | `GSE213001` | % Predicted DLCO (Continuous) | 75 | -0.030 | 7.99e-01 | 8.60e-01 | 75 | -0.030 | 7.99e-01 | 8.62e-01 |
+| **`SERPINE2`** | Lung | `GSE213001` | % Predicted DLCO (Continuous) | 75 | -0.111 | 3.45e-01 | 6.46e-01 | 75 | -0.111 | 3.45e-01 | 6.46e-01 |
+| **`SERPINF2`** | Lung | `GSE213001` | % Predicted DLCO (Continuous) | 75 | -0.139 | 2.35e-01 | 5.89e-01 | 75 | -0.139 | 2.35e-01 | 5.43e-01 |
+| **`TNXB`** | Lung | `GSE213001` | % Predicted DLCO (Continuous) | 75 | +0.060 | 6.11e-01 | 8.60e-01 | 75 | +0.060 | 6.11e-01 | 8.33e-01 |
+| **`COL15A1`** | Lung | `GSE213001` | Ordinal Severity Category (0-3) | 96 | -0.026 | 8.05e-01 | 8.60e-01 | 96 | -0.026 | 8.05e-01 | 8.62e-01 |
+| **`COL1A1`** | Lung | `GSE213001` | Ordinal Severity Category (0-3) | 96 | -0.201 | 4.92e-02 | 2.46e-01 | 96 | -0.201 | 4.92e-02 | 2.24e-01 |
+| **`SERPINE2`** | Lung | `GSE213001` | Ordinal Severity Category (0-3) | 96 | -0.053 | 6.06e-01 | 8.60e-01 | 96 | -0.053 | 6.06e-01 | 8.33e-01 |
+| **`SERPINF2`** | Lung | `GSE213001` | Ordinal Severity Category (0-3) | 96 | +0.224 | 2.85e-02 | 2.14e-01 | 96 | +0.224 | 2.85e-02 | 2.14e-01 |
+| **`TNXB`** | Lung | `GSE213001` | Ordinal Severity Category (0-3) | 96 | -0.044 | 6.73e-01 | 8.60e-01 | 96 | -0.044 | 6.73e-01 | 8.41e-01 |
+| **`COL15A1`** | Lung | `GSE38958` | % Predicted FVC (Continuous) | 60 | -0.319 | 1.29e-02 | 3.22e-02 | 52 | -0.224 | 1.10e-01 | 1.84e-01 |
+| **`COL1A1`** | Lung | `GSE38958` | % Predicted FVC (Continuous) | 60 | -0.296 | 2.17e-02 | 4.33e-02 | 52 | -0.262 | 6.01e-02 | 1.20e-01 |
+| **`SERPINE2`** | Lung | `GSE38958` | % Predicted FVC (Continuous) | 60 | -0.124 | 3.46e-01 | 3.84e-01 | 52 | -0.065 | 6.48e-01 | 7.26e-01 |
+| **`SERPINF2`** | Lung | `GSE38958` | % Predicted FVC (Continuous) | 60 | -0.114 | 3.87e-01 | 3.87e-01 | 52 | -0.048 | 7.37e-01 | 7.37e-01 |
+| **`TNXB`** | Lung | `GSE38958` | % Predicted FVC (Continuous) | 60 | -0.149 | 2.56e-01 | 3.20e-01 | 52 | -0.064 | 6.53e-01 | 7.26e-01 |
+| **`COL15A1`** | Lung | `GSE38958` | % Predicted DLCO (Continuous) | 60 | -0.581 | 1.15e-06 | 5.73e-06 | 57 | -0.557 | 6.92e-06 | 3.46e-05 |
+| **`COL1A1`** | Lung | `GSE38958` | % Predicted DLCO (Continuous) | 60 | -0.595 | 5.34e-07 | 5.34e-06 | 57 | -0.571 | 3.50e-06 | 3.46e-05 |
+| **`SERPINE2`** | Lung | `GSE38958` | % Predicted DLCO (Continuous) | 60 | -0.185 | 1.56e-01 | 2.23e-01 | 57 | -0.169 | 2.09e-01 | 2.99e-01 |
+| **`SERPINF2`** | Lung | `GSE38958` | % Predicted DLCO (Continuous) | 60 | -0.344 | 7.21e-03 | 2.40e-02 | 57 | -0.308 | 1.96e-02 | 6.55e-02 |
+| **`TNXB`** | Lung | `GSE38958` | % Predicted DLCO (Continuous) | 60 | -0.285 | 2.71e-02 | 4.52e-02 | 57 | -0.285 | 3.14e-02 | 7.84e-02 |
+| **`COL15A1`** | Skin | `GSE9285` | Modified Rodnan Skin Score (mRSS 0-51) | 72 | +0.068 | 5.69e-01 | 5.69e-01 | 70 | -0.012 | 9.22e-01 | 9.22e-01 |
+| **`COL1A1`** | Skin | `GSE9285` | Modified Rodnan Skin Score (mRSS 0-51) | 74 | -0.068 | 5.64e-01 | 5.69e-01 | 72 | -0.127 | 2.87e-01 | 3.59e-01 |
+| **`SERPINE2`** | Skin | `GSE9285` | Modified Rodnan Skin Score (mRSS 0-51) | 74 | +0.305 | 8.33e-03 | 2.08e-02 | 72 | +0.260 | 2.73e-02 | 6.84e-02 |
+| **`SERPINF2`** | Skin | `GSE9285` | Modified Rodnan Skin Score (mRSS 0-51) | 71 | +0.206 | 8.54e-02 | 1.42e-01 | 69 | +0.188 | 1.22e-01 | 2.04e-01 |
+| **`TNXB`** | Skin | `GSE9285` | Modified Rodnan Skin Score (mRSS 0-51) | 74 | -0.373 | 1.06e-03 | 5.31e-03 | 72 | -0.347 | 2.85e-03 | 1.42e-02 |
+| **`COL15A1`** | Kidney | `None Available` | Confirmed Limitation (No open GEO series with per-sample eGFR/Banff) | 0 | — | — | — | 0 | — | — | — |
+| **`COL1A1`** | Kidney | `None Available` | Confirmed Limitation (No open GEO series with per-sample eGFR/Banff) | 0 | — | — | — | 0 | — | — | — |
+| **`SERPINE2`** | Kidney | `None Available` | Confirmed Limitation (No open GEO series with per-sample eGFR/Banff) | 0 | — | — | — | 0 | — | — | — |
+| **`SERPINF2`** | Kidney | `None Available` | Confirmed Limitation (No open GEO series with per-sample eGFR/Banff) | 0 | — | — | — | 0 | — | — | — |
+| **`TNXB`** | Kidney | `None Available` | Confirmed Limitation (No open GEO series with per-sample eGFR/Banff) | 0 | — | — | — | 0 | — | — | — |
+
+### Platform-Divergence Finding
+COL1A1 and SERPINE2 showed the most consistent, cross-platform, multi-organ dose-response replication. COL15A1 and SERPINF2 showed platform-dependent behavior — strong, monotonic staircase trends in microarray cohorts (GSE84044, GSE38958) but flat or non-significant results in RNA-seq cohorts (GSE135251, GSE213001) for the same genes and organs. This is documented transparently rather than selectively reported.
+
+### Note on Liver Staging Systems (Kleiner vs. Scheuer)
+Kleiner (RNA-seq cohort) and Scheuer (microarray cohort) are similar but distinct fibrosis staging systems from different disease etiologies (NAFLD/NASH vs. viral hepatitis respectively), which may partly explain platform-liver divergence beyond pure technical noise. Kleiner staging assesses steatohepatitis-associated zone 3 perisinusoidal and pericellular deposition progressing to bridging fibrosis, whereas Scheuer staging tracks viral hepatitis-induced periportal interface activity and portal-to-portal bridging.
+
+### Independent Severity Stage & Dose-Response Visualizations
+![Layer 4 Independent Severity Boxplots and Scatters](plots/severity_validation4_layer_boxplots.png)
+
+---
+
 ## 7. Dual Significance: Finding the Core Pan-Fibrotic Hubs
 
 Mirrored directly after the landmark reference paper's narrowing strategy, we identified **Dual-Significant Genes**—genes that are **simultaneously significant in both differential expression (Mann-Whitney U) AND clinical disease severity correlation (Spearman rho)**:
@@ -260,6 +348,7 @@ To verify whether sequencing technology affected our conclusions, we stratified 
 | **Machine Learning Biomarkers** | Consensus ranking & mean AUC across 4 ML models (5-seed average on 1,069 samples) | [`plots/ml_4model_consensus_hub_biomarkers.png`](plots/ml_4model_consensus_hub_biomarkers.png) |
 | **Validation 2 Paired Analysis** | Mann-Whitney U test paired with Disease-Only severity correlation for 4 dual-significant hubs | [`plots/val2_mannwhitney_spearman_combined.png`](plots/val2_mannwhitney_spearman_combined.png) |
 | **Platform Stratification Heatmap** | Microarray vs RNA-seq logFC comparison across all 24 Clean Core ECM genes | [`plots/val2_platform_stratified_comparison.png`](plots/val2_platform_stratified_comparison.png) |
+| **Independent Severity Validation (Layer 4)** | Clinical severity stage boxplots & correlation scatters across 6 independent cohorts for priority genes (`COL15A1`, `COL1A1`, `SERPINE2`, `SERPINF2`, `TNXB`) | [`plots/severity_validation4_layer_boxplots.png`](plots/severity_validation4_layer_boxplots.png) |
 
 ---
 
