@@ -21,7 +21,9 @@ plt.rcParams.update({"font.family": "Arial"})
 BASE = os.path.dirname(os.path.abspath(__file__))
 RESULTS = os.path.join(BASE, "results")
 REF = os.path.join(BASE, "reference")
-ECM_XLSX = os.path.join(REF, "ECM_genes_all.xlsx")
+ECM_XLSX = os.path.join(BASE, "ECM genes all.xlsx")
+if not os.path.exists(ECM_XLSX):
+    ECM_XLSX = os.path.join(REF, "ECM_genes_all.xlsx")
 
 ADJ_P_THR = 0.05
 LFC_THR = 0.585
@@ -191,14 +193,20 @@ fig.suptitle("Cross-Organ Fibrosis DEGs × ECM Matrisome Overlap – Venn Compen
              fontsize=17, fontweight="bold", y=0.992,
              color="#1a1a4a")
 fig.text(0.5, 0.965,
-         "Significance filter: adj_p_value < 0.05 AND |logFC| > 0.585"
-         "   |   ECM reference: Hs_ECM_Masterlist (N=1,027)"
-         "   |   4-org pan-fibrotic core: 175 genes (41 ECM)",
+         f"Significance filter: adj_p_value < 0.05 AND |logFC| > 0.585"
+         f"   |   ECM reference: Hs_ECM_Masterlist (N={len(ecm_set):,})"
+         f"   |   4-org pan-fibrotic core: {len(core_set)} genes ({len(core_ecm)} ECM)",
          ha="center", fontsize=10.5, style="italic", color="#444444")
 
 out_png = os.path.join(BASE, "venn_organ_vs_ecm_compendium.png")
 plt.savefig(out_png, dpi=220, bbox_inches="tight", facecolor="white")
 print(f"[SAVED] Multi-panel Venn figure: {out_png}")
+
+plots_dir = os.path.join(BASE, "plots")
+os.makedirs(plots_dir, exist_ok=True)
+out_png_plots = os.path.join(plots_dir, "venn_organ_vs_ecm_compendium.png")
+plt.savefig(out_png_plots, dpi=220, bbox_inches="tight", facecolor="white")
+print(f"[SAVED] Multi-panel Venn figure: {out_png_plots}")
 plt.close(fig)
 
 # =============================================================================
