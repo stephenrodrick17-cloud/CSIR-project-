@@ -1,0 +1,25 @@
+gene,matrisome_category,kidney_microarray_logFC,kidney_microarray_adjp,kidney_microarray_sig,liver_microarray_logFC,liver_microarray_adjp,liver_microarray_sig,microarray_direction_concordant,lung_rnaseq_logFC,lung_rnaseq_adjp,lung_rnaseq_sig,skin_rnaseq_logFC,skin_rnaseq_adjp,skin_rnaseq_sig,rnaseq_direction_concordant,cross_platform_concordant
+AEBP1,ECM Glycoproteins,1.089,3.044e-02,True,1.65,9.360e-22,True,True,-1.138,3.960e-05,True,1.34,2.570e-02,True,False,False
+BMP1,ECM Regulators,-0.528,5.935e-02,False,-0.33,3.370e-05,True,True,-0.343,3.130e-01,False,,,False,True,True
+CCL19,Secreted Factors,2.042,1.640e-02,True,3.78,3.610e-20,True,True,1.37,1.070e-02,True,0.591,5.724e-01,False,True,True
+CCL2,Secreted Factors,1.818,1.933e-04,True,2.3,1.570e-07,True,True,-0.384,4.490e-01,False,2.05,4.814e-02,True,False,False
+CCL21,Secreted Factors,0.23,4.941e-01,False,2.51,3.780e-19,True,True,-0.598,1.160e-01,False,,,False,True,False
+CCL5,Secreted Factors,1.758,1.754e-02,True,2.29,1.880e-18,True,True,-0.234,5.280e-01,False,,,False,True,False
+CLEC2D,ECM-affiliated Proteins,0.096,4.914e-01,False,0.414,9.320e-08,True,True,1.049,8.180e-05,True,0.335,7.551e-01,False,True,True
+COL15A1,Collagens,2.075,3.527e-03,True,1.42,7.560e-07,True,True,1.535,3.030e-07,True,1.37,2.206e-02,True,True,True
+COL1A1,Collagens,-0.506,1.214e-02,True,2.22,3.150e-12,True,False,0.93,1.010e-01,False,0.551,5.507e-01,False,True,False
+COL1A2,Collagens,3.107,7.441e-04,True,2.29,8.340e-20,True,True,-0.024,9.630e-01,False,1.32,3.268e-02,True,False,False
+COL3A1,Collagens,3.322,1.085e-04,True,1.65,1.340e-11,True,True,0.936,3.220e-02,True,0.716,1.218e-01,False,True,True
+COLEC11,ECM-affiliated Proteins,-0.555,2.759e-01,False,1.84,1.150e-20,True,False,-0.228,8.010e-01,False,0.978,5.065e-02,False,False,False
+FGF14,Secreted Factors,-0.166,1.296e-01,False,-0.163,3.620e-02,True,True,0.23,2.920e-01,False,,,False,True,False
+LAMC3,ECM Glycoproteins,0.069,8.509e-01,False,1.24,1.310e-11,True,True,-3.539,7.660e-32,True,-0.991,1.148e-01,False,True,False
+LTBP2,ECM Glycoproteins,-0.072,8.380e-01,False,0.994,1.450e-10,True,False,-1.32,2.240e-09,True,0.399,3.793e-01,False,False,False
+MDK,Secreted Factors,0.263,2.251e-01,False,0.661,1.070e-04,True,True,0.047,9.070e-01,False,1.02,2.826e-01,False,True,True
+MFAP4,ECM Glycoproteins,0.447,1.246e-01,False,2.22,9.630e-20,True,True,-1.425,2.040e-06,True,0.683,4.749e-01,False,False,False
+PDGFD,Secreted Factors,0.919,3.770e-02,True,2.93,1.150e-20,True,True,0.783,9.660e-02,False,0.09,9.189e-01,False,True,True
+SERPINE2,ECM Regulators,1.037,1.674e-02,True,1.38,7.460e-08,True,True,0.951,2.250e-02,True,1.24,6.063e-02,False,True,True
+SERPINF2,ECM Regulators,-0.992,1.557e-02,True,-0.941,2.400e-08,True,True,-0.099,7.880e-01,False,,,False,True,True
+SERPINH1,ECM Regulators,0.753,4.397e-03,True,0.543,1.590e-05,True,True,-0.41,2.250e-02,True,0.697,1.237e-01,False,False,False
+SPARCL1,ECM Glycoproteins,0.43,5.377e-01,False,2.47,2.870e-17,True,True,-0.22,6.490e-01,False,1.18,5.895e-02,False,False,False
+SVEP1,ECM Glycoproteins,0.557,6.263e-02,False,0.867,8.750e-10,True,True,-1.533,1.680e-07,True,0.755,2.689e-01,False,False,False
+VWF,ECM Glycoproteins,1.343,3.220e-02,True,2.25,5.240e-17,True,True,-1.181,2.140e-06,True,0.664,4.260e-01,False,False,False
