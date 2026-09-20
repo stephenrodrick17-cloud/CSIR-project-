@@ -45,6 +45,9 @@ Every script in this repository enforces an automated guard (`discovery_config.v
 | **Lungs** | `GSE10667`, `GSE110147`, `GSE32537`, `GSE53845` | `GSE24206` | `GSE83717` (Illumina RNA-seq) |
 | **Skin** | `GSE130955`, `GSE181549`, `GSE95065` | `GSE58095` | `GSE125362` (Agilent Microarray) |
 
+### Study Architecture & Filtering Funnel
+![Study Architecture & Filtering Funnel](plots/study_design_funnel_corrected.png)
+
 ---
 
 ## 3. Pure Discovery Patient Sample Matrix ($N=1,069$)
@@ -82,6 +85,20 @@ Starting from thousands of genome-wide transcripts, our pipeline progressively f
    - **12 genes** were statistically significant in 1/4 organ (`AEBP1`, `CCL19`, `CCL2`, `CCL21`, `CLEC2D`, `LAMC3`, `MFAP4`, `PDGFD`, `SERPINF2`, `SERPINH1`, `SPARCL1`, `BMP1`).
 5. **Validation 2 Replication ($n=18$)**: 18 of the 24 genes replicated statistical significance in $\ge 2/4$ completely held-out organ cohorts.
 6. **Tier 1 Full-Spectrum Biomarkers ($n=4$)**: Replicated in $\ge 2/4$ held-out cohorts AND achieved high multi-seed machine learning stability ($\ge 4/5$ seeds with mean AUC $> 0.76$): **`COL15A1`**, **`COL1A1`**, **`SERPINE2`**, and **`SERPINF2`**.
+
+### Cross-Organ Venn & UpSet Overlap Visualizations
+
+#### 1. Conserved 4-Organ Pan-Fibrotic Core DEGs (86 Genes)
+![4-Organ Venn Diagram](plots/venn_4organ_manual_ellipses.png)
+
+#### 2. Cardinality Across All 15 Organ Subsets (UpSet Analysis)
+![4-Organ UpSet Plot](plots/upset_plot_4organs_corrected.png)
+
+#### 3. Organ DEGs $\times$ Human Matrisome Masterlist Overlap Compendium
+![Venn Compendium vs Human Matrisome](plots/venn_organ_vs_ecm_compendium.png)
+
+#### 4. Validation Survival Across 24 Clean Core ECM Genes
+![Clean ECM Validation Survival Bar Chart](plots/clean_ecm_validation_survival_barchart.png)
 
 ---
 
@@ -192,6 +209,9 @@ Uniting Discovery ($|\log_2\text{FC}| \ge 0.585$, adj. $p < 0.05$), Validation 1
 | **CCL21** | Pass (4/4 Organs) | 4/4 | 1/4 | 2/4 | 1/4 | 0 (None) | 0/5 | 0.5675 | **Not Supported** |
 | **COLEC11** | Pass (4/4 Organs) | 4/4 | 2/4 | 2/4 | 1/4 | 0 (None) | 0/5 | 0.5196 | **Not Supported** |
 
+### Machine Learning Consensus Ranking (5-Seed Average on 1,069 Pure Discovery Samples)
+![ML 4-Model Consensus Hub Biomarkers](plots/ml_4model_consensus_hub_biomarkers.png)
+
 ---
 
 ## 9. Key Headline Biological Findings
@@ -230,12 +250,16 @@ To verify whether sequencing technology affected our conclusions, we stratified 
 
 ## 11. Core Project Figures
 
-| Figure | Description | File Path |
+| Figure | Description | File Link |
 | :--- | :--- | :--- |
-| **Study Design Funnel** | Step-by-step filtering from 20,000 genes to 4 Tier 1 hubs | [`plots/study_design_funnel_corrected.png`](plots/study_design_funnel_corrected.png) |
-| **Machine Learning Biomarkers** | Consensus selection & AUC across 4 machine learning models | [`plots/ml_4model_consensus_hub_biomarkers.png`](plots/ml_4model_consensus_hub_biomarkers.png) |
-| **Validation 2 Paired Analysis** | Mann-Whitney U test paired with Disease-Only severity correlation | [`plots/val2_mannwhitney_spearman_combined.png`](plots/val2_mannwhitney_spearman_combined.png) |
-| **Platform Stratification** | Microarray vs RNA-seq logFC comparison heatmap | [`plots/val2_platform_stratified_comparison.png`](plots/val2_platform_stratified_comparison.png) |
+| **Study Design Funnel** | Step-by-step filtering from 20,000 genes to 4 Tier 1 hubs across 1,069 samples | [`plots/study_design_funnel_corrected.png`](plots/study_design_funnel_corrected.png) |
+| **4-Organ Venn Diagram** | Overlap of significant DEGs across Kidney ($11,758$), Liver ($2,268$), Lung ($7,803$), Skin ($2,979$) yielding 86 core DEGs | [`plots/venn_4organ_manual_ellipses.png`](plots/venn_4organ_manual_ellipses.png) |
+| **4-Organ UpSet Plot** | All 15 subset intersections across the 4 organs (100% consistent with Venn) | [`plots/upset_plot_4organs_corrected.png`](plots/upset_plot_4organs_corrected.png) |
+| **Venn Compendium vs ECM** | 2x2 grid of organ DEGs vs Human Matrisome ($1,027$) & 4-organ core ($86$ DEGs, $24$ ECM) | [`plots/venn_organ_vs_ecm_compendium.png`](plots/venn_organ_vs_ecm_compendium.png) |
+| **Validation Survival Bar Chart** | 24 Clean Core ECM genes stratified by Tier 1 ($4$), Tier 2 ($14$), and Not Supported ($6$) across Val 1 & Val 2 | [`plots/clean_ecm_validation_survival_barchart.png`](plots/clean_ecm_validation_survival_barchart.png) |
+| **Machine Learning Biomarkers** | Consensus ranking & mean AUC across 4 ML models (5-seed average on 1,069 samples) | [`plots/ml_4model_consensus_hub_biomarkers.png`](plots/ml_4model_consensus_hub_biomarkers.png) |
+| **Validation 2 Paired Analysis** | Mann-Whitney U test paired with Disease-Only severity correlation for 4 dual-significant hubs | [`plots/val2_mannwhitney_spearman_combined.png`](plots/val2_mannwhitney_spearman_combined.png) |
+| **Platform Stratification Heatmap** | Microarray vs RNA-seq logFC comparison across all 24 Clean Core ECM genes | [`plots/val2_platform_stratified_comparison.png`](plots/val2_platform_stratified_comparison.png) |
 
 ---
 
