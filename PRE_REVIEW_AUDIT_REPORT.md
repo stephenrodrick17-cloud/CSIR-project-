@@ -98,3 +98,31 @@
   * Re-ran `python run_master_consolidation.py`:
     * Produced fresh `results/final_master_evidence_table.csv` (24 rows).
     * Re-generated `plots/ml_4model_consensus_hub_biomarkers.png` and `plots/study_design_funnel_corrected.png`.
+
+---
+
+## Post-ML Severity Validation Isolation (Val 2 vs. Layer 4 Non-Overlap)
+
+* **Audit Objective**: Ensure zero cohort overlap between Validation 2 (held-out validation) and Layer 4 (post-ML independent clinical severity replication cohorts), and verify zero data leakage into ML training.
+* **Validation 2 Accessions ($N=4$)**:
+  * Kidney: `GSE30529` (Affymetrix Microarray)
+  * Liver: `GSE14323` (Affymetrix Microarray)
+  * Lung: `GSE83717` (Illumina RNA-seq)
+  * Skin: `GSE125362` (Agilent Microarray)
+* **Layer 4 Severity Replication Accessions ($N=5$ new cohorts)**:
+  * Liver: `GSE84044` (Microarray) + `GSE135251` (RNA-seq)
+  * Lung: `GSE38958` (Microarray) + `GSE213001` (RNA-seq)
+  * Skin: `GSE9285` (Microarray)
+  * Kidney: Confirmed unavailable ($N=0$)
+* **Exact Overlap Audit**:
+  * `Val 2` $\cap$ `Layer 4`: **$\emptyset$ (0 cohorts, PASSED)**
+  * `Val 1` $\cap$ `Layer 4`: **$\emptyset$ (0 cohorts, PASSED)**
+  * `Discovery` $\cap$ `Layer 4`: **$\emptyset$ (0 cohorts, PASSED)**
+  * `ML Training (N=1,069)` $\cap$ `Val 2`: **$\emptyset$ (0 cohorts, PASSED)**
+  * `ML Training (N=1,069)` $\cap$ `Layer 4`: **$\emptyset$ (0 cohorts, PASSED)**
+* **Sample-Level Verification**:
+  * Scanned **3,133 unique patient GSM IDs** across 32 cached GEO series matrices.
+  * Exact cross-study collisions: **0**.
+* **Automated Guard Enforced**:
+  * Formally encoded into `discovery_config.py` (`LAYER4_SEVERITY_ALL`) with active assertions halting execution if any contamination occurs.
+

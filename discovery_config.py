@@ -36,9 +36,12 @@ VAL2_ALL = set().union(*[tiers["VALIDATION_2"] for tiers in COHORT_TIERS.values(
 DISCOVERY_ALL = set().union(*[tiers["DISCOVERY"] for tiers in COHORT_TIERS.values()])
 NON_DISCOVERY_ALL = VAL1_ALL | VAL2_ALL
 
+# Layer 4: Independent Severity & Dose-Response Replication Cohorts (Never used in prior tiers or ML)
+LAYER4_SEVERITY_ALL = {"GSE84044", "GSE135251", "GSE38958", "GSE213001", "GSE9285"}
+
 # Automatically derive exclusions from Discovery
 EXCLUDE_FROM_DISCOVERY = {
-    organ: tiers["VALIDATION_1"] | tiers["VALIDATION_2"]
+    organ: tiers["VALIDATION_1"] | tiers["VALIDATION_2"] | LAYER4_SEVERITY_ALL
     for organ, tiers in COHORT_TIERS.items()
 }
 
@@ -94,6 +97,17 @@ def verify_cohort_isolation(ml_studies=None):
     print(f"TOTALS     | {total_discovery} Discovery Cohorts                 | {total_val1} Val 1 Cohorts  | {total_val2} Val 2 Cohorts")
     print("STATUS     | [PASSED] Zero data leakage across Discovery, Val 1, and Val 2 tiers.")
     
+    # Layer 4 Strict Isolation Assertions: Zero Overlap with Discovery, Val 1, or Val 2
+    disc_layer4_overlap = DISCOVERY_ALL & LAYER4_SEVERITY_ALL
+    val1_layer4_overlap = VAL1_ALL & LAYER4_SEVERITY_ALL
+    val2_layer4_overlap = VAL2_ALL & LAYER4_SEVERITY_ALL
+    assert len(disc_layer4_overlap) == 0, f"FATAL: Cohort overlap between Discovery and Layer 4: {disc_layer4_overlap}"
+    assert len(val1_layer4_overlap) == 0, f"FATAL: Cohort overlap between Validation 1 and Layer 4: {val1_layer4_overlap}"
+    assert len(val2_layer4_overlap) == 0, f"FATAL: Cohort overlap between Validation 2 and Layer 4: {val2_layer4_overlap}"
+    print(f"LAYER 4    | [PASSED] Zero overlap between Validation 2 (or Discovery/Val1) and Layer 4 Severity cohorts.")
+    print(f"           | Val 2: {sorted(list(VAL2_ALL))}")
+    print(f"           | Layer 4: {sorted(list(LAYER4_SEVERITY_ALL))}")
+
     # ML Training Isolation Guard (auto-check on-disk matrices if ml_studies is None)
     if ml_studies is None:
         import os
@@ -117,10 +131,12 @@ def verify_cohort_isolation(ml_studies=None):
         ml_set = set(ml_studies)
         ml_val1_leak = ml_set & VAL1_ALL
         ml_val2_leak = ml_set & VAL2_ALL
+        ml_layer4_leak = ml_set & LAYER4_SEVERITY_ALL
         
         print(f"ML Training Studies: {sorted(list(ml_set))}")
         print(f"Validation 1 Restricted: {sorted(list(VAL1_ALL))}")
         print(f"Validation 2 Restricted: {sorted(list(VAL2_ALL))}")
+        print(f"Layer 4 Severity Restricted: {sorted(list(LAYER4_SEVERITY_ALL))}")
         
         assert len(ml_val1_leak) == 0, (
             f"FATAL: ML training matrix contains samples from Validation 1 cohorts: {ml_val1_leak}"
@@ -128,7 +144,10 @@ def verify_cohort_isolation(ml_studies=None):
         assert len(ml_val2_leak) == 0, (
             f"FATAL: ML training matrix contains samples from Validation 2 cohorts: {ml_val2_leak}"
         )
-        print("ML STATUS  | [PASSED] ZERO samples from Validation 1 or Validation 2 present in ML training.")
+        assert len(ml_layer4_leak) == 0, (
+            f"FATAL: ML training matrix contains samples from Layer 4 cohorts: {ml_layer4_leak}"
+        )
+        print("ML STATUS  | [PASSED] ZERO samples from Val 1, Val 2, or Layer 4 present in ML training.")
     print(header + "\n")
 
 
