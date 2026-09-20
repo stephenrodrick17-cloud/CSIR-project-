@@ -1,0 +1,115 @@
+{
+  "GSE135251": {
+    "accession": "GSE135251",
+    "platform": "GPL18573",
+    "n_samples": 216,
+    "title": "TRANSCRIPTOMIC PROFILING ACROSS THE SPECTRUM OF NON-ALCOHOLIC FATTY LIVER DISEASE",
+    "sample_chars_0": [
+      "nas score: 4",
+      "fibrosis stage: 2",
+      "group in paper: NASH_F2",
+      "disease: NAFLD",
+      "Stage: early"
+    ]
+  },
+  "GSE84044": {
+    "accession": "GSE84044",
+    "platform": "GPL570",
+    "n_samples": 124,
+    "title": "Characterization of gene expression profile in HBV-related liver fibrosis patients",
+    "sample_chars_0": [
+      "tissue: Hepatic tissue",
+      "gender: Male",
+      "age: 42",
+      "batch: 1",
+      "scheuer score g: 0",
+      "scheuer score s: 2"
+    ]
+  },
+  "GSE193066": {
+    "accession": "GSE193066",
+    "platform": "GPL18573",
+    "n_samples": 164,
+    "title": "Transcriptome profile of liver biopsy tissues from patients with non-alcoholic fatty liver disease (tissue validation set 1).",
+    "sample_chars_0": [
+      "tissue: Liver",
+      "biopsy: 1st biopsy",
+      "age: 46",
+      "Sex: female",
+      "fibrosis stage: 0",
+      "nafld activity score: 5",
+      "pls-nafld-based risk prediction at 1st biopsy: low-risk"
+    ]
+  },
+  "GSE28042": {
+    "accession": "GSE28042",
+    "platform": "GPL6480",
+    "n_samples": 94,
+    "title": "Peripheral Blood Mononuclear Cell Gene Expression Profiles May Predict Poor Outcome in Idiopathic Pulmonary Fibrosis [Agilent]",
+    "sample_chars_0": [
+      "cell type: Peripheral blood mononuclear cells (PBMC)",
+      "disease status: idiopathic pulmonary fibrosis (IPF)",
+      "age: 53",
+      "gender: Male",
+      "outcome: 1",
+      "time to outcome: 0.052 years"
+    ]
+  },
+  "GSE76882": {
+    "accession": "GSE76882",
+    "platform": "GPL13158",
+    "n_samples": 274,
+    "title": "Gene Expression in Biopsies of Acute Rejection and Interstitial Fibrosis/Tubular Atrophy Reveals Highly Shared Mechanisms that Correlate with Worse Long-term Outcomes",
+    "sample_chars_0": [
+      "tissue: Kidney Biopsy Tissue",
+      "disease state: normal functioning transplants TX"
+    ]
+  },
+  "GSE59787": {
+    "accession": "GSE59787",
+    "platform": "GPL6480",
+    "n_samples": 165,
+    "title": "Hinchcliff 165 microarray dataset",
+    "sample_chars_0": [
+      "sample type: Normal Control",
+      "disease state: normal",
+      "tissue: skin biopsy",
+      "subject: MH_Norm_01",
+      ""
+    ]
+  },
+  "GSE45485": {
+    "accession": "GSE45485",
+    "platform": "GPL6480",
+    "n_samples": 83,
+    "title": "Molecular Signatures in Skin Associated with Clinical Improvement During Mycophenolate Treatment in Systemic Sclerosis",
+    "sample_chars_0": [
+      "sample type: Normal Control",
+      "disease state: normal",
+      "tissue: skin biopsy",
+      "subject: MH_Norm_01",
+      ""
+    ]
+  },
+  "GSE115853": {
+    "accession": "GSE115853",
+    "platform": "GPL20795",
+    "n_samples": 13,
+    "title": "Organoids derived from directly reprogrammed human hepatocytes for modeling liver cancer initiation",
+    "sample_chars_0": [
+      "cell type: hiHep hepatocyte-like cells",
+      "mutation: GFP_Control",
+      "culture time: 16 days",
+      ""
+    ]
+  },
+  "GSE142025": {
+    "accession": "GSE142025",
+    "platform": "GPL20301",
+    "n_samples": 36,
+    "title": "Comparison of Kidney Transcriptomic Profiles of Early and Advanced Diabetic Nephropathy Reveals Potential New Mechanisms for Disease Progression",
+    "sample_chars_0": [
+      "group: Advanced_DN"
+    ]
+  }
+}

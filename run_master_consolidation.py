@@ -320,7 +320,10 @@ v1_df = pd.read_csv(os.path.join(results_dir, "validation1_layer2_all_results.cs
 v2_df = pd.read_csv(os.path.join(results_dir, "validation2_ecm_core_results.csv")).set_index("gene")
 
 # Load disease-only severity correlation
-sev_df = pd.read_csv(os.path.join(base_dir, "within_vs_pooled_correlation_check.csv"))
+sev_path = os.path.join(results_dir, "within_vs_pooled_correlation_check.csv")
+if not os.path.exists(sev_path):
+    sev_path = os.path.join(base_dir, "within_vs_pooled_correlation_check.csv")
+sev_df = pd.read_csv(sev_path)
 # Extract genes with disease-only p < 0.05
 sev_map = {}
 for g in ecm_genes:

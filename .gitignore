@@ -34,4 +34,3 @@ report/*.html
 *.zip
 outcomes/
 coloc_cache/tmp*
-archive/

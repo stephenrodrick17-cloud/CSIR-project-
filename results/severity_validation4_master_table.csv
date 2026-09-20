@@ -1,0 +1,36 @@
+gene,organ,accession,platform_type,severity_metric,n_full,rho_full,p_full,n_disease,rho_disease,p_disease,status,p_adj_full,p_adj_disease
+COL15A1,Liver,GSE135251,RNA-seq (Illumina NextSeq 500),Kleiner Fibrosis Stage (F0-F4),216,,,170,,,Gene Probe Missing,N/A,N/A
+COL1A1,Liver,GSE135251,RNA-seq (Illumina NextSeq 500),Kleiner Fibrosis Stage (F0-F4),216,,,170,,,Gene Probe Missing,N/A,N/A
+SERPINE2,Liver,GSE135251,RNA-seq (Illumina NextSeq 500),Kleiner Fibrosis Stage (F0-F4),216,,,170,,,Gene Probe Missing,N/A,N/A
+SERPINF2,Liver,GSE135251,RNA-seq (Illumina NextSeq 500),Kleiner Fibrosis Stage (F0-F4),216,,,170,,,Gene Probe Missing,N/A,N/A
+TNXB,Liver,GSE135251,RNA-seq (Illumina NextSeq 500),Kleiner Fibrosis Stage (F0-F4),216,,,170,,,Gene Probe Missing,N/A,N/A
+COL15A1,Liver,GSE135251,RNA-seq (Illumina NextSeq 500),NAFLD Activity Score (NAS: 1-8),216,,,174,,,Gene Probe Missing,N/A,N/A
+COL1A1,Liver,GSE135251,RNA-seq (Illumina NextSeq 500),NAFLD Activity Score (NAS: 1-8),216,,,174,,,Gene Probe Missing,N/A,N/A
+SERPINE2,Liver,GSE135251,RNA-seq (Illumina NextSeq 500),NAFLD Activity Score (NAS: 1-8),216,,,174,,,Gene Probe Missing,N/A,N/A
+SERPINF2,Liver,GSE135251,RNA-seq (Illumina NextSeq 500),NAFLD Activity Score (NAS: 1-8),216,,,174,,,Gene Probe Missing,N/A,N/A
+TNXB,Liver,GSE135251,RNA-seq (Illumina NextSeq 500),NAFLD Activity Score (NAS: 1-8),216,,,174,,,Gene Probe Missing,N/A,N/A
+COL15A1,Liver,GSE84044,Microarray (Affymetrix HG-U133 Plus 2.0),Scheuer Fibrosis Stage (S0-S4),124,0.6505,2.9085906689314043e-16,81,0.539,2.086444752481748e-07,Evaluated,2.909e-15,1.043e-06
+COL1A1,Liver,GSE84044,Microarray (Affymetrix HG-U133 Plus 2.0),Scheuer Fibrosis Stage (S0-S4),124,0.6384,1.504275869725581e-15,81,0.5481,1.1783658570710585e-07,Evaluated,7.521e-15,1.043e-06
+SERPINE2,Liver,GSE84044,Microarray (Affymetrix HG-U133 Plus 2.0),Scheuer Fibrosis Stage (S0-S4),124,0.4137,1.7904794139318044e-06,81,0.3443,0.0016452019286709364,Evaluated,2.238e-06,2.057e-03
+SERPINF2,Liver,GSE84044,Microarray (Affymetrix HG-U133 Plus 2.0),Scheuer Fibrosis Stage (S0-S4),124,-0.4858,1.068789198005266e-08,81,-0.3931,0.00028304198235502127,Evaluated,2.138e-08,5.661e-04
+TNXB,Liver,GSE84044,Microarray (Affymetrix HG-U133 Plus 2.0),Scheuer Fibrosis Stage (S0-S4),124,0.0485,0.5924709420055464,81,0.1046,0.3526391245444564,Evaluated,5.925e-01,3.526e-01
+COL15A1,Liver,GSE84044,Microarray (Affymetrix HG-U133 Plus 2.0),Scheuer Necroinflammatory Grade (G0-G4),124,0.5206,5.726672906516005e-10,87,0.4655,5.553752395128702e-06,Evaluated,1.432e-09,1.719e-05
+COL1A1,Liver,GSE84044,Microarray (Affymetrix HG-U133 Plus 2.0),Scheuer Necroinflammatory Grade (G0-G4),124,0.5238,4.3064829379381615e-10,87,0.4614,6.876413191268853e-06,Evaluated,1.432e-09,1.719e-05
+SERPINE2,Liver,GSE84044,Microarray (Affymetrix HG-U133 Plus 2.0),Scheuer Necroinflammatory Grade (G0-G4),124,0.433,5.098295398781861e-07,87,0.3549,0.0007440848623570675,Evaluated,7.283e-07,1.063e-03
+SERPINF2,Liver,GSE84044,Microarray (Affymetrix HG-U133 Plus 2.0),Scheuer Necroinflammatory Grade (G0-G4),124,-0.466,4.909534724448301e-08,87,-0.361,0.0005928528815193567,Evaluated,8.183e-08,9.881e-04
+TNXB,Liver,GSE84044,Microarray (Affymetrix HG-U133 Plus 2.0),Scheuer Necroinflammatory Grade (G0-G4),124,0.0864,0.3399616445945357,87,0.1844,0.08737714099553665,Evaluated,3.777e-01,9.709e-02
+COL15A1,Lung,GSE213001,RNA-seq (Illumina HiSeq 3000),Continuous % Predicted FVC,91,,,81,,,Gene Probe Missing,N/A,N/A
+COL1A1,Lung,GSE213001,RNA-seq (Illumina HiSeq 3000),Continuous % Predicted FVC,91,,,81,,,Gene Probe Missing,N/A,N/A
+SERPINE2,Lung,GSE213001,RNA-seq (Illumina HiSeq 3000),Continuous % Predicted FVC,91,,,81,,,Gene Probe Missing,N/A,N/A
+SERPINF2,Lung,GSE213001,RNA-seq (Illumina HiSeq 3000),Continuous % Predicted FVC,91,,,81,,,Gene Probe Missing,N/A,N/A
+TNXB,Lung,GSE213001,RNA-seq (Illumina HiSeq 3000),Continuous % Predicted FVC,91,,,81,,,Gene Probe Missing,N/A,N/A
+COL15A1,Lung,GSE213001,RNA-seq (Illumina HiSeq 3000),Continuous % Predicted DLCO,75,,,75,,,Gene Probe Missing,N/A,N/A
+COL1A1,Lung,GSE213001,RNA-seq (Illumina HiSeq 3000),Continuous % Predicted DLCO,75,,,75,,,Gene Probe Missing,N/A,N/A
+SERPINE2,Lung,GSE213001,RNA-seq (Illumina HiSeq 3000),Continuous % Predicted DLCO,75,,,75,,,Gene Probe Missing,N/A,N/A
+SERPINF2,Lung,GSE213001,RNA-seq (Illumina HiSeq 3000),Continuous % Predicted DLCO,75,,,75,,,Gene Probe Missing,N/A,N/A
+TNXB,Lung,GSE213001,RNA-seq (Illumina HiSeq 3000),Continuous % Predicted DLCO,75,,,75,,,Gene Probe Missing,N/A,N/A
+COL15A1,Lung,GSE213001,RNA-seq (Illumina HiSeq 3000),Ordinal Severity Category (0-4),96,,,96,,,Gene Probe Missing,N/A,N/A
+COL1A1,Lung,GSE213001,RNA-seq (Illumina HiSeq 3000),Ordinal Severity Category (0-4),96,,,96,,,Gene Probe Missing,N/A,N/A
+SERPINE2,Lung,GSE213001,RNA-seq (Illumina HiSeq 3000),Ordinal Severity Category (0-4),96,,,96,,,Gene Probe Missing,N/A,N/A
+SERPINF2,Lung,GSE213001,RNA-seq (Illumina HiSeq 3000),Ordinal Severity Category (0-4),96,,,96,,,Gene Probe Missing,N/A,N/A
+TNXB,Lung,GSE213001,RNA-seq (Illumina HiSeq 3000),Ordinal Severity Category (0-4),96,,,96,,,Gene Probe Missing,N/A,N/A

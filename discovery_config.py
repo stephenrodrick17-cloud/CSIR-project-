@@ -94,7 +94,23 @@ def verify_cohort_isolation(ml_studies=None):
     print(f"TOTALS     | {total_discovery} Discovery Cohorts                 | {total_val1} Val 1 Cohorts  | {total_val2} Val 2 Cohorts")
     print("STATUS     | [PASSED] Zero data leakage across Discovery, Val 1, and Val 2 tiers.")
     
-    # ML Training Isolation Guard
+    # ML Training Isolation Guard (auto-check on-disk matrices if ml_studies is None)
+    if ml_studies is None:
+        import os
+        import pandas as pd
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        ml_paths = [
+            os.path.join(base_dir, "results", "real_human_patient_ml_training_matrix.csv"),
+            os.path.join(base_dir, "results", "real_human_patient_combat_corrected_matrix.csv"),
+        ]
+        found_studies = set()
+        for p in ml_paths:
+            if os.path.exists(p):
+                df_ml = pd.read_csv(p, usecols=["study"])
+                found_studies.update(df_ml["study"].unique())
+        if found_studies:
+            ml_studies = sorted(list(found_studies))
+
     if ml_studies is not None:
         print("-" * 80)
         print("[ML GUARD] VERIFYING ML TRAINING DATA STRICT ISOLATION...")
