@@ -36,7 +36,10 @@ os.makedirs(results_dir, exist_ok=True)
 os.makedirs(plots_dir, exist_ok=True)
 
 # 1. Target 24 Clean Core ECM Genes
-ecm_df = pd.read_csv(os.path.join(base_dir, "ecm_clean_genes.csv"))
+ecm_p = os.path.join(results_dir, "ecm_clean_genes.csv")
+if not os.path.exists(ecm_p):
+    ecm_p = os.path.join(base_dir, "ecm_clean_genes.csv")
+ecm_df = pd.read_csv(ecm_p)
 ecm_genes = sorted(ecm_df["gene"].tolist())
 print(f"Target Feature Set ({len(ecm_genes)} Clean Core ECM Genes): {ecm_genes}\n")
 

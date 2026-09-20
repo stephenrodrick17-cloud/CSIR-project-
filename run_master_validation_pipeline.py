@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """
 Master Execution Pipeline: Discovery Core, Validation 1, and Validation 2 across 4 Human Organs.
 """
@@ -65,11 +65,9 @@ for g in core_genes:
     })
 
 df_core = pd.DataFrame(core_records)
-df_core.to_csv(os.path.join(base_dir, "pan_fibrotic_core_genes_corrected.csv"), index=False)
 df_core.to_csv(os.path.join(results_dir, "pan_fibrotic_core_genes_corrected.csv"), index=False)
 
 df_ecm = df_core[df_core["is_ECM_gene"] == True].reset_index(drop=True)
-df_ecm.to_csv(os.path.join(base_dir, "ecm_clean_genes.csv"), index=False)
 df_ecm.to_csv(os.path.join(results_dir, "ecm_clean_genes.csv"), index=False)
 
 print(f"-> Saved pan_fibrotic_core_genes_corrected.csv ({len(df_core)} genes)")

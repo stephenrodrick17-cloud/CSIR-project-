@@ -17,7 +17,6 @@ CCL5,Pass (4/4 Organs),4/4,2/4,2/4,2/4,0 (None),0/5,0.5688,Tier 2 (Validation-On
 CCL19,Pass (4/4 Organs),4/4,1/4,4/4,3/4,0 (None),0/5,0.5687,Tier 2 (Validation-Only)
 SVEP1,Pass (4/4 Organs),4/4,2/4,2/4,2/4,0 (None),1/5,0.5396,Tier 2 (Validation-Only)
 MFAP4,Pass (4/4 Organs),4/4,1/4,2/4,2/4,0 (None),2/5,0.5276,Tier 2 (Validation-Only)
-TNXB,Fail (3/4 Organs),2/4,1/4,4/4,2/4,0 (None),Not tested (data unavailable),N/A,Tier 2 (Validation-Only)
 MDK,Pass (4/4 Organs),4/4,2/4,2/4,1/4,0 (None),2/5,0.7953,Not Supported
 FGF14,Pass (4/4 Organs),4/4,2/4,2/4,1/4,0 (None),0/5,0.6736,Not Supported
 SPARCL1,Pass (4/4 Organs),4/4,1/4,2/4,1/4,0 (None),0/5,0.6156,Not Supported

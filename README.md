@@ -9,7 +9,7 @@ This repository implements a multi-organ transcriptomic discovery and validation
 - **Skin**: Systemic Sclerosis (SSc)
 
 All cohorts are organized into three strictly partitioned tiers:
-1. **Tier 1 (Discovery Cohorts, $N=14$)**: Identifies conserved pan-fibrotic differentially expressed genes (DEGs) across all 4 organs ($\ge 2$-fold change, adjusted $p < 0.05$).
+1. **Tier 1 (Discovery Cohorts, $N=14$)**: Identifies conserved pan-fibrotic differentially expressed genes (DEGs) across all 4 organs ($|\log_2\text{FC}| \ge 0.585$, $\ge 1.5$-fold change, Benjamini-Hochberg adjusted $p < 0.05$).
 2. **Tier 2 (Validation 1 Cohorts, $N=4$)**: First independent cross-platform replication across all 4 organs.
 3. **Tier 3 (Validation 2 Held-Out Cohorts, $N=4$)**: Completely isolated, blinded held-out validation cohorts testing pan-fibrotic universality.
 
@@ -30,7 +30,11 @@ The repository implements an automated architectural guard (`discovery_config.ve
 
 ## 3. Pure Discovery Patient Sample Training Matrix ($N=1,069$)
 
-To eliminate data leakage, all Validation 1 (`GSE58095`, `GSE200818`, `GSE162694`, `GSE24206`) and Validation 2 samples (`GSE30529`, `GSE14323`, `GSE83717`, `GSE125362`) are strictly quarantined. While all 14 Discovery cohorts contributed to the initial DEG boundary analyses, 9 cohorts possessed complete, unaggregated per-sample series matrices suitable for ComBat batch correction and sample-level multi-model machine learning training ($N=1,069$ total genuine human biopsy samples):
+### Provenance & Resolution of Sample Count Evolution
+In an earlier iteration, the ML training matrix contained 799 samples across 8 cohorts. A subsequent audit revealed that `GSE58095` ($n=102$, Skin) belonged to the Validation 1 tier. To eliminate data leakage:
+1. `GSE58095` ($n=102$) was **permanently removed**.
+2. Genuine Skin Discovery cohorts (`GSE181549`, $n=339$, and `GSE95065`, $n=33$) were **incorporated**.
+3. **Net Mathematical Re-balance**: $799 - 102 + 339 + 33 = 1,069$ genuine human biopsy samples across 9 Discovery series matrices with zero simulation and zero validation leakage:
 
 | Dataset Accession | Organ | Total Samples | Controls | Fibrosis Cases | Platform Type |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -47,18 +51,18 @@ To eliminate data leakage, all Validation 1 (`GSE58095`, `GSE200818`, `GSE162694
 
 ---
 
-## 4. Master Consolidated Evidence Table (24 Clean Core ECM Genes + TNXB)
+## 4. Master Consolidated Evidence Table (24 Clean Core ECM Genes)
 
-Uniting Discovery, Validation 1, Validation 2, disease-only histological severity correlation, 5-seed ML stability check, and average diagnostic ROC AUC:
+Uniting Discovery ($|\log_2\text{FC}| \ge 0.585$, adj. $p < 0.05$), Validation 1, Validation 2, disease-only histological severity correlation, 5-seed ML stability check, and average diagnostic ROC AUC:
 
 | gene | discovery_status | val1_concordant_organs | val1_significant_organs | val2_concordant_organs | val2_significant_organs | severity_correlation_organs_significant | ml_stability_score | ml_diagnostic_auc | final_evidence_tier |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
-| **COL15A1** | Pass (4/4 Organs) | 4/4 | 2/4 | 4/4 | 4/4 | 0 (None) | 5/5 | 0.843 | **Tier 1 (Full Spectrum)** |
+| **COL15A1** | Pass (4/4 Organs) | 4/4 | 2/4 | 4/4 | 4/4 | 0 (None) | 5/5 | 0.8430 | **Tier 1 (Full Spectrum)** |
 | **COL1A1** | Pass (4/4 Organs) | 4/4 | 2/4 | 2/4 | 2/4 | 1 (Liver) | 5/5 | 0.7904 | **Tier 1 (Full Spectrum)** |
 | **SERPINE2** | Pass (4/4 Organs) | 4/4 | 2/4 | 4/4 | 3/4 | 0 (None) | 4/5 | 0.7864 | **Tier 1 (Full Spectrum)** |
 | **SERPINF2** | Pass (4/4 Organs) | 4/4 | 1/4 | 2/4 | 2/4 | 0 (None) | 5/5 | 0.7635 | **Tier 1 (Full Spectrum)** |
 | **COL3A1** | Pass (4/4 Organs) | 4/4 | 2/4 | 4/4 | 3/4 | 0 (None) | 3/5 | 0.7815 | **Tier 2 (Validation-Only)** |
-| **COL1A2** | Pass (4/4 Organs) | 4/4 | 2/4 | 4/4 | 3/4 | 1 (Liver) | 0/5 | 0.687 | **Tier 2 (Validation-Only)** |
+| **COL1A2** | Pass (4/4 Organs) | 4/4 | 2/4 | 4/4 | 3/4 | 1 (Liver) | 0/5 | 0.6870 | **Tier 2 (Validation-Only)** |
 | **LTBP2** | Pass (4/4 Organs) | 4/4 | 2/4 | 2/4 | 2/4 | 0 (None) | 0/5 | 0.6827 | **Tier 2 (Validation-Only)** |
 | **LAMC3** | Pass (4/4 Organs) | 4/4 | 1/4 | 2/4 | 2/4 | 0 (None) | 2/5 | 0.6801 | **Tier 2 (Validation-Only)** |
 | **CLEC2D** | Pass (4/4 Organs) | 4/4 | 1/4 | 2/4 | 2/4 | 0 (None) | 1/5 | 0.6717 | **Tier 2 (Validation-Only)** |
@@ -71,7 +75,6 @@ Uniting Discovery, Validation 1, Validation 2, disease-only histological severit
 | **CCL19** | Pass (4/4 Organs) | 4/4 | 1/4 | 4/4 | 3/4 | 0 (None) | 0/5 | 0.5687 | **Tier 2 (Validation-Only)** |
 | **SVEP1** | Pass (4/4 Organs) | 4/4 | 2/4 | 2/4 | 2/4 | 0 (None) | 1/5 | 0.5396 | **Tier 2 (Validation-Only)** |
 | **MFAP4** | Pass (4/4 Organs) | 4/4 | 1/4 | 2/4 | 2/4 | 0 (None) | 2/5 | 0.5276 | **Tier 2 (Validation-Only)** |
-| **TNXB** | Non-Core (3/4 Organs) | 2/4 | 1/4 | 4/4 | 2/4 | 0 (None) | Not tested (data unavailable) | N/A | **Tier 2 (Validation-Only)** |
 | **MDK** | Pass (4/4 Organs) | 4/4 | 2/4 | 2/4 | 1/4 | 0 (None) | 2/5 | 0.7953 | **Not Supported** |
 | **FGF14** | Pass (4/4 Organs) | 4/4 | 2/4 | 2/4 | 1/4 | 0 (None) | 0/5 | 0.6736 | **Not Supported** |
 | **SPARCL1** | Pass (4/4 Organs) | 4/4 | 1/4 | 2/4 | 1/4 | 0 (None) | 0/5 | 0.6156 | **Not Supported** |
@@ -81,17 +84,25 @@ Uniting Discovery, Validation 1, Validation 2, disease-only histological severit
 
 ---
 
-## 5. Explicit Headline Findings
+## 5. Excluded from Core Panel: Exploratory Biological Target (`TNXB`)
 
-1. **Tier 1 (Full Spectrum) Qualification**: Exactly four genes qualify for Tier 1 status (`COL15A1`, `COL1A1`, `SERPINE2`, and `SERPINF2`) by demonstrating multi-organ replication in independent Validation 2 cohorts ($\ge 2/4$ organs) AND robust machine learning consensus ($\ge 4/5$ seed stability score with mean AUC $> 0.76$).
-2. **`TNXB` Qualification**: `TNXB` demonstrates **4/4 universal Validation 2 concordance** (100% concordance across Kidney, Liver, Lung, and Skin) with significant replication in 2/4 organs (Liver adj_p = 0.000322, Lung adj_p = 0.0242), and a verified reverse-MR causal signal in Systemic Sclerosis ($p = 5.39 \times 10^{-7}$, lead SNP rs6926894; Lopez-Isac et al., *Nat Commun*, 2019). With ML stability unassessed in the discovery microarrays, `TNXB` qualifies for **Tier 2 (Validation-Only)** status.
-3. **`COL15A1`**: Emerges as the top pan-fibrotic matrix biomarker with 4/4 universal Validation 2 concordance, 5/5 ML stability score, and the highest individual diagnostic ROC AUC (**0.8430**).
-4. **`VWF` Diagnostic**: While universally upregulated in Kidney, Liver, and Skin fibrosis, `VWF` is significantly down-regulated in fibrotic Lung tissue ($\Delta = -3.82$, $p = 5.24 \times 10^{-17}$), consistent with severe pulmonary capillary loss and vascular rarefaction in end-stage IPF (Ebina et al., *Am J Respir Crit Care Med*, 2004), which accounts for its lower pooled cross-organ linear ML performance.
-5. **`AEBP1` Empirical Finding**: `AEBP1` demonstrates 4/4 universal Validation 2 replication and significant Liver histological severity correlation ($p = 0.000053$). Its zero selection count in L1-regularized linear classifiers (LASSO/SVM-RFE) reflects the known grouping effect where sparse models select one representative from highly collinear feature sets (Zou & Hastie, *J R Stat Soc B*, 2005) — in this case, primary structural collagens (`COL15A1`, `COL1A1`).
+* **Funnel Rule Exclusion**: `TNXB` failed Discovery phase criteria because it achieved statistical significance in only 3 of 4 organs (Liver, Lung, Skin; non-significant in Kidney discovery, $p = 0.058$). Per the project's strict funnel protocol, genes failing 4-organ Discovery cannot be promoted into Tier 1 or Tier 2 core status.
+* **Exploratory Observations**: In held-out Validation 2 cohorts, `TNXB` displayed 4/4 directional concordance with significant replication in Liver ($p = 0.00032$) and Lung ($p = 0.024$). Furthermore, two-sample reverse Mendelian Randomization revealed a causal association between genetic liability to Systemic Sclerosis and `TNXB` expression ($p = 5.39 \times 10^{-7}$, lead SNP rs6926894; Lopez-Isac et al., *Nat Commun*, 2019). It is preserved strictly as an exploratory finding for future targeted investigation.
 
 ---
 
-## 6. Key Visualizations
+## 6. Explicit Headline Findings
+
+1. **Tier 1 (Full Spectrum) Qualification**: Exactly four genes qualify for Tier 1 status (`COL15A1`, `COL1A1`, `SERPINE2`, and `SERPINF2`) by demonstrating multi-organ replication in independent Validation 2 cohorts ($\ge 2/4$ organs) AND robust machine learning consensus ($\ge 4/5$ seed stability score with mean AUC $> 0.76$).
+2. **`COL15A1`**: Emerges as the top pan-fibrotic matrix biomarker with 4/4 universal Validation 2 concordance, 5/5 ML stability score, and the highest individual diagnostic ROC AUC (**0.8430**).
+3. **The Serpin Axis (`SERPINE2` & `SERPINF2`)**: Both serpins qualify as Tier 1 biomarkers, demonstrating that antiprotease-mediated shutdown of ECM catabolism is a conserved hallmark across organ fibrogenesis.
+4. **Resolution of `MDK` Classification**: In early single-seed uncorrected runs with `GSE58095` present, `MDK` was selected by ML models. However, upon enforcing strict cohort isolation, ComBat multi-study batch correction, organ balancing, and 5-seed stability testing, `MDK` achieved only 2/5 seed stability. Crucially, in independent held-out Validation 2, `MDK` failed multi-organ replication (replicating in only 1/4 organs: Liver $p = 0.0001$, but Kidney $p = 0.225$, Lung $p = 0.907$, Skin $p = 0.282$). It is therefore classified as **Not Supported** for pan-fibrotic universality.
+5. **`VWF` Diagnostic Divergence**: While universally upregulated in Kidney, Liver, and Skin fibrosis, `VWF` is significantly down-regulated in fibrotic Lung tissue ($\Delta = -3.82$, $p = 5.24 \times 10^{-17}$), reflecting severe pulmonary capillary loss and vascular rarefaction in end-stage IPF (Ebina et al., *Am J Respir Crit Care Med*, 2004), which attenuates its pooled cross-organ linear ML performance.
+6. **`AEBP1` Empirical Finding**: `AEBP1` demonstrates 4/4 universal Validation 2 replication and significant Liver histological severity correlation ($p = 0.000053$). Its zero selection count in L1-regularized linear classifiers (LASSO/SVM-RFE) reflects the known grouping effect where sparse models select one representative from highly collinear feature sets (Zou & Hastie, *J R Stat Soc B*, 2005) — in this case, primary structural collagens (`COL15A1`, `COL1A1`).
+
+---
+
+## 7. Key Visualizations
 
 ### Master Evidence Ranking Across Clean Core ECM Genes
 ![Master Evidence Ranking](plots/ml_4model_consensus_hub_biomarkers.png)

@@ -26,7 +26,6 @@ df_master = pd.read_csv(master_csv)
 # =============================================================================
 plt.figure(figsize=(15, 10))
 
-# For plotting, sort by ML diagnostic AUC (fill NaN for TNXB as 0.50 with special annotation)
 plot_df = df_master.copy()
 plot_df["auc_plot"] = pd.to_numeric(plot_df["ml_diagnostic_auc"], errors="coerce").fillna(0.50)
 plot_df = plot_df.sort_values(by="auc_plot", ascending=True).reset_index(drop=True)
@@ -44,7 +43,7 @@ bars = plt.barh(y_pos, plot_df["auc_plot"], color=colors, edgecolor="black", lin
 plt.yticks(y_pos, plot_df["gene"], fontsize=11, fontweight="bold")
 plt.xlabel("Mean Diagnostic ROC AUC (5-Seed Average on Pure Discovery ComBat-Corrected Human Cohorts, N=1,069)", 
            fontsize=12, fontweight="bold", labelpad=10)
-plt.title("Master Evidence Ranking: 24 Clean Core ECM Genes + TNXB Across All Validation Layers", 
+plt.title("Master Evidence Ranking: 24 Clean Core ECM Genes Across All Validation Layers", 
           fontsize=15, fontweight="bold", pad=20)
 plt.xlim(0.48, 0.92)
 plt.axvline(x=0.70, color="#e63946", linestyle="--", linewidth=1.5, label="High Diagnostic Performance Threshold (AUC >= 0.70)")
@@ -56,21 +55,15 @@ for idx, (bar, row) in enumerate(zip(bars, plot_df.iterrows())):
     gene = r["gene"]
     tier = r["final_evidence_tier"]
     stab = r["ml_stability_score"]
-    
-    if gene == "TNXB":
-        label_text = "Unassessed in ML Matrix (4/4 Val2 Concordant; Reverse-MR Causal p=5.4e-7)"
-        plt.text(0.505, bar.get_y() + bar.get_height()/2.0, label_text, 
-                 va="center", ha="left", fontsize=9, fontweight="bold", color="#264653", style="italic")
-    else:
-        auc_val = r["ml_diagnostic_auc"]
-        label_text = f"AUC = {auc_val:.3f} | Stability: {stab} | {tier}"
-        plt.text(w + 0.005, bar.get_y() + bar.get_height()/2.0, label_text, 
-                 va="center", ha="left", fontsize=9, fontweight="bold", color="#1d3557")
+    auc_val = r["ml_diagnostic_auc"]
+    label_text = f"AUC = {auc_val:.3f} | Stability: {stab} | {tier}"
+    plt.text(w + 0.005, bar.get_y() + bar.get_height()/2.0, label_text, 
+             va="center", ha="left", fontsize=9, fontweight="bold", color="#1d3557")
 
 # Custom Legend
 legend_elements = [
     patches.Patch(facecolor=tier_colors["Tier 1 (Full Spectrum)"], edgecolor="black", label="Tier 1 (Full Spectrum: Val2 >= 2/4 & ML Stability >= 4/5) [n=4]"),
-    patches.Patch(facecolor=tier_colors["Tier 2 (Validation-Only)"], edgecolor="black", label="Tier 2 (Validation-Only: Val2 >= 2/4 Concordant Multi-Organ) [n=15]"),
+    patches.Patch(facecolor=tier_colors["Tier 2 (Validation-Only)"], edgecolor="black", label="Tier 2 (Validation-Only: Val2 >= 2/4 Concordant Multi-Organ) [n=14]"),
     patches.Patch(facecolor=tier_colors["Not Supported"], edgecolor="black", label="Not Supported (Failed Multi-Organ Val2 Replication, <= 1/4) [n=6]"),
     plt.Line2D([0], [0], color="#e63946", linestyle="--", linewidth=1.5, label="Diagnostic Benchmark (AUC = 0.70)")
 ]
@@ -102,17 +95,17 @@ levels = [
     {
         "y": 80, "width": 88, "height": 8.5, "color": "#1e3a8a", "text_color": "white",
         "title": "TIER 1: 4-ORGAN DISCOVERY COHORTS (14 Datasets, N=1,069 Pure Human Biopsies)",
-        "details": "Kidney (GSE66494, GSE104066, GSE104948, GSE104954) | Liver (GSE164760, GSE89377, GSE77627)\nLungs (GSE10667, GSE110147, GSE32537, GSE53845) | Skin (GSE130955, GSE181549, GSE95065)\nPer-Organ Significant DEGs: Kidney (12,442) | Liver (13,096) | Lungs (10,778) | Skin (3,079)"
+        "details": "Kidney (GSE66494, GSE104066, GSE104948, GSE104954) | Liver (GSE164760, GSE89377, GSE77627)\nLungs (GSE10667, GSE110147, GSE32537, GSE53845) | Skin (GSE130955, GSE181549, GSE95065)\nFresh Per-Organ DEGs (|log2FC| >= 0.585, FDR p < 0.05): Kidney (11,758) | Liver (2,268) | Lungs (7,803) | Skin (2,979)"
     },
     {
         "y": 67, "width": 74, "height": 7.5, "color": "#2563eb", "text_color": "white",
         "title": "CONSERVED PAN-FIBROTIC CORE DEGs (N = 86 Genes)",
-        "details": "Conserved across 4/4 Organs at |log2FC| >= 1.0 (>= 2-fold change) and Benjamini-Hochberg FDR p < 0.05"
+        "details": "Conserved across 4/4 Organs at |log2FC| >= 0.585 (>= 1.5-fold change) and Benjamini-Hochberg FDR p < 0.05"
     },
     {
         "y": 55, "width": 62, "height": 7.5, "color": "#0284c7", "text_color": "white",
-        "title": "MATRISOME / ECM FILTERING & TARGET INCLUSION (N = 25 Candidate Genes)",
-        "details": "24 Clean Core Human Extracellular Matrix (Matrisome) Genes + 1 High-Interest Target (TNXB)\nCategories: Collagens, ECM Glycoproteins, ECM Regulators, Secreted Factors, ECM-affiliated"
+        "title": "MATRISOME / ECM FILTERING (N = 24 Clean Core Genes)",
+        "details": "24 Clean Core Human Extracellular Matrix (Matrisome) Genes passing 4/4 Organs\nCategories: Collagens (4), Glycoproteins (7), Regulators (4), Secreted Factors (7), Affiliated (2)"
     },
     {
         "y": 43, "width": 52, "height": 7.5, "color": "#0d9488", "text_color": "white",
@@ -122,12 +115,12 @@ levels = [
     {
         "y": 31, "width": 44, "height": 7.5, "color": "#059669", "text_color": "white",
         "title": "TIER 3: VALIDATION LAYER 2 HELD-OUT REPLICATION (4 Multi-Platform Cohorts)",
-        "details": "GSE30529 (Kidney), GSE14323 (Liver), GSE83717 (Lungs), GSE125362 (Skin)\n19 Genes Validated in >= 2/4 Organs (18 ECM + TNXB) | 6 Dropped as Not Supported (<= 1/4 Organs)"
+        "details": "GSE30529 (Kidney), GSE14323 (Liver), GSE83717 (Lungs), GSE125362 (Skin)\n18/24 Genes Validated in >= 2/4 Organs (75.0%) | 6 Dropped as Not Supported (<= 1/4 Organs)"
     },
     {
         "y": 16, "width": 38, "height": 11.5, "color": "#0f766e", "text_color": "white",
-        "title": "FINAL MASTER EVIDENCE STRATIFICATION (4-Model ML & Causal Multi-Omics)",
-        "details": "• TIER 1 (Full Spectrum, n=4): COL15A1 (AUC 0.843), COL1A1 (0.790), SERPINE2 (0.786), SERPINF2 (0.764)\n• TIER 2 (Validation-Only, n=15): COL3A1, COL1A2, LTBP2, LAMC3, CLEC2D, PDGFD, CCL2,\n   SERPINH1, AEBP1, VWF, CCL5, CCL19, SVEP1, MFAP4, TNXB (Causal SSc MR p=5.4e-7)\n• NOT SUPPORTED (n=6): MDK, FGF14, SPARCL1, BMP1, CCL21, COLEC11 (Failed Val2 Replication)"
+        "title": "FINAL MASTER EVIDENCE STRATIFICATION (4-Model ML & 5-Seed Stability)",
+        "details": "• TIER 1 (Full Spectrum, n=4): COL15A1 (AUC 0.843), COL1A1 (0.790), SERPINE2 (0.786), SERPINF2 (0.764)\n• TIER 2 (Validation-Only, n=14): COL3A1, COL1A2, LTBP2, LAMC3, CLEC2D, PDGFD, CCL2,\n   SERPINH1, AEBP1, VWF, CCL5, CCL19, SVEP1, MFAP4 (Multi-Organ Val2 Replicated)\n• NOT SUPPORTED (n=6): MDK, FGF14, SPARCL1, BMP1, CCL21, COLEC11 (Failed Val2 Replication)\n* TNXB excluded from core panel (failed Discovery 3/4 organs); discussed separately as exploratory target."
     }
 ]
 
