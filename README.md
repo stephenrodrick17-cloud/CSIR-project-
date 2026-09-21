@@ -155,28 +155,20 @@ To ensure candidate genes track disease progression rather than simply reflectin
 
 ---
 
-## 6b. Supplementary Severity & Dose-Response Analysis (External Independent Datasets)
+## Supplementary External Severity Validation (Exploratory)
 
-> [!IMPORTANT]
-> **SEPARATE SUPPLEMENTARY ANALYSIS USING EXTERNAL DATASETS**:
-> This clinical severity and dose-response analysis is a **separate, supplementary investigation using external datasets** (`GSE84044`, `GSE135251`, `GSE38958`, `GSE213001`, `GSE9285`). These datasets are completely **distinct and external** to the core locked 14+4+4 pipeline (14 Discovery, 4 Validation 1, and 4 Validation 2 cohorts defined in `discovery_config.py`). This analysis is **not part of the main Validation 2 binary differential expression result**, but serves as an independent clinical correlation exploration to evaluate whether prioritized biomarkers track continuous clinical disease stage and pulmonary functional decline (DLCO/FVC) across human cohorts.
->
-> **Strict Cohort & Sample Isolation Verification**:
-> A cross-tier sample audit verified that **zero samples (0 GSM IDs)** from these external cohorts overlap with any sample in the locked Discovery ($N=1,069$), Validation 1 ($N=384$), or Validation 2 ($N=105$) datasets.
+The core Discovery/Validation 1/Validation 2 pipeline (14+4+4 locked cohorts, verified by `discovery_config.verify_cohort_isolation()`) found that our held-out Validation 2 cohorts lack continuous clinical severity metadata for kidney, lung, and skin (see Section 6: Metadata Reality & Data Authenticity Audit).
 
-### Rationale
-While Validation 2 evaluated binary disease-versus-control replication across 4 held-out cohorts, this supplementary exploratory layer evaluates whether the 5 priority genes (`COL15A1`, `COL1A1`, `SERPINE2`, `SERPINF2`, `TNXB`) correlate with histological fibrosis stage and functional impairment in separate external clinical cohorts with deep clinical metadata.
+To explore whether the core panel's severity relationship extends beyond liver, we ran a supplementary analysis on four additional, independently sourced GEO datasets with real severity annotations:
 
-### External Supplementary Datasets
+| Organ | Accession | Severity metric | N |
+|---|---|---|---|
+| Liver | GSE84044 | Scheuer fibrosis stage (S0-S4) | 124 |
+| Liver | GSE135251 | Kleiner fibrosis stage (F0-F4) | 216 |
+| Lung | GSE38958 | % Predicted DLCO | 60 |
+| Skin | GSE9285 | Modified Rodnan Skin Score | 74 |
 
-| Organ | Accession | Platform | N | Severity Metric | Status |
-|---|---|---|---|---|---|
-| Liver | GSE84044 | Microarray (Affymetrix HG-U133) | 124 | Scheuer Fibrosis Stage (S0-S4) + Necroinflammatory Grade (G0-G4) | External Supplementary |
-| Liver | GSE135251 | RNA-seq (Illumina NextSeq) | 216 | Kleiner Fibrosis Stage (F0-F4) + NAS Score (0-8) | External Supplementary |
-| Lung | GSE38958 | Microarray (Affymetrix Exon 1.0) | 60 | % Predicted FVC + % Predicted DLCO | External Supplementary |
-| Lung | GSE213001 | RNA-seq (Illumina NovaSeq) | 91 | % Predicted FVC + % Predicted DLCO | External Supplementary |
-| Skin | GSE9285 | Microarray (Agilent-012391) | 74 | Modified Rodnan Skin Score (mRSS 0-51) | External Supplementary |
-| Kidney | — | — | 0 | Confirmed unavailable — no public GEO dataset with per-sample continuous eGFR or ordinal Banff/MEST-C staging exists | — |
+**Scope note:** These four datasets are NOT part of the locked, isolation-guarded core pipeline and have not undergone the full Discovery/Val1/Val2 cohort-separation audit applied to our primary results. They are presented as independent, exploratory support for the core panel's severity association, not as a replacement for or extension of the audited core result. Accession numbers were manually cross-checked against the full locked cohort list to confirm no overlap.
 
 ### Full Results Master Table (Layer 4)
 All empirical values pulled directly from `results/validation_4_severity_master_table.csv`, without re-deriving or summarizing:
