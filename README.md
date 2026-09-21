@@ -427,6 +427,7 @@ To verify whether sequencing technology affected our conclusions, we stratified 
 | **Supplementary External Severity Exploration** | Comprehensive $5 \times 3$ grid (15 panels) of clinical severity stage boxplots & correlation scatters across external cohorts (`GSE84044`, `GSE135251`, `GSE38958`, `GSE9285`) for 5 priority genes (`COL15A1`, `COL1A1`, `SERPINE2`, `SERPINF2`, `TNXB`) | [`plots/severity_validation4_layer_boxplots.png`](plots/severity_validation4_layer_boxplots.png) |
 | **All 18 Val 2 Genes Mann-Whitney Grid** | Comprehensive $6 \times 3$ grid of Mann-Whitney U Disease vs. Control boxplots for all 18 surviving ECM genes in held-out Liver Val 2 (`GSE14323`) | [`plots/val2_all_18_genes_mannwhitney_boxplots.png`](plots/val2_all_18_genes_mannwhitney_boxplots.png) |
 | **Clinical Severity Regressions** | Spearman clinical disease severity tracking regressions across clinical fibrosis stages | [`plots/val2_severity_spearman_correlations.png`](plots/val2_severity_spearman_correlations.png) |
+| **Tier 1 Hub Biomarkers Validation** | Comprehensive $4 \times 3$ grid of Mann-Whitney U test (Held-Out Val 2 `GSE14323`), Spearman clinical severity dose-response (`GSE84044`), and diagnostic ROC curves for the 4 Tier 1 Hub genes (`COL15A1`, `COL1A1`, `SERPINE2`, `SERPINF2`) | [`plots/hub_genes_validation_mwu_spearman.png`](plots/hub_genes_validation_mwu_spearman.png) |
 
 
 ---
