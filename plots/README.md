@@ -43,6 +43,8 @@ This directory contains the final, publication-grade figures for the **CSIR Pan-
 | `hub_genes_candidate_drugs.png` | **Candidate Drug Repurposing Network**: Bipartite pharmacological target network linking the 4 Hub genes to approved clinical standards (Pirfenidone, Nintedanib), serine protease inhibitors (Camostat, Nafamostat, Gabexate), and collagen synthesis modulators (Tranilast, Halofuginone). | `run_drug_repurposing_analysis.py` |
 | `hub_genes_hpa_ihc_summary.png` | **In Silico IHC Protein Validation**: Human Protein Atlas (HPA v23) pathology staining profiles verifying protein-level upregulation of COL15A1, COL1A1, and SERPINE2 and loss of SERPINF2 in human kidney, liver, lung, and skin fibrosis. | `run_hpa_ihc_validation.py` |
 | `hub_genes_early_stage_validation.png` | **Dedicated Subclinical Early-Stage Validation**: 6-panel comprehensive figure strictly comparing Healthy Controls (S0/F0) vs. Early-Stage Fibrosis (S1/S2 or F1/F2) across microarray (`GSE84044`, N=96) and RNA-seq (`GSE135251`, N=148), featuring individual ROC curves, 5-fold cross-validated multi-gene ensemble classifiers, and subclinical screening Decision Curve Analysis (DCA). | `run_early_stage_fibrosis_validation.py` |
+| `hub_genes_early_detection_triptych.png` | **Early Detection & Subclinical Risk Stratification (1x3 Triptych)**: Nature/IEEE-style publication 3-panel figure featuring (A) Early-Stage ROC Curves (S0 vs S1-S2), (B) Early-Onset Switch vs Linear Progression Dynamics across histological stages, and (C) Subclinical Decision Curve Analysis across risk thresholds ($p_t = 0.05$ to $0.50$). | `generate_early_detection_triptych.py` |
+
 
 
 

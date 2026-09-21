@@ -559,6 +559,7 @@ The complete compendium of canonical, publication-ready figures for this study i
 | **Candidate Drug Repurposing** | Bipartite pharmacological target network linking Hub genes to clinical standards (Pirfenidone, Nintedanib), serine protease inhibitors (Camostat, Nafamostat, Gabexate), and collagen modulators | [`plots/hub_genes_candidate_drugs.png`](plots/hub_genes_candidate_drugs.png) |
 | **In Silico IHC Protein Staining** | Human Protein Atlas (HPA v23) pathology staining profiles verifying protein-level upregulation of COL15A1, COL1A1, and SERPINE2 and loss of SERPINF2 across human fibrotic organs | [`plots/hub_genes_hpa_ihc_summary.png`](plots/hub_genes_hpa_ihc_summary.png) |
 | **Subclinical Early-Stage Validation** | Dedicated 6-panel evaluation strictly comparing Healthy Controls (S0/F0) vs Early-Stage Fibrosis (S1/S2 or F1/F2) across microarray (`GSE84044`) and RNA-seq (`GSE135251`), with individual ROCs, 5-fold CV multi-gene classifiers, and screening DCA | [`plots/hub_genes_early_stage_validation.png`](plots/hub_genes_early_stage_validation.png) |
+| **Early Detection 3-Panel Triptych** | Publication-grade Nature/IEEE style 1x3 triptych figure featuring: (A) Early-Stage ROC Curves (S0 vs S1/S2), (B) Early-Onset Switch vs Linear Progression Dynamics across stages, and (C) Subclinical Decision Curve Analysis ($p_t = 0.05$ to $0.50$) | [`plots/hub_genes_early_detection_triptych.png`](plots/hub_genes_early_detection_triptych.png) |
 
 
 ---
@@ -602,6 +603,8 @@ pip install pandas numpy scipy statsmodels scikit-learn xgboost matplotlib seabo
    python run_gsea_enrichment_analysis.py
    python run_drug_repurposing_analysis.py
    python run_hpa_ihc_validation.py
+   python run_early_stage_fibrosis_validation.py
+   python generate_early_detection_triptych.py
    ```
 
 ---
