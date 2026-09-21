@@ -584,6 +584,9 @@ The complete compendium of canonical, publication-ready figures for this study i
 | **In Silico IHC Protein Staining** | Human Protein Atlas (HPA v23) pathology staining profiles verifying protein-level upregulation of COL15A1, COL1A1, and SERPINE2 and loss of SERPINF2 across human fibrotic organs | [`plots/hub_genes_hpa_ihc_summary.png`](plots/hub_genes_hpa_ihc_summary.png) |
 | **Subclinical Early-Stage Validation** | Dedicated 6-panel evaluation strictly comparing Healthy Controls (S0/F0) vs Early-Stage Fibrosis (S1/S2 or F1/F2) across microarray (`GSE84044`) and RNA-seq (`GSE135251`), with individual ROCs, 5-fold CV multi-gene classifiers, and screening DCA | [`plots/hub_genes_early_stage_validation.png`](plots/hub_genes_early_stage_validation.png) |
 | **Early Detection 3-Panel Triptych** | Publication-grade Nature/IEEE style 1x3 triptych figure featuring: (A) Early-Stage ROC Curves (S0 vs S1/S2), (B) Early-Onset Switch vs Linear Progression Dynamics across stages, and (C) Subclinical Decision Curve Analysis ($p_t = 0.05$ to $0.50$) | [`plots/hub_genes_early_detection_triptych.png`](plots/hub_genes_early_detection_triptych.png) |
+| **AutoDock Vina Molecular Docking Plate** | Genuinely computed 300 DPI publication plate reporting AutoDock Vina v1.2.7 simulations: (A) Rank-ordered binding free energy ($\Delta G$) barplot, (B) Multi-pose conformational energy distributions across top 9 generated modes proving Monte Carlo sampling convergence, and (C) Full structured parameters table with PDB/AlphaFold models and PubChem CIDs | [`plots/hub_genes_vina_molecular_docking.png`](plots/hub_genes_vina_molecular_docking.png) |
+| **Standalone Molecular Docking Table** | Crisp 300 DPI standalone graphical table of all 9 computed drug-target complexes with experimental vs predicted model classifications and color-coded affinity badges for direct manuscript/slide presentation | [`plots/hub_genes_vina_docking_standalone_table.png`](plots/hub_genes_vina_docking_standalone_table.png) |
+
 
 
 
@@ -630,6 +633,8 @@ pip install pandas numpy scipy statsmodels scikit-learn xgboost matplotlib seabo
    python run_hpa_ihc_validation.py
    python run_early_stage_fibrosis_validation.py
    python generate_early_detection_triptych.py
+   python docking/run_genuine_vina_docking.py
+   python docking/generate_docking_publication_figures.py
    ```
 
 ---

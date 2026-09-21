@@ -1,0 +1,56 @@
+COMMAND LINE:
+"D:\CSIR\bin\vina.exe" --receptor "D:\CSIR\docking\receptors\COL15A1_3N3F_experimental.pdbqt" --ligand "D:\CSIR\docking\ligands\Nintedanib.pdbqt" --center_x -5.59 --center_y 10.53 --center_z -8.79 --size_x 30 --size_y 30 --size_z 30 --exhaustiveness 8 --num_modes 9 --out "D:\CSIR\docking\output\COL15A1_3N3F_Nintedanib_out.pdbqt"
+
+STDOUT:
+AutoDock Vina v1.2.7
+#################################################################
+# If you used AutoDock Vina in your work, please cite:          #
+#                                                               #
+# J. Eberhardt, D. Santos-Martins, A. F. Tillack, and S. Forli  #
+# AutoDock Vina 1.2.0: New Docking Methods, Expanded Force      #
+# Field, and Python Bindings, J. Chem. Inf. Model. (2021)       #
+# DOI 10.1021/acs.jcim.1c00203                                  #
+#                                                               #
+# O. Trott, A. J. Olson,                                        #
+# AutoDock Vina: improving the speed and accuracy of docking    #
+# with a new scoring function, efficient optimization and       #
+# multithreading, J. Comp. Chem. (2010)                         #
+# DOI 10.1002/jcc.21334                                         #
+#                                                               #
+# Please see https://github.com/ccsb-scripps/AutoDock-Vina for  #
+# more information.                                             #
+#################################################################
+
+Scoring function : vina
+Rigid receptor: D:\CSIR\docking\receptors\COL15A1_3N3F_experimental.pdbqt
+Ligand: D:\CSIR\docking\ligands\Nintedanib.pdbqt
+Grid center: X -5.59 Y 10.53 Z -8.79
+Grid size  : X 30 Y 30 Z 30
+Grid space : 0.375
+Exhaustiveness: 8
+CPU: 0
+Verbosity: 1
+
+Computing Vina grid ... done.
+Performing docking (random seed: 1015308209) ... 
+0%   10   20   30   40   50   60   70   80   90   100%
+|----|----|----|----|----|----|----|----|----|----|
+***************************************************
+
+mode |   affinity | dist from best mode
+     | (kcal/mol) | rmsd l.b.| rmsd u.b.
+-----+------------+----------+----------
+   1       -7.066          0          0
+   2       -6.822      2.962      11.92
+   3       -6.812      5.318      12.01
+   4       -6.784      3.831      5.556
+   5       -6.653      2.716      11.49
+   6       -6.638      2.473      4.345
+   7       -6.532      3.406      5.093
+   8       -6.429      3.476       11.9
+   9       -6.427      3.147      11.34
+
+
+STDERR:
+WARNING: At low exhaustiveness, it may be impossible to utilize all CPUs.
+
