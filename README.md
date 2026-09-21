@@ -585,6 +585,9 @@ The complete compendium of canonical, publication-ready figures for this study i
 | **Subclinical Early-Stage Validation** | Dedicated 6-panel evaluation strictly comparing Healthy Controls (S0/F0) vs Early-Stage Fibrosis (S1/S2 or F1/F2) across microarray (`GSE84044`) and RNA-seq (`GSE135251`), with individual ROCs, 5-fold CV multi-gene classifiers, and screening DCA | [`plots/hub_genes_early_stage_validation.png`](plots/hub_genes_early_stage_validation.png) |
 | **Early Detection 3-Panel Triptych** | Publication-grade Nature/IEEE style 1x3 triptych figure featuring: (A) Early-Stage ROC Curves (S0 vs S1/S2), (B) Early-Onset Switch vs Linear Progression Dynamics across stages, and (C) Subclinical Decision Curve Analysis ($p_t = 0.05$ to $0.50$) | [`plots/hub_genes_early_detection_triptych.png`](plots/hub_genes_early_detection_triptych.png) |
 | **Molecular Docking & Orthogonal Validation** | High-affinity in silico molecular docking ($\Delta G \le -7.0 \text{ kcal/mol}$ against PDB `4D7N`, `2R9Y`, `1BKV`), target pocket residue contact map, scRNA-seq cell-type deconvolution, and 6-tier evidence pyramid | [`plots/hub_genes_docking_and_orthogonal_validation.png`](plots/hub_genes_docking_and_orthogonal_validation.png) |
+| **Docking Parameters & Evidence Plate** | Comprehensive publication plate: (A) Styled graphical table of PDB structures, target pockets, $\Delta G$, $K_d$, and interacting residues, (B) Binding free energy affinity profile with $-7.0\text{ kcal/mol}$ threshold, (C) Residue contact architecture (salt bridges, H-bonds, hydrophobic), and (D) 6-Tier Orthogonal Evidence Convergence Framework | [`plots/hub_genes_molecular_docking_table_and_evidence.png`](plots/hub_genes_molecular_docking_table_and_evidence.png) |
+| **Standalone Molecular Docking Table** | Crisp, high-resolution 300 DPI graphical table of all 8 drug-target complexes with color-coded affinity badges and structural coordinates for direct slide/manuscript insertion | [`plots/hub_genes_molecular_docking_standalone_table.png`](plots/hub_genes_molecular_docking_standalone_table.png) |
+
 
 
 ---
@@ -631,6 +634,7 @@ pip install pandas numpy scipy statsmodels scikit-learn xgboost matplotlib seabo
    python run_early_stage_fibrosis_validation.py
    python generate_early_detection_triptych.py
    python generate_docking_and_orthogonal_validation_figure.py
+   python generate_docking_table_and_biophysics_figure.py
    ```
 
 ---
