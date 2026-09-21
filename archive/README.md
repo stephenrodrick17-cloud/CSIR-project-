@@ -32,6 +32,7 @@ These files represent earlier exploratory analyses, pre-correction artifacts, in
 - `kidney_dataset_search_audit.csv`: Negative-screening audit table documenting public kidney cohorts lacking per-sample continuous fibrosis metadata.
 - `kidney_severity_status.csv`: Detailed audit of Nakagawa et al. 2015 histological staging showing underpowered sample counts ($n=5$).
 - `pan_fibrotic_core_genes_PRE_FIX_175genes.csv`: Pre-fix 175-gene candidate list before rigorous data-leak elimination.
+- `pan_fibrotic_core_genes_49_c37eeee_superseded.csv`: Intermediate 49-gene DEG output from commit `c37eeee` containing non-ECM bystanders. Superseded by canonical 86-core DEGs (`results/pan_fibrotic_core_genes_corrected.csv`) and 24 Clean Core ECM genes (`results/ecm_clean_genes.csv`).
 - `venn_4organ_region_counts_PRE_FIX.csv`: Pre-fix Venn count table.
 
 ## Archived Visualizations
