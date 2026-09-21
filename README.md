@@ -579,14 +579,11 @@ The complete compendium of canonical, publication-ready figures for this study i
 | **Diagnostic Nomogram & DCA** | Multivariable logistic regression nomogram, 1,000-bootstrap calibration curve, and Decision Curve Analysis for clinical net benefit across 1,069 human biopsies (AUC = 0.901) | [`plots/hub_genes_nomogram_and_dca.png`](plots/hub_genes_nomogram_and_dca.png) |
 | **Protein-Protein Interaction (PPI) Network** | STRING v12 high-confidence interaction architecture connecting 4 Hubs to master regulators (`TGFB1`, `SMAD3`, `CTGF`), proteases (`MMP1/2`, `TIMP1`, `PLG`), and matrix scaffolding (`FN1`, `ITGB1`) | [`plots/hub_genes_ppi_network.png`](plots/hub_genes_ppi_network.png) |
 | **GSEA Hallmark Pathways** | Multi-panel running enrichment score plots across MSigDB Hallmark and KEGG pathways (EMT, ECM-Receptor, TGF-beta, Focal Adhesion, Coagulation/Serpin axis) stratified by 4-Hub score | [`plots/hub_genes_gsea_hallmark_pathways.png`](plots/hub_genes_gsea_hallmark_pathways.png) |
-| **Immune Infiltration Crosstalk** | Spearman correlation heatmap and group comparisons across 12 immune/stromal subsets in 1,069 biopsies, proving coupling to M2 macrophages, Tregs, and vascular rarefaction | [`plots/hub_genes_immune_infiltration.png`](plots/hub_genes_immune_infiltration.png) |
+| **Immune & Stromal Marker Crosstalk** | Spearman rank correlation heatmap and scatter comparisons between the 4 Hub genes and validated cell-type lineage marker probes (e.g., `CD163` for M2 macrophages, `ACTA2` for myofibroblasts, `FAP` for activated fibroblasts, `FOXP3` for Tregs, `PECAM1` for endothelial cells) across $N=124$ human liver biopsies (`GSE84044`) | [`plots/hub_genes_immune_infiltration.png`](plots/hub_genes_immune_infiltration.png) |
 | **Candidate Drug Repurposing** | Bipartite pharmacological target network linking Hub genes to clinical standards (Pirfenidone, Nintedanib), serine protease inhibitors (Camostat, Nafamostat, Gabexate), and collagen modulators | [`plots/hub_genes_candidate_drugs.png`](plots/hub_genes_candidate_drugs.png) |
 | **In Silico IHC Protein Staining** | Human Protein Atlas (HPA v23) pathology staining profiles verifying protein-level upregulation of COL15A1, COL1A1, and SERPINE2 and loss of SERPINF2 across human fibrotic organs | [`plots/hub_genes_hpa_ihc_summary.png`](plots/hub_genes_hpa_ihc_summary.png) |
 | **Subclinical Early-Stage Validation** | Dedicated 6-panel evaluation strictly comparing Healthy Controls (S0/F0) vs Early-Stage Fibrosis (S1/S2 or F1/F2) across microarray (`GSE84044`) and RNA-seq (`GSE135251`), with individual ROCs, 5-fold CV multi-gene classifiers, and screening DCA | [`plots/hub_genes_early_stage_validation.png`](plots/hub_genes_early_stage_validation.png) |
 | **Early Detection 3-Panel Triptych** | Publication-grade Nature/IEEE style 1x3 triptych figure featuring: (A) Early-Stage ROC Curves (S0 vs S1/S2), (B) Early-Onset Switch vs Linear Progression Dynamics across stages, and (C) Subclinical Decision Curve Analysis ($p_t = 0.05$ to $0.50$) | [`plots/hub_genes_early_detection_triptych.png`](plots/hub_genes_early_detection_triptych.png) |
-| **Molecular Docking & Orthogonal Validation** | High-affinity in silico molecular docking ($\Delta G \le -7.0 \text{ kcal/mol}$ against PDB `4D7N`, `2R9Y`, `1BKV`), target pocket residue contact map, scRNA-seq cell-type deconvolution, and 6-tier evidence pyramid | [`plots/hub_genes_docking_and_orthogonal_validation.png`](plots/hub_genes_docking_and_orthogonal_validation.png) |
-| **Docking Parameters & Evidence Plate** | Comprehensive publication plate: (A) Styled graphical table of PDB structures, target pockets, $\Delta G$, $K_d$, and interacting residues, (B) Binding free energy affinity profile with $-7.0\text{ kcal/mol}$ threshold, (C) Residue contact architecture (salt bridges, H-bonds, hydrophobic), and (D) 6-Tier Orthogonal Evidence Convergence Framework | [`plots/hub_genes_molecular_docking_table_and_evidence.png`](plots/hub_genes_molecular_docking_table_and_evidence.png) |
-| **Standalone Molecular Docking Table** | Crisp, high-resolution 300 DPI graphical table of all 8 drug-target complexes with color-coded affinity badges and structural coordinates for direct slide/manuscript insertion | [`plots/hub_genes_molecular_docking_standalone_table.png`](plots/hub_genes_molecular_docking_standalone_table.png) |
 
 
 
@@ -633,8 +630,6 @@ pip install pandas numpy scipy statsmodels scikit-learn xgboost matplotlib seabo
    python run_hpa_ihc_validation.py
    python run_early_stage_fibrosis_validation.py
    python generate_early_detection_triptych.py
-   python generate_docking_and_orthogonal_validation_figure.py
-   python generate_docking_table_and_biophysics_figure.py
    ```
 
 ---
