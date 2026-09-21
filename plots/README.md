@@ -33,4 +33,7 @@ This directory contains the final, publication-grade figures for the **CSIR Pan-
 | `val2_platform_stratified_comparison.png` | Platform-stratified (Microarray: Kidney GSE30529, Liver GSE14323 vs. RNA-seq: Lung GSE83717, Skin GSE125362) logFC concordance heatmap across all 24 genes. | `results/val2_platform_stratified_table.csv` |
 | `val2_mannwhitney_spearman_combined.png` | Validation 2 dual-significant hub biomarkers (`AEBP1`, `COL1A1`, `COL1A2`, `VWF`): Mann-Whitney U disease vs. control boxplots + Spearman severity correlation regressions. | Held-out Validation 2 clinical cohorts (`GSE14323`, `GSE162694`) |
 | `severity_validation4_layer_boxplots.png` | Clinical severity stage boxplots across independent cohorts for `COL15A1`, `COL1A1`, and `SERPINF2`. | Clinical staging data |
+| `val2_all_18_genes_mannwhitney_boxplots.png` | Comprehensive $6 \times 3$ grid of Mann-Whitney U Disease vs. Control boxplots + strip points for all 18 surviving ECM genes in held-out Liver Val2 (`GSE14323`). | `generate_val2_all_18_genes_plots.py` |
+| `val2_severity_spearman_correlations.png` | Clinical disease severity tracking regressions and Spearman rank correlations against clinical histological stages. | `generate_val2_all_18_genes_plots.py` |
+
 
