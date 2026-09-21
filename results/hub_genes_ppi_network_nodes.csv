@@ -1,0 +1,18 @@
+gene_symbol,is_tier1_hub,functional_category,degree,betweenness_centrality,closeness_centrality,clustering_coefficient
+COL1A1,True,Tier 1 Universal Hub,11,0.35,0.7273,0.1987
+SERPINE2,True,Tier 1 Universal Hub,7,0.0667,0.5714,0.2832
+COL15A1,True,Tier 1 Universal Hub,6,0.1083,0.5926,0.3932
+SERPINF2,True,Tier 1 Universal Hub,6,0.1417,0.5517,0.3883
+TGFB1,False,Upstream Signaling Driver,9,0.3,0.6957,0.2741
+FN1,False,Structural Scaffolding & Adhesome,7,0.0583,0.64,0.4271
+MMP2,False,Matrix Remodeling & Protease,5,0.0,0.5714,0.2592
+TIMP1,False,Matrix Remodeling & Protease,4,0.0,0.5517,0.4802
+ITGB1,False,Structural Scaffolding & Adhesome,3,0.0,0.5,0.8954
+MMP1,False,Matrix Remodeling & Protease,3,0.0333,0.5333,0.3222
+CTGF,False,Upstream Signaling Driver,3,0.0,0.5333,0.9663
+SERPINE1,False,Matrix Remodeling & Protease,3,0.0,0.4848,0.8904
+COL1A2,False,Structural Scaffolding & Adhesome,2,0.0,0.4444,0.8157
+PLG,False,Matrix Remodeling & Protease,2,0.0,0.381,0.8977
+COL3A1,False,Structural Scaffolding & Adhesome,1,0.0,0.4324,0.0
+LOX,False,Matrix Remodeling & Protease,1,0.0,0.4324,0.0
+SMAD3,False,Upstream Signaling Driver,1,0.0,0.4211,0.0

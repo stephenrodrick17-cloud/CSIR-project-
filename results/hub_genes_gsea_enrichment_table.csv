@@ -1,0 +1,7 @@
+pathway_id,pathway_name,normalized_enrichment_score_nes,nominal_p_value,fdr_q_value,leading_edge_subset
+HALLMARK_EMT,Epithelial-Mesenchymal Transition (EMT),2.48,1e-15,2.5e-14,"COL1A1, COL1A2, FN1, VIM, ACTA2, CDH2, MMP2, TIMP1"
+KEGG_ECM_RECEPTOR,ECM-Receptor Interaction (KEGG),2.35,1e-12,1.2e-11,"COL1A1, COL15A1, COL3A1, FN1, ITGB1, LAMC3, VWF, THBS1"
+HALLMARK_TGF_BETA,TGF-Beta Signaling Cascade,2.18,3.2e-10,2.8e-09,"TGFB1, SMAD3, SERPINE1, CTGF, LTBP2, ID1, SMAD7"
+HALLMARK_COAGULATION,Coagulation & Fibrinolytic Cascade (Serpin Axis),-2.05,8.4e-08,5.6e-07,"SERPINF2, PLG, PROS1, PROC, F2, F9, SERPINC1"
+KEGG_FOCAL_ADHESION,Focal Adhesion Kinase Signaling (KEGG),2.12,1.5e-09,1.1e-08,"ITGB1, PTK2, PXN, VCL, ACTN1, SRC, CAV1"
+HALLMARK_INFLAMMATORY,Inflammatory Response & Chemokine Signaling,1.94,4.1e-07,2.2e-06,"CCL2, CCL5, CCL19, IL6, CXCL10, NFKB1, TNF"

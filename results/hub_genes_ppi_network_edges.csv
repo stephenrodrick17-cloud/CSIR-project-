@@ -1,0 +1,38 @@
+source,target,string_score,interaction_type
+COL1A1,COL15A1,0.742,Extracellular Matrix Organization
+COL1A1,COL1A2,0.999,Type I Collagen Triple Helix
+COL1A1,COL3A1,0.995,Fibrillar Collagen Heteropolymer
+COL1A1,FN1,0.985,Fibronectin-Collagen Matrix Assembly
+COL1A1,ITGB1,0.94,Integrin Beta-1 Collagen Receptor
+COL1A1,MMP1,0.98,Interstitial Collagenase Degradation
+COL1A1,MMP2,0.97,Gelatinase Matrix Cleavage
+COL1A1,TIMP1,0.92,Metalloproteinase Inhibition
+COL1A1,LOX,0.91,Lysyl Oxidase Cross-Linking
+COL1A1,TGFB1,0.965,TGF-Beta Transcriptional Activation
+COL1A1,CTGF,0.95,CCN2 Connective Tissue Growth Factor
+COL15A1,COL1A2,0.73,Collagen Fibril Scaffolding
+COL15A1,FN1,0.81,Basement Membrane Adhesion
+COL15A1,MMP2,0.86,Restin Release & Cleavage
+COL15A1,ITGB1,0.83,Endothelial Matrix Anchorage
+COL15A1,TGFB1,0.78,TGF-Beta Matrix Deposition
+SERPINE2,SERPINF2,0.76,Conserved Serpin Antiprotease Axis
+SERPINE2,PLG,0.95,Plasminogen Activation Inhibition
+SERPINE2,SERPINE1,0.93,PAI-1 Serpin Cross-Regulation
+SERPINE2,MMP1,0.79,Protease Cleavage Protection
+SERPINE2,MMP2,0.82,Matrix Metalloproteinase Regulation
+SERPINE2,TGFB1,0.87,TGF-Beta Induced Antiprotease
+SERPINE2,FN1,0.84,Matrix Trapping & Secretion
+SERPINF2,PLG,0.999,Primary Alpha-2-Antiplasmin Complex
+SERPINF2,SERPINE1,0.91,Fibrinolytic Balance Control
+SERPINF2,MMP2,0.75,Extracellular Matrix Proteolysis
+SERPINF2,FN1,0.78,Fibrin-Fibronectin Network
+SERPINF2,TGFB1,0.74,Profibrotic Repression
+TGFB1,SMAD3,0.999,Canonical SMAD Signaling Cascade
+TGFB1,CTGF,0.99,Downstream Fibrogenic Factor
+TGFB1,FN1,0.98,Mesenchymal Transition Induction
+TGFB1,TIMP1,0.97,Inhibition of Matrix Breakdown
+TGFB1,SERPINE1,0.995,PAI-1 Direct Transactivation
+CTGF,FN1,0.94,Extracellular Matrix Synthesis
+MMP1,TIMP1,0.999,Enzyme-Inhibitor Complex
+MMP2,TIMP1,0.995,Enzyme-Inhibitor Complex
+FN1,ITGB1,0.999,Integrin Adhesome Hub
