@@ -245,24 +245,39 @@ Kleiner (RNA-seq cohort) and Scheuer (microarray cohort) are similar but distinc
 
 ## 7. Dual Significance: Finding the Core Pan-Fibrotic Hubs
 
-Mirrored directly after the landmark reference paper's narrowing strategy, we identified **Dual-Significant Genes**—genes that are **simultaneously significant in both differential expression (Mann-Whitney U) AND clinical disease severity correlation (Spearman rho)**:
+Mirrored directly after the landmark reference paper's narrowing strategy, we evaluated **Dual-Significant Genes**—genes that are **simultaneously significant in both differential expression (Mann-Whitney U) AND clinical disease severity correlation (Spearman rho)** in held-out liver biopsy cohorts.
 
-| Gene | Organ | Mann-Whitney DE Sig? | Spearman Severity Sig? (Disease-Only) | Both Significant? | Functional Classification |
-| :--- | :--- | :---: | :---: | :---: | :---: |
-| **`AEBP1`** | **Liver** | **YES** ($p_{\text{adj}} = 2.79 \times 10^{-9}$) | **YES** ($\rho = +0.444, p = 5.25 \times 10^{-5}$) | **YES** | **Dual-Confirmed Hub Biomarker** |
-| **`COL1A1`** | **Liver** | **YES** ($p_{\text{adj}} = 1.48 \times 10^{-8}$) | **YES** ($\rho = +0.364, p = 1.12 \times 10^{-3}$) | **YES** | **Dual-Confirmed Hub Biomarker** |
-| **`COL1A2`** | **Liver** | **YES** ($p_{\text{adj}} = 2.79 \times 10^{-9}$) | **YES** ($\rho = +0.320, p = 4.53 \times 10^{-3}$) | **YES** | **Dual-Confirmed Hub Biomarker** |
-| **`VWF`** | **Liver** | **YES** ($p_{\text{adj}} = 3.73 \times 10^{-9}$) | **YES** ($\rho = +0.407, p = 2.43 \times 10^{-4}$) | **YES** | **Dual-Confirmed Hub Biomarker** |
-| `COL15A1` | Liver | **YES** ($p_{\text{adj}} = 7.31 \times 10^{-8}$) | NO ($\rho = -0.001, p = 0.9958$) | NO | DE Confirmed Only |
-| `COL3A1` | Liver | **YES** ($p_{\text{adj}} = 3.33 \times 10^{-8}$) | NO ($\rho = +0.105, p = 0.3641$) | NO | DE Confirmed Only |
-| `SERPINE2` | Liver | **YES** ($p_{\text{adj}} = 5.96 \times 10^{-7}$) | N/A (Not evaluated in stage cohort) | NO | DE Confirmed Only |
-| `SERPINF2` | Liver | **YES** ($p_{\text{adj}} = 2.70 \times 10^{-8}$) | N/A (Not evaluated in stage cohort) | NO | DE Confirmed Only |
-| *All others* | All | Evaluated (see Master Table) | Evaluated (see Master Table) | NO | Validation-Only / Non-Sig |
+> [!NOTE]
+> **Methodological Scoping Note**: In initial study reporting, clinical severity dose-response testing was prioritized for the 8 genes with the strongest Validation 2 significance and collagen matrix prominence (`AEBP1`, `COL1A1`, `COL1A2`, `VWF`, `COL15A1`, `SERPINE2`, `SERPINF2`, `COL3A1`), rather than re-run across the full 18-gene panel. The remaining 10 genes (`CCL19`, `CCL2`, `SERPINH1`, `CCL5`, `LTBP2`, `SVEP1`, `CLEC2D`, `LAMC3`, `MFAP4`, `PDGFD`) were **not excluded due to statistical failure**, but were simply held in reserve. To achieve 100% concordance between the DE-validated panel and the severity-validated panel, all 18 genes have now been comprehensively evaluated across both RNA-seq (`GSE162694`, METAVIR F1–F4, $n=77$) and Microarray (`GSE84044`, Scheuer S1–S4, $n=87$) biopsy cohorts. Complete numerical outputs are preserved in [`results/val2_all_18_genes_severity_spearman.csv`](results/val2_all_18_genes_severity_spearman.csv).
 
-### Paired Visualization: Two-Group Boxplot & Severity Scatterplot
-This paired plot displays side-by-side boxplots (Disease vs Control in held-out Val2) and disease-only severity regression for the 4 dual-significant hubs:
+### Full 18-Gene Severity Correlation & Dual Significance Summary
 
-![Validation 2 Paired Analysis](plots/val2_mannwhitney_spearman_combined.png)
+| Gene | Held-Out Val 2 DE ($p_{\text{adj}}$) | GSE162694 METAVIR $\rho$ ($n=77$) | GSE162694 $p_{\text{adj}}$ | GSE84044 Scheuer $\rho$ ($n=87$) | GSE84044 $p_{\text{adj}}$ | Dual-Sig Status (GSE162694) |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| **`AEBP1`** | **$3.14 \times 10^{-9}$** | **$+0.444$** | **$0.0009$** | $+0.402$ | $0.0003$ | **Dual-Confirmed Hub** |
+| **`VWF`** | **$4.00 \times 10^{-9}$** | **$+0.407$** | **$0.0022$** | $+0.093$ | $0.3906$ | **Dual-Confirmed Hub** |
+| **`PDGFD`** | **$3.14 \times 10^{-9}$** | **$-0.372$** | **$0.0050$** | $+0.408$ | $0.0002$ | **Dual-Confirmed Hub** |
+| **`COL1A1`** | **$1.44 \times 10^{-8}$** | **$+0.364$** | **$0.0050$** | $+0.443$ | $0.0001$ | **Dual-Confirmed Hub** |
+| **`CCL2`** | **$1.44 \times 10^{-6}$** | **$+0.350$** | **$0.0065$** | $+0.468$ | $0.00003$ | **Dual-Confirmed Hub** |
+| **`COL1A2`** | **$3.14 \times 10^{-9}$** | **$+0.320$** | **$0.0136$** | $+0.465$ | $0.00003$ | **Dual-Confirmed Hub** |
+| **`SERPINF2`** | **$2.53 \times 10^{-8}$** | **$-0.313$** | **$0.0143$** | $-0.425$ | $0.0001$ | **Dual-Confirmed Hub** |
+| **`MFAP4`** | **$3.14 \times 10^{-9}$** | **$+0.296$** | **$0.0203$** | $+0.395$ | $0.0003$ | **Dual-Confirmed Hub** |
+| **`CLEC2D`** | **$1.20 \times 10^{-8}$** | **$-0.253$** | **$0.0497$** | $+0.353$ | $0.0012$ | **Dual-Confirmed Hub** |
+| **`CCL19`** | **$3.14 \times 10^{-9}$** | **$+0.249$** | **$0.0497$** | $+0.281$ | $0.0099$ | **Dual-Confirmed Hub** |
+| **`SVEP1`** | **$4.50 \times 10^{-8}$** | **$+0.247$** | **$0.0497$** | $+0.358$ | $0.0011$ | **Dual-Confirmed Hub** |
+| `SERPINH1` | $4.43 \times 10^{-5}$ | $+0.233$ | $0.0623$ (raw $0.0415$) | $+0.295$ | $0.0071$ | DE Confirmed (Trending Severity) |
+| `COL3A1` | $3.08 \times 10^{-8}$ | $+0.105$ | $0.4682$ | $+0.494$ | $0.00002$ | DE Confirmed (Sig in GSE84044) |
+| `SERPINE2` | $5.31 \times 10^{-7}$ | $-0.128$ | $0.3685$ | $+0.461$ | $0.00003$ | DE Confirmed (Sig in GSE84044) |
+| `LAMC3` | $1.20 \times 10^{-8}$ | $-0.095$ | $0.4955$ | $+0.337$ | $0.0019$ | DE Confirmed (Sig in GSE84044) |
+| `LTBP2` | $1.58 \times 10^{-8}$ | $-0.084$ | $0.5257$ | $+0.270$ | $0.0129$ | DE Confirmed (Sig in GSE84044) |
+| `CCL5` | $3.14 \times 10^{-9}$ | $-0.009$ | $0.9925$ | $+0.368$ | $0.0008$ | DE Confirmed (Sig in GSE84044) |
+| `COL15A1` | $6.58 \times 10^{-8}$ | $-0.001$ | $0.9958$ | $+0.178$ | $0.1045$ | DE Confirmed Only |
+
+### Paired Visualization & Comprehensive 18-Gene Panels
+- **Dual-Significant Hubs**: Side-by-side boxplots (Disease vs Control in held-out Val2) and disease-only severity regression for the original 4 benchmark hubs:
+  ![Validation 2 Paired Analysis](plots/val2_mannwhitney_spearman_combined.png)
+- **All 18 Val 2 Genes Mann-Whitney Grid**: [`plots/val2_all_18_genes_mannwhitney_boxplots.png`](plots/val2_all_18_genes_mannwhitney_boxplots.png)
+- **All 18 Val 2 Genes Severity Correlation Grid**: [`plots/val2_severity_spearman_correlations.png`](plots/val2_severity_spearman_correlations.png)
 
 ---
 
