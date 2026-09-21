@@ -155,21 +155,28 @@ To ensure candidate genes track disease progression rather than simply reflectin
 
 ---
 
-## 6b. Layer 4: Independent Severity/Dose-Response Replication (New, Previously Unused Cohorts)
+## 6b. Supplementary Severity & Dose-Response Analysis (External Independent Datasets)
+
+> [!IMPORTANT]
+> **SEPARATE SUPPLEMENTARY ANALYSIS USING EXTERNAL DATASETS**:
+> This clinical severity and dose-response analysis is a **separate, supplementary investigation using external datasets** (`GSE84044`, `GSE135251`, `GSE38958`, `GSE213001`, `GSE9285`). These datasets are completely **distinct and external** to the core locked 14+4+4 pipeline (14 Discovery, 4 Validation 1, and 4 Validation 2 cohorts defined in `discovery_config.py`). This analysis is **not part of the main Validation 2 binary differential expression result**, but serves as an independent clinical correlation exploration to evaluate whether prioritized biomarkers track continuous clinical disease stage and pulmonary functional decline (DLCO/FVC) across human cohorts.
+>
+> **Strict Cohort & Sample Isolation Verification**:
+> A cross-tier sample audit verified that **zero samples (0 GSM IDs)** from these external cohorts overlap with any sample in the locked Discovery ($N=1,069$), Validation 1 ($N=384$), or Validation 2 ($N=105$) datasets.
 
 ### Rationale
-Unlike Layer 3 (which reused `GSE162694` and `GSE58095`), this layer used 6 entirely new datasets never touched in Discovery, Validation 1, or Validation 2, specifically to test whether the 5 priority genes (`COL15A1`, `COL1A1`, `SERPINE2`, `SERPINF2`, `TNXB`) track real clinical disease STAGE, not just disease-vs-control status.
+While Validation 2 evaluated binary disease-versus-control replication across 4 held-out cohorts, this supplementary exploratory layer evaluates whether the 5 priority genes (`COL15A1`, `COL1A1`, `SERPINE2`, `SERPINF2`, `TNXB`) correlate with histological fibrosis stage and functional impairment in separate external clinical cohorts with deep clinical metadata.
 
-### Independent Replication Cohorts
+### External Supplementary Datasets
 
-| Organ | Accession | Platform | N | Severity Metric |
-|---|---|---|---|---|
-| Liver | GSE84044 | Microarray (Affymetrix HG-U133) | 124 | Scheuer Fibrosis Stage (S0-S4) + Necroinflammatory Grade (G0-G4) |
-| Liver | GSE135251 | RNA-seq (Illumina NextSeq) | 216 | Kleiner Fibrosis Stage (F0-F4) + NAS Score (0-8) |
-| Lung | GSE38958 | Microarray (Affymetrix Exon 1.0) | 60 | % Predicted FVC + % Predicted DLCO |
-| Lung | GSE213001 | RNA-seq (Illumina NovaSeq) | 91 | % Predicted FVC + % Predicted DLCO |
-| Skin | GSE9285 | Microarray (Agilent-012391) | 74 | Modified Rodnan Skin Score (mRSS 0-51) |
-| Kidney | — | — | 0 | Confirmed unavailable — no public GEO dataset with per-sample continuous eGFR or ordinal Banff/MEST-C staging exists |
+| Organ | Accession | Platform | N | Severity Metric | Status |
+|---|---|---|---|---|---|
+| Liver | GSE84044 | Microarray (Affymetrix HG-U133) | 124 | Scheuer Fibrosis Stage (S0-S4) + Necroinflammatory Grade (G0-G4) | External Supplementary |
+| Liver | GSE135251 | RNA-seq (Illumina NextSeq) | 216 | Kleiner Fibrosis Stage (F0-F4) + NAS Score (0-8) | External Supplementary |
+| Lung | GSE38958 | Microarray (Affymetrix Exon 1.0) | 60 | % Predicted FVC + % Predicted DLCO | External Supplementary |
+| Lung | GSE213001 | RNA-seq (Illumina NovaSeq) | 91 | % Predicted FVC + % Predicted DLCO | External Supplementary |
+| Skin | GSE9285 | Microarray (Agilent-012391) | 74 | Modified Rodnan Skin Score (mRSS 0-51) | External Supplementary |
+| Kidney | — | — | 0 | Confirmed unavailable — no public GEO dataset with per-sample continuous eGFR or ordinal Banff/MEST-C staging exists | — |
 
 ### Full Results Master Table (Layer 4)
 All empirical values pulled directly from `results/validation_4_severity_master_table.csv`, without re-deriving or summarizing:
@@ -363,7 +370,7 @@ To verify whether sequencing technology affected our conclusions, we stratified 
 | **Machine Learning Biomarkers** | Consensus ranking & mean AUC across 4 ML models (5-seed average on 1,069 samples) | [`plots/ml_4model_consensus_hub_biomarkers.png`](plots/ml_4model_consensus_hub_biomarkers.png) |
 | **Validation 2 Paired Analysis** | Mann-Whitney U test paired with Disease-Only severity correlation for 4 dual-significant hubs | [`plots/val2_mannwhitney_spearman_combined.png`](plots/val2_mannwhitney_spearman_combined.png) |
 | **Platform Stratification Heatmap** | Microarray vs RNA-seq logFC comparison across all 24 Clean Core ECM genes | [`plots/val2_platform_stratified_comparison.png`](plots/val2_platform_stratified_comparison.png) |
-| **Independent Severity Validation (Layer 4)** | Comprehensive $5 \times 3$ grid (15 panels) of clinical severity stage boxplots & correlation scatters across independent cohorts for all 5 priority genes (`COL15A1`, `COL1A1`, `SERPINE2`, `SERPINF2`, `TNXB`) | [`plots/severity_validation4_layer_boxplots.png`](plots/severity_validation4_layer_boxplots.png) |
+| **Supplementary External Severity Exploration** | Comprehensive $5 \times 3$ grid (15 panels) of clinical severity stage boxplots & correlation scatters across external cohorts (`GSE84044`, `GSE135251`, `GSE38958`, `GSE9285`) for 5 priority genes (`COL15A1`, `COL1A1`, `SERPINE2`, `SERPINF2`, `TNXB`) | [`plots/severity_validation4_layer_boxplots.png`](plots/severity_validation4_layer_boxplots.png) |
 | **All 18 Val 2 Genes Mann-Whitney Grid** | Comprehensive $6 \times 3$ grid of Mann-Whitney U Disease vs. Control boxplots for all 18 surviving ECM genes in held-out Liver Val 2 (`GSE14323`) | [`plots/val2_all_18_genes_mannwhitney_boxplots.png`](plots/val2_all_18_genes_mannwhitney_boxplots.png) |
 | **Clinical Severity Regressions** | Spearman clinical disease severity tracking regressions across clinical fibrosis stages | [`plots/val2_severity_spearman_correlations.png`](plots/val2_severity_spearman_correlations.png) |
 

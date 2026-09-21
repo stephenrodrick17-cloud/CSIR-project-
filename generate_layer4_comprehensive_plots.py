@@ -220,11 +220,11 @@ for i, gsm in enumerate(gsm_list):
 df_meta_38 = pd.DataFrame(parsed_meta_38).set_index('gsm')
 
 PROBES_38 = {
-    'COL15A1': '3720790',
-    'COL1A1': '3744654',
-    'SERPINE2': '2576974',
-    'SERPINF2': '3779836',
-    'TNXB': '2967160'
+    'COL15A1': '3181642',
+    'COL1A1': '3762198',
+    'SERPINE2': '2601414',
+    'SERPINF2': '3705947',
+    'TNXB': '2949622'
 }
 probe_to_gene_38 = {v: k for k, v in PROBES_38.items()}
 expr_38 = {g: {} for g in GENES}
