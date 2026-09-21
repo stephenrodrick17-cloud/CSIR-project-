@@ -31,5 +31,6 @@ This directory contains the final, publication-grade figures for the **CSIR Pan-
 | `clean_ecm_validation_survival_barchart.png` | Survival analysis of all 24 Clean Core ECM genes across Validation 1 (Internal) and Validation 2 (Held-out), grouped into Tier 1, Tier 2, and Not Supported. | `generate_clean_survival_barchart.py` |
 | `ml_4model_consensus_hub_biomarkers.png` | Machine learning ranking of all 24 Clean Core ECM genes by mean diagnostic ROC AUC (5-seed average) across LASSO, Random Forest, XGBoost, and SVM-RFE. | `generate_final_figures.py` |
 | `val2_platform_stratified_comparison.png` | Platform-stratified (Microarray: Kidney GSE30529, Liver GSE14323 vs. RNA-seq: Lung GSE83717, Skin GSE125362) logFC concordance heatmap across all 24 genes. | `results/val2_platform_stratified_table.csv` |
-| `val2_mannwhitney_spearman_combined.png` | Validation 2 dual-significant hub biomarkers (`AEBP1`, `COL1A1`, `COL1A2`, `VWF`): Mann-Whitney U disease vs. control boxplots + Spearman severity correlation regressions. | `validation_2/` held-out datasets |
+| `val2_mannwhitney_spearman_combined.png` | Validation 2 dual-significant hub biomarkers (`AEBP1`, `COL1A1`, `COL1A2`, `VWF`): Mann-Whitney U disease vs. control boxplots + Spearman severity correlation regressions. | Held-out Validation 2 clinical cohorts (`GSE14323`, `GSE162694`) |
 | `severity_validation4_layer_boxplots.png` | Clinical severity stage boxplots across independent cohorts for `COL15A1`, `COL1A1`, and `SERPINF2`. | Clinical staging data |
+
