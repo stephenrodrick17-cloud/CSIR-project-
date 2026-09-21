@@ -1,0 +1,29 @@
+stage_order,stage_name,pipeline_timing,organ,accession,platform_technology,sample_count_total,sample_count_control,sample_count_fibrosis,clinical_annotation_or_endpoint,usage_in_pipeline
+1,Discovery,Step 1: Discovery,Kidney,GSE104066,Affymetrix Human Gene 2.1 ST,73,0,73,Tubulointerstitial DKD vs control,Cross-organ DEG identification
+1,Discovery,Step 1: Discovery,Kidney,GSE66494,Affymetrix Human Gene 1.0 ST,61,8,53,DKD biopsy vs living donor control,Cross-organ DEG identification & ML training
+1,Discovery,Step 1: Discovery,Kidney,GSE104948,Affymetrix Human Genome U133 Plus 2.0,21,0,21,Glomerular DKD,Cross-organ DEG identification
+1,Discovery,Step 1: Discovery,Kidney,GSE104954,Affymetrix Human Genome U133A,28,0,28,Tubulointerstitial DKD,Cross-organ DEG identification
+1,Discovery,Step 1: Discovery,Liver,GSE77627,Affymetrix Human Gene 1.1 ST,58,0,58,NASH / Cirrhosis liver biopsy,Cross-organ DEG identification
+1,Discovery,Step 1: Discovery,Liver,GSE89377,Illumina HumanHT-12 V4.0,107,13,94,HCV / NAFLD liver fibrosis vs control,Cross-organ DEG identification & ML training
+1,Discovery,Step 1: Discovery,Liver,GSE164760,Agilent-014850 Whole Human Genome 4x44K,170,6,164,NASH cirrhosis vs normal liver,Cross-organ DEG identification & ML training
+1,Discovery,Step 1: Discovery,Lung,GSE10667,Affymetrix Human Genome U133 Plus 2.0,46,15,31,IPF lung biopsy vs normal lung,Cross-organ DEG identification & ML training
+1,Discovery,Step 1: Discovery,Lung,GSE110147,Illumina HiSeq 2000 (RNA-seq),48,11,37,IPF lung tissue vs healthy donor,Cross-organ DEG identification & ML training
+1,Discovery,Step 1: Discovery,Lung,GSE32537,Illumina HumanRef-8 v3.0,217,50,167,IPF / interstitial lung disease vs control,Cross-organ DEG identification & ML training
+1,Discovery,Step 1: Discovery,Lung,GSE53845,Agilent-014850 Whole Human Genome 4x44K,48,8,40,IPF fibrotic lung vs normal lung,Cross-organ DEG identification & ML training
+1,Discovery,Step 1: Discovery,Skin,GSE130955,Illumina HiSeq 2500 (RNA-seq),24,0,24,Systemic Sclerosis (SSc) skin biopsies,Cross-organ DEG identification
+1,Discovery,Step 1: Discovery,Skin,GSE95065,Affymetrix Human Genome U133A 2.0,33,15,18,SSc skin lesion vs healthy skin,Cross-organ DEG identification & ML training
+1,Discovery,Step 1: Discovery,Skin,GSE181549,Agilent-026652 Whole Human Genome 4x44K v2,339,44,295,SSc skin lesions vs healthy control,Cross-organ DEG identification & ML training
+2,Validation 1,Step 2: Internal Validation,Kidney,GSE200818,Affymetrix Human Gene 2.0 ST,64,8,56,DKD kidney biopsy vs control,1st independent replication (24/24 concordant)
+2,Validation 1,Step 2: Internal Validation,Liver,GSE162694,Illumina NovaSeq 6000 (RNA-seq),138,52,86,NAFLD fibrosis (METAVIR F1-F4) vs control,1st independent replication (24/24 concordant)
+2,Validation 1,Step 2: Internal Validation,Lung,GSE24206,Affymetrix Human Genome U133A,23,6,17,IPF lung biopsy vs control,1st independent replication (24/24 concordant)
+2,Validation 1,Step 2: Internal Validation,Skin,GSE58095,Illumina HumanHT-12 V4.0,159,36,123,SSc skin (mRSS annotated) vs control,1st independent replication (24/24 concordant)
+3,Validation 2 (Held-Out),Step 3: Before ML Validation,Kidney,GSE30529,Affymetrix Human Genome U133 Plus 2.0,22,12,10,DKD tubuli vs normal control,Completely held-out Mann-Whitney U test (18/24 survived)
+3,Validation 2 (Held-Out),Step 3: Before ML Validation,Liver,GSE14323,Affymetrix Human Genome U133A,60,19,41,HCV cirrhosis vs normal liver control,Completely held-out Mann-Whitney U test (18/24 survived)
+3,Validation 2 (Held-Out),Step 3: Before ML Validation,Lung,GSE83717,Illumina HiSeq 2500 (RNA-seq),11,5,6,IPF lung vs healthy control,Completely held-out Mann-Whitney U test (18/24 survived)
+3,Validation 2 (Held-Out),Step 3: Before ML Validation,Skin,GSE125362,Agilent-072363 SurePrint G3 Human Microarray,12,4,8,SSc skin biopsy vs normal control,Completely held-out Mann-Whitney U test (18/24 survived)
+4,Machine Learning,Step 4: ML Training & Evaluation,4 Organs (Kidney/Liver/Lung/Skin),Unified 9-Cohort Discovery Matrix,Cross-Platform ComBat Harmonized,1069,170,899,Fibrosis Case vs Non-Fibrotic Control,4 Models (RF/XGBoost/LASSO/SVM-RFE) x 5 Seeds
+5,Supplementary External Severity,Step 5: After ML External Severity Exploration,Liver,GSE84044,Affymetrix Human Genome U133 Plus 2.0,124,43,81,Scheuer Fibrosis Stage (S0-S4) & Necroinflammatory Grade (G0-G4),External severity dose-response validation
+5,Supplementary External Severity,Step 5: After ML External Severity Exploration,Liver,GSE135251,Illumina NextSeq 500 (RNA-seq),216,10,206,Kleiner Fibrosis Stage (F0-F4) & NAS Score (0-8),External severity dose-response validation
+5,Supplementary External Severity,Step 5: After ML External Severity Exploration,Lung,GSE38958,Affymetrix GeneChip Human Exon 1.0 ST,60,8,52,% Predicted DLCO & % Predicted FVC,External pulmonary functional impairment validation
+5,Supplementary External Severity,Step 5: After ML External Severity Exploration,Lung,GSE213001,Illumina NovaSeq 6000 (RNA-seq),91,10,81,% Predicted DLCO & % Predicted FVC,External pulmonary functional impairment validation
+5,Supplementary External Severity,Step 5: After ML External Severity Exploration,Skin,GSE9285,Agilent-012391 Whole Human Genome Microarray,74,4,70,Modified Rodnan Skin Score (mRSS 0-51),External dermal thickness dose-response validation

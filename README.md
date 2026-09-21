@@ -48,6 +48,68 @@ Every script in this repository enforces an automated guard (`discovery_config.v
 ### Study Architecture & Filtering Funnel
 ![Study Architecture & Filtering Funnel](plots/study_design_funnel_corrected.png)
 
+### Chronological Dataset Progression: Before ML, During ML, and After ML
+
+To provide an unambiguous roadmap for publication and graphical abstract design, the pipeline datasets and gene survival counts are organized chronologically as follows:
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                CHRONOLOGICAL PIPELINE & GENE ATTRITION PROGRESSION                              │
+└─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+ 1. DISCOVERY (Step 1 - Before ML):
+    • 14 Cohorts across 4 Organs (Kidney: 4, Liver: 3, Lung: 4, Skin: 3)
+    • 1,069 Human Biopsies (ComBat normalized matrix)
+    • Filtering: Moderated eBayes |log2FC| >= 0.585, FDR p < 0.05 across all 4 organs
+    • Gene Attrition: ~25,000 Genome-wide Transcripts ──► 86 Conserved Core DEGs ──► 24 Clean Core Matrisome Genes
+
+ 2. VALIDATION 1 (Step 2 - Before ML):
+    • 4 Independent Cohorts (Kidney: GSE200818, Liver: GSE162694, Lung: GSE24206, Skin: GSE58095; N = 384)
+    • Outcome: 24/24 Genes (100%) direction concordant; 12/24 statistically significant in >= 2/4 organs
+
+ 3. VALIDATION 2 HELD-OUT (Step 3 - Before ML):
+    • 4 Completely Held-Out Cohorts (Kidney: GSE30529, Liver: GSE14323, Lung: GSE83717, Skin: GSE125362; N = 105)
+    • Statistical Test: Two-sided Non-Parametric Mann-Whitney U Test
+    • Gene Attrition: 18 / 24 Genes Survived (Significant FDR p < 0.05 in >= 2/4 organs); 6 Failed (only 1/4 organ)
+      - Survived in 4/4 organs: COL15A1, AEBP1 (2 genes)
+      - Survived in 3/4 organs: SERPINE2, COL3A1, COL1A2, CCL2, SERPINH1, VWF, CCL19 (7 genes)
+      - Survived in 2/4 organs: COL1A1, SERPINF2, LTBP2, LAMC3, CLEC2D, PDGFD, CCL5, SVEP1, MFAP4 (9 genes)
+      - Failed (1/4 organ only): MDK, FGF14, SPARCL1, BMP1, CCL21, COLEC11 (6 genes)
+
+ 4. MACHINE LEARNING ENSEMBLE (Step 4 - During ML):
+    • Input Data: Strictly the 1,069 Pure Discovery Biopsies (Zero sample leakage from Val 1, Val 2, or External)
+    • Models: Random Forest, XGBoost, LASSO, SVM-RFE evaluated across 5 Random Seeds (42, 123, 456, 789, 2024)
+    • Metric: High Stability (selected in >= 4/5 seeds) and Diagnostic ROC AUC > 0.76
+
+ 5. POST-ML SYNTHESIS & EVIDENCE TIERS (Step 5 - After ML):
+    • Cross-Tier Integration of Held-Out Val 2 (>= 2/4 organs) AND High ML Stability (>= 4/5 seeds):
+      ★ Tier 1 Full-Spectrum Universal Biomarkers (N = 4):
+         1. COL15A1 (Val 2: 4/4 organs, ML Stability: 5/5 seeds, Mean AUC: 0.8430) - #1 Universal Matrix Marker
+         2. COL1A1  (Val 2: 2/4 organs, ML Stability: 5/5 seeds, Mean AUC: 0.7904) - Canonical Fibrillar Collagen
+         3. SERPINE2 (Val 2: 3/4 organs, ML Stability: 4/5 seeds, Mean AUC: 0.7864) - Upregulated Antiprotease Axis
+         4. SERPINF2 (Val 2: 2/4 organs, ML Stability: 5/5 seeds, Mean AUC: 0.7635) - Downregulated Antiprotease Axis
+      ★ Tier 2 Biological Validation-Only (N = 14):
+         Passed Val 2 (>= 2/4 organs), but ML stability < 4/5 seeds (AEBP1, COL3A1, COL1A2, VWF, CCL2, SERPINH1,
+         CCL19, LTBP2, CCL5, SVEP1, LAMC3, CLEC2D, PDGFD, MFAP4).
+      ★ Not Supported (N = 6): Failed multi-organ Val 2 (MDK, FGF14, COLEC11, SPARCL1, BMP1, CCL21).
+
+ 6. SUPPLEMENTARY EXTERNAL SEVERITY VALIDATION (Step 6 - After ML Exploration):
+    • 4 External Staged Cohorts (N = 474 Biopsies, completely external to the 14+4+4 locked pipeline):
+      - Liver Microarray: GSE84044 (N = 124, Scheuer S0-S4 fibrosis stage)
+      - Liver RNA-seq: GSE135251 (N = 216, Kleiner F0-F4 fibrosis stage)
+      - Lung Microarray: GSE38958 (N = 60, % Predicted DLCO & FVC)
+      - Skin Microarray: GSE9285 (N = 74, Modified Rodnan Skin Score, mRSS)
+    • Confirmed continuous histological and functional dose-response for priority Tier 1 hubs.
+
+> [!TIP]
+> **Graphical Abstract Assets in Codebase**:
+> All manifest tables, exact gene counts, and layout schematics are archived in the dedicated [`graphical_abstract/`](graphical_abstract/) folder:
+> - [`pipeline_stages_and_datasets.csv`](graphical_abstract/pipeline_stages_and_datasets.csv): Complete 27-dataset inventory with accessions, sample sizes, and platforms.
+> - [`gene_funnel_counts.csv`](graphical_abstract/gene_funnel_counts.csv): Step-by-step attrition counts and surviving gene lists.
+> - [`all_24_genes_full_trajectory.csv`](graphical_abstract/all_24_genes_full_trajectory.csv): Full 24-gene trajectory across Discovery, Val 1, Val 2 (Before ML), ML, and Final Tiers.
+> - [`GRAPHICAL_ABSTRACT_BLUEPRINT.md`](graphical_abstract/GRAPHICAL_ABSTRACT_BLUEPRINT.md): Structural blueprint and styling guidelines for BioRender / Illustrator.
+
+
 ---
 
 ## 3. Pure Discovery Patient Sample Matrix ($N=1,069$)
