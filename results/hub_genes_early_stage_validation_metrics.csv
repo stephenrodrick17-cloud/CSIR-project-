@@ -1,0 +1,9 @@
+Gene Symbol,Cohort,Sample Size,Early vs Control Log2FC,Mann-Whitney U,Mann-Whitney p-raw,Mann-Whitney p-adj,Early ROC AUC (95% CI),Ensemble Early AUC (5-Fold CV),Ensemble Sensitivity,Ensemble Specificity
+COL15A1,GSE84044 (Scheuer S0 vs S1/S2),"N=96 (Ctrl=43, Early=53)",+0.309,1458.0,1.91e-02,1.91e-02,0.640 (0.528–0.747),0.698 (0.592–0.793),77.4%,58.1%
+COL1A1,GSE84044 (Scheuer S0 vs S1/S2),"N=96 (Ctrl=43, Early=53)",+0.806,1734.0,1.21e-05,4.83e-05,0.761 (0.658–0.848),0.698 (0.592–0.793),77.4%,58.1%
+SERPINE2,GSE84044 (Scheuer S0 vs S1/S2),"N=96 (Ctrl=43, Early=53)",+0.439,1550.0,2.52e-03,5.04e-03,0.680 (0.568–0.782),0.698 (0.592–0.793),77.4%,58.1%
+SERPINF2,GSE84044 (Scheuer S0 vs S1/S2),"N=96 (Ctrl=43, Early=53)",-0.151,757.0,4.89e-03,6.51e-03,0.668 (0.557–0.768),0.698 (0.592–0.793),77.4%,58.1%
+COL15A1,GSE135251 (Kleiner F0 vs F1/F2),"N=148 (Ctrl=46, Early=102)",+0.211,2808.0,5.59e-02,7.45e-02,0.598 (0.497–0.688),0.680 (0.594–0.761),49.0%,87.0%
+COL1A1,GSE135251 (Kleiner F0 vs F1/F2),"N=148 (Ctrl=46, Early=102)",+0.690,3099.0,1.82e-03,7.29e-03,0.660 (0.575–0.742),0.680 (0.594–0.761),49.0%,87.0%
+SERPINE2,GSE135251 (Kleiner F0 vs F1/F2),"N=148 (Ctrl=46, Early=102)",+0.077,2645.0,2.16e-01,2.16e-01,0.564 (0.457–0.664),0.680 (0.594–0.761),49.0%,87.0%
+SERPINF2,GSE135251 (Kleiner F0 vs F1/F2),"N=148 (Ctrl=46, Early=102)",-0.141,1864.0,4.61e-02,7.45e-02,0.603 (0.503–0.696),0.680 (0.594–0.761),49.0%,87.0%

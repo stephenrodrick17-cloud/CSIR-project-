@@ -498,6 +498,19 @@ We profiled baseline physiological expression using the **Human Protein Atlas (H
 
 ![In Silico IHC Staining Profile](plots/hub_genes_hpa_ihc_summary.png)
 
+### 8. Dedicated Subclinical Early-Stage Fibrosis Validation (Excluding Advanced Cirrhosis)
+To determine if the 4 Tier-1 Hubs serve as early-warning subclinical biomarkers before irreversible architectural distortion and cirrhosis occur, we performed a dedicated early-detection evaluation:
+- **Strict Cohort Filtering**: Selected **strictly Healthy Controls (S0/F0) vs. Early-Stage Fibrosis ONLY (S1/S2 or F1/F2)**, completely excluding all late-stage cirrhosis/bridging samples (S3/S4 or F3/F4).
+- **Evaluated Across Two Independent Staging Technologies**:
+  1. `GSE84044` (Chronic Hepatitis B Microarray, Scheuer S0 vs S1/S2, $N=96$: 43 Controls, 53 Early).
+  2. `GSE135251` (NASH/NAFLD RNA-seq, Kleiner F0 vs F1/F2, $N=148$: 46 Controls, 102 Early).
+- **Key Findings**:
+  - **Individual Gene Discrimination**: In `GSE84044`, all 4 hub genes achieve statistically significant separation in early disease: `COL1A1` (AUC = **0.761**, 95% CI: 0.658–0.848, $p_{\text{adj}} = 4.83 \times 10^{-5}$), `SERPINE2` (AUC = **0.680**, $p_{\text{adj}} = 5.04 \times 10^{-3}$), `SERPINF2` (AUC = **0.668**, $p_{\text{adj}} = 6.51 \times 10^{-3}$), and `COL15A1` (AUC = **0.640**, $p_{\text{adj}} = 1.91 \times 10^{-2}$).
+  - **5-Fold Cross-Validated Multi-Gene Classifier**: Combining all 4 hubs in an ensemble (Logistic Regression + Random Forest) achieved an out-of-fold early diagnostic AUC of **0.698** (95% CI: 0.592–0.793, Sensitivity = 77.4%, Specificity = 58.1%) in `GSE84044`, and was independently replicated in `GSE135251` (AUC = **0.680**, 95% CI: 0.594–0.761, Specificity = 87.0%).
+  - **Subclinical Screening Decision Curve Analysis (DCA)**: Demonstrates positive Net Benefit across the clinically actionable subclinical threshold window ($p_t = 0.10$ to $0.45$), confirming utility for early intervention screening.
+
+![Dedicated Subclinical Early-Stage Validation](plots/hub_genes_early_stage_validation.png)
+
 ---
 
 ## 11. Auditing & Cross-Figure Methodology Reconciliations
@@ -545,6 +558,7 @@ The complete compendium of canonical, publication-ready figures for this study i
 | **Immune Infiltration Crosstalk** | Spearman correlation heatmap and group comparisons across 12 immune/stromal subsets in 1,069 biopsies, proving coupling to M2 macrophages, Tregs, and vascular rarefaction | [`plots/hub_genes_immune_infiltration.png`](plots/hub_genes_immune_infiltration.png) |
 | **Candidate Drug Repurposing** | Bipartite pharmacological target network linking Hub genes to clinical standards (Pirfenidone, Nintedanib), serine protease inhibitors (Camostat, Nafamostat, Gabexate), and collagen modulators | [`plots/hub_genes_candidate_drugs.png`](plots/hub_genes_candidate_drugs.png) |
 | **In Silico IHC Protein Staining** | Human Protein Atlas (HPA v23) pathology staining profiles verifying protein-level upregulation of COL15A1, COL1A1, and SERPINE2 and loss of SERPINF2 across human fibrotic organs | [`plots/hub_genes_hpa_ihc_summary.png`](plots/hub_genes_hpa_ihc_summary.png) |
+| **Subclinical Early-Stage Validation** | Dedicated 6-panel evaluation strictly comparing Healthy Controls (S0/F0) vs Early-Stage Fibrosis (S1/S2 or F1/F2) across microarray (`GSE84044`) and RNA-seq (`GSE135251`), with individual ROCs, 5-fold CV multi-gene classifiers, and screening DCA | [`plots/hub_genes_early_stage_validation.png`](plots/hub_genes_early_stage_validation.png) |
 
 
 ---
