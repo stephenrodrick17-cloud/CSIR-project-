@@ -123,12 +123,12 @@ df_records.to_csv("results/hub_genes_immune_correlations.csv", index=False)
 print("Saved: results/hub_genes_immune_correlations.csv")
 
 # 4. Generate Publication-Quality Figures
-fig = plt.figure(figsize=(22, 11.5), dpi=300)
+fig = plt.figure(figsize=(26, 13.5), dpi=300)
 fig.patch.set_facecolor("white")
-gs = fig.add_gridspec(3, 3, width_ratios=[1.35, 1.0, 1.0], wspace=0.34, hspace=0.52)
+gs = fig.add_gridspec(3, 4, width_ratios=[1.45, 1.0, 1.0, 1.0], wspace=0.36, hspace=0.54)
 
 # Panel A: Correlation Heatmap (10 Cell Markers x 9 Hub Genes)
-ax_heat = fig.add_subplot(gs[:, 0])
+ax_heat = fig.add_subplot(gs[:, 0])  # heatmap spans all 3 rows, column 0
 corr_float = corr_matrix.astype(float)
 sns.heatmap(
     corr_float, ax=ax_heat, cmap="RdBu_r", center=0, vmin=-0.6, vmax=0.8,
@@ -141,23 +141,34 @@ ax_heat.tick_params(labelsize=9.5)
 plt.setp(ax_heat.get_xticklabels(), rotation=45, ha="right", rotation_mode="anchor", fontweight="bold")
 plt.setp(ax_heat.get_yticklabels(), fontweight="bold")
 
-# Panel B: Key Scatter Correlations for representative Hubs
+# Panel B: Key Scatter Correlations — one per hub gene (all 9)
+# Grid columns 1-3 hold a 3x3 array of scatter subplots
 sub_axes = [
     fig.add_subplot(gs[0, 1]),
     fig.add_subplot(gs[0, 2]),
+    fig.add_subplot(gs[0, 3]),
     fig.add_subplot(gs[1, 1]),
     fig.add_subplot(gs[1, 2]),
+    fig.add_subplot(gs[1, 3]),
     fig.add_subplot(gs[2, 1]),
-    fig.add_subplot(gs[2, 2])
+    fig.add_subplot(gs[2, 2]),
+    fig.add_subplot(gs[2, 3])
 ]
 
+# For each hub gene: pick the cell-type marker with the strongest absolute rho
+# (pre-selected from the computed correlation matrix for biological interpretability)
 scatter_pairs = [
-    ("COL15A1", "M2 Macrophage (CD163)", "M2 Macrophage", "CD163", "#1e40af"),
-    ("COL1A1", "Activated Myofibroblast (ACTA2)", "Myofibroblast", "ACTA2", "#dc2626"),
-    ("COL3A1", "Activated Fibroblast (FAP)", "Fibroblast", "FAP", "#0284c7"),
-    ("SERPINE2", "Regulatory T Cell (Treg) (FOXP3)", "Treg Cell", "FOXP3", "#d97706"),
-    ("SERPINF2", "Endothelial Cell (PECAM1)", "Endothelial Cell", "PECAM1", "#059669"),
-    ("LTBP2", "Matrix Stroma (POSTN)", "Matrix Stroma", "POSTN", "#7c3aed")
+    # 5 unanimous hubs
+    ("COL15A1",  "M2 Macrophage (CD163)",              "M2 Macrophage",       "CD163",  "#1e40af"),
+    ("COL1A1",   "Activated Myofibroblast (ACTA2)",    "Myofibroblast",       "ACTA2",  "#dc2626"),
+    ("COL3A1",   "Activated Fibroblast (FAP)",          "Fibroblast",          "FAP",    "#0284c7"),
+    ("SERPINE2", "Regulatory T Cell (Treg) (FOXP3)",   "Treg Cell",           "FOXP3",  "#d97706"),
+    ("SERPINF2", "Endothelial Cell (PECAM1)",           "Endothelial Cell",    "PECAM1", "#059669"),
+    # 4 extended consensus hubs
+    ("LAMC3",    "Cytotoxic T Cell (CD8A)",             "Cytotoxic T Cell",    "CD8A",   "#be185d"),
+    ("LTBP2",    "Matrix Stroma (POSTN)",               "Matrix Stroma",       "POSTN",  "#7c3aed"),
+    ("MDK",      "M2 Macrophage (CD163)",               "M2 Macrophage",       "CD163",  "#0e7490"),
+    ("SVEP1",    "Endothelial Cell (PECAM1)",           "Endothelial Cell",    "PECAM1", "#92400e"),
 ]
 
 for s_ax, (hg, mc, cell_short, gene_sym, col) in zip(sub_axes, scatter_pairs):
@@ -182,6 +193,6 @@ plt.suptitle(
     fontsize=14.5, fontweight="bold", y=0.96, color="#0f172a"
 )
 
-plt.savefig("plots/hub_genes_immune_infiltration.png", dpi=300)
+plt.savefig("plots/hub_genes_immune_infiltration_9genes.png", dpi=300)
 plt.close()
-print("Saved: plots/hub_genes_immune_infiltration.png")
+print("Saved: plots/hub_genes_immune_infiltration_9genes.png")
