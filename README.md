@@ -13,9 +13,11 @@ This project established an end-to-end, multi-stage bioinformatics and machine l
 - **Lungs**: Idiopathic Pulmonary Fibrosis (IPF)
 - **Skin**: Systemic Sclerosis (SSc)
 
-By examining **1,069 human biopsy samples** across **14 Discovery cohorts**, followed by **independent validation rounds (Validation 1 and Validation 2)**, **multi-model ML & WGCNA consensus voting**, and **clinical severity tracking**, we identified:
-1. **The 9 Consensus Pan-Fibrotic Hub Genes**: `COL15A1`, `COL1A1`, `COL3A1`, `SERPINE2`, `SERPINF2`, `LAMC3`, `LTBP2`, `MDK`, `SVEP1`.
-2. **The 5 Cross-Platform Validated Hub Genes**: `COL15A1`, `COL1A1`, `COL3A1`, `SERPINE2`, `SERPINF2` (replicated across both Microarray and RNA-seq technologies).
+By examining **1,069 human biopsy samples** across **14 Discovery cohorts**, followed by **independent validation rounds (Validation 1 and Validation 2)**, **multi-model ML & WGCNA consensus voting**, and **cross-platform validation**, we identified:
+1. **The 9 Multi-Model Consensus Hub Genes**: `COL15A1`, `COL1A1`, `COL3A1`, `SERPINE2`, `SERPINF2`, `LAMC3`, `LTBP2`, `MDK`, `SVEP1` (receiving $\ge 3/5$ votes across LASSO, SVM-RFE, RF, XGBoost, and TOM-WGCNA).
+2. **The 5 Unanimous ML Consensus Hub Genes**: `COL15A1`, `COL1A1`, `COL3A1`, `SERPINE2`, `SERPINF2` (receiving unanimous 5/5 votes across all 5 architectures).
+3. **The 3 Strict Cross-Platform Validated Core Hub Genes**: `COL15A1`, `COL3A1`, `SERPINE2` (demonstrating concordant direction, independent significance $p < 0.05$, and AUC > 0.76 across both Microarray and RNA-seq technologies; `COL1A1` and `SERPINF2` are 100% direction-concordant across platforms but do not reach independent statistical significance in RNA-seq).
+
 
 ---
 
@@ -121,39 +123,37 @@ To identify core hub drivers, 5 complementary analytical methods were deployed a
 ### Consensus Vote Table
 Genes receiving **$\ge 3 / 5$ votes** were designated as **Consensus Hub Genes ($N=9$)**:
 
-| Gene Symbol | LASSO | SVM-RFE | Random Forest | XGBoost | TOM Co-expression (Python WGCNA)* | Total Votes | Classification |
+| Gene Symbol | LASSO | SVM-RFE | Random Forest | XGBoost | TOM Co-expression (Python WGCNA)* | Total Votes | Consensus Classification |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
-| **`COL15A1`** | **Yes** | **Yes** | **Yes** | **Yes** | **Yes** | **5 / 5** | **Consensus Hub (5-Gene & 9-Gene)** |
-| **`COL1A1`** | **Yes** | **Yes** | **Yes** | **Yes** | **Yes** | **5 / 5** | **Consensus Hub (5-Gene & 9-Gene)** |
-| **`COL3A1`** | **Yes** | **Yes** | **Yes** | **Yes** | **Yes** | **5 / 5** | **Consensus Hub (5-Gene & 9-Gene)** |
-| **`SERPINE2`** | **Yes** | **Yes** | **Yes** | **Yes** | **Yes** | **5 / 5** | **Consensus Hub (5-Gene & 9-Gene)** |
-| **`SERPINF2`** | **Yes** | **Yes** | **Yes** | **Yes** | **Yes** | **5 / 5** | **Consensus Hub (5-Gene & 9-Gene)** |
-| **`LAMC3`** | Yes | Yes | No | Yes | No | **3 / 5** | **Consensus Hub (9-Gene Suite)** |
-| **`LTBP2`** | Yes | Yes | No | No | Yes | **3 / 5** | **Consensus Hub (9-Gene Suite)** |
-| **`MDK`** | Yes | No | Yes | Yes | No | **3 / 5** | **Consensus Hub (9-Gene Suite)** |
-| **`SVEP1`** | No | Yes | No | Yes | Yes | **3 / 5** | **Consensus Hub (9-Gene Suite)** |
+| **`COL15A1`** | **Yes** | **Yes** | **Yes** | **Yes** | **Yes** | **5 / 5** | **Unanimous Consensus Hub (Strict Validated)** |
+| **`COL1A1`** | **Yes** | **Yes** | **Yes** | **Yes** | **Yes** | **5 / 5** | **Unanimous Consensus Hub (Direction-Concordant)** |
+| **`COL3A1`** | **Yes** | **Yes** | **Yes** | **Yes** | **Yes** | **5 / 5** | **Unanimous Consensus Hub (Strict Validated)** |
+| **`SERPINE2`** | **Yes** | **Yes** | **Yes** | **Yes** | **Yes** | **5 / 5** | **Unanimous Consensus Hub (Strict Validated)** |
+| **`SERPINF2`** | **Yes** | **Yes** | **Yes** | **Yes** | **Yes** | **5 / 5** | **Unanimous Consensus Hub (Direction-Concordant)** |
+| **`LAMC3`** | Yes | Yes | No | Yes | No | **3 / 5** | **Extended Candidate Hub (Discordant)** |
+| **`LTBP2`** | Yes | Yes | No | No | Yes | **3 / 5** | **Extended Candidate Hub (Discordant)** |
+| **`MDK`** | Yes | No | Yes | Yes | No | **3 / 5** | **Extended Candidate Hub (Non-Significant)** |
+| **`SVEP1`** | No | Yes | No | Yes | Yes | **3 / 5** | **Extended Candidate Hub (Discordant)** |
 
 *\*Method note: Implemented via pure Python pipeline using Pearson correlation matrix, soft-threshold power $\beta=6$, Topological Overlap Matrix (TOM) dissimilarity, and scipy hierarchical average linkage clustering (rather than R's dynamicTreeCut).*
 
 ### Cross-Platform Validation Breakdown (Microarray vs. RNA-seq)
 When evaluated across independent multi-center platforms (Microarray $N=689$ vs. RNA-seq $N=380$):
-- **Unanimous 5/5 Consensus Core**: `COL15A1`, `COL1A1`, `COL3A1`, `SERPINE2`, and `SERPINF2` were identified unanimously by all 5 feature selection architectures.
-  - `COL15A1`, `COL3A1`, and `SERPINE2` achieved statistically significant upregulation ($p < 0.05$) with high discrimination (AUC > 0.76) and 100% directional concordance across both platforms.
-  - `COL1A1` and `SERPINF2` exhibited 100% directional concordance across platforms (Microarray logFC +0.857 / -0.966; RNA-seq logFC +0.740 / -0.099; Microarray AUC 0.967 / 0.956, RNA-seq AUC 0.812 / 0.884), though their RNA-seq p-values were non-significant ($p = 0.216$ and $p = 0.788$).
-- **3/5 Consensus Hubs**: `LAMC3`, `LTBP2`, and `SVEP1` exhibited discordant effect directions between platforms (e.g., UP in microarray, DOWN in RNA-seq), while `MDK` failed RNA-seq significance ($p = 0.605$) and had marginal discrimination (AUC 0.692 / 0.584).
-
+- **Strict Cross-Platform Validated Core ($N=3$)**: Only **`COL15A1`**, **`COL3A1`**, and **`SERPINE2`** pass strict dual-platform validation (requiring direction concordance, independent $p < 0.05$, and AUC $> 0.76$ across both Microarray and RNA-seq).
+- **Direction-Concordant Unanimous Hubs ($N=2$)**: **`COL1A1`** and **`SERPINF2`** achieved unanimous 5/5 ML votes and exhibited 100% directional concordance across platforms (Microarray logFC $+0.857$ / $-0.966$; RNA-seq logFC $+0.740$ / $-0.099$; Microarray AUC $0.967$ / $0.956$, RNA-seq AUC $0.812$ / $0.884$), but their RNA-seq $p$-values were non-significant ($p = 0.216$ and $p = 0.788$) and thus strictly classified as FAIL under the dual-platform significance threshold in [`results/stage3_cross_platform_hub_validation.csv`](results/stage3_cross_platform_hub_validation.csv).
+- **Failed Candidate Hubs ($N=4$)**: `LAMC3`, `LTBP2`, and `SVEP1` exhibited opposite directions of effect between platforms (e.g., UP in microarray, DOWN in RNA-seq), while `MDK` failed RNA-seq significance ($p = 0.605$) with marginal discrimination (AUC $0.692$ / $0.584$).
 
 ---
 
-## 6. Stage 4 Downstream Publication Figures: Parallel Suites (5-Gene vs. 9-Gene)
+## 6. Stage 4 Downstream Publication Figures: Parallel Suites (5-Gene Unanimous vs. 9-Gene Multi-Model)
 
-All Stage 4 analyses were executed in parallel for both the **5-Gene Validated Hub Suite** and the **9-Gene Consensus Hub Suite** using 100% real human patient biopsies and live database queries.
+All Stage 4 analyses were executed in parallel for both the **5-Gene Unanimous Consensus Suite** (`COL15A1`, `COL1A1`, `COL3A1`, `SERPINE2`, `SERPINF2`) and the **9-Gene Multi-Model Consensus Suite** (adding `LAMC3`, `LTBP2`, `MDK`, `SVEP1`) using 100% real human patient biopsies and live database queries.
 
 ---
 
 ### Module 1: Protein-Protein Interaction (PPI) Networks
 
-#### A. 5-Gene Validated Hub Network
+#### A. 5-Gene Unanimous Consensus Hub Network
 Connected to 12 core interactors (`COL1A2, FN1, MMP1, MMP2, TIMP1, TGFB1, PLG, SERPINE1, CCN2, ITGB1, LOX, SMAD3`):
 - **Topology**: 17 nodes, 68 edges ($p < 10^{-16}$).
 - **Key Hubs**: `COL1A1` (Degree = 12), `COL3A1` (Degree = 11), `SERPINE2` (Degree = 8), `COL15A1` (Degree = 6), `SERPINF2` (Degree = 5).
@@ -279,16 +279,17 @@ The repository maintains exactly **13 unique, non-redundant, publication-grade f
 | **1** | [`venn_4organ_manual_ellipses.png`](plots/venn_4organ_manual_ellipses.png) | Stage 1: Discovery | 4-Organ DEGs | Conserved 86 pan-fibrotic core DEGs across Kidney (11,758), Liver (2,268), Lung (7,803), Skin (2,979). |
 | **2** | [`upset_plot_4organs_corrected.png`](plots/upset_plot_4organs_corrected.png) | Stage 1: Discovery | 4-Organ DEGs | Exact intersection cardinalities across all 15 subsets (4-organ core: $n=86$). |
 | **3** | [`venn_organ_vs_ecm_compendium.png`](plots/venn_organ_vs_ecm_compendium.png) | Stage 1: ECM Filter | Matrisome Master | 24 core ECM genes ($27.9\%$ of 86 DEGs) overlapping Human Matrisome ($N=1,027$). |
-| **4** | [`hub_genes_ppi_network_5genes.png`](plots/hub_genes_ppi_network_5genes.png) | Stage 4: Network | 5-Gene Validated | 17 nodes, 68 edges ($p < 10^{-16}$), connecting 5 hubs to core matrix interactome. |
+| **4** | [`hub_genes_ppi_network_5genes.png`](plots/hub_genes_ppi_network_5genes.png) | Stage 4: Network | 5-Gene Unanimous | 17 nodes, 68 edges ($p < 10^{-16}$), connecting 5 hubs to core matrix interactome. |
 | **5** | [`hub_genes_ppi_network_9genes.png`](plots/hub_genes_ppi_network_9genes.png) | Stage 4: Network | 9-Gene Consensus | Exactly 9 nodes, 3 direct edges ($\ge 0.700$, collagen triad); 6 isolated hubs displayed as-is. |
-| **6** | [`hub_genes_early_detection_triptych_5genes.png`](plots/hub_genes_early_detection_triptych_5genes.png) | Stage 4: Early Staging | 5-Gene Validated | Early ROC $\text{AUC} = 0.716$ (S0 vs S1/S2, $N=96$); continuous $\Delta Z$-score trajectory; DCA net benefit. |
+| **6** | [`hub_genes_early_detection_triptych_5genes.png`](plots/hub_genes_early_detection_triptych_5genes.png) | Stage 4: Early Staging | 5-Gene Unanimous | Early ROC $\text{AUC} = 0.716$ (S0 vs S1/S2, $N=96$); continuous $\Delta Z$-score trajectory; DCA net benefit. |
 | **7** | [`hub_genes_early_detection_triptych_9genes.png`](plots/hub_genes_early_detection_triptych_9genes.png) | Stage 4: Early Staging | 9-Gene Consensus | Early ROC $\text{AUC} = 0.719$ (S0 vs S1/S2, $N=96$); $\Delta Z$-score trajectory; DCA net benefit. |
-| **8** | [`hub_genes_nomogram_and_dca_5genes.png`](plots/hub_genes_nomogram_and_dca_5genes.png) | Stage 4: Nomogram | 5-Gene Validated | Diagnostic $\text{AUC} = 0.9002$, Brier score $0.0797$, 5 point rulers across $N=1,069$ biopsies. |
+| **8** | [`hub_genes_nomogram_and_dca_5genes.png`](plots/hub_genes_nomogram_and_dca_5genes.png) | Stage 4: Nomogram | 5-Gene Unanimous | Diagnostic $\text{AUC} = 0.9002$, Brier score $0.0797$, 5 point rulers across $N=1,069$ biopsies. |
 | **9** | [`hub_genes_nomogram_and_dca_9genes.png`](plots/hub_genes_nomogram_and_dca_9genes.png) | Stage 4: Nomogram | 9-Gene Consensus | Diagnostic $\text{AUC} = 0.9238$, Brier score $0.0705$, 9 point rulers across $N=1,069$ biopsies. |
-| **10** | [`hub_genes_immune_infiltration_5genes.png`](plots/hub_genes_immune_infiltration_5genes.png) | Stage 4: Immune Deconv | 5-Gene Validated | $10 \times 5$ Spearman correlation heatmap + 6 scatter regressions on $N=124$ liver biopsies (`GSE84044`). |
+| **10** | [`hub_genes_immune_infiltration_5genes.png`](plots/hub_genes_immune_infiltration_5genes.png) | Stage 4: Immune Deconv | 5-Gene Unanimous | $10 \times 5$ Spearman correlation heatmap + 6 scatter regressions on $N=124$ liver biopsies (`GSE84044`). |
 | **11** | [`hub_genes_immune_infiltration_9genes.png`](plots/hub_genes_immune_infiltration_9genes.png) | Stage 4: Immune Deconv | 9-Gene Consensus | $10 \times 9$ Spearman correlation heatmap + 6 scatter regressions on $N=124$ liver biopsies (`GSE84044`). |
-| **12** | [`hub_genes_hpa_ihc_summary_5genes.png`](plots/hub_genes_hpa_ihc_summary_5genes.png) | Stage 4: IHC Validation | 5-Gene Validated | HPA v23 pathology staining levels across Kidney, Liver, Lung, Skin for 5 validated hubs. |
+| **12** | [`hub_genes_hpa_ihc_summary_5genes.png`](plots/hub_genes_hpa_ihc_summary_5genes.png) | Stage 4: IHC Validation | 5-Gene Unanimous | HPA v23 pathology staining levels across Kidney, Liver, Lung, Skin for 5 unanimous hubs. |
 | **13** | [`hub_genes_hpa_ihc_summary_9genes.png`](plots/hub_genes_hpa_ihc_summary_9genes.png) | Stage 4: IHC Validation | 9-Gene Consensus | HPA v23 pathology staining levels across all 4 organs for all 9 consensus hubs. |
+
 
 ---
 
