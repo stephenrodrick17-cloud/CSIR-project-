@@ -49,22 +49,40 @@ Every script in this repository enforces an automated validation check (`discove
 
 ---
 
-## 3. Pure Discovery Patient Sample Matrix ($N=1,069$)
+## 3. Discovery Cohorts vs. Pure Discovery Sample Matrix ($N=1,069$)
 
-To train diagnostic classifiers and identify consensus hubs without data leakage, we assembled **1,069 genuine human patient biopsy samples** across the 4 organs. All samples were batch-corrected using **ComBat empirical Bayes**:
+### Methodological Distinction: Stage 1 DEGs ($N=14$ Cohorts) vs. Stage 3 Supervised Matrix ($N=9$ Cohorts)
+- **Stage 1 Differential Expression Analysis ($N=14$ Cohorts)**: All 14 discovery cohorts across Kidney (4), Liver (3), Lung (4), and Skin (3) contributed mapped transcriptomic data to generate per-organ differential expression statistics using moderated eBayes $t$-tests (`preprocess_build_deg_csvs.py`). All 14 cohorts provided valid mapped genes (Kidney: 61,999 records; Liver: 42,115 records; Lung: 68,557 records; Skin: 51,943 records).
+- **Stage 3 Supervised Machine Learning & ComBat Harmonization Matrix ($N=9$ Cohorts, $N=1,069$ Samples)**: For sample-level multi-cohort harmonization, ComBat empirical Bayes batch correction requires both cases and controls within each batch when retaining the biological condition covariate (`condition = case/control`). Including batches with zero controls creates strict linear collinearity with the design matrix (rank deficiency).
 
-| Dataset Accession | Organ | Total Samples | Controls | Fibrosis Cases | Platform Type |
-| :--- | :--- | :---: | :---: | :---: | :--- |
-| **GSE66494** | Kidney | 61 | 8 | 53 | Affymetrix Human Gene 1.0 ST |
-| **GSE89377** | Liver | 107 | 13 | 94 | Illumina HumanHT-12 V4.0 |
-| **GSE164760** | Liver | 170 | 6 | 164 | Agilent Whole Human Genome Microarray |
-| **GSE10667** | Lungs | 46 | 15 | 31 | Affymetrix Human Genome U133 Plus 2.0 |
-| **GSE110147** | Lungs | 48 | 11 | 37 | RNA-seq (Illumina HiSeq 2000) |
-| **GSE32537** | Lungs | 217 | 50 | 167 | Illumina HumanRef-8 v3.0 |
-| **GSE53845** | Lungs | 48 | 8 | 40 | Agilent Whole Human Genome |
-| **GSE95065** | Skin | 33 | 15 | 18 | Affymetrix Human Genome U133A 2.0 |
-| **GSE181549** | Skin | 339 | 44 | 295 | Agilent Whole Human Genome 4x44K V2 |
-| **TOTAL** | **4 Organs** | **1,069** | **170** | **899** | **100% Pure Human Discovery Biopsies** |
+#### Quality Control & Sample Matrix Composition:
+Of the 14 discovery cohorts, 5 studies were single-arm / disease-only cohorts without paired healthy control biopsies:
+- `GSE104066` (Kidney DKD, $n=73$, $0$ controls)
+- `GSE104948` (Kidney Glomerular DKD, $n=21$, $0$ controls)
+- `GSE104954` (Kidney Tubulointerstitial DKD, $n=28$, $0$ controls)
+- `GSE77627` (Liver NASH / Cirrhosis, $n=58$, $0$ controls)
+- `GSE130955` (Skin SSc Biopsies, $n=24$, $0$ controls)
+
+These 5 cohorts were utilized strictly in Stage 1 contrast summary statistics, and excluded from the supervised case/control matrix to prevent singular batch distortion. The remaining **9 cohorts with verified case and control arms** assemble the **1,069 pure human biopsy discovery matrix**:
+
+| Dataset Accession | Organ | Total Samples | Controls | Fibrosis Cases | Platform Type | Included in ComBat $N=1,069$? |
+| :--- | :--- | :---: | :---: | :---: | :--- | :---: |
+| **GSE66494** | Kidney | 61 | 8 | 53 | Affymetrix Human Gene 1.0 ST | **Yes** |
+| **GSE89377** | Liver | 107 | 13 | 94 | Illumina HumanHT-12 V4.0 | **Yes** |
+| **GSE164760** | Liver | 170 | 6 | 164 | Agilent Whole Human Genome Microarray | **Yes** |
+| **GSE10667** | Lungs | 46 | 15 | 31 | Affymetrix Human Genome U133 Plus 2.0 | **Yes** |
+| **GSE110147** | Lungs | 48 | 11 | 37 | RNA-seq (Illumina HiSeq 2000) | **Yes** |
+| **GSE32537** | Lungs | 217 | 50 | 167 | Illumina HumanRef-8 v3.0 | **Yes** |
+| **GSE53845** | Lungs | 48 | 8 | 40 | Agilent Whole Human Genome | **Yes** |
+| **GSE95065** | Skin | 33 | 15 | 18 | Affymetrix Human Genome U133A 2.0 | **Yes** |
+| **GSE181549** | Skin | 339 | 44 | 295 | Agilent Whole Human Genome 4x44K V2 | **Yes** |
+| *GSE104066* | Kidney | 73 | 0 | 73 | Affymetrix Human Gene 2.1 ST | *No (0 controls)* |
+| *GSE104948* | Kidney | 21 | 0 | 21 | Affymetrix HG-U133 Plus 2.0 | *No (0 controls)* |
+| *GSE104954* | Kidney | 28 | 0 | 28 | Affymetrix HG-U133A | *No (0 controls)* |
+| *GSE77627* | Liver | 58 | 0 | 58 | Affymetrix Human Gene 1.1 ST | *No (0 controls)* |
+| *GSE130955* | Skin | 24 | 0 | 24 | RNA-seq (Illumina HiSeq 2500) | *No (0 controls)* |
+| **DISCOVERY MATRIX TOTAL** | **4 Organs** | **1,069** | **170** | **899** | **100% Pure Human Discovery Biopsies** | **9 Cohorts** |
+
 
 ---
 
@@ -98,12 +116,12 @@ To identify core hub drivers, 5 complementary analytical methods were deployed a
 2. **SVM-RFE** (Support Vector Machine with Recursive Feature Elimination)
 3. **Random Forest** (Gini impurity & permutation importance)
 4. **XGBoost** (Extreme Gradient Boosting feature gain)
-5. **WGCNA** (Pro-fibrotic module membership & intramodular connectivity)
+5. **TOM Co-expression Clustering (Python WGCNA)** (Pro-fibrotic module membership & intramodular connectivity via scipy average-linkage hierarchical clustering on Topological Overlap Matrix dissimilarity)
 
 ### Consensus Vote Table
 Genes receiving **$\ge 3 / 5$ votes** were designated as **Consensus Hub Genes ($N=9$)**:
 
-| Gene Symbol | LASSO | SVM-RFE | Random Forest | XGBoost | WGCNA Pro-Fibrotic | Total Votes | Classification |
+| Gene Symbol | LASSO | SVM-RFE | Random Forest | XGBoost | TOM Co-expression (Python WGCNA)* | Total Votes | Classification |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
 | **`COL15A1`** | **Yes** | **Yes** | **Yes** | **Yes** | **Yes** | **5 / 5** | **Consensus Hub (5-Gene & 9-Gene)** |
 | **`COL1A1`** | **Yes** | **Yes** | **Yes** | **Yes** | **Yes** | **5 / 5** | **Consensus Hub (5-Gene & 9-Gene)** |
@@ -115,9 +133,15 @@ Genes receiving **$\ge 3 / 5$ votes** were designated as **Consensus Hub Genes (
 | **`MDK`** | Yes | No | Yes | Yes | No | **3 / 5** | **Consensus Hub (9-Gene Suite)** |
 | **`SVEP1`** | No | Yes | No | Yes | Yes | **3 / 5** | **Consensus Hub (9-Gene Suite)** |
 
-### Cross-Platform Validation (Microarray vs. RNA-seq)
-When evaluated across independent multi-center platforms, **5 hub genes** demonstrated robust cross-platform statistical significance and effect concordance:
-- **`COL15A1`**, **`COL1A1`**, **`COL3A1`**, **`SERPINE2`**, **`SERPINF2`**.
+*\*Method note: Implemented via pure Python pipeline using Pearson correlation matrix, soft-threshold power $\beta=6$, Topological Overlap Matrix (TOM) dissimilarity, and scipy hierarchical average linkage clustering (rather than R's dynamicTreeCut).*
+
+### Cross-Platform Validation Breakdown (Microarray vs. RNA-seq)
+When evaluated across independent multi-center platforms (Microarray $N=689$ vs. RNA-seq $N=380$):
+- **Unanimous 5/5 Consensus Core**: `COL15A1`, `COL1A1`, `COL3A1`, `SERPINE2`, and `SERPINF2` were identified unanimously by all 5 feature selection architectures.
+  - `COL15A1`, `COL3A1`, and `SERPINE2` achieved statistically significant upregulation ($p < 0.05$) with high discrimination (AUC > 0.76) and 100% directional concordance across both platforms.
+  - `COL1A1` and `SERPINF2` exhibited 100% directional concordance across platforms (Microarray logFC +0.857 / -0.966; RNA-seq logFC +0.740 / -0.099; Microarray AUC 0.967 / 0.956, RNA-seq AUC 0.812 / 0.884), though their RNA-seq p-values were non-significant ($p = 0.216$ and $p = 0.788$).
+- **3/5 Consensus Hubs**: `LAMC3`, `LTBP2`, and `SVEP1` exhibited discordant effect directions between platforms (e.g., UP in microarray, DOWN in RNA-seq), while `MDK` failed RNA-seq significance ($p = 0.605$) and had marginal discrimination (AUC 0.692 / 0.584).
+
 
 ---
 
@@ -178,6 +202,10 @@ Evaluated in genuine human liver biopsies (`GSE84044`) strictly comparing **Heal
 
 Fitted across the **1,069 pure human biopsy discovery matrix** using multivariable logistic regression with 1,000-bootstrap internal calibration.
 
+> [!WARNING]
+> **Methodological Caveat on In-Sample Evaluation & Overfitting Risk**:
+> Both the 5-gene ($\text{AUC} = 0.9002$) and 9-gene ($\text{AUC} = 0.9238$) nomograms were evaluated **in-sample** on the exact same $N=1,069$ discovery set without a held-out test split. In unregularized logistic regression, adding 4 additional parameters mathematically guarantees equal or higher in-sample AUC due to increased degrees of freedom. The $+0.0236$ apparent AUC gain in the 9-gene model is driven predominantly by `MDK` ($\beta = +0.466$) and `SVEP1` ($\beta = +0.369$)—two genes that failed Stage 3 cross-platform validation and are completely isolated in the direct PPI interactome. This in-sample increment **must not be interpreted as evidence of superior true discrimination**, and the 5-gene model represents the more robust, parsimonious diagnostic panel.
+
 #### A. 5-Gene Diagnostic Nomogram & DCA
 - **Performance**: Diagnostic **$\text{AUC} = 0.9002$** [95% CI: 0.8747–0.9246], **$\text{Brier Score} = 0.0797$**.
 - **Model Equation**:
@@ -189,6 +217,7 @@ Fitted across the **1,069 pure human biopsy discovery matrix** using multivariab
 - **Performance**: Diagnostic **$\text{AUC} = 0.9238$** [95% CI: 0.9023–0.9438], **$\text{Brier Score} = 0.0705$**.
 - **Model Equation**:
   $$\text{Logit}(P) = -11.996 + 1.583(\text{COL15A1}) + 0.463(\text{COL1A1}) + 0.096(\text{COL3A1}) + 0.247(\text{SERPINE2}) - 0.342(\text{SERPINF2}) - 0.407(\text{LAMC3}) + 0.203(\text{LTBP2}) + 0.466(\text{MDK}) + 0.369(\text{SVEP1})$$
+
 
 ![9-Gene Nomogram and DCA](plots/hub_genes_nomogram_and_dca_9genes.png)
 
@@ -213,7 +242,19 @@ Evaluated across **124 genuine clinical human liver biopsies (`GSE84044`)** acro
 
 ### Module 5: In Silico Human Protein Atlas (HPA v23) IHC Validation
 
-Protein-level confirmation using validated monospecific antibodies across human Kidney, Liver, Lung, and Skin tissue specimens.
+Protein-level confirmation using validated monospecific antibodies across human Kidney, Liver, Lung, and Skin tissue specimens. All Ensembl accessions and antibody profiles are verified against live HPA endpoints:
+
+| Gene Symbol | Ensembl Accession | Validated HPA Antibody | Resolvable HPA Portal URL |
+| :--- | :--- | :--- | :--- |
+| **`COL15A1`** | `ENSG00000204291` | `HPA017913` / `HPA017915` | [proteinatlas.org/ENSG00000204291-COL15A1](https://www.proteinatlas.org/ENSG00000204291-COL15A1) |
+| **`COL1A1`** | `ENSG00000108821` | `HPA011795` / `HPA012111` | [proteinatlas.org/ENSG00000108821-COL1A1](https://www.proteinatlas.org/ENSG00000108821-COL1A1) |
+| **`COL3A1`** | `ENSG00000168542` | `HPA007583` / `CAB016766` | [proteinatlas.org/ENSG00000168542-COL3A1](https://www.proteinatlas.org/ENSG00000168542-COL3A1) |
+| **`SERPINE2`** | `ENSG00000135919` | `HPA000277` | [proteinatlas.org/ENSG00000135919-SERPINE2](https://www.proteinatlas.org/ENSG00000135919-SERPINE2) |
+| **`SERPINF2`** | `ENSG00000167711` | `HPA001885` / `HPA005943` | [proteinatlas.org/ENSG00000167711-SERPINF2](https://www.proteinatlas.org/ENSG00000167711-SERPINF2) |
+| **`LAMC3`** | `ENSG00000050555` | `HPA022814` | [proteinatlas.org/ENSG00000050555-LAMC3](https://www.proteinatlas.org/ENSG00000050555-LAMC3) |
+| **`LTBP2`** | `ENSG00000119681` | `HPA003415` | [proteinatlas.org/ENSG00000119681-LTBP2](https://www.proteinatlas.org/ENSG00000119681-LTBP2) |
+| **`MDK`** | `ENSG00000110492` | `CAB010055` / `HPA057126` | [proteinatlas.org/ENSG00000110492-MDK](https://www.proteinatlas.org/ENSG00000110492-MDK) |
+| **`SVEP1`** | `ENSG00000165124` | `HPA020610` / `HPA021520` | [proteinatlas.org/ENSG00000165124-SVEP1](https://www.proteinatlas.org/ENSG00000165124-SVEP1) |
 
 #### A. 5-Gene HPA IHC Staining Profile
 - Pro-fibrotic hubs (`COL15A1`, `COL1A1`, `COL3A1`, `SERPINE2`) show marked upregulation to Strong intensity (Level 3) in fibrotic parenchyma.
@@ -225,6 +266,7 @@ Protein-level confirmation using validated monospecific antibodies across human 
 - Comprehensive in silico pathology staining confirms conserved protein upregulation across all 9 consensus hub proteins (`COL15A1, COL1A1, COL3A1, SERPINE2, SERPINF2, LAMC3, LTBP2, MDK, SVEP1`).
 
 ![9-Gene HPA IHC Summary](plots/hub_genes_hpa_ihc_summary_9genes.png)
+
 
 ---
 

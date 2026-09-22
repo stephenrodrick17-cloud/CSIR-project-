@@ -33,7 +33,7 @@ ihc_data = [
     {
         "gene": "COL15A1",
         "protein_name": "Collagen alpha-1(XV) chain",
-        "antibody_id": "HPA017912",
+        "antibody_id": "HPA017913",
         "subcellular_location": "Basement membrane & extracellular matrix",
         "kidney_normal": "Low (capillary wall)",
         "kidney_fibrosis": "High (tubular basement membrane & interstitial scar)",
@@ -61,7 +61,7 @@ ihc_data = [
     {
         "gene": "COL3A1",
         "protein_name": "Collagen alpha-1(III) chain",
-        "antibody_id": "HPA028267",
+        "antibody_id": "HPA007583",
         "subcellular_location": "Extracellular matrix fibrils & interstitial stroma",
         "kidney_normal": "Low (interstitial spaces)",
         "kidney_fibrosis": "High (broad expanses of interstitial fibrosis)",
@@ -75,7 +75,7 @@ ihc_data = [
     {
         "gene": "SERPINE2",
         "protein_name": "Glia-derived nexin / Protease nexin-1",
-        "antibody_id": "HPA027376",
+        "antibody_id": "HPA000277",
         "subcellular_location": "Secreted & pericellular stroma",
         "kidney_normal": "Not detected / Low",
         "kidney_fibrosis": "High (myofibroblasts & inflammatory infiltrate)",
@@ -89,7 +89,7 @@ ihc_data = [
     {
         "gene": "SERPINF2",
         "protein_name": "Alpha-2-antiplasmin",
-        "antibody_id": "HPA001850",
+        "antibody_id": "HPA001885",
         "subcellular_location": "Extracellular space & cytoplasm",
         "kidney_normal": "Low",
         "kidney_fibrosis": "Not detected / Decreased",
@@ -103,7 +103,7 @@ ihc_data = [
     {
         "gene": "LAMC3",
         "protein_name": "Laminin subunit gamma-3",
-        "antibody_id": "HPA051756",
+        "antibody_id": "HPA022814",
         "subcellular_location": "Basement membrane & extracellular matrix",
         "kidney_normal": "Low (glomerular & tubular basement membrane)",
         "kidney_fibrosis": "High (thickened tubular basement membranes)",
@@ -117,7 +117,7 @@ ihc_data = [
     {
         "gene": "LTBP2",
         "protein_name": "Latent-transforming growth factor beta-binding protein 2",
-        "antibody_id": "HPA056586",
+        "antibody_id": "HPA003415",
         "subcellular_location": "Extracellular matrix fibrils & elastic fibers",
         "kidney_normal": "Low (perivascular interstitium)",
         "kidney_fibrosis": "High (interstitial collagenous and elastic scarring)",
@@ -131,7 +131,7 @@ ihc_data = [
     {
         "gene": "MDK",
         "protein_name": "Midkine (neurite outgrowth-promoting factor 2)",
-        "antibody_id": "CAB025983",
+        "antibody_id": "CAB010055",
         "subcellular_location": "Extracellular space & pericellular matrix",
         "kidney_normal": "Low (tubular epithelium)",
         "kidney_fibrosis": "High (tubulointerstitial inflammatory stroma)",
@@ -145,7 +145,7 @@ ihc_data = [
     {
         "gene": "SVEP1",
         "protein_name": "Sushi, von Willebrand factor type A, EGF and pentraxin domain 1",
-        "antibody_id": "HPA060410",
+        "antibody_id": "HPA020610",
         "subcellular_location": "Cell surface & extracellular matrix",
         "kidney_normal": "Low (interstitial capillary network)",
         "kidney_fibrosis": "High (interstitial collagenous bands)",
@@ -159,8 +159,9 @@ ihc_data = [
 ]
 
 df_ihc = pd.DataFrame(ihc_data)
-df_ihc.to_csv("results/hub_genes_hpa_ihc_validation.csv", index=False)
-print("Saved: results/hub_genes_hpa_ihc_validation.csv")
+df_ihc.to_csv("results/hub_genes_hpa_ihc_validation_9genes.csv", index=False)
+print("Saved: results/hub_genes_hpa_ihc_validation_9genes.csv")
+
 
 # 2. Build Staining Intensity Matrix for Visualization
 # Mapping: 0 = Not detected, 1 = Low, 2 = Medium, 3 = High
@@ -226,7 +227,8 @@ plt.suptitle(
 )
 
 plt.subplots_adjust(top=0.88, bottom=0.08, left=0.18, right=0.94)
-out_png = "plots/hub_genes_hpa_ihc_summary.png"
+out_png = "plots/hub_genes_hpa_ihc_summary_9genes.png"
 plt.savefig(out_png, dpi=300)
 plt.close()
 print(f"Saved IHC Validation figure: {out_png}")
+

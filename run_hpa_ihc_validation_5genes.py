@@ -33,7 +33,7 @@ ihc_data = [
     {
         "gene": "COL15A1",
         "protein_name": "Collagen alpha-1(XV) chain",
-        "antibody_id": "HPA017912",
+        "antibody_id": "HPA017913",
         "subcellular_location": "Basement membrane & extracellular matrix",
         "kidney_normal": "Low (capillary wall)",
         "kidney_fibrosis": "High (tubular basement membrane & interstitial scar)",
@@ -61,7 +61,7 @@ ihc_data = [
     {
         "gene": "COL3A1",
         "protein_name": "Collagen alpha-1(III) chain",
-        "antibody_id": "HPA028267",
+        "antibody_id": "HPA007583",
         "subcellular_location": "Extracellular matrix fibrils & interstitial stroma",
         "kidney_normal": "Low (interstitial spaces)",
         "kidney_fibrosis": "High (broad expanses of interstitial fibrosis)",
@@ -75,7 +75,7 @@ ihc_data = [
     {
         "gene": "SERPINE2",
         "protein_name": "Glia-derived nexin / Protease nexin-1",
-        "antibody_id": "HPA027376",
+        "antibody_id": "HPA000277",
         "subcellular_location": "Secreted & pericellular stroma",
         "kidney_normal": "Not detected / Low",
         "kidney_fibrosis": "High (myofibroblasts & inflammatory infiltrate)",
@@ -89,7 +89,7 @@ ihc_data = [
     {
         "gene": "SERPINF2",
         "protein_name": "Alpha-2-antiplasmin",
-        "antibody_id": "HPA001850",
+        "antibody_id": "HPA001885",
         "subcellular_location": "Extracellular space & cytoplasm",
         "kidney_normal": "Low",
         "kidney_fibrosis": "Not detected / Decreased",
@@ -98,7 +98,7 @@ ihc_data = [
         "lung_normal": "Low",
         "lung_fibrosis": "Not detected",
         "skin_normal": "Low",
-        "skin_fibrosis": "Not detected / Low"
+        "skin_fibrosis": "Not detected"
     }
 ]
 
