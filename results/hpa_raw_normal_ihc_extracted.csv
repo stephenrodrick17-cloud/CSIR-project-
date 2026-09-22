@@ -1,0 +1,111 @@
+Gene,Gene name,Tissue,IHC tissue name,Cell type,Level,Reliability,tissue_lower
+ENSG00000050555,LAMC3,Kidney,Kidney,cells in glomeruli,Not detected,Enhanced,kidney
+ENSG00000050555,LAMC3,Kidney,Kidney,cells in tubules,Not detected,Enhanced,kidney
+ENSG00000050555,LAMC3,Liver,Liver,cholangiocytes,Not detected,Enhanced,liver
+ENSG00000050555,LAMC3,Liver,Liver,hepatocytes,Not detected,Enhanced,liver
+ENSG00000050555,LAMC3,Lung,Lung,alveolar cells,Not detected,Enhanced,lung
+ENSG00000050555,LAMC3,Lung,Lung,macrophages,Low,Enhanced,lung
+ENSG00000050555,LAMC3,Skin,Skin 1,fibroblasts,Not detected,Enhanced,skin
+ENSG00000050555,LAMC3,Skin,Skin 1,keratinocytes,Not detected,Enhanced,skin
+ENSG00000050555,LAMC3,Skin,Skin 1,Langerhans,Not detected,Enhanced,skin
+ENSG00000050555,LAMC3,Skin,Skin 1,melanocytes,Not detected,Enhanced,skin
+ENSG00000050555,LAMC3,Skin,Skin 2,epidermal cells,Not detected,Enhanced,skin
+ENSG00000108821,COL1A1,Kidney,Kidney,cells in glomeruli,Low,Approved,kidney
+ENSG00000108821,COL1A1,Kidney,Kidney,cells in tubules,High,Approved,kidney
+ENSG00000108821,COL1A1,Liver,Liver,cholangiocytes,Not detected,Approved,liver
+ENSG00000108821,COL1A1,Liver,Liver,hepatocytes,Not detected,Approved,liver
+ENSG00000108821,COL1A1,Lung,Lung,alveolar cells,Low,Approved,lung
+ENSG00000108821,COL1A1,Lung,Lung,macrophages,Low,Approved,lung
+ENSG00000108821,COL1A1,Skin,Skin 1,fibroblasts,High,Approved,skin
+ENSG00000108821,COL1A1,Skin,Skin 1,keratinocytes,Medium,Approved,skin
+ENSG00000108821,COL1A1,Skin,Skin 1,Langerhans,Not detected,Approved,skin
+ENSG00000108821,COL1A1,Skin,Skin 1,melanocytes,Not detected,Approved,skin
+ENSG00000108821,COL1A1,Skin,Skin 2,epidermal cells,Low,Approved,skin
+ENSG00000110492,MDK,Kidney,Kidney,cells in glomeruli,Not detected,Uncertain,kidney
+ENSG00000110492,MDK,Kidney,Kidney,cells in tubules,Not detected,Uncertain,kidney
+ENSG00000110492,MDK,Liver,Liver,cholangiocytes,Not detected,Uncertain,liver
+ENSG00000110492,MDK,Liver,Liver,hepatocytes,Not detected,Uncertain,liver
+ENSG00000110492,MDK,Lung,Lung,alveolar cells,Not detected,Uncertain,lung
+ENSG00000110492,MDK,Lung,Lung,macrophages,Not detected,Uncertain,lung
+ENSG00000110492,MDK,Skin,Skin 1,fibroblasts,Not detected,Uncertain,skin
+ENSG00000110492,MDK,Skin,Skin 1,keratinocytes,Not detected,Uncertain,skin
+ENSG00000110492,MDK,Skin,Skin 1,Langerhans,Not detected,Uncertain,skin
+ENSG00000110492,MDK,Skin,Skin 1,melanocytes,Not detected,Uncertain,skin
+ENSG00000110492,MDK,Skin,Skin 2,epidermal cells,Not detected,Uncertain,skin
+ENSG00000119681,LTBP2,Kidney,Kidney,cells in glomeruli,Not detected,Supported,kidney
+ENSG00000119681,LTBP2,Kidney,Kidney,cells in tubules,Not detected,Supported,kidney
+ENSG00000119681,LTBP2,Liver,Liver,cholangiocytes,Not detected,Supported,liver
+ENSG00000119681,LTBP2,Liver,Liver,hepatocytes,Not detected,Supported,liver
+ENSG00000119681,LTBP2,Lung,Lung,alveolar cells,Not detected,Supported,lung
+ENSG00000119681,LTBP2,Lung,Lung,macrophages,Not detected,Supported,lung
+ENSG00000119681,LTBP2,Skin,Skin 1,fibroblasts,Not detected,Supported,skin
+ENSG00000119681,LTBP2,Skin,Skin 1,keratinocytes,Not detected,Supported,skin
+ENSG00000119681,LTBP2,Skin,Skin 1,Langerhans,Not detected,Supported,skin
+ENSG00000119681,LTBP2,Skin,Skin 1,melanocytes,Not detected,Supported,skin
+ENSG00000119681,LTBP2,Skin,Skin 2,epidermal cells,Not detected,Supported,skin
+ENSG00000165124,SVEP1,Kidney,Kidney,cells in glomeruli,Not detected,Enhanced,kidney
+ENSG00000165124,SVEP1,Kidney,Kidney,cells in tubules,Medium,Enhanced,kidney
+ENSG00000165124,SVEP1,Liver,Liver,cholangiocytes,Low,Enhanced,liver
+ENSG00000165124,SVEP1,Liver,Liver,hepatocytes,Medium,Enhanced,liver
+ENSG00000165124,SVEP1,Lung,Lung,alveolar cells,Not detected,Enhanced,lung
+ENSG00000165124,SVEP1,Lung,Lung,macrophages,Low,Enhanced,lung
+ENSG00000165124,SVEP1,Skin,Skin 1,fibroblasts,Not detected,Enhanced,skin
+ENSG00000165124,SVEP1,Skin,Skin 1,keratinocytes,Not detected,Enhanced,skin
+ENSG00000165124,SVEP1,Skin,Skin 1,Langerhans,Not detected,Enhanced,skin
+ENSG00000165124,SVEP1,Skin,Skin 1,melanocytes,Not detected,Enhanced,skin
+ENSG00000165124,SVEP1,Skin,Skin 2,epidermal cells,Not detected,Enhanced,skin
+ENSG00000167711,SERPINF2,Kidney,Kidney,cells in glomeruli,Not detected,Approved,kidney
+ENSG00000167711,SERPINF2,Kidney,Kidney,cells in tubules,Not detected,Approved,kidney
+ENSG00000167711,SERPINF2,Liver,Liver,cholangiocytes,Not detected,Approved,liver
+ENSG00000167711,SERPINF2,Liver,Liver,hepatocytes,Not detected,Approved,liver
+ENSG00000167711,SERPINF2,Lung,Lung,alveolar cells,Not detected,Approved,lung
+ENSG00000167711,SERPINF2,Lung,Lung,macrophages,Not detected,Approved,lung
+ENSG00000167711,SERPINF2,Skin,Skin 1,fibroblasts,Not detected,Approved,skin
+ENSG00000167711,SERPINF2,Skin,Skin 1,keratinocytes,Not detected,Approved,skin
+ENSG00000167711,SERPINF2,Skin,Skin 1,Langerhans,Not detected,Approved,skin
+ENSG00000167711,SERPINF2,Skin,Skin 1,melanocytes,Not detected,Approved,skin
+ENSG00000167711,SERPINF2,Skin,Skin 2,epidermal cells,Not detected,Approved,skin
+ENSG00000168542,COL3A1,Kidney,Kidney,cells in glomeruli,Not detected,Approved,kidney
+ENSG00000168542,COL3A1,Kidney,Kidney,cells in tubules,Not detected,Approved,kidney
+ENSG00000168542,COL3A1,Liver,Liver,cholangiocytes,Not detected,Approved,liver
+ENSG00000168542,COL3A1,Liver,Liver,hepatocytes,Not detected,Approved,liver
+ENSG00000168542,COL3A1,Lung,Lung,alveolar cells,Not detected,Approved,lung
+ENSG00000168542,COL3A1,Lung,Lung,macrophages,Not detected,Approved,lung
+ENSG00000168542,COL3A1,Skin,Skin 1,fibroblasts,Not detected,Approved,skin
+ENSG00000168542,COL3A1,Skin,Skin 1,keratinocytes,Not detected,Approved,skin
+ENSG00000168542,COL3A1,Skin,Skin 1,Langerhans,Not detected,Approved,skin
+ENSG00000168542,COL3A1,Skin,Skin 1,melanocytes,Not detected,Approved,skin
+ENSG00000168542,COL3A1,Skin,Skin 2,epidermal cells,Not detected,Approved,skin
+ENSG00000204291,COL15A1,Kidney,Kidney,bowman's capsule,Not detected,Enhanced,kidney
+ENSG00000204291,COL15A1,Kidney,Kidney,cells in glomeruli,Medium,Enhanced,kidney
+ENSG00000204291,COL15A1,Kidney,Kidney,collecting ducts,Not detected,Enhanced,kidney
+ENSG00000204291,COL15A1,Kidney,Kidney,distal tubules,Not detected,Enhanced,kidney
+ENSG00000204291,COL15A1,Kidney,Kidney,proximal tubules (cell body),Not detected,Enhanced,kidney
+ENSG00000204291,COL15A1,Kidney,Kidney,proximal tubules (microvilli),Low,Enhanced,kidney
+ENSG00000204291,COL15A1,Liver,Liver,cholangiocytes,Not detected,Enhanced,liver
+ENSG00000204291,COL15A1,Liver,Liver,hepatocytes,Not detected,Enhanced,liver
+ENSG00000204291,COL15A1,Lung,Lung,alveolar cells,Not detected,Enhanced,lung
+ENSG00000204291,COL15A1,Lung,Lung,macrophages,Not detected,Enhanced,lung
+ENSG00000204291,COL15A1,Skin,Skin 1,cells in basal layer,Not detected,Enhanced,skin
+ENSG00000204291,COL15A1,Skin,Skin 1,cells in corneal layer,Not detected,Enhanced,skin
+ENSG00000204291,COL15A1,Skin,Skin 1,cells in granular layer,Not detected,Enhanced,skin
+ENSG00000204291,COL15A1,Skin,Skin 1,cells in spinous layer,Not detected,Enhanced,skin
+ENSG00000204291,COL15A1,Skin,Skin 1,endothelial cells,High,Enhanced,skin
+ENSG00000204291,COL15A1,Skin,Skin 1,extracellular matrix,High,Enhanced,skin
+ENSG00000204291,COL15A1,Skin,Skin 1,fibrohistiocytic cells,Low,Enhanced,skin
+ENSG00000204291,COL15A1,Skin,Skin 1,langerhans cells,Not detected,Enhanced,skin
+ENSG00000204291,COL15A1,Skin,Skin 1,lymphocytes,Not detected,Enhanced,skin
+ENSG00000204291,COL15A1,Skin,Skin 1,melanocytes,Not detected,Enhanced,skin
+ENSG00000204291,COL15A1,Skin,Skin 1,vascular mural cells,Not detected,Enhanced,skin
+ENSG00000204291,COL15A1,Skin,Skin 2,arrector pili muscle cells,Medium,Enhanced,skin
+ENSG00000204291,COL15A1,Skin,Skin 2,cells in basal layer,Low,Enhanced,skin
+ENSG00000204291,COL15A1,Skin,Skin 2,cells in corneal layer,Not detected,Enhanced,skin
+ENSG00000204291,COL15A1,Skin,Skin 2,cells in granular layer,Not detected,Enhanced,skin
+ENSG00000204291,COL15A1,Skin,Skin 2,cells in spinous layer,Not detected,Enhanced,skin
+ENSG00000204291,COL15A1,Skin,Skin 2,endothelial cells,High,Enhanced,skin
+ENSG00000204291,COL15A1,Skin,Skin 2,extracellular matrix,Low,Enhanced,skin
+ENSG00000204291,COL15A1,Skin,Skin 2,fibrohistiocytic cells,Medium,Enhanced,skin
+ENSG00000204291,COL15A1,Skin,Skin 2,langerhans cells,Not detected,Enhanced,skin
+ENSG00000204291,COL15A1,Skin,Skin 2,lymphocytes,Not detected,Enhanced,skin
+ENSG00000204291,COL15A1,Skin,Skin 2,melanocytes,Not detected,Enhanced,skin
+ENSG00000204291,COL15A1,Skin,Skin 2,vascular mural cells,Not detected,Enhanced,skin

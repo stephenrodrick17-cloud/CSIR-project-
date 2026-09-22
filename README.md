@@ -240,30 +240,38 @@ Evaluated across **124 genuine clinical human liver biopsies (`GSE84044`)** acro
 
 ---
 
-### Module 5: In Silico Human Protein Atlas (HPA v23) IHC Validation
+### Module 5: Human Protein Atlas (HPA v23) Normal IHC Baseline & Transcript-Level Fold Change Characterization
 
-Protein-level confirmation using validated monospecific antibodies across human Kidney, Liver, Lung, and Skin tissue specimens. All Ensembl accessions and antibody profiles are verified against live HPA endpoints:
+Dual-evidence molecular characterization comparing genuine Human Protein Atlas (HPA v23) normal-tissue baseline protein immunohistochemistry against empirical patient biopsy RNA fold changes across Kidney, Liver, Lung, and Skin.
 
-| Gene Symbol | Ensembl Accession | Validated HPA Antibody | Resolvable HPA Portal URL |
-| :--- | :--- | :--- | :--- |
-| **`COL15A1`** | `ENSG00000204291` | `HPA017913` / `HPA017915` | [proteinatlas.org/ENSG00000204291-COL15A1](https://www.proteinatlas.org/ENSG00000204291-COL15A1) |
-| **`COL1A1`** | `ENSG00000108821` | `HPA011795` / `HPA012111` | [proteinatlas.org/ENSG00000108821-COL1A1](https://www.proteinatlas.org/ENSG00000108821-COL1A1) |
-| **`COL3A1`** | `ENSG00000168542` | `HPA007583` / `CAB016766` | [proteinatlas.org/ENSG00000168542-COL3A1](https://www.proteinatlas.org/ENSG00000168542-COL3A1) |
-| **`SERPINE2`** | `ENSG00000135919` | `HPA000277` | [proteinatlas.org/ENSG00000135919-SERPINE2](https://www.proteinatlas.org/ENSG00000135919-SERPINE2) |
-| **`SERPINF2`** | `ENSG00000167711` | `HPA001885` / `HPA005943` | [proteinatlas.org/ENSG00000167711-SERPINF2](https://www.proteinatlas.org/ENSG00000167711-SERPINF2) |
-| **`LAMC3`** | `ENSG00000050555` | `HPA022814` | [proteinatlas.org/ENSG00000050555-LAMC3](https://www.proteinatlas.org/ENSG00000050555-LAMC3) |
-| **`LTBP2`** | `ENSG00000119681` | `HPA003415` | [proteinatlas.org/ENSG00000119681-LTBP2](https://www.proteinatlas.org/ENSG00000119681-LTBP2) |
-| **`MDK`** | `ENSG00000110492` | `CAB010055` / `HPA057126` | [proteinatlas.org/ENSG00000110492-MDK](https://www.proteinatlas.org/ENSG00000110492-MDK) |
-| **`SVEP1`** | `ENSG00000165124` | `HPA020610` / `HPA021520` | [proteinatlas.org/ENSG00000165124-SVEP1](https://www.proteinatlas.org/ENSG00000165124-SVEP1) |
+All Ensembl accessions and monospecific antibodies are verified against live HPA endpoints:
 
-#### A. 5-Gene HPA IHC Staining Profile
-- Pro-fibrotic hubs (`COL15A1`, `COL1A1`, `COL3A1`, `SERPINE2`) show marked upregulation to Strong intensity (Level 3) in fibrotic parenchyma.
-- `SERPINF2` demonstrates parenchymal hepatic secretory repression (Normal Liver Level 3 $\to$ Fibrotic Liver Level 1).
+| Gene Symbol | Ensembl Accession | Validated HPA Antibody | Resolvable HPA Portal URL | HPA Normal Tissue IHC Status |
+| :--- | :--- | :--- | :--- | :--- |
+| **`COL15A1`** | `ENSG00000204291` | `HPA017913` / `HPA017915` | [proteinatlas.org/ENSG00000204291-COL15A1](https://www.proteinatlas.org/ENSG00000204291-COL15A1) | Medium (Kidney glomeruli), High (Skin ECM) |
+| **`COL1A1`** | `ENSG00000108821` | `HPA011795` / `HPA012111` | [proteinatlas.org/ENSG00000108821-COL1A1](https://www.proteinatlas.org/ENSG00000108821-COL1A1) | High (Kidney tubules, Skin fibroblasts), Low (Lung) |
+| **`COL3A1`** | `ENSG00000168542` | `HPA007583` / `CAB016766` | [proteinatlas.org/ENSG00000168542-COL3A1](https://www.proteinatlas.org/ENSG00000168542-COL3A1) | Not Detected (quiescent parenchyma across 4 organs) |
+| **`SERPINE2`** | `ENSG00000135919` | `HPA000277` | [proteinatlas.org/ENSG00000135919-SERPINE2](https://www.proteinatlas.org/ENSG00000135919-SERPINE2) | **No IHC Data in HPA** (RNA profiled; no verified normal IHC assay) |
+| **`SERPINF2`** | `ENSG00000167711` | `HPA001885` / `HPA005943` | [proteinatlas.org/ENSG00000167711-SERPINF2](https://www.proteinatlas.org/ENSG00000167711-SERPINF2) | Not Detected (quiescent parenchyma across 4 organs) |
+| **`LAMC3`** | `ENSG00000050555` | `HPA022814` | [proteinatlas.org/ENSG00000050555-LAMC3](https://www.proteinatlas.org/ENSG00000050555-LAMC3) | Low (Lung alveolar macrophages), Not Detected elsewhere |
+| **`LTBP2`** | `ENSG00000119681` | `HPA003415` | [proteinatlas.org/ENSG00000119681-LTBP2](https://www.proteinatlas.org/ENSG00000119681-LTBP2) | Not Detected (quiescent parenchyma across 4 organs) |
+| **`MDK`** | `ENSG00000110492` | `CAB010055` / `HPA057126` | [proteinatlas.org/ENSG00000110492-MDK](https://www.proteinatlas.org/ENSG00000110492-MDK) | Not Detected (quiescent parenchyma across 4 organs) |
+| **`SVEP1`** | `ENSG00000165124` | `HPA020610` / `HPA021520` | [proteinatlas.org/ENSG00000165124-SVEP1](https://www.proteinatlas.org/ENSG00000165124-SVEP1) | Medium (Kidney tubules, Liver hepatocytes), Low (Lung) |
+
+> [!NOTE]
+> **Separation of Evidence Types (Panel A vs. Panel B)**:
+> - **Panel A** displays genuine experimental normal-tissue protein immunohistochemistry (IHC) baseline data extracted from official Human Protein Atlas v23 releases (`proteinatlas.org/download/tsv/normal_ihc_data.tsv.zip`). `SERPINE2` is explicitly marked as `"No IHC Data in HPA"` because HPA contains RNA-seq profiling for this gene but no validated normal-tissue IHC staining assay.
+> - **Panel B** is strictly labeled as **"Transcript-Level Fold Change (RNA, N=1,069 Discovery Cohort)"** and plots empirical $\log_2\text{FC}$ values from human patient biopsies (Fibrosis vs. Non-Fibrotic Controls). It represents transcriptomics, NOT IHC, NOT protein, and NOT staining.
+
+#### A. 5-Gene Molecular Characterization
+- **Panel A (HPA Baseline Protein IHC)**: Demonstrates healthy baseline expression (`COL15A1` and `COL1A1` present in normal vascular/tubular ECM; `COL3A1` and `SERPINF2` unexpressed in quiescent healthy parenchyma; `SERPINE2` marked as "No IHC Data in HPA").
+- **Panel B (Patient RNA Fold Change)**: Confirms profound transcriptional shifts in diseased patient biopsies ($N=1,069$).
 
 ![5-Gene HPA IHC Summary](plots/hub_genes_hpa_ihc_summary_5genes.png)
 
-#### B. 9-Gene HPA IHC Staining Profile
-- Comprehensive in silico pathology staining confirms conserved protein upregulation across all 9 consensus hub proteins (`COL15A1, COL1A1, COL3A1, SERPINE2, SERPINF2, LAMC3, LTBP2, MDK, SVEP1`).
+#### B. 9-Gene Molecular Characterization
+- **Panel A (HPA Baseline Protein IHC)**: Complete baseline profiling across all 9 consensus hubs using verified monospecific antibodies (`HPA017913`, `HPA011795`, `HPA007583`, `HPA001885`, `HPA022814`, `HPA003415`, `CAB010055`, `HPA020610`).
+- **Panel B (Patient RNA Fold Change)**: Empirical transcriptomic fold changes across all 9 consensus hubs in human kidney, liver, lung, and skin fibrosis.
 
 ![9-Gene HPA IHC Summary](plots/hub_genes_hpa_ihc_summary_9genes.png)
 
@@ -275,7 +283,7 @@ Protein-level confirmation using validated monospecific antibodies across human 
 The repository maintains exactly **13 unique, non-redundant, publication-grade figures** (300 DPI, zero duplicates):
 
 | # | Figure File | Pipeline Stage | Target Suite | Key Findings & Validated Metrics |
-| :---: | :--- | :--- | :---: | :--- |
+| :---: | :--- | :--- | :--- | :--- |
 | **1** | [`venn_4organ_manual_ellipses.png`](plots/venn_4organ_manual_ellipses.png) | Stage 1: Discovery | 4-Organ DEGs | Conserved 86 pan-fibrotic core DEGs across Kidney (11,758), Liver (2,268), Lung (7,803), Skin (2,979). |
 | **2** | [`upset_plot_4organs_corrected.png`](plots/upset_plot_4organs_corrected.png) | Stage 1: Discovery | 4-Organ DEGs | Exact intersection cardinalities across all 15 subsets (4-organ core: $n=86$). |
 | **3** | [`venn_organ_vs_ecm_compendium.png`](plots/venn_organ_vs_ecm_compendium.png) | Stage 1: ECM Filter | Matrisome Master | 24 core ECM genes ($27.9\%$ of 86 DEGs) overlapping Human Matrisome ($N=1,027$). |
@@ -287,8 +295,8 @@ The repository maintains exactly **13 unique, non-redundant, publication-grade f
 | **9** | [`hub_genes_nomogram_and_dca_9genes.png`](plots/hub_genes_nomogram_and_dca_9genes.png) | Stage 4: Nomogram | 9-Gene Consensus | Diagnostic $\text{AUC} = 0.9238$, Brier score $0.0705$, 9 point rulers across $N=1,069$ biopsies. |
 | **10** | [`hub_genes_immune_infiltration_5genes.png`](plots/hub_genes_immune_infiltration_5genes.png) | Stage 4: Immune Deconv | 5-Gene Unanimous | $10 \times 5$ Spearman correlation heatmap + 6 scatter regressions on $N=124$ liver biopsies (`GSE84044`). |
 | **11** | [`hub_genes_immune_infiltration_9genes.png`](plots/hub_genes_immune_infiltration_9genes.png) | Stage 4: Immune Deconv | 9-Gene Consensus | $10 \times 9$ Spearman correlation heatmap + 6 scatter regressions on $N=124$ liver biopsies (`GSE84044`). |
-| **12** | [`hub_genes_hpa_ihc_summary_5genes.png`](plots/hub_genes_hpa_ihc_summary_5genes.png) | Stage 4: IHC Validation | 5-Gene Unanimous | HPA v23 pathology staining levels across Kidney, Liver, Lung, Skin for 5 unanimous hubs. |
-| **13** | [`hub_genes_hpa_ihc_summary_9genes.png`](plots/hub_genes_hpa_ihc_summary_9genes.png) | Stage 4: IHC Validation | 9-Gene Consensus | HPA v23 pathology staining levels across all 4 organs for all 9 consensus hubs. |
+| **12** | [`hub_genes_hpa_ihc_summary_5genes.png`](plots/hub_genes_hpa_ihc_summary_5genes.png) | Stage 4: IHC Baseline & RNA | 5-Gene Unanimous | Panel A: Genuine HPA v23 normal IHC baseline; Panel B: Empirical transcript-level $\log_2\text{FC}$ across $N=1,069$ discovery biopsies. |
+| **13** | [`hub_genes_hpa_ihc_summary_9genes.png`](plots/hub_genes_hpa_ihc_summary_9genes.png) | Stage 4: IHC Baseline & RNA | 9-Gene Consensus | Panel A: Genuine HPA v23 normal IHC baseline for all 9 hubs; Panel B: Empirical transcript-level $\log_2\text{FC}$ across $N=1,069$ discovery biopsies. |
 
 
 ---

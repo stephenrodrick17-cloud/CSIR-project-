@@ -1,6 +1,6 @@
-gene,protein_name,antibody_id,subcellular_location,kidney_normal,kidney_fibrosis,liver_normal,liver_fibrosis,lung_normal,lung_fibrosis,skin_normal,skin_fibrosis
-COL15A1,Collagen alpha-1(XV) chain,HPA017913,Basement membrane & extracellular matrix,Low (capillary wall),High (tubular basement membrane & interstitial scar),Low / Not detected,High (sinusoidal capillarization & fibrous septa),Low (bronchial vessels),High (fibroblastic foci & subpleural honeycombing),Medium (dermal-epidermal junction),High (thickened sclerotic reticular dermis)
-COL1A1,Collagen alpha-1(I) chain,HPA011795,Extracellular matrix fibrils,Low (perivascular),High (extensive interstitial collagenous expanses),Low (portal triads),High (dense bridging cirrhosis bands),Low (alveolar septa),High (dense parenchymal remodeling & fibrotic scars),Medium (papillary dermis),High (packed hyalinized dermal collagen)
-COL3A1,Collagen alpha-1(III) chain,HPA007583,Extracellular matrix fibrils & interstitial stroma,Low (interstitial spaces),High (broad expanses of interstitial fibrosis),Low (portal areas),High (cirrhotic fibrous bridging bands),Low (alveolar interstitium),High (dense collagenous fibroblastic scars),Medium (papillary and reticular dermis),High (thick hyalinized dermal collagen bundles)
-SERPINE2,Glia-derived nexin / Protease nexin-1,HPA000277,Secreted & pericellular stroma,Not detected / Low,High (myofibroblasts & inflammatory infiltrate),Low (quiescent stellate cells),High (activated hepatic myofibroblasts),Not detected,High (active fibrotic lesions & myofibroblasts),Low (hair follicles),High (interstitial dermal spindle cells)
-SERPINF2,Alpha-2-antiplasmin,HPA001885,Extracellular space & cytoplasm,Low,Not detected / Decreased,High (quiescent hepatocyte cytoplasm),Low / Markedly Reduced (cirrhotic nodules),Low,Not detected,Low,Not detected
+gene,antibody_id,kidney_normal_hpa_ihc,kidney_rna_logfc,liver_normal_hpa_ihc,liver_rna_logfc,lung_normal_hpa_ihc,lung_rna_logfc,skin_normal_hpa_ihc,skin_rna_logfc
+COL15A1,HPA017913,Medium,2.199,Not Det.,-0.604,Not Det.,-1.334,High,-1.084
+COL1A1,HPA011795,High,1.757,Not Det.,-1.297,Low,-1.773,High,-1.299
+COL3A1,HPA007583,Not Det.,1.458,Not Det.,-1.228,Not Det.,-1.617,Not Det.,-0.967
+SERPINE2,HPA000277,No IHC Data in HPA,1.004,No IHC Data in HPA,-0.667,No IHC Data in HPA,-1.345,No IHC Data in HPA,-1.971
+SERPINF2,HPA001885,Not Det.,2.739,Not Det.,1.323,Not Det.,0.64,Not Det.,-0.596
