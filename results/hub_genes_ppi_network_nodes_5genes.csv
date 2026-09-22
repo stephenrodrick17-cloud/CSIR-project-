@@ -1,0 +1,18 @@
+gene_symbol,role,degree,betweenness_centrality,closeness_centrality
+FN1,Functional Partner / Upstream Master Regulator,14,0.1876,0.8889
+MMP2,Functional Partner / Upstream Master Regulator,12,0.0771,0.8
+COL1A1,Validated Hub Gene,12,0.0805,0.7619
+CCN2,Functional Partner / Upstream Master Regulator,11,0.0271,0.7273
+TGFB1,Functional Partner / Upstream Master Regulator,11,0.0266,0.7273
+COL1A2,Functional Partner / Upstream Master Regulator,10,0.04,0.6957
+COL3A1,Validated Hub Gene,9,0.0285,0.6667
+TIMP1,Functional Partner / Upstream Master Regulator,9,0.0257,0.6957
+ITGB1,Functional Partner / Upstream Master Regulator,8,0.0028,0.64
+SERPINE1,Functional Partner / Upstream Master Regulator,8,0.0224,0.64
+MMP1,Functional Partner / Upstream Master Regulator,7,0.0113,0.64
+PLG,Functional Partner / Upstream Master Regulator,7,0.1417,0.6154
+LOX,Functional Partner / Upstream Master Regulator,6,0.0,0.5926
+SMAD3,Functional Partner / Upstream Master Regulator,6,0.0039,0.5926
+COL15A1,Validated Hub Gene,3,0.0,0.4706
+SERPINF2,Validated Hub Gene,2,0.0,0.5161
+SERPINE2,Validated Hub Gene,1,0.0,0.3902

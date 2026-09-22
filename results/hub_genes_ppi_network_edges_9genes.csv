@@ -1,0 +1,4 @@
+Gene_A,Gene_B,STRING_Combined_Score,Interaction_Type
+COL15A1,COL1A1,0.713,Direct Physical / Functional Complex (High Confidence >= 0.700)
+COL1A1,COL3A1,0.999,Direct Physical / Functional Complex (High Confidence >= 0.700)
+COL15A1,COL3A1,0.791,Direct Physical / Functional Complex (High Confidence >= 0.700)

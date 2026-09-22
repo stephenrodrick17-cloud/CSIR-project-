@@ -5,52 +5,34 @@ This directory contains the final, publication-grade figures for the **CSIR Pan-
 ---
 
 ### Core Numbers Enforced Across All Figures
-- **Discovery Cohorts**: $N = 14$ independent cohorts across 4 human organs (Kidney: 1, Liver: 3, Lung: 5, Skin: 5).
+- **Discovery Cohorts**: $N = 14$ independent cohorts across 4 human organs (Kidney: 4, Liver: 3, Lung: 4, Skin: 3).
 - **Discovery Sample Size**: $N = 1,069$ human patient tissue samples (170 non-fibrotic controls, 899 fibrotic cases).
 - **Core Significance Filter**: eBayes moderated $t$-test $|\log_2\text{FC}| \ge 0.585$ (1.5-fold), Benjamini-Hochberg FDR $p < 0.05$.
 - **Pan-Fibrotic Conserved Core**: **86 DEGs** shared across all 4 organs.
 - **Clean Core ECM Program**: **24 genes** overlapping the Human Matrisome Masterlist ($N=1,027$).
-- **Validation 1 (Internal)**: 24/24 direction-concordant across all 4 organs; 12/24 statistically significant in $\ge 2/4$ organs.
-- **Validation 2 (Held-Out Multi-Center Cohorts)**: 18/24 replicated in $\ge 2/4$ organs; 6/24 replicated in $1/4$ organ.
-- **Ensemble ML**: 4-model (LASSO, Random Forest, XGBoost, SVM-RFE) $\times$ 5-seed consensus on 1,069 pure discovery samples.
-- **Evidence Tiers**:
-  - **Tier 1 (Full Spectrum, $N=4$)**: `COL15A1`, `SERPINE2`, `COL1A1`, `SERPINF2` (Val2 $\ge 2/4$ + ML stability $\ge 4/5$).
-  - **Tier 2 (Biological Validation-Only, $N=14$)**: `AEBP1`, `COL3A1`, `COL1A2`, `VWF`, `CCL2`, `SERPINH1`, `CCL19`, `LTBP2`, `CCL5`, `SVEP1`, `LAMC3`, `CLEC2D`, `PDGFD`, `MFAP4`.
-  - **Not Supported ($N=6$)**: `MDK`, `FGF14`, `COLEC11`, `SPARCL1`, `BMP1`, `CCL21` (Val2 replicated in only 1/4 organ).
+- **Machine Learning & WGCNA Hub Discovery**: 5-method consensus on $N=1,069$ pure discovery samples (LASSO, SVM-RFE, RF, XGBoost, WGCNA pro-fibrotic module membership) -> **9 Consensus Hub Genes** ($\ge 3/5$ votes): `COL15A1`, `COL1A1`, `COL3A1`, `SERPINE2`, `SERPINF2`, `LAMC3`, `LTBP2`, `MDK`, `SVEP1`.
+- **Cross-Platform Validation (Microarray vs. RNA-seq)**: Validated on independent platforms -> **5 Cross-Platform Validated Hub Genes**: `COL15A1`, `COL1A1`, `COL3A1`, `SERPINE2`, `SERPINF2`.
 
 ---
 
-### Figure Index
+### Canonical Figure Index: Upstream Discovery & Conserved Core
 
-| File | Description | Source Script / Input Data |
-| :--- | :--- | :--- |
-| `study_design_funnel_corrected.png` | Comprehensive 5-stage discovery and validation funnel diagram tracking cohort counts, sample sizes, and gene attrition at each layer. | `generate_final_figures.py` |
-| `venn_4organ_manual_ellipses.png` | 4-Organ Venn diagram showing DEGs for Kidney (11,758), Liver (2,268), Lung (7,803), Skin (2,979), and the conserved 86-gene core intersection. | `venn_4organs.py` |
-| `upset_plot_4organs_corrected.png` | UpSet plot showing all 15 subset intersections across the 4 organs; 100% mathematically and cardinality identical to the 4-organ Venn. | `generate_upset_plot.py` |
-| `venn_organ_vs_ecm_compendium.png` | Multi-panel Venn compendium: 2x2 grid of organ DEGs vs. ECM Masterlist (1,027 genes), 3-way ECM intersection, and 4-way pan-fibrotic core (86 DEGs, 24 ECM). | `venn_organ_vs_ecm.py` |
-| `clean_ecm_validation_survival_barchart.png` | Survival analysis of all 24 Clean Core ECM genes across Validation 1 (Internal) and Validation 2 (Held-out), grouped into Tier 1, Tier 2, and Not Supported. | `generate_clean_survival_barchart.py` |
-| `ml_4model_consensus_hub_biomarkers.png` | Machine learning ranking of all 24 Clean Core ECM genes by mean diagnostic ROC AUC (5-seed average) across LASSO, Random Forest, XGBoost, and SVM-RFE. | `generate_final_figures.py` |
-| `val2_platform_stratified_comparison.png` | Platform-stratified (Microarray: Kidney GSE30529, Liver GSE14323 vs. RNA-seq: Lung GSE83717, Skin GSE125362) logFC concordance heatmap across all 24 genes. | `results/val2_platform_stratified_table.csv` |
-| `val2_mannwhitney_spearman_combined.png` | Validation 2 dual-significant hub biomarkers (`AEBP1`, `COL1A1`, `COL1A2`, `VWF`): Mann-Whitney U disease vs. control boxplots + Spearman severity correlation regressions. | Held-out Validation 2 clinical cohorts (`GSE14323`, `GSE162694`) |
-| `severity_validation4_layer_boxplots.png` | **Supplementary External Severity Exploration**: Comprehensive $5 \times 3$ grid (15 panels) of clinical severity stage boxplots and regressions across external cohorts (`GSE84044`, `GSE135251`, `GSE38958`, `GSE9285`) for 5 priority genes (`COL15A1`, `COL1A1`, `SERPINE2`, `SERPINF2`, `TNXB`). Completely separate from the locked 14+4+4 pipeline. | `generate_layer4_comprehensive_plots.py` |
-| `val2_all_18_genes_mannwhitney_boxplots.png` | Comprehensive $6 \times 3$ grid of Mann-Whitney U Disease vs. Control boxplots + strip points for all 18 surviving ECM genes in held-out Liver Val2 (`GSE14323`). | `generate_val2_all_18_genes_plots.py` |
-| `val2_severity_spearman_correlations.png` | Comprehensive $6 \times 3$ grid of Spearman clinical disease severity tracking regressions across all 18 Validation 2 surviving genes staged in held-out Liver biopsy cohorts (METAVIR F1–F4 in GSE162694; Scheuer S1–S4 in GSE84044). | `generate_val2_all_18_genes_plots.py` |
-| `hub_genes_validation_mwu_spearman.png` | **Tier 1 Universal Hub Biomarkers Validation**: Comprehensive $4 \times 3$ grid of Mann-Whitney U test (Held-Out Val 2 GSE14323), Spearman clinical severity regression (Scheuer staging GSE84044), and diagnostic ROC curves for the 4 Tier 1 Hub genes (`COL15A1`, `COL1A1`, `SERPINE2`, `SERPINF2`). | `generate_hub_genes_validation_plot.py` |
-| `hub_genes_nomogram_and_dca.png` | **Diagnostic Nomogram & Clinical Decision Analysis**: Multivariable logistic regression nomogram, 1,000-bootstrap calibration curve, and Decision Curve Analysis (DCA) for the 4 Hub genes across 1,069 human biopsies (AUC = 0.901). | `run_nomogram_and_dca.py` |
-| `hub_genes_ppi_network.png` | **Protein-Protein Interaction (PPI) Network**: STRING v12 high-confidence interaction architecture connecting the 4 Hub genes with master upstream regulators (`TGFB1`, `SMAD3`, `CTGF`), proteases (`MMP1/2`, `TIMP1`, `PLG`), and matrix scaffolding (`FN1`, `ITGB1`). | `run_ppi_network_analysis.py` |
-| `hub_genes_gsea_hallmark_pathways.png` | **Gene Set Enrichment Analysis (GSEA)**: Multi-panel running enrichment plots across MSigDB Hallmark and KEGG pathways (EMT, ECM-Receptor, TGF-beta, Focal Adhesion, Coagulation/Serpin axis) stratified by 4-Hub biomarker score. | `run_gsea_enrichment_analysis.py` |
-| `hub_genes_immune_infiltration.png` | **Cell-Type Lineage Marker Microenvironment Crosstalk**: Spearman rank correlation heatmap and scatter comparisons between the 4 Hub genes and validated cell-type lineage marker probes (e.g. `CD163` for M2 macrophages, `ACTA2` for myofibroblasts, `FAP` for activated fibroblasts, `FOXP3` for Tregs, `PECAM1` for endothelial cells) across $N=124$ human liver biopsies (`GSE84044`). | `run_immune_infiltration_analysis.py` |
-| `hub_genes_candidate_drugs.png` | **Candidate Drug Repurposing Network**: Bipartite pharmacological target network linking the 4 Hub genes to approved clinical standards (Pirfenidone, Nintedanib), serine protease inhibitors (Camostat, Nafamostat, Gabexate), and collagen synthesis modulators (Tranilast, Halofuginone). | `run_drug_repurposing_analysis.py` |
-| `hub_genes_hpa_ihc_summary.png` | **In Silico IHC Protein Validation**: Human Protein Atlas (HPA v23) pathology staining profiles verifying protein-level upregulation of COL15A1, COL1A1, and SERPINE2 and loss of SERPINF2 in human kidney, liver, lung, and skin fibrosis. | `run_hpa_ihc_validation.py` |
-| `hub_genes_early_stage_validation.png` | **Dedicated Subclinical Early-Stage Validation**: 6-panel comprehensive figure strictly comparing Healthy Controls (S0/F0) vs. Early-Stage Fibrosis (S1/S2 or F1/F2) across microarray (`GSE84044`, N=96) and RNA-seq (`GSE135251`, N=148), featuring individual ROC curves, 5-fold cross-validated multi-gene ensemble classifiers, and subclinical screening Decision Curve Analysis (DCA). | `run_early_stage_fibrosis_validation.py` |
-| `hub_genes_early_detection_triptych.png` | **Early Detection & Subclinical Risk Stratification (1x3 Triptych)**: Nature/IEEE-style publication 3-panel figure featuring (A) Early-Stage ROC Curves (S0 vs S1-S2), (B) Early-Onset Switch vs Linear Progression Dynamics across histological stages, and (C) Subclinical Decision Curve Analysis across risk thresholds ($p_t = 0.05$ to $0.50$). | `generate_early_detection_triptych.py` |
-| `hub_genes_vina_molecular_docking.png` | **AutoDock Vina Computed Molecular Docking Plate**: Comprehensive 300 DPI publication plate reporting genuinely simulated docking results across the 4 Hub genes: (A) Rank-ordered binding free energy ($\Delta G$, kcal/mol) with $-7.0\text{ kcal/mol}$ threshold, (B) Multi-pose conformational energy distributions across top 9 generated modes proving Monte Carlo sampling convergence, and (C) Full structured parameters table with PDB/AlphaFold structural sources and PubChem CIDs. | `docking/generate_docking_publication_figures.py` |
-| `hub_genes_vina_docking_standalone_table.png` | **Dedicated Standalone Docking Parameters Graphic**: Crisp 300 DPI standalone graphical table of all 9 computed drug-target complexes with experimental vs predicted model classifications and color-coded affinity badges for direct manuscript/slide presentation. | `docking/generate_docking_publication_figures.py` |
+| File | Pipeline Stage | Description | Source Script / Input Data |
+| :--- | :--- | :--- | :--- |
+| `venn_4organ_manual_ellipses.png` | **Stage 1: Discovery Intersection** | 4-Organ Venn diagram showing DEGs for Kidney (11,758), Liver (2,268), Lung (7,803), Skin (2,979), and the conserved 86-gene core intersection. | `venn_4organs.py` |
+| `upset_plot_4organs_corrected.png` | **Stage 1: Discovery Intersection** | UpSet plot showing all 15 subset intersections across the 4 organs; mathematically and cardinality identical to the 4-organ Venn. | `generate_upset_plot.py` |
+| `venn_organ_vs_ecm_compendium.png` | **Stage 1: ECM Filtering** | Multi-panel Venn compendium: 2x2 grid of organ DEGs vs. ECM Masterlist (1,027 genes), 3-way ECM intersection, and 4-way pan-fibrotic core (86 DEGs -> 24 ECM genes). | `venn_organ_vs_ecm.py` |
 
+---
 
+### Stage 4 Parallel Downstream Publication Suites: 5 Validated Hubs vs. 9 Consensus Hubs
 
+Both suites are fully generated, verified, and preserved side-by-side using 100% real human patient cohorts and public databases.
 
-
-
-
-
+| Stage 4 Analysis | 5-Gene Validated Hub Suite | 9-Gene Consensus Hub Suite | Key Differences & Characteristics |
+| :--- | :--- | :--- | :--- |
+| **1. PPI Network** | `hub_genes_ppi_network_5genes.png`<br>`results/hub_genes_ppi_network_nodes_5genes.csv`<br>`results/hub_genes_ppi_network_edges_5genes.csv` | `hub_genes_ppi_network_9genes.png`<br>`results/hub_genes_ppi_network_nodes_9genes.csv`<br>`results/hub_genes_ppi_network_edges_9genes.csv` | **5-Gene**: 17 nodes, 68 edges ($p < 10^{-16}$), focused on core collagens (`COL1A1`, `COL3A1`, `COL15A1`) and serpins (`SERPINE2`, `SERPINF2`).<br>**9-Gene**: Exactly 9 nodes (100% pure consensus hubs: `COL15A1`, `COL1A1`, `COL3A1`, `SERPINE2`, `SERPINF2`, `LAMC3`, `LTBP2`, `MDK`, `SVEP1`) with 3 high-confidence direct STRING interactions ($\ge 0.700$, the core collagen triad: `COL1A1`, `COL3A1`, `COL15A1`); zero bridging proteins or threshold dilution, displaying the 6 non-collagen hubs as isolated nodes as-is. |
+| **2. Early Detection Triptych** | `hub_genes_early_detection_triptych_5genes.png`<br>`results/hub_genes_early_stage_roc_metrics_5genes.csv` | `hub_genes_early_detection_triptych_9genes.png`<br>`results/hub_genes_early_stage_roc_metrics_9genes.csv` | **5-Gene**: Early ROC (S0 vs S1-S2, $N=96$) ensemble $\text{AUC} = 0.716$; Net benefit $+0.396$ at $p_t=25\%$.<br>**9-Gene**: Early ROC ensemble $\text{AUC} = 0.719$; Net benefit $+0.383$ at $p_t=25\%$. |
+| **3. Diagnostic Nomogram & DCA** | `hub_genes_nomogram_and_dca_5genes.png`<br>`results/hub_genes_nomogram_parameters_5genes.csv` | `hub_genes_nomogram_and_dca_9genes.png`<br>`results/hub_genes_nomogram_parameters_9genes.csv` | **5-Gene**: Multivariable logistic model across 1,069 biopsies has Diagnostic $\text{AUC} = 0.9002$ [95% CI: 0.8747–0.9246], $\text{Brier} = 0.0797$, 0–300 point ruler.<br>**9-Gene**: Diagnostic $\text{AUC} = 0.9238$ [95% CI: 0.9023–0.9438], $\text{Brier} = 0.0705$, 0–450 point ruler. |
+| **4. Immune Infiltration** | `hub_genes_immune_infiltration_5genes.png`<br>`results/hub_genes_immune_correlations_5genes.csv` | `hub_genes_immune_infiltration_9genes.png`<br>`results/hub_genes_immune_correlations_9genes.csv` | **5-Gene**: $10 \times 5$ Spearman correlation heatmap with Benjamini-Hochberg FDR + 6 regressions across $N=124$ liver biopsies (`GSE84044`).<br>**9-Gene**: $10 \times 9$ Spearman correlation heatmap + 6 representative regressions across $N=124$ biopsies. |
+| **5. In Silico HPA IHC Validation** | `hub_genes_hpa_ihc_summary_5genes.png`<br>`results/hub_genes_hpa_ihc_validation_5genes.csv` | `hub_genes_hpa_ihc_summary_9genes.png`<br>`results/hub_genes_hpa_ihc_validation_9genes.csv` | **5-Gene**: Pathology staining across 4 human organs (Kidney, Liver, Lung, Skin) showing baseline vs. fibrotic upregulation & hepatic secretory repression for the 5 validated hubs.<br>**9-Gene**: Pathology staining across 4 human organs for all 9 consensus hubs. |

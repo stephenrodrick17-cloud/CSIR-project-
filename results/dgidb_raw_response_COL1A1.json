@@ -1,0 +1,180 @@
+{
+  "data": {
+    "genes": {
+      "nodes": [
+        {
+          "name": "COL1A1",
+          "interactions": [
+            {
+              "drug": {
+                "name": "SOMATROPIN (RECOMBINANT DNA ORIGIN)",
+                "conceptId": "rxcui:314845",
+                "approved": true
+              },
+              "interactionScore": 1.080244683536382,
+              "interactionTypes": [],
+              "sources": [
+                {
+                  "sourceDbName": "PharmGKB"
+                }
+              ]
+            },
+            {
+              "drug": {
+                "name": "COLLAGENASE CLOSTRIDIUM HISTOLYTICUM",
+                "conceptId": "rxcui:898492",
+                "approved": true
+              },
+              "interactionScore": 0.8101835126522867,
+              "interactionTypes": [
+                {
+                  "type": "cleavage",
+                  "directionality": "INHIBITORY"
+                }
+              ],
+              "sources": [
+                {
+                  "sourceDbName": "TEND"
+                },
+                {
+                  "sourceDbName": "TdgClinicalTrial"
+                },
+                {
+                  "sourceDbName": "ChEMBL"
+                }
+              ]
+            },
+            {
+              "drug": {
+                "name": "ETIDRONIC ACID",
+                "conceptId": "rxcui:1356715",
+                "approved": false
+              },
+              "interactionScore": 1.008228371300623,
+              "interactionTypes": [],
+              "sources": [
+                {
+                  "sourceDbName": "PharmGKB"
+                }
+              ]
+            },
+            {
+              "drug": {
+                "name": "VALPROIC ACID",
+                "conceptId": "rxcui:11118",
+                "approved": true
+              },
+              "interactionScore": 0.2563292469408365,
+              "interactionTypes": [],
+              "sources": [
+                {
+                  "sourceDbName": "PharmGKB"
+                }
+              ]
+            },
+            {
+              "drug": {
+                "name": "ZOLEDRONIC ACID ANHYDROUS",
+                "conceptId": "rxcui:1546014",
+                "approved": true
+              },
+              "interactionScore": 1.008228371300623,
+              "interactionTypes": [],
+              "sources": [
+                {
+                  "sourceDbName": "PharmGKB"
+                }
+              ]
+            },
+            {
+              "drug": {
+                "name": "OCRIPLASMIN",
+                "conceptId": "rxcui:29998",
+                "approved": true
+              },
+              "interactionScore": 0.1989924417040704,
+              "interactionTypes": [
+                {
+                  "type": "cleavage",
+                  "directionality": "INHIBITORY"
+                }
+              ],
+              "sources": [
+                {
+                  "sourceDbName": "ChEMBL"
+                }
+              ]
+            },
+            {
+              "drug": {
+                "name": "PAMIDRONATE",
+                "conceptId": "rxcui:11473",
+                "approved": true
+              },
+              "interactionScore": 2.160489367072764,
+              "interactionTypes": [],
+              "sources": [
+                {
+                  "sourceDbName": "PharmGKB"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "COL3A1",
+          "interactions": [
+            {
+              "drug": {
+                "name": "COLLAGENASE CLOSTRIDIUM HISTOLYTICUM",
+                "conceptId": "rxcui:898492",
+                "approved": true
+              },
+              "interactionScore": 2.835642294283003,
+              "interactionTypes": [
+                {
+                  "type": "cleavage",
+                  "directionality": "INHIBITORY"
+                }
+              ],
+              "sources": [
+                {
+                  "sourceDbName": "TEND"
+                },
+                {
+                  "sourceDbName": "TdgClinicalTrial"
+                },
+                {
+                  "sourceDbName": "ChEMBL"
+                }
+              ]
+            },
+            {
+              "drug": {
+                "name": "OCRIPLASMIN",
+                "conceptId": "rxcui:29998",
+                "approved": true
+              },
+              "interactionScore": 0.6964735459642464,
+              "interactionTypes": [
+                {
+                  "type": "cleavage",
+                  "directionality": "INHIBITORY"
+                }
+              ],
+              "sources": [
+                {
+                  "sourceDbName": "ChEMBL"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "SERPINE2",
+          "interactions": []
+        }
+      ]
+    }
+  }
+}

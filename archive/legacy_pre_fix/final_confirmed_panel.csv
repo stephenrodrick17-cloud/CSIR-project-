@@ -1,8 +1,0 @@
-gene,is_ECM_gene,matrisome_category,confirmed_in_kidney,confirmed_in_liver,confirmed_in_lung,confirmed_in_skin
-AEBP1,True,Core matrisome,True,True,True,True
-COL15A1,True,Core matrisome,True,True,True,True
-COL1A1,True,Core matrisome,True,True,True,True
-COL1A2,True,Core matrisome,True,True,True,True
-COL3A1,True,Core matrisome,True,True,True,True
-SPP1,True,Core matrisome,True,True,True,True
-VWF,True,Core matrisome,True,True,True,True

@@ -11,6 +11,8 @@ Thumbs.db
 data/
 geo_cache/
 scratch/
+results/discovery_full_background_*.csv
+
 
 # Local environment
 .env

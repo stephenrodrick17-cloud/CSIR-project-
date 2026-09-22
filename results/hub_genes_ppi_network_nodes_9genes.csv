@@ -1,0 +1,10 @@
+Gene_Symbol,Degree,Degree_Centrality,Betweenness_Centrality,Topology_Status
+COL15A1,2,0.25,0.0,Connected (Core Collagen Complex)
+COL1A1,2,0.25,0.0,Connected (Core Collagen Complex)
+COL3A1,2,0.25,0.0,Connected (Core Collagen Complex)
+LAMC3,0,0.0,0.0,Isolated Hub (Unconnected at >=0.700)
+LTBP2,0,0.0,0.0,Isolated Hub (Unconnected at >=0.700)
+MDK,0,0.0,0.0,Isolated Hub (Unconnected at >=0.700)
+SERPINE2,0,0.0,0.0,Isolated Hub (Unconnected at >=0.700)
+SERPINF2,0,0.0,0.0,Isolated Hub (Unconnected at >=0.700)
+SVEP1,0,0.0,0.0,Isolated Hub (Unconnected at >=0.700)
