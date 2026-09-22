@@ -95,8 +95,8 @@ for g in hub_genes:
         "points_at_max": round(max_p, 1) if coef_dict[g] > 0 else 0.0
     })
 
-pd.DataFrame(nomo_records).to_csv("results/hub_genes_nomogram_parameters.csv", index=False)
-print("Saved: results/hub_genes_nomogram_parameters.csv")
+pd.DataFrame(nomo_records).to_csv("results/hub_genes_nomogram_parameters_9genes.csv", index=False)
+print("Saved: results/hub_genes_nomogram_parameters_9genes.csv")
 
 # 4. Calibration Curve via Deciles
 n_bins = 10
@@ -265,7 +265,7 @@ ax_dca.set_xlim(0.05, 0.85)
 ax_dca.set_ylim(-0.05, max(net_benefit_model) * 1.15)
 ax_dca.legend(loc="upper right", frameon=True, facecolor="white", edgecolor="#cbd5e1", fontsize=9.5)
 
-out_png = "plots/hub_genes_nomogram_and_dca.png"
+out_png = "plots/hub_genes_nomogram_and_dca_9genes.png"
 plt.savefig(out_png, dpi=300, bbox_inches="tight")
 plt.close()
-print(f"Saved Nomogram & DCA figure: {out_png}")
+print(f"Saved 9-hub Nomogram & DCA figure: {out_png}")

@@ -89,10 +89,8 @@ for g in hub_genes:
 nodes_df = pd.DataFrame(node_rows).sort_values(by=["Degree", "Gene_Symbol"], ascending=[False, True])
 
 # Save CSVs
-for p_edge in ["results/hub_genes_ppi_network_edges_9genes.csv", "results/hub_genes_ppi_network_edges.csv"]:
-    edges_df.to_csv(p_edge, index=False)
-for p_node in ["results/hub_genes_ppi_network_nodes_9genes.csv", "results/hub_genes_ppi_network_nodes.csv"]:
-    nodes_df.to_csv(p_node, index=False)
+edges_df.to_csv("results/hub_genes_ppi_network_edges_9genes.csv", index=False)
+nodes_df.to_csv("results/hub_genes_ppi_network_nodes_9genes.csv", index=False)
 print("Saved node and edge tables to results/.")
 
 # 3. Layout Design:
@@ -224,8 +222,7 @@ ax.axis("off")
 plt.tight_layout()
 plt.subplots_adjust(top=0.88, bottom=0.04)
 
-for p_out in ["plots/hub_genes_ppi_network_9genes.png", "plots/hub_genes_ppi_network.png"]:
-    plt.savefig(p_out, dpi=300, facecolor=fig.get_facecolor(), edgecolor="none")
+plt.savefig("plots/hub_genes_ppi_network_9genes.png", dpi=300, facecolor=fig.get_facecolor(), edgecolor="none")
 
 plt.close()
 print("Successfully generated refined 9-gene PPI network plot!")

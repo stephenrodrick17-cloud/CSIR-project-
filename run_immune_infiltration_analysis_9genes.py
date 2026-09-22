@@ -119,8 +119,8 @@ for m_col in marker_cols:
 df_records = pd.DataFrame(records)
 # Benjamini-Hochberg FDR correction
 df_records["p_adj"] = stats.false_discovery_control(df_records["p_value"])
-df_records.to_csv("results/hub_genes_immune_correlations.csv", index=False)
-print("Saved: results/hub_genes_immune_correlations.csv")
+df_records.to_csv("results/hub_genes_immune_correlations_9genes.csv", index=False)
+print("Saved: results/hub_genes_immune_correlations_9genes.csv")
 
 # 4. Generate Publication-Quality Figures
 fig = plt.figure(figsize=(26, 13.5), dpi=300)

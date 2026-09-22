@@ -216,8 +216,8 @@ roc_summary_rows.append({
     "95CI_High": round(ci_high_ens, 4)
 })
 
-pd.DataFrame(roc_summary_rows).to_csv("results/hub_genes_early_stage_roc_metrics.csv", index=False)
-print("  Saved: results/hub_genes_early_stage_roc_metrics.csv")
+pd.DataFrame(roc_summary_rows).to_csv("results/hub_genes_early_stage_roc_metrics_9genes.csv", index=False)
+print("  Saved: results/hub_genes_early_stage_roc_metrics_9genes.csv")
 
 # ==============================================================================
 # 3. COMPUTE PANEL B METRICS: Z-SCORE PROGRESSION DYNAMICS (STAGES 0 TO 4)
@@ -404,7 +404,7 @@ ax3.text(-0.13, 1.07, "C", transform=ax3.transAxes, fontsize=18, fontweight="bol
 plt.suptitle("Early Detection & Subclinical Risk Stratification of the 9 Universal Pan-Fibrotic Hub Biomarkers\nNon-Invasive Diagnostic Proof in Biopsy-Staged Clinical Cohorts (GSE84044 Scheuer Stages)",
              fontsize=14.0, fontweight="bold", color="#0f172a", y=0.96)
 
-out_fig = "plots/hub_genes_early_detection_triptych.png"
+out_fig = "plots/hub_genes_early_detection_triptych_9genes.png"
 plt.savefig(out_fig, dpi=300)
 plt.close()
 print(f"Successfully generated: {out_fig}")

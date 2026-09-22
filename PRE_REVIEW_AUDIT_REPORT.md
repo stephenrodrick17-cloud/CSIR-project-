@@ -1,5 +1,10 @@
 # Pre-Review Master Audit Report: Full Repository Verification
 
+> [!NOTE]
+> **HISTORICAL AUDIT ARCHIVE (September 20, 2026)**
+> This report documents the intermediate audit milestones and discrepancy resolutions conducted during the initial peer-review audit.
+> For the finalized, publication-ready study hierarchy (**3 Strict Cross-Platform Validated / 2 Direction-Concordant Unanimous ML / 4 Stage 2 Candidates**), full dataset reconciliation, and downstream validation results (Modules 1–6), please consult the definitive single source of truth: **[README.md](file:///d:/CSIR/README.md)**.
+
 **Audit Date**: September 20, 2026  
 **Auditor**: Antigravity Automated Verification Agent  
 **Scope**: Complete repository top-to-bottom audit covering all 9 integrity categories prior to mentor review, plus resolution of 5 specific user-identified contradictions.
