@@ -1,0 +1,226 @@
+﻿python : C:\Users\asus\Lib\site-packages\requests\__init__.py:113: RequestsDependencyWarning: urllib3 (2.3.0) or 
+chardet (7.4.3)/charset_normalizer (3.4.1) doesn't match a supported version!
+At line:1 char:1
++ python -c "import sys; sys.stdout.reconfigure(encoding='utf-8'); exec ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (C:\Users\asus\L...ported version!:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  warnings.warn(
+<string>:62: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future 
+version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+2026-09-22 16:07:29,409 [INFO] Online enrichment analysis with libraries: GO_Biological_Process_2023
+2026-09-22 16:07:30,090 [INFO] Done.
+2026-09-22 16:07:33,160 [INFO] Online enrichment analysis with libraries: GO_Molecular_Function_2023
+2026-09-22 16:07:33,888 [INFO] Done.
+2026-09-22 16:07:36,874 [INFO] Online enrichment analysis with libraries: GO_Cellular_Component_2023
+2026-09-22 16:07:37,506 [INFO] Done.
+2026-09-22 16:07:40,426 [INFO] Online enrichment analysis with libraries: KEGG_2021_Human
+2026-09-22 16:07:41,711 [INFO] Done.
+2026-09-22 16:07:44,657 [INFO] Online enrichment analysis with libraries: DisGeNET
+2026-09-22 16:07:45,590 [INFO] Done.
+<string>:264: UserWarning: Glyph 8321 (\N{SUBSCRIPT ONE}) missing from font(s) Arial.
+<string>:264: UserWarning: Glyph 8320 (\N{SUBSCRIPT ZERO}) missing from font(s) Arial.
+2026-09-22 16:07:54,519 [INFO] Online enrichment analysis with libraries: GO_Biological_Process_2023
+2026-09-22 16:07:55,239 [INFO] Done.
+2026-09-22 16:07:58,253 [INFO] Online enrichment analysis with libraries: GO_Molecular_Function_2023
+2026-09-22 16:07:58,926 [INFO] Done.
+========================================================================
+GO / KEGG / Disease Ontology Enrichment ΓÇö LIVE Enrichr API
+gseapy version : 1.3.1
+Run timestamp  : 2026-09-22T10:37:27.859053 UTC
+========================================================================
+
+ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
+GENE SET : 9-Gene Consensus Hub Set
+Genes    : ['COL15A1', 'COL1A1', 'COL3A1', 'SERPINE2', 'SERPINF2', 'LAMC3', 'LTBP2', 'MDK', 'SVEP1']
+Count    : 9
+ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
+
+  ΓåÆ [LIVE API CALL] gseapy.enrichr(gene_list=['COL15A1', 'COL1A1', 'COL3A1', 'SERPINE2', 'SERPINF2', 'LAMC3', 'LTBP2', 'MDK', 'SVEP1'], gene_sets='GO_Biological_Process_2023', organism='human', outdir=None, verbose=True)
+     Library : GO_Biological_Process_2023
+     Gene set: 9genes  (9 genes)
+     Genes   : COL15A1, COL1A1, COL3A1, SERPINE2, SERPINF2, LAMC3, LTBP2, MDK, SVEP1
+     Γ£ô Returned 220 terms in 2.2s
+     ΓÜá  Gene(s) NOT appearing in any returned term: ['LAMC3']
+        (May indicate an alias mismatch in Enrichr's background)
+     Γ£ô Saved 220 rows ΓåÆ results/go_bp_9genes.csv
+     Significant terms (FDR<0.05): 167 / 220
+       Extracellular Matrix Organization (GO:0030198)                FDR=7.887e-05
+       Collagen Fibril Organization (GO:0030199)                     FDR=7.887e-05
+       Negative Regulation Of Plasminogen Activation (GO:0010757)    FDR=1.978e-04
+       Supramolecular Fiber Organization (GO:0097435)                FDR=3.980e-04
+       Extracellular Structure Organization (GO:0043062)             FDR=4.867e-04
+
+  ΓåÆ [LIVE API CALL] gseapy.enrichr(gene_list=['COL15A1', 'COL1A1', 'COL3A1', 'SERPINE2', 'SERPINF2', 'LAMC3', 'LTBP2', 'MDK', 'SVEP1'], gene_sets='GO_Molecular_Function_2023', organism='human', outdir=None, verbose=True)
+     Library : GO_Molecular_Function_2023
+     Gene set: 9genes  (9 genes)
+     Genes   : COL15A1, COL1A1, COL3A1, SERPINE2, SERPINF2, LAMC3, LTBP2, MDK, SVEP1
+     Γ£ô Returned 10 terms in 2.3s
+     ΓÜá  Gene(s) NOT appearing in any returned term: ['COL15A1', 'LAMC3', 'SVEP1']
+        (May indicate an alias mismatch in Enrichr's background)
+     Γ£ô Saved 10 rows ΓåÆ results/go_mf_9genes.csv
+     Significant terms (FDR<0.05): 8 / 10
+       Protease Binding (GO:0002020)                                 FDR=1.948e-04
+       Serine-Type Endopeptidase Inhibitor Activity (GO:0004867)     FDR=1.226e-03
+       Endopeptidase Inhibitor Activity (GO:0004866)                 FDR=3.635e-03
+       Platelet-Derived Growth Factor Binding (GO:0048407)           FDR=1.123e-02
+       Transforming Growth Factor Beta Binding (GO:0050431)          FDR=1.882e-02
+
+  ΓåÆ [LIVE API CALL] gseapy.enrichr(gene_list=['COL15A1', 'COL1A1', 'COL3A1', 'SERPINE2', 'SERPINF2', 'LAMC3', 'LTBP2', 'MDK', 'SVEP1'], gene_sets='GO_Cellular_Component_2023', organism='human', outdir=None, verbose=True)
+     Library : GO_Cellular_Component_2023
+     Gene set: 9genes  (9 genes)
+     Genes   : COL15A1, COL1A1, COL3A1, SERPINE2, SERPINF2, LAMC3, LTBP2, MDK, SVEP1
+     Γ£ô Returned 13 terms in 2.1s
+     ΓÜá  Gene(s) NOT appearing in any returned term: ['LAMC3']
+        (May indicate an alias mismatch in Enrichr's background)
+     Γ£ô Saved 13 rows ΓåÆ results/go_cc_9genes.csv
+     Significant terms (FDR<0.05): 9 / 13
+       Collagen-Containing Extracellular Matrix (GO:0062023)         FDR=3.363e-10
+       Endoplasmic Reticulum Lumen (GO:0005788)                      FDR=1.452e-03
+       Platelet Alpha Granule (GO:0031091)                           FDR=2.993e-03
+       Intracellular Organelle Lumen (GO:0070013)                    FDR=1.757e-02
+       Neuromuscular Junction (GO:0031594)                           FDR=4.235e-02
+
+  ΓåÆ [LIVE API CALL] gseapy.enrichr(gene_list=['COL15A1', 'COL1A1', 'COL3A1', 'SERPINE2', 'SERPINF2', 'LAMC3', 'LTBP2', 'MDK', 'SVEP1'], gene_sets='KEGG_2021_Human', organism='human', outdir=None, verbose=True)
+     Library : KEGG_2021_Human
+     Gene set: 9genes  (9 genes)
+     Genes   : COL15A1, COL1A1, COL3A1, SERPINE2, SERPINF2, LAMC3, LTBP2, MDK, SVEP1
+     Γ£ô Returned 15 terms in 2.7s
+     ΓÜá  Gene(s) NOT appearing in any returned term: ['SERPINE2', 'LTBP2', 'MDK', 'SVEP1']
+        (May indicate an alias mismatch in Enrichr's background)
+     Γ£ô Saved 15 rows ΓåÆ results/kegg_9genes.csv
+     Significant terms (FDR<0.05): 10 / 15
+       Amoebiasis                                                    FDR=8.171e-05
+       Protein digestion and absorption                              FDR=8.171e-05
+       ECM-receptor interaction                                      FDR=3.266e-03
+       AGE-RAGE signaling pathway in diabetic complications          FDR=3.266e-03
+       Platelet activation                                           FDR=3.607e-03
+
+  ΓåÆ [LIVE API CALL] gseapy.enrichr(gene_list=['COL15A1', 'COL1A1', 'COL3A1', 'SERPINE2', 'SERPINF2', 'LAMC3', 'LTBP2', 'MDK', 'SVEP1'], gene_sets='DisGeNET', organism='human', outdir=None, verbose=True)
+     Library : DisGeNET
+     Gene set: 9genes  (9 genes)
+     Genes   : COL15A1, COL1A1, COL3A1, SERPINE2, SERPINF2, LAMC3, LTBP2, MDK, SVEP1
+     Γ£ô Returned 627 terms in 2.4s
+     Γ£ô All 9 submitted genes appear in at least one returned term.
+     Γ£ô Saved 627 rows ΓåÆ results/do_9genes.csv
+     Significant terms (FDR<0.05): 287 / 627
+       Dissection of aorta                                           FDR=2.904e-04
+       Myocardial Infarction                                         FDR=2.904e-04
+       Cigarette-paper scars                                         FDR=4.031e-04
+       Molluscoid pseudotumors                                       FDR=4.031e-04
+       Ehlers-Danlos syndrome type 1                                 FDR=4.031e-04
+
+  Building dot-plot figure ΓåÆ plots/enrichment_9genes.png
+
+  Γ£ô Dot-plot saved ΓåÆ plots/enrichment_9genes.png
+
+ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
+GENE SET : 5-Gene Unanimous Hub Set
+Genes    : ['COL15A1', 'COL1A1', 'COL3A1', 'SERPINE2', 'SERPINF2']
+Count    : 5
+ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
+
+  ΓåÆ [LIVE API CALL] gseapy.enrichr(gene_list=['COL15A1', 'COL1A1', 'COL3A1', 'SERPINE2', 'SERPINF2'], gene_sets='GO_Biological_Process_2023', organism='human', outdir=None, verbose=True)
+     Library : GO_Biological_Process_2023
+     Gene set: 5genes  (5 genes)
+     Genes   : COL15A1, COL1A1, COL3A1, SERPINE2, SERPINF2
+     Γ£ô Returned 112 terms in 2.4s
+     Γ£ô All 5 submitted genes appear in at least one returned term.
+     Γ£ô Saved 112 rows ΓåÆ results/go_bp_5genes.csv
+     Significant terms (FDR<0.05): 95 / 112
+       Extracellular Matrix Organization (GO:0030198)                FDR=3.223e-06
+       Collagen Fibril Organization (GO:0030199)                     FDR=4.808e-06
+       Negative Regulation Of Plasminogen Activation (GO:0010757)    FDR=2.799e-05
+       Extracellular Structure Organization (GO:0043062)             FDR=3.597e-05
+       External Encapsulating Structure Organization (GO:0045229)    FDR=3.597e-05
+
+  ΓåÆ [LIVE API CALL] gseapy.enrichr(gene_list=['COL15A1', 'COL1A1', 'COL3A1', 'SERPINE2', 'SERPINF2'], gene_sets='GO_Molecular_Function_2023', organism='human', outdir=None, verbose=True)
+     Library : GO_Molecular_Function_2023
+     Gene set: 5genes  (5 genes)
+     Genes   : COL15A1, COL1A1, COL3A1, SERPINE2, SERPINF2
+     Γ£ô Returned 7 terms in 2.2s
+2026-09-22 16:08:02,106 [INFO] Online enrichment analysis with libraries: GO_Cellular_Component_2023
+2026-09-22 16:08:02,784 [INFO] Done.
+2026-09-22 16:08:06,012 [INFO] Online enrichment analysis with libraries: KEGG_2021_Human
+2026-09-22 16:08:06,750 [INFO] Done.
+2026-09-22 16:08:09,654 [INFO] Online enrichment analysis with libraries: DisGeNET
+2026-09-22 16:08:10,263 [INFO] Done.
+<string>:264: UserWarning: Glyph 8321 (\N{SUBSCRIPT ONE}) missing from font(s) Arial.
+<string>:264: UserWarning: Glyph 8320 (\N{SUBSCRIPT ZERO}) missing from font(s) Arial.
+     ΓÜá  Gene(s) NOT appearing in any returned term: ['COL15A1']
+        (May indicate an alias mismatch in Enrichr's background)
+     Γ£ô Saved 7 rows ΓåÆ results/go_mf_5genes.csv
+     Significant terms (FDR<0.05): 6 / 7
+       Protease Binding (GO:0002020)                                 FDR=1.653e-05
+       Serine-Type Endopeptidase Inhibitor Activity (GO:0004867)     FDR=2.399e-04
+       Endopeptidase Inhibitor Activity (GO:0004866)                 FDR=7.173e-04
+       Platelet-Derived Growth Factor Binding (GO:0048407)           FDR=4.371e-03
+       Peptidase Inhibitor Activity (GO:0030414)                     FDR=1.220e-02
+
+  ΓåÆ [LIVE API CALL] gseapy.enrichr(gene_list=['COL15A1', 'COL1A1', 'COL3A1', 'SERPINE2', 'SERPINF2'], gene_sets='GO_Cellular_Component_2023', organism='human', outdir=None, verbose=True)
+     Library : GO_Cellular_Component_2023
+     Gene set: 5genes  (5 genes)
+     Genes   : COL15A1, COL1A1, COL3A1, SERPINE2, SERPINF2
+     Γ£ô Returned 11 terms in 2.3s
+     Γ£ô All 5 submitted genes appear in at least one returned term.
+     Γ£ô Saved 11 rows ΓåÆ results/go_cc_5genes.csv
+     Significant terms (FDR<0.05): 9 / 11
+       Collagen-Containing Extracellular Matrix (GO:0062023)         FDR=2.417e-08
+       Endoplasmic Reticulum Lumen (GO:0005788)                      FDR=1.526e-04
+       Platelet Alpha Granule (GO:0031091)                           FDR=7.117e-04
+       Intracellular Organelle Lumen (GO:0070013)                    FDR=2.014e-03
+       Neuromuscular Junction (GO:0031594)                           FDR=2.004e-02
+
+  ΓåÆ [LIVE API CALL] gseapy.enrichr(gene_list=['COL15A1', 'COL1A1', 'COL3A1', 'SERPINE2', 'SERPINF2'], gene_sets='KEGG_2021_Human', organism='human', outdir=None, verbose=True)
+     Library : KEGG_2021_Human
+     Gene set: 5genes  (5 genes)
+     Genes   : COL15A1, COL1A1, COL3A1, SERPINE2, SERPINF2
+     Γ£ô Returned 12 terms in 2.5s
+     ΓÜá  Gene(s) NOT appearing in any returned term: ['SERPINE2']
+        (May indicate an alias mismatch in Enrichr's background)
+     Γ£ô Saved 12 rows ΓåÆ results/kegg_5genes.csv
+     Significant terms (FDR<0.05): 8 / 12
+       Protein digestion and absorption                              FDR=1.580e-05
+       AGE-RAGE signaling pathway in diabetic complications          FDR=9.782e-04
+       Amoebiasis                                                    FDR=9.782e-04
+       Platelet activation                                           FDR=9.782e-04
+       Relaxin signaling pathway                                     FDR=9.782e-04
+
+  ΓåÆ [LIVE API CALL] gseapy.enrichr(gene_list=['COL15A1', 'COL1A1', 'COL3A1', 'SERPINE2', 'SERPINF2'], gene_sets='DisGeNET', organism='human', outdir=None, verbose=True)
+     Library : DisGeNET
+     Gene set: 5genes  (5 genes)
+     Genes   : COL15A1, COL1A1, COL3A1, SERPINE2, SERPINF2
+     Γ£ô Returned 486 terms in 2.0s
+     Γ£ô All 5 submitted genes appear in at least one returned term.
+     Γ£ô Saved 486 rows ΓåÆ results/do_5genes.csv
+     Significant terms (FDR<0.05): 334 / 486
+       Dissection of aorta                                           FDR=4.485e-05
+       Degenerative polyarthritis                                    FDR=6.659e-05
+       Increased tendency to bruise                                  FDR=8.109e-05
+       Cigarette-paper scars                                         FDR=8.109e-05
+       Molluscoid pseudotumors                                       FDR=8.109e-05
+
+  Building dot-plot figure ΓåÆ plots/enrichment_5genes.png
+
+  Γ£ô Dot-plot saved ΓåÆ plots/enrichment_5genes.png
+
+ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
+ALL ENRICHMENT ANALYSES COMPLETE
+ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
+
+Outputs:
+  results/go_bp_9genes.csv
+  results/go_mf_9genes.csv
+  results/go_cc_9genes.csv
+  results/kegg_9genes.csv
+  results/do_9genes.csv
+  plots/enrichment_9genes.png
+
+  results/go_bp_5genes.csv
+  results/go_mf_5genes.csv
+  results/go_cc_5genes.csv
+  results/kegg_5genes.csv
+  results/do_5genes.csv
+  plots/enrichment_5genes.png
+
